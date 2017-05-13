@@ -266,7 +266,7 @@ class Go_site extends Controller
 	    $data['groupId'] = $this->go_reports->go_get_groupid();
 
 		$data['theme'] = $this->session->userdata('go_theme');
-		$data['bannertitle'] = 'Reports & Analytics';
+		$data['bannertitle'] = 'Relatórios e Estatísticas';
 		$data['rep']= 'wp-has-current-submenu';
 		$data['hostp'] = $_SERVER['SERVER_ADDR'];
 		$data['folded'] = 'folded';

@@ -143,7 +143,7 @@ li{
 
 
 <div id=realTimeMonitor style="display:none;">
-<div id="campTitle" style="font-weight:bold;font-size:16px;color:#333;">Agent Monitoring<br /><span style="font-size:9px;font-weight:normal;">(clique no nome do agente para ouvir)</span></div>
+<div id="campTitle" style="font-weight:bold;font-size:16px;color:#333;">Monitoramento dos Operadores<br /><span style="font-size:9px;font-weight:normal;">(clique no nome do agente para ouvir)</span></div>
 <br style="font-size:6px;" />
 <hr style="border:#DFDFDF 1px solid;" />
 <table id='realtime_monitoring' border=0 cellpadding=1 cellspacing=1 width="102%" align=center class="tBorderSmall" style="margin-top:0px;margin-left:-5px;border-spacing: 0px 0px;">
@@ -158,7 +158,7 @@ li{
 <table id="legendMonitoring" cellpadding="0" cellspacing="0" style="color:#333">
 	<tr>
     	<td colspan="2">
-			<small style="font-weight:bold;">LEGEND:</small>
+			<small style="font-weight:bold;">LEGENDA:</small>
         </td>
     </tr>
 	<tr>
@@ -198,7 +198,7 @@ li{
         	<span style="background-color:black;color:white;border:#000 1px solid;font-size:5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </td>
     	<td style="font-size:9px;padding-left:3px;">
-        	Chamada Morta
+        	Chamada Presa
         </td>
     </tr>
 </table>

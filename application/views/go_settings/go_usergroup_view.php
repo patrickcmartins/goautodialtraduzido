@@ -139,7 +139,7 @@ switch ($type)
 	
 	default:
 ?>
-<div align="center" style="font-weight:bold; color:#333; font-size:16px;">MODIFY USER GROUP: <?php echo "{$group_info->user_group}"; ?></div>
+<div align="center" style="font-weight:bold; color:#333; font-size:16px;">EDITAR GRUPO DE USUÁRIO: <?php echo "{$group_info->user_group}"; ?></div>
 <br />
 <form id="modifyUserGroup" method="POST">
 <table id="test" border=0 cellpadding="3" cellspacing="3" style="width:98%; color:#000; margin-left:auto; margin-right:auto;">
@@ -202,7 +202,7 @@ switch ($type)
                        </td> 
         </tr>
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">User:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Usuário:</td>
                        <td>
                             <?php
                                  echo form_checkbox('user_create',"C",null,"id='user_create' class='permission-box'")." Create " .
@@ -214,7 +214,7 @@ switch ($type)
                        </td> 
         </tr>
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Campaign:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Campanha:</td>
                        <td>
                             <?php
                                  echo form_checkbox('campaign_create',"C",null,"id='campaign_create' class='permission-box'")." Create " .
@@ -225,7 +225,7 @@ switch ($type)
                        </td> 
         </tr>
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">List:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Listas:</td>
                        <td>
                             <?php
                                  echo form_checkbox('list_create',"C",null,"id='list_create' class='permission-box'")." Create " .
@@ -236,7 +236,7 @@ switch ($type)
                        </td> 
         </tr>
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Custom Fields:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Campos Customizados:</td>
                        <td>
                             <?php
                                  echo form_checkbox('customfields_create',"C",null,"id='customfields_create' class='permission-box'")." Create " .
@@ -247,7 +247,7 @@ switch ($type)
                        </td> 
         </tr>
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Load Leads:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Carregar Contatos:</td>
                        <td>
                             <?php
                                  echo form_checkbox('loadleads_read',"R",null,"id='loadleads_read' class='permission-box'") . " Read ";
@@ -266,7 +266,7 @@ switch ($type)
                        </td> 
         </tr> 
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Inbound:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Entrada:</td>
                        <td>
                             <?php
                                  echo form_checkbox('inbound_create',"C",null,"id='inbound_create' class='permission-box'")." Create " .
@@ -277,7 +277,7 @@ switch ($type)
                        </td> 
         </tr>
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Voice Files:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Arquivos de Voz:</td>
                        <td>
                             <?php
                                  echo form_checkbox('voicefile_upload',"C",null,"id='voicefile_upload' class='permission-box'")." Upload " .
@@ -286,7 +286,7 @@ switch ($type)
                        </td> 
         </tr>
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Reports & Analytics:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Relatórios e Estatísticas:</td>
                        <td>
                             <?php
                                  echo form_checkbox('reportsanalytics_statistical_report',"Y",null,"id='reportsanalytics_statistical_report' class='permission-box'")." Statistical Report " .
@@ -304,7 +304,7 @@ switch ($type)
                        </td> 
         </tr>
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Recording:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Gravações:</td>
                        <td>
                             <?php
                                   echo  form_checkbox('recordings_display',"Y",null,"id='recordings_display' class='permission-box'") . " Allowed Recording View ";
@@ -312,7 +312,7 @@ switch ($type)
                        </td> 
         </tr>
         <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Support:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Suporte:</td>
                        <td>
                             <?php
                                   echo  form_checkbox('support_display',"Y",null,"id='support_display' class='permission-box'") . " Allowed Support ";
@@ -330,7 +330,7 @@ switch ($type)
 		$checked = FALSE;
 		if (preg_match("/-ALL-CAMPAIGNS-/",$group_info->allowed_campaigns))
 			$checked = TRUE;
-			echo form_checkbox('allowed_campaigns[]',"-ALL-CAMPAIGNS-", $checked,' class="modify-usergroup"')." <b>ALL-CAMPAIGNS - USERS CAN VIEW ANY CAMPAIGN</b><br />\n";
+			echo form_checkbox('allowed_campaigns[]',"-ALL-CAMPAIGNS-", $checked,' class="modify-usergroup"')." <b>TODAS-CAMPANHAS - OS USUÁRIOS PODEM VER QUALQUER CAMPANHA</b><br />\n";
 		
 		foreach ($campaign_list as $list)
 		{

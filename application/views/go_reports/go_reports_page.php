@@ -355,11 +355,11 @@ if (strlen($dispo_table)<1) {
     <tr>
 <!--     	<td height="30" valign="top" style="visibility:hidden;">Uncalled Leads (NEW): <?php echo $total_new; ?></td> -->
     	<td height="10" class="c" style="padding-left:50px;"><a style="cursor:pointer" class=""><?php echo $total_agents; ?></a></td>
-    	<td height="10" class="r"><a style="cursor:pointer">Total Agents</a></td>
+    	<td height="10" class="r"><a style="cursor:pointer">Total de Operadores</a></td>
     </tr>
     <tr>
     	<td height="10" class="c" style="padding-left:50px;"><a style="cursor:pointer" class=""><?php echo $total_leads; ?></a></td>
-    	<td height="10" class="r"><a style="cursor:pointer">Lead Count</a></td>
+    	<td height="10" class="r"><a style="cursor:pointer">Contagem da Contatos</a></td>
     </tr>
     <tr>
     	<td colspan="2" height="50" valign="bottom" style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;">Disposition Stats</td>
@@ -703,17 +703,17 @@ $(function () {
 <? if ($pagetitle=='agent_detail') { ?>
 <table border="0" align="center" cellpadding="1" cellspacing="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;" >
   <tr style="background-color:#FFFFFF" class="style2">
-    <td><div align="center" class="style1 style3" nowrap> &nbsp;Full Name&nbsp; </div></td>
-    <td><div align="center" class="style4" nowrap><strong> &nbsp;User Name&nbsp; </strong></div></td>
-    <td><div align="center" class="style4" nowrap><strong> &nbsp;Calls&nbsp; </strong></div></td>
+    <td><div align="center" class="style1 style3" nowrap> &nbsp;Nome Completo&nbsp; </div></td>
+    <td><div align="center" class="style4" nowrap><strong> &nbsp;Usuário&nbsp; </strong></div></td>
+    <td><div align="center" class="style4" nowrap><strong> &nbsp;Chamadas&nbsp; </strong></div></td>
 <!--    <td><div align="center" class="style4" nowrap><strong> &nbsp;Time Clock&nbsp; </strong></div></td>-->
-    <td><div align="center" class="style4" nowrap><strong> &nbsp;Agent Time&nbsp; </strong></div></td>
-    <td><div align="center" class="style4" nowrap><strong> &nbsp;Wait&nbsp; </strong></div></td>
-    <td><div align="center" class="style4" nowrap><strong> &nbsp;Talk&nbsp; </strong></div></td>
-    <td><div align="center" class="style4" nowrap><strong> &nbsp;Dispo&nbsp; </strong></div></td>
-    <td><div align="center" class="style4" nowrap><strong> &nbsp;Pause&nbsp; </strong></div></td>
-    <td><div align="center" class="style4" nowrap><strong> &nbsp;Wrap-Up&nbsp; </strong></div></td>
-    <td><div align="center" class="style4" nowrap><strong> &nbsp;Customer&nbsp; </strong></div></td>
+    <td><div align="center" class="style4" nowrap><strong> &nbsp;Tempo do Operador&nbsp; </strong></div></td>
+    <td><div align="center" class="style4" nowrap><strong> &nbsp;Espera&nbsp; </strong></div></td>
+    <td><div align="center" class="style4" nowrap><strong> &nbsp;Fala&nbsp; </strong></div></td>
+    <td><div align="center" class="style4" nowrap><strong> &nbsp;Tabulações&nbsp; </strong></div></td>
+    <td><div align="center" class="style4" nowrap><strong> &nbsp;Pausas&nbsp; </strong></div></td>
+    <td><div align="center" class="style4" nowrap><strong> &nbsp;Sessão&nbsp; </strong></div></td>
+    <td><div align="center" class="style4" nowrap><strong> &nbsp;Cliente&nbsp; </strong></div></td>
   </tr>
 	<?php
     if (isset($campaign_id) && !preg_match("/Please select a campaign/", $campaign_id)) {
@@ -724,7 +724,7 @@ $(function () {
     ?>
       <tr style="background-color:#FFFFFF">
         <td style="border-top:#D0D0D0 dashed 1px;"><div align="left" class="style4">&nbsp; <strong>TOTAL</strong> &nbsp;</div></td>
-        <td style="border-top:#D0D0D0 dashed 1px;"><div align="left" class="style4">&nbsp; <strong>AGENTS:</strong> <?=$TOT_AGENTS?> &nbsp;</div></td>
+        <td style="border-top:#D0D0D0 dashed 1px;"><div align="left" class="style4">&nbsp; <strong>OPERADORES:</strong> <?=$TOT_AGENTS?> &nbsp;</div></td>
         <td style="border-top:#D0D0D0 dashed 1px;"><div align="right" class="style4">&nbsp; <?=($TOTcalls > 0) ? $TOTcalls : 0; ?> &nbsp;</div></td>
     <!--    <td style="border-top:#D0D0D0 dashed 1px;"><div align="right" class="style4">&nbsp; <?=$TOTtimeTC?> &nbsp;</div></td>-->
         <td style="border-top:#D0D0D0 dashed 1px;"><div align="right" class="style4">&nbsp; <?=$TOTALtime?> &nbsp;</div></td>
@@ -739,14 +739,14 @@ $(function () {
         } else {
     ?>
       <tr style="background-color:#EFFBEF">
-        <td colspan="15" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">No agents found within the time given.</div></td>
+        <td colspan="15" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Nenhum Operador Encontrado no Prazo Especificado.</div></td>
       </tr>
     <?php
         }
     } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="15" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4" style="font-size:12px;">Please pick a campaign.</div></td>
+        <td colspan="15" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4" style="font-size:12px;">Por Favor Escolha Uma Campanha.</div></td>
       </tr>
     <?php
     }
@@ -780,7 +780,7 @@ $(function () {
         } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="4"><div align="center" class="style4">No agents found within the time given.</div></td>
+        <td colspan="4"><div align="center" class="style4">Nenhum Operador Encontrado no Prazo Especificado.</div></td>
       </tr>
     <?php
         }
@@ -809,22 +809,22 @@ $(function () {
 <? if ($pagetitle=="agent_pdetail") { ?>
     <table border="0" align="center" cellpadding="1" cellspacing="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
       <tr style="background-color:#FFFFFF;" class="style2">
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Full Name&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Nome Completo&nbsp; </strong></div></td>
         <td nowrap><div align="center" class="style4"><strong> &nbsp;ID&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Calls&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Time&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Pause&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4" title="Pause Avg"><strong> &nbsp;&raquo; Avg&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Wait&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4" title="Wait Avg"><strong> &nbsp;&raquo; Avg&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Talk&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4" title="Talk Avg"><strong> &nbsp;&raquo; Avg&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Chamadas&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Tempo&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Pausa&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4" title="Média Pausa"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Espera&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4" title="Wait Avg"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Fala&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4" title="Talk Avg"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
         <td nowrap><div align="center" class="style4"><strong> &nbsp;Dispo&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4" title="Dispo Avg"><strong> &nbsp;&raquo; Avg&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Wrap-Up&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4" title="Wrap-Up Avg"><strong> &nbsp;&raquo; Avg&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Customer&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4" title="Customer Avg"><strong> &nbsp;&raquo; Avg&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4" title="Média Dispo"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Sessão&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4" title="Média Sessão"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Cliente&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4" title="Média Cliente"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
       </tr>
     <?php
     if (isset($campaign_id) && !preg_match("/Please select a campaign/", $campaign_id)) {
@@ -835,7 +835,7 @@ $(function () {
     ?>
       <tr style="background-color:#FFFFFF;">
         <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="left" class="style4" style="font-size:10px">&nbsp; <strong>TOTAL</strong> &nbsp;</div></td>
-        <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="left" class="style4" style="font-size:10px">&nbsp; <strong>AGENTS:</strong> <?=$TOT_AGENTS?> &nbsp;</div></td>
+        <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="left" class="style4" style="font-size:10px">&nbsp; <strong>OPERADORES:</strong> <?=$TOT_AGENTS?> &nbsp;</div></td>
         <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="right" class="style4" style="font-size:10px">&nbsp; <?=($TOTcalls > 0) ? $TOTcalls : 0; ?> &nbsp;</div></td>
         <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="right" class="style4" style="font-size:10px">&nbsp; <?=$TOTtime_MS?> &nbsp;</div></td>
         <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="right" class="style4" style="font-size:10px">&nbsp; <?=$TOTtotPAUSE_MS?> &nbsp;</div></td>
@@ -855,14 +855,14 @@ $(function () {
         } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="16" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">No agents found within the time given.</div></td>
+        <td colspan="16" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Nenhum Operador Encontrado no Prazo Especificado.</div></td>
       </tr>
     <?php
         }
     } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="16" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Please pick a campaign.</div></td>
+        <td colspan="16" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Por Favor Escolha Uma Campanha.</div></td>
       </tr>
     <?php
     }
@@ -874,7 +874,7 @@ $(function () {
     <p style="font-size:5px;">&nbsp;</p>
     <table border="0" align="center" cellpadding="1" cellspacing="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
       <tr style="background-color:#FFFFFF;" class="style2">
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Full Name&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Nome Completo&nbsp; </strong></div></td>
     <?php
         echo $SstatusesTOP;
     ?>
@@ -895,7 +895,7 @@ $(function () {
         } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="4" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">No agents found within the time given.</div></td>
+        <td colspan="4" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Nenhum Operador Encontrado no Prazo Especificado.</div></td>
       </tr>
     <?php
         }
@@ -903,7 +903,7 @@ $(function () {
     </table>
     <table>
     	<tr>
-        	<td colspan="3" style="font-size:11px;font-weight:bold;">LEGEND:</td>
+        	<td colspan="3" style="font-size:11px;font-weight:bold;">LEGENDA:</td>
         </tr>
     <?php
 		foreach (explode(' ',trim($SUMstatuses)) as $n => $item)
@@ -929,11 +929,11 @@ $(function () {
     <table border="0" align="center" cellpadding="0" cellspacing="0"><tr><td valign="top" style="padding-right:10px;">
     <table border="0" align="center" cellpadding="1" cellspacing="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
       <tr style="background-color:#FFFFFF;" class="style2">
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Full Name&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Nome Completo&nbsp; </strong></div></td>
         <td nowrap><div align="center" class="style4"><strong> &nbsp;ID&nbsp; </strong></div></td>
         <td nowrap><div align="center" class="style4"><strong> &nbsp;Total&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;NonPause&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Pause&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Sem Pausa&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Pausa&nbsp; </strong></div></td>
       </tr>
     <?php
         if (count($BOTsorted_output) > 0) {
@@ -943,7 +943,7 @@ $(function () {
     ?>
       <tr style="background-color:#FFFFFF;">
         <td style="border-top:#D0D0D0 dashed 1px;"><div align="left" class="style4" style="font-size:10px">&nbsp; <strong>TOTAL</strong> &nbsp;</div></td>
-        <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="left" class="style4" style="font-size:10px">&nbsp; <strong>AGENTS:</strong> <?=$TOT_AGENTS?> &nbsp;</div></td>
+        <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="left" class="style4" style="font-size:10px">&nbsp; <strong>OPERADORES:</strong> <?=$TOT_AGENTS?> &nbsp;</div></td>
         <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="right" class="style4" style="font-size:10px">&nbsp; <?=$TOTtotTOTAL_MS; ?> &nbsp;</div></td>
         <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="right" class="style4" style="font-size:10px">&nbsp; <?=$TOTtotNONPAUSE_MS?> &nbsp;</div></td>
         <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="right" class="style4" style="font-size:10px">&nbsp; <?=$TOTtotPAUSEB_MS?> &nbsp;</div></td>
@@ -952,7 +952,7 @@ $(function () {
         } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="5" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">No agents found within the time given.</div></td>
+        <td colspan="5" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Nenhum Operador Encontrado no Prazo Especificado.</div></td>
       </tr>
     <?php
         }
@@ -988,7 +988,7 @@ $(function () {
         } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="5" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">No agents found within the time given.</div></td>
+        <td colspan="5" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Nenhum Operador Encontrado no Prazo Especificado.</div></td>
       </tr>
     <?php
         }
@@ -1020,12 +1020,12 @@ if ($pagetitle == "dispo") {
 ?>
     <table align="center" cellpadding="1" cellspacing="1" style="width:50%;border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
       <tr class="style2">
-        <td><div align="center" class="style1 style3"><strong>Statuses</strong> </div></td>
-        <td><div align="center" class="style3"><strong>Description</strong></div></td>
+        <td><div align="center" class="style1 style3"><strong>Status</strong> </div></td>
+        <td><div align="center" class="style3"><strong>Descrição</strong></div></td>
         <td><div align="center" class="style3"><strong>Sub Total </strong></div></td>
       </tr>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style1">Please select a campaign.</div></td>
+        <td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style1">Por Favor Escolha a Campanha.</div></td>
       </tr>
     </table>
 <?	
@@ -1049,13 +1049,13 @@ if ($pagetitle == "dispo") {
 if ($pagetitle == "sales_agent") {
 ?>
 <br style="font-size:15px" />
-<div align="center"><strong>:: OUTBOUND ::</strong></div>
+<div align="center"><strong>:: SAÍDA ::</strong></div>
 <br style="font-size:5px" />
 <table width="400" border="0" align="center" cellpadding="1" cellspacing="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
   <tr>
-    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Agents Name&nbsp;</strong></div></td>
-    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Agents ID&nbsp;</strong></div></td>
-    <td nowrap style="text-transform:uppercase" width="120px"><div align="center" class="style3"><strong>&nbsp;Sales Count&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Nomes dos Operadores&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Operadores ID&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase" width="120px"><div align="center" class="style3"><strong>&nbsp;Contagem de Vendas&nbsp;</strong></div></td>
 <!--    <td nowrap style="text-transform:uppercase"><div align="center" class="style2"><strong>&nbsp;Sale1 Count&nbsp;</strong></div></td>
     <td nowrap style="text-transform:uppercase"><div align="center" class="style2"><strong>&nbsp;Sale2 Count&nbsp;</strong></div></td>-->
 <!--    <td nowrap style="text-transform:uppercase"><div align="center" class="style2"><strong>&nbsp;TOTAL SALES COUNT&nbsp;</strong></div></td>-->
@@ -1076,14 +1076,14 @@ if ($pagetitle == "sales_agent") {
 		} else {
 ?>
             <tr style="background-color:#EFFBEF;">
-            	<td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4" style="color:red;font-style:italic;font-weight:bold;">No record(s) found.</div></td>
+            	<td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4" style="color:red;font-style:italic;font-weight:bold;">Nenhum Registro Encontrado.</div></td>
             </tr>
 <?
 		}
 	} else {
 ?>
 		  <tr style="background-color:#EFFBEF;">
-			<td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Please select a campaign.</div></td>
+			<td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Por Favor Escolha a Campanha.</div></td>
 		  </tr>
 		<?
 	}
@@ -1091,13 +1091,13 @@ if ($pagetitle == "sales_agent") {
 </table>
 
 <br style="font-size:30px" />
-<div align="center"><strong>:: INBOUND ::</strong></div>
+<div align="center"><strong>:: ENTRADA ::</strong></div>
 <br style="font-size:5px" />
 <table width="400" border="0" align="center" cellpadding="1" cellspacing="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
   <tr>
-    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Agents Name&nbsp;</strong></div></td>
-    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Agents ID&nbsp;</strong></div></td>
-    <td nowrap style="text-transform:uppercase" width="120px"><div align="center" class="style3"><strong>&nbsp;Sales Count&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Nome dos Operadores&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Operadores ID&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase" width="120px"><div align="center" class="style3"><strong>&nbsp;Contagem de Vendas&nbsp;</strong></div></td>
   </tr>
 <?
 	if (!preg_match("/Please select a campaign/", $campaign_id)) {
@@ -1112,14 +1112,14 @@ if ($pagetitle == "sales_agent") {
 		} else {
 ?>
             <tr style="background-color:#EFFBEF;">
-            	<td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4" style="color:red;font-style:italic;font-weight:bold;">No record(s) found.</div></td>
+            	<td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4" style="color:red;font-style:italic;font-weight:bold;">Nenhum Registro Encontrado.</div></td>
             </tr>
 <?
 		}
 	} else {
 ?>
 		  <tr style="background-color:#EFFBEF;">
-			<td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Please select a campaign.</div></td>
+			<td colspan="3" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4">Por Favor Escolha a Campanha.</div></td>
 		  </tr>
 		<?
 	}
@@ -1148,12 +1148,12 @@ if ($pagetitle == "sales_tracker") {
 <br style="font-size:5px" />
     <table width="600" border="0" align="center" cellpadding="1" cellspacing="0" style="width:95%; border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
       <tr class="style2">
-        <td nowrap><div align="center" class="style2"><strong>&nbsp;Sale #&nbsp;</strong></div></td>
-        <td nowrap><div align="center" class="style2"><strong>&nbsp;Call Date & Time&nbsp;</strong></div></td>
-        <td nowrap><div align="center" class="style2"><strong>&nbsp;Agent&nbsp;</strong></div></td>
-        <td nowrap><div align="center" class="style2"><strong>&nbsp;Phone Number&nbsp;</strong></div></td>
-        <td nowrap><div align="center" class="style2"><strong>&nbsp;First Name&nbsp;</strong></div></td>
-        <td nowrap><div align="center" class="style2"><strong>&nbsp;Last Name&nbsp;</strong></div></td>
+        <td nowrap><div align="center" class="style2"><strong>&nbsp;Venda #&nbsp;</strong></div></td>
+        <td nowrap><div align="center" class="style2"><strong>&nbsp;Data e Hora da Chamada&nbsp;</strong></div></td>
+        <td nowrap><div align="center" class="style2"><strong>&nbsp;Operador&nbsp;</strong></div></td>
+        <td nowrap><div align="center" class="style2"><strong>&nbsp;Número do Telefone&nbsp;</strong></div></td>
+        <td nowrap><div align="center" class="style2"><strong>&nbsp;Nome&nbsp;</strong></div></td>
+        <td nowrap><div align="center" class="style2"><strong>&nbsp;Sobrenome&nbsp;</strong></div></td>
 <!--        <td nowrap><div align="center" class="style2"><strong>&nbsp;Address&nbsp;</strong></div></td>
         <td nowrap><div align="center" class="style2"><strong>&nbsp;City&nbsp;</strong></div></td>
         <td nowrap><div align="center" class="style2"><strong>&nbsp;State&nbsp;</strong></div></td>
@@ -1181,7 +1181,7 @@ if ($pagetitle == "sales_tracker") {
                 <td style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">&nbsp;<?php echo $row->phone_number; ?>&nbsp;</div></td>
                 <td style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">&nbsp;<?php echo $row->first_name; ?>&nbsp;</div></td>
                 <td style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">&nbsp;<?php echo $row->last_name; ?>&nbsp;</div></td>
-                <td style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">&nbsp;<img src="<?php echo $base; ?>img/status_display_i.png" style="width:12px;cursor:pointer;" onclick="viewInfo('<?php echo $row->phone_number; ?>')" class="toolTip" title="Click for more info" />&nbsp;</div></td>
+                <td style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">&nbsp;<img src="<?php echo $base; ?>img/status_display_i.png" style="width:12px;cursor:pointer;" onclick="viewInfo('<?php echo $row->phone_number; ?>')" class="toolTip" title="Clique para mais informações" />&nbsp;</div></td>
 <!--                <td style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">&nbsp;<?php echo $row->city; ?>&nbsp;</div></td>
                 <td style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">&nbsp;<?php echo $row->state; ?>&nbsp;</div></td>
                 <td style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">&nbsp;<?php echo $row->postal; ?>&nbsp;</div></td>
@@ -1194,14 +1194,14 @@ if ($pagetitle == "sales_tracker") {
         } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="13" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2" style="color:red;font-style:italic;font-weight:bold;">No record(s) found.</div></td>
+        <td colspan="13" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2" style="color:red;font-style:italic;font-weight:bold;">Nenhum Registro Encontrado.</div></td>
       </tr>
     <?php
         }
     } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="13" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">Please select a campaign.</div></td>
+        <td colspan="13" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">Por Favor Escolha a Campanha.</div></td>
       </tr>
     <?php
     }
@@ -1214,47 +1214,47 @@ if ($pagetitle == "sales_tracker") {
             <!-- Overlay1 -->
             <div id="overlay<?php echo $row->phone_number; ?>" style="display:none;"></div>
             <div id="box<?php echo $row->phone_number; ?>">
-            <a class="closebox toolTip" title="CLOSE"></a>
+            <a class="closebox toolTip" title="FECHAR"></a>
             <div>
                 <table id="test" border=0 cellpadding="3" cellspacing="3" style="width:95%; color:#000; margin-left:auto; margin-right:auto;">
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Lead ID:</td><td>&nbsp;<?php echo $row->lead_id; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Contato ID:</td><td>&nbsp;<?php echo $row->lead_id; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Phone Number:</td><td>&nbsp;<?php echo $row->phone_number; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Número:</td><td>&nbsp;<?php echo $row->phone_number; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>First Name:</td><td>&nbsp;<?php echo $row->first_name; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Nome:</td><td>&nbsp;<?php echo $row->first_name; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Last Name:</td><td>&nbsp;<?php echo $row->last_name; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Sobrenome:</td><td>&nbsp;<?php echo $row->last_name; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Call Date & time:</td><td>&nbsp;<?php echo date("Y-m-d h:i:s A",strtotime($row->call_date)); ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Data e Hora da Chamada:</td><td>&nbsp;<?php echo date("Y-m-d h:i:s A",strtotime($row->call_date)); ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Agent:</td><td>&nbsp;<?php echo $row->agent; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Operador:</td><td>&nbsp;<?php echo $row->agent; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Address:</td><td>&nbsp;<?php echo $row->address; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Endereço:</td><td>&nbsp;<?php echo $row->address; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>City:</td><td>&nbsp;<?php echo $row->city; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Cidade:</td><td>&nbsp;<?php echo $row->city; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>State:</td><td>&nbsp;<?php echo $row->state; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Estado:</td><td>&nbsp;<?php echo $row->state; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Postal Code:</td><td>&nbsp;<?php echo $row->postal; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>CEP:</td><td>&nbsp;<?php echo $row->postal; ?></td>
                     </tr>
                     <tr>
                         <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Email:</td><td>&nbsp;<?php echo $row->email; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Alt Phone:</td><td>&nbsp;<?php echo $row->alt_phone; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Alt Fone:</td><td>&nbsp;<?php echo $row->alt_phone; ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Comments:</td><td>&nbsp;<?php echo $row->comments; ?></td>
+                        <td style="text-align:right;font-weight:bold;width:40%;" nowrap>Comentários:</td><td>&nbsp;<?php echo $row->comments; ?></td>
                     </tr>
                 </table>
             </div>
@@ -1287,7 +1287,7 @@ if ($pagetitle == "sales_tracker") {
 	if (count($TOPsorted_output)) {
 ?>
 	<br />
-	<div align="center" class="style4">Search done. <strong><? echo count($TOPsorted_output) ?></strong> inbound call(s) found.</div>
+	<div align="center" class="style4">Search done. <strong><? echo count($TOPsorted_output) ?></strong> Chamada (s) recebida (s) Encontradas.</div>
     <br />
 <?
 	}
@@ -1295,12 +1295,12 @@ if ($pagetitle == "sales_tracker") {
     <table width="800" border="0" cellspacing="1" cellpadding="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
       <tr>
         <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; # &nbsp;</strong></div></td>
-        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Date &nbsp;</strong></div></td>
-        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Agent ID &nbsp;</strong></div></td>
-        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Phone Number &nbsp;</strong></div></td>
-        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Time &nbsp;</strong></div></td>
-        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Call Duration (in sec) &nbsp;</strong></div></td>
-        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Disposition &nbsp;</strong></div></td>
+        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Data &nbsp;</strong></div></td>
+        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Operador ID &nbsp;</strong></div></td>
+        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Número do Telefone &nbsp;</strong></div></td>
+        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Tempo &nbsp;</strong></div></td>
+        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Duração (em seg) &nbsp;</strong></div></td>
+        <td style="text-transform:uppercase;" class="style2"><div align="center"><strong>&nbsp; Tabulação &nbsp;</strong></div></td>
       </tr>
     <?
     if (!preg_match("/Please select a campaign/", $campaign_id)) {
@@ -1328,14 +1328,14 @@ if ($pagetitle == "sales_tracker") {
 		} else {
 		?>
 		  <tr style="background-color:#EFFBEF;">
-			<td colspan="7" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2" style="color:red;font-style:italic;font-weight:bold;">No record(s) found.</div></td>
+			<td colspan="7" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2" style="color:red;font-style:italic;font-weight:bold;">Nenhum Registro Encontrado.</div></td>
 		  </tr>
 		<?php
 		}
     } else {
     ?>
       <tr style="background-color:#EFFBEF;">
-        <td colspan="13" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">Please select a campaign.</div></td>
+        <td colspan="13" style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style2">Por Favor Escolha a Campanha.</div></td>
       </tr>
     <?php
     }
@@ -1414,18 +1414,18 @@ $('#submit_export').hover(
 </script>
 <?
 	echo "<CENTER><BR>\n";
-	echo "<FONT SIZE=3 FACE=\"Arial,Helvetica\"><B>Export Calls Report</B></FONT><BR><BR>\n";
+	echo "<FONT SIZE=3 FACE=\"Arial,Helvetica\"><B>Exportar Relatório de Chamadas</B></FONT><BR><BR>\n";
 //	echo "<INPUT TYPE=HIDDEN id=DB VALUE=\"$DB\">";
 //	echo "<INPUT TYPE=HIDDEN id=run_export VALUE=\"1\">";
 //	echo "<INPUT TYPE=HIDDEN id=accountcode VALUE=\"$accountcode\">";
 	echo "<TABLE BORDER=0 CELLSPACING=8><TR><TD ALIGN=LEFT VALIGN=TOP ROWSPAN=2>\n";
 
-	echo "<B>Header Row:</B><BR>\n";
+	echo "<B>Cabeçalho:</B><BR>\n";
 	echo "<select size=1 id=header_row><option selected>YES</option><option>NO</option></select>\n";
 
 	echo "<BR><BR>\n";
 
-	echo "<B>Recording Fields:</B><BR>\n";
+	echo "<B>Campos:</B><BR>\n";
 	echo "<select size=1 id=rec_fields>";
 	echo "<option>ID</option>";
 	echo "<option>FILENAME</option>";
@@ -1438,24 +1438,24 @@ $('#submit_export').hover(
 		{
 		echo "<BR><BR>\n";
 
-		echo "<B>Custom Fields:</B><BR>\n";
+		echo "<B>Campos Customizados:</B><BR>\n";
 		echo "<select size=1 id=custom_fields><option>YES</option><option selected>NO</option></select>\n";
 		}
 
 	echo "<BR><BR>\n";
 
-	echo "<B>Per Call Notes:</B><BR>\n";
+	echo "<B>Notas por chamada:</B><BR>\n";
 	echo "<select size=1 id=call_notes><option>YES</option><option selected>NO</option></select>\n";
 
 	echo "<BR><BR>\n";
 
-	echo "<B>Export Fields:</B><BR>\n";
+	echo "<B>Exportar Campos:</B><BR>\n";
 	echo "<select size=1 id=export_fields><option selected>STANDARD</option><option>EXTENDED</option></select>\n";
 
 	### bottom of first column
 
 	echo "</TD><TD ALIGN=LEFT VALIGN=TOP ROWSPAN=2>\n";
-	echo "<font class=\"select_bold\"><B>Campaigns:</B></font><BR><CENTER>\n";
+	echo "<font class=\"select_bold\"><B>Campanhas:</B></font><BR><CENTER>\n";
 	echo "<SELECT SIZE=15 ID=campaign multiple>\n";
 	$LISTcampaigns = explode(",", $allowed_campaigns);
 		for ($i=0; $i<count($LISTcampaigns); $i++)
@@ -1468,9 +1468,9 @@ $('#submit_export').hover(
 	echo "</SELECT>\n";
 
 	echo "</TD><TD ALIGN=LEFT VALIGN=TOP ROWSPAN=3>\n";
-	echo "<font class=\"select_bold\"><B>Inbound Groups:</B></font><BR><CENTER>\n";
+	echo "<font class=\"select_bold\"><B>Grupos de Entrada:</B></font><BR><CENTER>\n";
 	echo "<SELECT SIZE=15 ID=group multiple>\n";
-	echo "<option value=\"--NONE--\" selected>--NONE--</option>\n";
+	echo "<option value=\"--NONE--\" selected>--NENHUMA--</option>\n";
 	sort($inbound_groups);
 		foreach ($inbound_groups as $LISTgroups)
 		{
@@ -1481,9 +1481,9 @@ $('#submit_export').hover(
 		}
 	echo "</SELECT>\n";
 	echo "</TD><TD ALIGN=LEFT VALIGN=TOP ROWSPAN=3>\n";
-	echo "<font class=\"select_bold\"><B>Lists:</B></font><BR><CENTER>\n";
+	echo "<font class=\"select_bold\"><B>Listas:</B></font><BR><CENTER>\n";
 	echo "<SELECT SIZE=15 ID=list_id multiple>\n";
-	echo "<option value=\"--ALL--\" selected>--ALL--</option>\n";
+	echo "<option value=\"--ALL--\" selected>--TODAS--</option>\n";
 		foreach ($lists_to_print as $LISTlists)
 		{
 			if (ereg("\|".$LISTlists->list_id."\|",$list_string)) 
@@ -1493,9 +1493,9 @@ $('#submit_export').hover(
 		}
 	echo "</SELECT>\n";
 	echo "</TD><TD ALIGN=LEFT VALIGN=TOP ROWSPAN=3>\n";
-	echo "<font class=\"select_bold\"><B>Statuses:</B></font><BR><CENTER>\n";
+	echo "<font class=\"select_bold\"><B>Status:</B></font><BR><CENTER>\n";
 	echo "<SELECT SIZE=15 ID=status multiple>\n";
-	echo "<option value=\"--ALL--\" selected>--ALL--</option>\n";
+	echo "<option value=\"--ALL--\" selected>--TODAS--</option>\n";
 	sort($statuses_to_print);
 		foreach ($statuses_to_print as $LISTstatus)
 		{
@@ -1526,12 +1526,12 @@ if ($pagetitle=="dashboard") {
           <tr>
             <td><table width="100%"  border="0" cellspacing="1" cellpadding="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; cursor:default;">
               <tr class="style1">
-                <td colspan="3" nowrap><div align="center"><strong>DIALER CALLS </strong></div></td>
+                <td colspan="3" nowrap><div align="center"><strong>CHAMADAS DO DISCADOR </strong></div></td>
                 </tr>
               <tr class="style1">
-                <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4"><strong>Dispo Code </strong></div></td>
-                <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4"><strong>Dispo Name </strong></div></td>
-                <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4"><strong>Count</strong></div></td>
+                <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4"><strong>Código Tabulação </strong></div></td>
+                <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4"><strong>Nome Tabulação </strong></div></td>
+                <td nowrap style="border-top:#D0D0D0 dashed 1px;"><div align="center" class="style4"><strong>Contagem</strong></div></td>
               </tr>
         <?php echo $total_dialer_calls_output; ?>
               <tr>
@@ -1666,65 +1666,66 @@ if ($pagetitle=="dashboard") {
         <tr><td valign="top" align="right" rowspan="2">
             <table width="100%"  border="0" align="center" cellpadding="1" cellspacing="1" style="cursor:default;">
               <tr>
-                <td nowrap colspan="2" style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;">Contact Rate</td>
+                <td nowrap colspan="2" style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;">Taxa de Contatos</td>
               </tr>
               <tr>
                 <td nowrap class="b" style="padding-left:50px;"><a style="cursor:pointer"><?php echo ($total_calls>0) ? round(($total_contacts/$total_calls)*100,2) : "0"; ?>%</a></td>
-                <td nowrap class="t" width="50"><a style="cursor:pointer">Contact Rate</a></td>
+                <td nowrap class="t" width="50"><a style="cursor:pointer">Taxa de Contatos</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo $total_calls; ?></a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Total Calls</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Total de Chamadas</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo $total_contacts; ?></a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Total Contacts</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Total de Contatos</a></td>
               </tr>
               <tr>
-                <td nowrap colspan="2" style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;">Sales Rate</td>
+                <td nowrap colspan="2" style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;">Taxa de Vendas</td>
               </tr>
               <tr>
                 <td nowrap class="b" style="padding-left:50px;"><a style="cursor:pointer"><?php echo ($total_contacts>0) ? round(($total_sales/$total_contacts)*100,2) : "0"; ?>%</a></td>
-                <td nowrap class="t"><a style="cursor:pointer">Sales Rate</a></td>
+                <td nowrap class="t"><a style="cursor:pointer">Taxa de Vendas</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo $total_sales; ?></a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Total Sales</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Total de Vendas</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo (round($total_login_hours/3600,2)>0) ? round(($total_sales/round($total_login_hours/3600,2)),2) : "0"; ?></a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Sales per Hour</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Vendas por Hora</a></td>
               </tr>
               <tr>
-                <td nowrap colspan="2" style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;">Other Stats</td>
+                <td nowrap colspan="2" style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans 
+UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;">Outros Status</td>
               </tr>
               <tr>
                 <td nowrap class="b" style="padding-left:50px;"><a style="cursor:pointer"><?php echo ($total_sales>0) ? round(($total_xfer/$total_sales)*100,2) : "0"; ?>%</a></td>
-                <td nowrap class="t"><a style="cursor:pointer">Transfer Sales Rate</a></td>
+                <td nowrap class="t"><a style="cursor:pointer">Taxa de Vendas Transferidas</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo $total_xfer; ?></a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Total Transfers</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Total Transferências</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo (round($total_login_hours/3600,2)>0) ? round(($total_xfer/round($total_login_hours/3600,2)),2) : "0"; ?></a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Transfers per Hour</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Transferências por Hora</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo $total_notinterested; ?></a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Not Interested</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Não Interessado</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo $total_callbacks; ?></a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Callbacks</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Retornos</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo ($total_login_hours>0) ? round(($total_talk_hours/$total_login_hours)*100,2) : "0"; ?>%</a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Utilization</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Utilização</a></td>
               </tr>
               <tr>
                 <td nowrap class="c"><a style="cursor:pointer"><?php echo round($total_login_hours/3600,2); ?></a></td>
-                <td nowrap class="r"><a style="cursor:pointer">Campaign Hours</a></td>
+                <td nowrap class="r"><a style="cursor:pointer">Horas da Campanha</a></td>
               </tr>
             </table>
         </td><td valign="top" style="height:400px;">
@@ -1739,7 +1740,7 @@ if ($pagetitle=="dashboard") {
 		<!-- Table of Agent Dispositions -->
         <table width="300" border="0" align="center" cellpadding="1" cellspacing="0" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; cursor:default;">
           <tr>
-            <td nowrap><div align="center" class="style4 style8">&nbsp;<strong>AGENT NAME</strong>&nbsp;</div></td>
+            <td nowrap><div align="center" class="style4 style8">&nbsp;<strong>NOME DO OPERADOR</strong>&nbsp;</div></td>
             <? echo $TOPsorted_output; ?>
         </table>
 		<script type="text/javascript">
@@ -1840,7 +1841,7 @@ if ($pagetitle=="dashboard") {
            </td>
         </tr>
         <tr>
-           <td colspan="2" style="text-align:right;"><a href="" class="download">Export to CSV</a></td>
+           <td colspan="2" style="text-align:right;"><a href="" class="download">Exportar em CSV</a></td>
         </tr>
     </table>
     <script>
@@ -1923,7 +1924,7 @@ if ($pagetitle=="dashboard") {
         <tr>
            <td colspan="2">
                 <table id="cdr_table" style="width:100%;border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
-                    <thead><tr class="header-row"><th>Connect Time</th><th>CLI</th><th>CLD</th><th>Country</th><th>Description</th><th>Billed Duration</th><th>Cost</th></tr></thead>
+                    <thead><tr class="header-row"><th>Tempo de Conexão</th><th>CLI</th><th>CLD</th><th>País</th><th>Descrição</th><th>Duração Cobrada</th><th>Custo</th></tr></thead>
                     <tbody></tbody>
                 </table>
            </td>

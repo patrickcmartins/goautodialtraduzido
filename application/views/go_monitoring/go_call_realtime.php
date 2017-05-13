@@ -200,7 +200,7 @@ li{
 <table id="legendMonitoring" cellpadding="0" cellspacing="0" style="color:#333;display:none;">
 	<tr>
     	<td colspan="2">
-			<small style="font-weight:bold;">LEGEND:</small>
+			<small style="font-weight:bold;">LEGENDA:</small>
         </td>
     </tr>
 	<tr>

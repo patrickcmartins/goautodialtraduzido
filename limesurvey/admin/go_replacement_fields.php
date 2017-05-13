@@ -22,7 +22,7 @@ $limereplacementoutput.="\t<option value='GO_CALLED_SINCE_LAST_RESET' title='CAL
 $limereplacementoutput.="\t<option value='GO_PHONE_CODE'              title='PHONE CODE             '>  PHONE CODE              </option>\n";  
 $limereplacementoutput.="\t<option value='GO_PHONE_NUMBER'            title='PHONE NUMBER           '>  PHONE NUMBER            </option>\n";  
 $limereplacementoutput.="\t<option value='GO_TITLE'                   title='TITLE                  '>  TITLE                   </option>\n";  
-$limereplacementoutput.="\t<option value='GO_FIRST_NAME'              title='FIRST NAME             '>  FIRST NAME              </option>\n";  
+$limereplacementoutput.="\t<option value='GO_FIRST_NAME'              title='FIRST NAME             '>  NOME   	                </option>\n";  
 $limereplacementoutput.="\t<option value='GO_MIDDLE_INITIAL'          title='MIDDLE INITIAL         '>  MIDDLE INITIAL          </option>\n";  
 $limereplacementoutput.="\t<option value='GO_LAST_NAME'               title='LAST NAME              '>  LAST NAME               </option>\n";  
 $limereplacementoutput.="\t<option value='GO_ADDRESS1'                title='ADDRESS1               '>  ADDRESS1                </option>\n";  

@@ -137,18 +137,18 @@ class Go_monitoring extends Model {
 				}
 				if (eregi("^1$",$i)) {
 					$onClickField = "onClick=\"updateOrder('$sortorder','agents');\"";
-					$realtimeHTML .= "<th nowrap style=\"font-weight:normal;font-style:italic;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;color:#777;border-bottom:#ececec 1px solid;padding:3px 0px 9px 0px;text-align:center;cursor:pointer;\" $onClickField>&nbsp;Agent&nbsp;</th>";
+					$realtimeHTML .= "<th nowrap style=\"font-weight:normal;font-style:italic;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;color:#777;border-bottom:#ececec 1px solid;padding:3px 0px 9px 0px;text-align:center;cursor:pointer;\" $onClickField>&nbsp;Operador&nbsp;</th>";
 				}
 				if (eregi("^2$",$i) && !$this->commonhelper->checkIfTenant($this->session->userdata('user_group'))) {
 					$onClickField = "onClick=\"updateOrder('$sortorder','agents');\"";
-					$realtimeHTML .= "<th nowrap style=\"font-weight:normal;font-style:italic;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;color:#777;border-bottom:#ececec 1px solid;padding:3px 0px 9px 0px;text-align:center;cursor:pointer;\" $onClickField>&nbsp;User Group&nbsp;</th>";
+					$realtimeHTML .= "<th nowrap style=\"font-weight:normal;font-style:italic;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;color:#777;border-bottom:#ececec 1px solid;padding:3px 0px 9px 0px;text-align:center;cursor:pointer;\" $onClickField>&nbsp;Grupo de Usuário&nbsp;</th>";
 				}
 				if (eregi("8$",$i)) {
 					$onClickField = "onClick=\"updateOrder('$sortorder','agents');\"";
 					$realtimeHTML .= "<th nowrap style=\"font-weight:normal;font-style:italic;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;color:#777;border-bottom:#ececec 1px solid;padding:3px 0px 9px 0px;text-align:center;cursor:pointer;\" $onClickField>&nbsp;MM:SS&nbsp;</th>";
 				}
 				if (eregi("5$",$i)) {
-					$realtimeHTML .= "<th nowrap style=\"font-weight:normal;font-style:italic;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;color:#777;border-bottom:#ececec 1px solid;padding:3px 0px 9px 0px;text-align:center;cursor:default;\" $onClickField>&nbsp;Cust Phone&nbsp;</th>";
+					$realtimeHTML .= "<th nowrap style=\"font-weight:normal;font-style:italic;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;color:#777;border-bottom:#ececec 1px solid;padding:3px 0px 9px 0px;text-align:center;cursor:default;\" $onClickField>&nbsp;Custo&nbsp;</th>";
 				}
 			}
 	
@@ -582,7 +582,7 @@ class Go_monitoring extends Model {
 					$sortLinkB = "";
 
 					if($field=="campaign_id") {
-							$field = "Campaign / InGroup";
+							$field = "Campanha / InGroup";
 					}
 
 					if($field=="user_group") {

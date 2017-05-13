@@ -81,17 +81,19 @@ $(function()
 </script>
 <?php
 if ($show_me_more['type']=="campaign") {
-	$usergroups["---ALL---"] = "- - - SHOW ALL CAMPAIGNS - - -";
+	$usergroups["---ALL---"] = "- - - MOSTRAR TODAS AS CAMPANHAS - - -";
 	ksort($usergroups);
-	$showHTML = "<div style='float:right;$hideThis'>User Group: ".form_dropdown('selectTenant',$usergroups,$groupSelected,'id="selectTenant"')."</div><div style='font-size:16px;font-weight:bold;color:#000;width:100%;text-align:left;'>CAMPAIGN RESOURCES</div><br />\n";
+	$showHTML = "<div style='float:right;$hideThis'>Grupo de Usuário: 
+".form_dropdown('selectTenant',$usergroups,$groupSelected,'id="selectTenant"')."</div><div 
+style='font-size:16px;font-weight:bold;color:#000;width:100%;text-align:left;'>RECURSOS DAS CAMPANHAS</div><br />\n";
 	$showHTML .="<table id='showCampTable' class='tablesorter' border='0' cellpadding='1' cellspacing='0' style='width:100%;'>";
 	$showHTML .="<thead>\n";
 	$showHTML .="	<tr style=\"font-weight:bold;text-align:left;\">\n";
-	$showHTML .="		<th style=\"width:12%;cursor:pointer;\">&nbsp;&nbsp;CAMPAIGN ID</th>\n";
-	$showHTML .="		<th style=\"cursor:pointer;\">&nbsp;&nbsp;CAMPAIGN NAME</th>\n";
-	$showHTML .="		<th style=\"cursor:pointer;\">&nbsp;&nbsp;LEADS ON HOPPER</th>\n";
-	$showHTML .="		<th style=\"cursor:pointer;\">&nbsp;&nbsp;CALL TIMES</th>\n";
-	$showHTML .="		<th style=\"cursor:pointer;$hideThis\">&nbsp;&nbsp;TENANT ID</th>\n";
+	$showHTML .="		<th style=\"width:12%;cursor:pointer;\">&nbsp;&nbsp;CAMPANHA ID</th>\n";
+	$showHTML .="		<th style=\"cursor:pointer;\">&nbsp;&nbsp;CAMPANHA</th>\n";
+	$showHTML .="		<th style=\"cursor:pointer;\">&nbsp;&nbsp;CONTATOS PARA DISCAR</th>\n";
+	$showHTML .="		<th style=\"cursor:pointer;\">&nbsp;&nbsp;HORÁRIO</th>\n";
+	$showHTML .="		<th style=\"cursor:pointer;$hideThis\">&nbsp;&nbsp;GRUPO ID</th>\n";
 	$showHTML .="	</tr>\n";
 	$showHTML .="</thead>\n";
 	$showHTML .="<tbody>\n";
@@ -118,10 +120,9 @@ if ($show_me_more['type']=="campaign") {
 	echo $showHTML;
 	?>
 	<br />
-	<div>* List shows only the campaign that are active, within dialing hours and is <strong>< 100</strong> leads on the hopper.</div>
 <?php
 } else {
-	$usergroups["---ALL---"] = "- - - SHOW ALL LOGINS - - -";
+	$usergroups["---ALL---"] = "- - - MOSTRAR TODOS OS LOGINS - - -";
 	ksort($usergroups);
 	$showHTML = "<div style='float:right;$hideThis'>User Group: ".form_dropdown('selectTenant',$usergroups,$groupSelected,'id="selectTenant"')."</div><div style='font-size:16px;font-weight:bold;color:#000;width:100%;text-align:left;'>AGENTS & PHONES</div><br />\n";
 	$showHTML .="<table border='0' cellpadding='0' cellspacing='0' style='width:100%'><tr><td style='padding-right:10px;vertical-align:top;'>\n";
@@ -138,8 +139,8 @@ if ($show_me_more['type']=="campaign") {
 	if (count($show_me_more['list']['users']) > 0)
 	{
 		foreach ($show_me_more['list']['users'] as $row) {
-		   $usergroup = ($row->user_group == "---ALL---") ? "ALL USER GROUP" : $row->user_group;
-		   $isActive  = ($row->active == "Y") ? "<span style='color:green;'>ACTIVE</span>" : "<span style='color:red;'>INACTIVE</span>";
+		   $usergroup = ($row->user_group == "---ALL---") ? "TODOS GRUPOS DE USUÁRIO" : $row->user_group;
+		   $isActive  = ($row->active == "Y") ? "<span style='color:green;'>ATIVO</span>" : "<span style='color:red;'>INATIVO</span>";
 		   $showHTML .= "<tr>\n";
 		   $showHTML .= "<td style='border-top:#D0D0D0 dashed 1px;white-space:nowrap;'>&nbsp;&nbsp;<a style='cursor:pointer;color:#7F7F7F;' class='disableLink toolTip' title=\"{$row->user} - {$row->full_name}\" onclick=\"getAgentInfo('{$row->user}')\">".substr($row->full_name,0,20)."</a></td>\n";
 		   $showHTML .= "<td style='border-top:#D0D0D0 dashed 1px;'>&nbsp;&nbsp;<span class='hiddenUsersPass'>**********</span><span class='showUsersPass' style='display:none;'>{$row->pass}</span></td>\n";
@@ -149,7 +150,8 @@ if ($show_me_more['type']=="campaign") {
 		}
 	} else {
 		   $showHTML .= "<tr>\n";
-		   $showHTML .= "<td colspan='4' style='border-top:#D0D0D0 dashed 1px;text-align:center;color:red;font-weight:bold;'>No user record(s) found.</td>\n";
+		   $showHTML .= "<td colspan='4' style='border-top:#D0D0D0 dashed 1px;text-align:center;color:red;font-weight:bold;'>Nenhum Registro 
+Encontrado.</td>\n";
 		   $showHTML .= "</tr>\n";
 	}
 	$showHTML .="</tbody>\n";

@@ -56,8 +56,8 @@ var userSettings = {
 //var currenttime = '<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->' //SSI method of getting server date
 var currenttime = '<? print date("F d, Y H:i:s", time())?>' //PHP method of getting server date
 
-var todayarray=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
+var todayarray=new Array("Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado");
+var montharray=new Array("January","February","March","April","Maio","Junho","Julho","August","September","October","November","December")
 var serverdate=new Date(currenttime)
 
 function padlength(what){

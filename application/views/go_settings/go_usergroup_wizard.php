@@ -172,7 +172,7 @@ $(function()
 });
 </script>
 <div style="float:right;" id="small_step_number"><img src="<?php echo $base; ?>img/step1-nav-small.png" /></div>
-<div style="font-weight:bold;font-size:16px;color:#333;">User Group Wizard &raquo; Add New User Group</div>
+<div style="font-weight:bold;font-size:16px;color:#333;">Grupo de Usuário &raquo; Adicionar Novo Grupo de Usuário</div>
 <br style="font-size:6px;" />
 <hr style="border:#DFDFDF 1px solid;" />
 
@@ -203,7 +203,7 @@ $(function()
                         </td>
                     </tr>
                     <tr class="permissions">
-                         <td style="text-align:right;width:10%;height:10px;font-weight:bold;">Group Template:</td>
+                         <td style="text-align:right;width:10%;height:10px;font-weight:bold;">Template de Grupo:</td>
                          <td>
                          <?php 
                               if(!empty($access)){
@@ -216,7 +216,7 @@ $(function()
                          </td>
                     </tr>
                     <tr class="permissions">
-                         <td style="text-align:right;width:10%;height:10px;font-weight:bold;">Group Level:</td>
+                         <td style="text-align:right;width:10%;height:10px;font-weight:bold;">Nível de Grupo:</td>
                          <td>  
                             <?php
                                 $levels = array(1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9);
@@ -239,7 +239,7 @@ $(function()
                        </td> 
                    </tr>
                     <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">User:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Usuário:</td>
                        <td>
                             <?php
                                  echo form_checkbox('user_create',"C",null,"id='user_create' class='permission-box'")." Create " .
@@ -250,7 +250,7 @@ $(function()
                        </td> 
                     </tr>
                      <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Campaign:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Campanha:</td>
                        <td>
                             <?php
                                  echo form_checkbox('campaign_create',"C",null,"id='campaign_create' class='permission-box'")." Create " .
@@ -261,7 +261,7 @@ $(function()
                        </td> 
                     </tr>
                      <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">List:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Lista:</td>
                        <td>
                             <?php
                                  echo form_checkbox('list_create',"C",null,"id='list_create' class='permission-box'")." Create " .
@@ -272,7 +272,7 @@ $(function()
                        </td> 
                     </tr>
                      <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Custom Fields:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Campos Customizados:</td>
                        <td>
                             <?php
                                  echo form_checkbox('customfields_create',"C",null,"id='customfields_create' class='permission-box'")." Create " .
@@ -283,7 +283,7 @@ $(function()
                        </td> 
                     </tr>
                      <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Load Leads:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Carrregar Contatos:</td>
                        <td>
                             <?php
                                  echo form_checkbox('loadleads_read',"R",null,"id='loadleads_read' class='permission-box'") . " Read ";
@@ -302,7 +302,7 @@ $(function()
                        </td> 
                     </tr> 
                      <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Inbound:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Entrada:</td>
                        <td>
                             <?php
                                  echo form_checkbox('inbound_create',"C",null,"id='inbound_create' class='permission-box'")." Create " .
@@ -313,7 +313,7 @@ $(function()
                        </td> 
                     </tr>
                       <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Voice Files:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Arquivos de Voz:</td>
                        <td>
                             <?php
                                  echo form_checkbox('voicefile_upload',"C",null,"id='voicefile_upload' class='permission-box'")." Upload " .
@@ -322,7 +322,7 @@ $(function()
                        </td> 
                     </tr>
                     <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Reports & Analytics:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Relatórios e Estatísticas:</td>
                        <td>
                             <?php
                                  echo form_checkbox('reportsanalytics_statistical_report',"Y",null,"id='reportsanalytics_statistical_report' class='permission-box'")." Statistical Report " .
@@ -340,7 +340,7 @@ $(function()
                        </td> 
                    </tr>
                     <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Recordings:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Gravações:</td>
                        <td>
                             <?php
                                   echo  form_checkbox('recordings_display',"Y",null,"id='recordings_display' class='permission-box'") . " Allowed Recording View ";
@@ -348,7 +348,7 @@ $(function()
                        </td> 
                    </tr>
                     <tr class="permissions">
-                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Support:</td>
+                       <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Suporte:</td>
                        <td>
                             <?php
                                   echo  form_checkbox('support_display',"Y",null,"id='support_display' class='permission-box'") . " Allowed Support ";
@@ -362,4 +362,4 @@ $(function()
 	</tr>
 </table>
 <hr style="border:#DFDFDF 1px solid;" />
-<span id="saveButtons"><span id="submit" style="white-space: nowrap;">Submit</span></span>
+<span id="saveButtons"><span id="submit" style="white-space: nowrap;">Confirmar</span></span>

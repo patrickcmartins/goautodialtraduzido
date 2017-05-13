@@ -174,7 +174,7 @@ $(function()
 			var sql_string = "= '"+from_date+"'";
 		} else {
 			$('.date_range').show();
-			$("#filter_by_date_mod").attr("placeholder","Start Date");
+			$("#filter_by_date_mod").attr("placeholder","Data de Início");
 			var from_date = $("#filter_by_date_mod").val();
 			var to_date = $("#filter_by_end_date_mod").val();
 			var sql_string = "BETWEEN '"+from_date+"' AND '"+to_date+"'";
@@ -430,7 +430,7 @@ $(function()
 		<td align="right"><label class="modify-value">Filtrar por Data:</label></td>
 		<td style="white-space:nowrap;">
 			<?=form_input('filter_by_date_mod',date("Y-m-d"),'id="filter_by_date_mod" class="datepicker" size="15" maxlength="10" readonly="readonly"'); ?> <span class="date_range" style="display:none;">to</span>
-			<?=form_input('filter_by_end_date_mod',date("Y-m-d"),'id="filter_by_end_date_mod" placeholder="End Date" class="datepicker date_range" style="display:none;" size="15" maxlength="10" readonly="readonly"'); ?>
+			<?=form_input('filter_by_end_date_mod',date("Y-m-d"),'id="filter_by_end_date_mod" placeholder="Data Final" class="datepicker date_range" style="display:none;" size="15" maxlength="10" readonly="readonly"'); ?>
 		</td>
 	</tr>
 	<tr class="countOptions" style="display:none;">

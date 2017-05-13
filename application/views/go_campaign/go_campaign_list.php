@@ -1632,7 +1632,7 @@ function modifyFilters(filter)
 			echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;$active</td>\n";
 	//		echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;$auto_dial_level</td>\n";
 	//		echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;$remote_status</td>\n";
-			echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modify('".$row->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delCamp('".$row->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETE CAMPAIGN<br />".$row->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"viewInfo('".$row->campaign_id."','info','135px')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"VER INFO DA CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/status_display_i.png\" style=\"cursor:pointer;width:12px;\" /></span></td>\n";
+			echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modify('".$row->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delCamp('".$row->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"viewInfo('".$row->campaign_id."','info','135px')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"VER INFO DA CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/status_display_i.png\" style=\"cursor:pointer;width:12px;\" /></span></td>\n";
 			echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><input type=\"checkbox\" id=\"delCampaign[]\" value=\"".$row->campaign_id."\" /></td>\n";
 			echo "</tr>\n";
 		}
@@ -1650,7 +1650,7 @@ function modifyFilters(filter)
         <tr style="font-weight:bold;">
             <th style="width:12%">&nbsp;&nbsp;CAMPANHA ID</th>
             <th style="width:20%">&nbsp;&nbsp;NOME DA CAMPANHA</th>
-            <th>&nbsp;&nbsp;DISPOSIÇÕES PERSONALIZADAS</th>
+            <th>&nbsp;&nbsp;TABULAÇÕES PERSONALIZADAS</th>
             <th style="width:6%;text-align:center;" colspan="3" nowrap><span style="cursor:pointer;" id="selectStatusAction">&nbsp;AÇÃO &nbsp;<img src="<?php echo $base; ?>img/arrow_down.png" />&nbsp;</span></th>
             <th style="width:2%;text-align:center;"><input type="checkbox" id="selectAllStatus" /></th>
         </tr>
@@ -1833,7 +1833,7 @@ function modifyFilters(filter)
 	<thead>
         <tr style="font-weight:bold;">
             <th style="width:12%">&nbsp;&nbsp;FILTRO ID</th>
-            <th style="width:30%">&nbsp;&nbsp;NOME DO FILTRO/th>
+            <th style="width:30%">&nbsp;&nbsp;NOME DO FILTRO</th>
             <th>&nbsp;&nbsp;</th>
             <!--<th>&nbsp;&nbsp;MAXIMUM ATTEMPTS</th>-->
             <th style="width:6%;text-align:center;" colspan="3" nowrap><span style="cursor:pointer;" id="selectFiltersAction">&nbsp;AÇÃO &nbsp;<img src="<?php echo $base; ?>img/arrow_down.png" />&nbsp;</span></th>
@@ -2322,7 +2322,7 @@ function modifyFilters(filter)
 			</td>
 		</tr>
 		<tr class="countryOptions" style="display:none;">
-			<td align="right"><label class="modify-value">Filtrar por Código do Paíd:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filtrar por Código do PaíS:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<?=form_dropdown('filter_by_country',$countrycodes,'USA_1','id="filter_by_country" multiple="multiple" size="10"'); ?>
 			</td>

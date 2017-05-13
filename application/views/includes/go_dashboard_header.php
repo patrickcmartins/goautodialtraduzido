@@ -125,7 +125,7 @@ require_once($jsbodyloader);
 	<div id="wphead-info" <?=$hideThis?>>
 		<div id="user_info">
 			<div>
-				<a id="clockbox" ></a>&nbsp;<b>|</b>&nbsp;Olá, <a href="<?=$base?>users" title="Edit your profile"><? echo $userfulname ?></a>&nbsp;<b>|</b>&nbsp;<a href="<? echo $base; ?>logout" title="Logout">Logout</a>
+				<a href="<?=$base?>users" title="Edit your profile"><? echo $userfulname ?></a>&nbsp;<b>|</b>&nbsp;<a href="<? echo $base; ?>logout" title="Logout">Sair</a>
 			</div>
 		</div>
 	</div>
@@ -242,7 +242,7 @@ require_once($jsbodyloader);
 			<div id="boxAgent" style="display:none;">
 			<a id="closeboxAgent" class="toolTip" title="CLOSE"></a>
 			<div id="overlayContentAgent">
-			<div style="text-align:center;font-weight:bold;font-size:14px;">Modify User</div>
+			<div style="text-align:center;font-weight:bold;font-size:14px;">Editar Usuário</div>
 			<br />
 			<table id="test" border=0 cellpadding="3" cellspacing="3" style="width:100%;">
 				<tr>

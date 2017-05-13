@@ -389,19 +389,19 @@ $(document).ready(function()
 					$autoDialLevel = "DESLIGADO";
 					break;
 				case "1.0":
-					$autoDialLevel = "LENTO";
+					$autoDialLevel = "SLOW";
 					break;
 				case "2.0":
 					$autoDialLevel = "NORMAL";
 					break;
 				case "4.0":
-					$autoDialLevel = "ALTO";
+					$autoDialLevel = "HIGH";
 					break;
 				case "6.0":
-					$autoDialLevel = "MAXIMO";
+					$autoDialLevel = "MAX";
 					break;
 				default:
-					$autoDialLevel = "AVANÇADO";
+					$autoDialLevel = "ADVANCE";
 			}
 			
 			switch ($campaign_vdad_exten)
@@ -482,7 +482,7 @@ $(document).ready(function()
 				if ($campType!='Outbound' && $campType!='Survey' && $campType!='Copy') {
 				?>
             	<tr>
-                	<td class="label">DID Extension:</td>
+                	<td class="label">DID Ext:</td>
                     <td><?php
 					if (strlen($did_pattern) > 0 || $did_pattern != false) {
 						echo $did_pattern;
@@ -558,7 +558,7 @@ $(document).ready(function()
                 </tr>
             	<tr class="advanced">
                 	<td class="label">DTMF Digitos:</td>
-                    <td><?php echo $survey_info->survey_dtmf_digits; ?><input id="survey_dtmf_digits" type="text" maxlength="16" size="16" placeholder="eg. 0123456789*#" style="display:none;" value="<?php echo $survey_info->survey_dtmf_digits; ?>" /> <small>* customer define key press e.g.0123456789*#</small></td>
+                    <td><?php echo $survey_info->survey_dtmf_digits; ?><input id="survey_dtmf_digits" type="text" maxlength="16" size="16" placeholder="eg. 0123456789*#" style="display:none;" value="<?php echo $survey_info->survey_dtmf_digits; ?>" /> <small>* cliente define a tecla a ser pressionada e.x.0123456789*#</small></td>
                 </tr>
             	<tr class="advanced">
                 	<td class="label">DID:</td>
@@ -707,7 +707,7 @@ $(document).ready(function()
             </table>
             </form>
             <br />
-            <div style="text-align:center"><span id="more" style="cursor:pointer;">More+</span> | <span id="upload" style="cursor:pointer;">Carregar</span></div>
+            <div style="text-align:center"><span id="more" style="cursor:pointer;">Mais+</span> | <span id="upload" style="cursor:pointer;">Carregar</span></div>
             <div style="text-align:center" id="uploadResult"></div>
 <?php
 			}

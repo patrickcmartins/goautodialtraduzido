@@ -469,7 +469,8 @@ $URLsubmit = $URLarray[0];
 <TD ALIGN=RIGHT><FONT FACE="ARIAL,HELVETICA"><?php echo $label_first_name ?>: </TD><TD ALIGN=LEFT><input type=text name=first_name id=first_name size=30 maxlength=30 value="<?php echo $first_name ?>"> *</TD>
 </TR>
 <TR BGCOLOR="#E6E6E6">
-<TD ALIGN=RIGHT><FONT FACE="ARIAL,HELVETICA">Middle Initial: </TD><TD ALIGN=LEFT><input type=text name=middle_initial id=middle_initial size=2 maxlength=1 value="<?php echo $middle_initial ?>"></TD>
+<TD ALIGN=RIGHT><FONT FACE="ARIAL,HELVETICA">Inicial do Meio: </TD><TD ALIGN=LEFT><input type=text name=middle_initial id=middle_initial size=2 maxlength=1 
+value="<?php echo $middle_initial ?>"></TD>
 </TR>
 <TR BGCOLOR="#E6E6E6">
 <TD ALIGN=RIGHT><FONT FACE="ARIAL,HELVETICA"><?php echo $label_last_name ?>: </TD><TD ALIGN=LEFT><input type=text name=last_name id=last_name size=30 maxlength=30 value="<?php echo $last_name ?>"> *</TD>

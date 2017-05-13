@@ -28,7 +28,7 @@
 <!-- STICKIES -->
 
 <div id="footer">
-<p id="footer-left" class="alignleft"><span id="footer-thankyou">Thank you for supporting <a href="http://GoAutoDial.org/">GoAutoDial</a>!</span> | <a href="http://codex.GoAutoDial.org/">Documentation</a> | <a href="http://GoAutoDial.org/support/forum/4">Feedback</a></p>
+<p id="footer-left" class="alignleft"><span id="footer-thankyou">Thank you for supporting <a href="http://GoAutoDial.org/">VoIPai</a>!</span> | <a href="http://codex.GoAutoDial.org/">Documentation</a> | <a href="http://GoAutoDial.org/support/forum/4">Feedback</a></p>
 <p id="footer-upgrade" class="alignright"><strong><a href="http://demo002.gopredictive.com/update-core.php">Get Version 3.1.3</a></strong></p>
 <div class="clear"></div>
 </div>

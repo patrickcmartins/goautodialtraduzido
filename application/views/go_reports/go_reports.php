@@ -152,14 +152,14 @@ else
 								<div id="widgetDate" style="cursor:pointer;display: none;">
 									<span><? echo date('Y-m-d'); ?> to <? echo date('Y-m-d'); ?></span>
 								</div>
-								<span id="request" style="display:none;">daily</span><span id="daily" class="tabtoggle menuOn">Daily</span><span id="weekly" class="tabtoggle menuOff">Weekly</span><span id="monthly" class="tabtoggle menuOff" style="border-right:#CCC 1px solid;">Monthly</span>
+								<span id="request" style="display:none;">daily</span><span id="daily" class="tabtoggle menuOn">Diário</span><span id="weekly" class="tabtoggle menuOff">Semanal</span><span id="monthly" class="tabtoggle menuOff" style="border-right:#CCC 1px solid;">Mensal</span>
 							    <div id="widgetField" class="hovermenu" style="float:right;<?php echo (preg_match("/Chrome/",$_SERVER['HTTP_USER_AGENT'])) ? "margin-top:-11px;" : ""; ?>">
 								<a href="#" id="selectDate" class="toolTip" title="Select date range">Select date range</a>
 							    </div>
 							</div>
 							<div style="position:absolute;top:-8px;left:-6px;">
 							<span id="pagetitle" class="tabmenu" title="stats"><? echo $pagetitle; ?></span>
-							<span id="select_campaign" class="tabmenu" title="Select a Campaign">Select a Campaign</span>
+							<span id="select_campaign" class="tabmenu" title="Select a Campaign">Selecione uma Campanha</span>
 							</div>
 							<div class="table_campaigns">
 								<div id="table_reports">
@@ -230,17 +230,17 @@ echo "</div>\n";
 <div id='go_reports_menu' class='go_reports_menu'>
 <ul>
 <?php
-if ($permissions->reportsanalytics_statistical_report=='Y') { echo '<li class="go_reports_submenu" title="Statistical Report" id="stats">Statistical Report</li>'; }
-if ($permissions->reportsanalytics_agent_time_detail=='Y') { echo '<li class="go_reports_submenu" title="Agent Time Detail" id="agent_detail">Agent Time Detail</li>'; }
-if ($permissions->reportsanalytics_agent_performance_detail=='Y') { echo '<li class="go_reports_submenu" title="Agent Performance Detail" id="agent_pdetail">Agent Performance Detail</li>'; }
-if ($permissions->reportsanalytics_dial_status_summary=='Y') { echo '<li class="go_reports_submenu" title="Dial Statuses Summary" id="dispo">Dial Statuses Summary</li>'; }
-if ($permissions->reportsanalytics_sales_per_agent=='Y') { echo '<li class="go_reports_submenu" title="Sales Per Agent" id="sales_agent">Sales Per Agent</li>'; }
-if ($permissions->reportsanalytics_sales_tracker=='Y') { echo '<li class="go_reports_submenu" title="Sales Tracker" id="sales_tracker">Sales Tracker</li>'; }
-if ($permissions->reportsanalytics_inbound_call_report=='Y') { echo '<li class="go_reports_submenu" title="Inbound Call Report" id="inbound_report">Inbound Call Report</li>'; }
-if ($permissions->reportsanalytics_export_call_report=='Y') { echo '<li class="go_reports_submenu" title="Export Call Report" id="call_export_report">Export Call Report</li>'; }
+if ($permissions->reportsanalytics_statistical_report=='Y') { echo '<li class="go_reports_submenu" title="Relatório Estatístico" id="stats">Relatório Estatístico</li>'; }
+if ($permissions->reportsanalytics_agent_time_detail=='Y') { echo '<li class="go_reports_submenu" title="Detalhes do Tempo do Operador" id="agent_detail">Detalhes do Tempo do Operador</li>'; }
+if ($permissions->reportsanalytics_agent_performance_detail=='Y') { echo '<li class="go_reports_submenu" title="Detalhes da Performance do Operador" id="agent_pdetail">Detalhes da Performance do Operador</li>'; }
+if ($permissions->reportsanalytics_dial_status_summary=='Y') { echo '<li class="go_reports_submenu" title="Resumo dos Status das Chamadas" id="dispo">Resumo dos Status das Chamadas</li>'; }
+if ($permissions->reportsanalytics_sales_per_agent=='Y') { echo '<li class="go_reports_submenu" title="Vendas por Operador" id="sales_agent">Vendas por Operador</li>'; }
+if ($permissions->reportsanalytics_sales_tracker=='Y') { echo '<li class="go_reports_submenu" title="Rastreador de Vendas" id="sales_tracker">Rastreador de Vendas</li>'; }
+if ($permissions->reportsanalytics_inbound_call_report=='Y') { echo '<li class="go_reports_submenu" title="Relatório de Chamadas Recebidas" id="inbound_report">Relatório de Chamadas Recebidas</li>'; }
+if ($permissions->reportsanalytics_export_call_report=='Y') { echo '<li class="go_reports_submenu" title="Exportar Relatório de Chamadas" id="call_export_report">Exportar Relatório de Chamadas</li>'; }
 if ($permissions->reportsanalytics_dashboard=='Y') { echo '<li class="go_reports_submenu" title="Dashboard" id="dashboard">Dashboard</li>'; }
-if ($permissions->reportsanalytics_advance_script=='Y') { echo '<li class="go_reports_submenu" title="Advance Script" id="limesurvey">Advance Script</li>'; }
-echo '<li class="go_reports_submenu" title="Call History" id="cdr">Call History (CDRs)</li>'; 
+if ($permissions->reportsanalytics_advance_script=='Y') { echo '<li class="go_reports_submenu" title="Script Avançado" id="limesurvey">Script Avançado</li>'; }
+echo '<li class="go_reports_submenu" title="Histórico de Chamadas" id="cdr">Histórico de Chamadas (CDRs)</li>'; 
 ?>
 </ul>
 </div>

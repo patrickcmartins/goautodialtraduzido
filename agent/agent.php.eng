@@ -469,7 +469,7 @@ $forever_stop=0;
 
 if ($force_logout)
 	{
-    echo "Você saiu. Obrigado!\n";
+    echo "You have now logged out. Thank you\n";
     exit;
 	}
 
@@ -577,27 +577,26 @@ if (file_exists('options.php'))
 	}
 
 ### BEGIN find any custom field labels ###
-$label['title'] =			'Título';
-$label['first_name'] =			'Nome';
-$label['middle_initial'] =		'Nome Do Meio';
-$label['last_name'] =			'Sobrenome';
-$label['address1'] =			'Endereço 1';
-$label['address2'] =			'Endereço 2';
-$label['address3'] =			'Endereço 3';
-$label['city'] =			'Cidade';
-$label['state'] =			'Estado';
-$label['province'] =			'Província';
-$label['postal_code'] =			'CEP';
-$label['vendor_lead_code'] =		'ID do Fornecedor';
-$label['gender_list'] =			'Gênero';
-$label['phone_number'] =		'Fone';
-$label['phone_code'] =			'Código do País';
-$label['alt_phone'] =			'Alt. Fone';
-$label['security_phrase'] =		'Mostrar';
+$label['title'] =			'Title';
+$label['first_name'] =			'First';
+$label['middle_initial'] =		'MI';
+$label['last_name'] =			'Last';
+$label['address1'] =			'Address1';
+$label['address2'] =			'Address2';
+$label['address3'] =			'Address3';
+$label['city'] =			'City';
+$label['state'] =			'State';
+$label['province'] =			'Province';
+$label['postal_code'] =			'Postal Code';
+$label['vendor_lead_code'] =		'Vendor ID';
+$label['gender_list'] =			'Gender';
+$label['phone_number'] =		'Phone';
+$label['phone_code'] =			'DialCode';
+$label['alt_phone'] =			'Alt. Phone';
+$label['security_phrase'] =		'Show';
 $label['email'] =			'Email';
-$label['comments'] =			'Comentários';
+$label['comments'] =			'Comments';
 
-#$stmt="SELECT label_title,label_first_name,label_last_name,label_address3,label_city,label_state,label_postal_code,label_gender,label_phone_number,label_phone_code,label_alt_phone,label_security_phrase,label_email,label_comments from system_settings;";
 $stmt="SELECT label_title,label_first_name,label_middle_initial,label_last_name,label_address1,label_address2,label_address3,label_city,label_state,label_province,label_postal_code,label_vendor_lead_code,label_gender,label_phone_number,label_phone_code,label_alt_phone,label_security_phrase,label_email,label_comments from system_settings;";
 $rslt=mysql_query($stmt, $link);
 $row=mysql_fetch_row($rslt);
@@ -1039,7 +1038,7 @@ if ($relogin == 'YES')
                         return false;
                 }
                 if(vdcamp=="invalidphone") {
-                        alert("Desculpe, seu login e senha do ramal não estão ativos. Entre em contato com o Suporte Técnico.");
+                        alert("Sorry, your phone login and password are not active. Please contact Technical Support.");
                         return false;
                 }
         }
@@ -1058,7 +1057,7 @@ if ($relogin == 'YES')
     echo "<div style=\"padding-top:2px;float:left;\"><a href=\"https://{$_SERVER['SERVER_NAME']}/\">";
     echo "<img src=\"images/goagent_logo.png\" alt=\"\" border=\"0\" /></a></div>";
     echo "<div align=\"right\" style=\"float:right;position:fixed;right:0px;top: 8px;padding-right:1%;z-index:99999999;color: white; font-size:13px;border:0px red solid;\">";
-    echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"font-family:verdana;color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Login de Administrador</b></a></div>";
+    echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"font-family:verdana;color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Admin Login</b></a></div>";
     echo "</div>";
     echo "<div class=\"img-grd\" style=\"font-size:12px;line-height:15px;\">&nbsp;<br />&nbsp;</div>"; 
     echo "<br><br><br><br>";
@@ -1076,15 +1075,15 @@ if ($relogin == 'YES')
     echo "<center><table width=\"400px\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
     echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
     echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 20px; padding-right:0px;\" colspan=\"0\"><center><img width='150px'  src='./images/goautodial_logo-mid.png'></center><br></td></tr>";
-    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px;  padding-left:35px;\">Login Operador:  </td></tr>";
+    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px;  padding-left:35px;\">Agent Login:  </td></tr>";
     echo "<tr><td align=\"center\" style=\"white-space:nowrap;\"><input class=\"form_input_button\" type=\"text\" name=\"VD_login\" id=\"VD_login\" size=\"30\" maxlength=\"20\" value=\"$VD_login\" /><br></td></tr>\n";
     
     echo "<tr><td colspan=\"2\">&nbsp;</td></tr>";
-    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Senha:  </td></tr>";
+    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Agent Password:  </td></tr>";
     echo "<tr><td align=\"center\" style=\"white-space:nowrap;\"><input class=\"form_input_button\" type=\"password\" name=\"VD_pass\" id=\"VD_pass\" size=\"30\" maxlength=\"20\" value=\"$VD_pass\" /><br></td></tr>\n";
     echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
     echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
-    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\" colspan=\"2\">Camapanha:  </td></tr>";
+    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\" colspan=\"2\">Campaign:  </td></tr>";
     echo "<tr><td align=\"center\" colspan=\"2\"><span id=\"LogiNCamPaigns\">$camp_form_code</span></td></tr>\n";
     echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\" colspan=\"2\">&nbsp;</td></tr>";
     echo "<tr><td align=\"center\" colspan=\"0\" style=\"padding-top:6px;\"><input src=\"images/portal-login-button.png\" style=\"vertical-align: middle;width:130px;height:40px;\" type=\"image\" name=\"SUBMIT\" value=\"Login\" onclick=\"return checkvalues(); return false;\" /> \n";
@@ -1098,7 +1097,7 @@ if ($relogin == 'YES')
     <center>
     <br/>
     <div class="ce">
-    <a class="ce" href='../credits'>VoIPai &reg; <? echo $version; ?></a>
+    <a class="ce" href='../credits'>GoAgent &reg; <? echo $version; ?></a>
     </div>  
     </center>
     <?	        
@@ -1121,27 +1120,27 @@ if ($user_login_first == 1)
                 var vdcamp = document.getElementById('VD_campaign').value;
 
                 if(uname=="") {
-                        alert("Usuário Requerido");
+                        alert("Username required");
                         document.getElementById('VD_login').focus();
                         return false;
                 }
 
                 if(pass=="") {
-                        alert("Senha Requerida");
+                        alert("Password required");
                         document.getElementById('VD_pass').focus();
                         return false;
                 }
 
                 if(vdcamp=="") {
-                        alert("Escolha uma Campanha.");
+                        alert("Choose a campaign.");
                         return false;
                 }
                 if(vdcamp=="invalid") {
-                        alert("Usuário/Senha Inválido.");
+                        alert("Invalid Username/Password.");
                         return false;
                 }
                 if(vdcamp=="invalidphone") {
-                        alert("Desculpe, seu login e senha do ramal não estão ativos. Entre em contato com o Suporte Técnico.");
+                        alert("Sorry, your phone login and password are not active. Please contact Technical Support.");
                         return false;
                 }
         }
@@ -1150,7 +1149,7 @@ if ($user_login_first == 1)
 
     <?php
     #first login
-    echo "<title>VoIPai &reg; $version: Login</title>\n";
+    echo "<title>GoAgent &reg; $version: Login</title>\n";
     echo "</head>\n";
     echo "<body class=\"bodybgback\" onresize=\"browser_dimensions();\" onload=\"browser_dimensions();\">\n";
         if ($hide_timeclock_link < 1)
@@ -1161,7 +1160,7 @@ if ($user_login_first == 1)
     echo "<div style=\"padding-top:2px;float:left;\"><a href=\"https://{$_SERVER['SERVER_NAME']}/\">";
     echo "<img src=\"images/goagent_logo.png\" alt=\"\" border=\"0\" /></a></div>";
     echo "<div align=\"right\" style=\"float:right;position:fixed;right:0px;top: 8px;padding-right:1%;z-index:99999999;color: white; font-size:13px;border:0px red solid;\">";
-    echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Login de Administrador</b></a></div>";
+    echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Admin Login</b></a></div>";
     echo "</div>";
     echo "<div class=\"img-grd\" style=\"font-size:12px; line-height:15px;\">&nbsp;<br />&nbsp;</div>";
     echo "<br><br><br><br>";
@@ -1179,19 +1178,19 @@ if ($user_login_first == 1)
     echo "<center><table width=\"400px\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
     echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
     echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 20px; padding-right:0px;\" colspan=\"0\"><center><img width='150px'  src='./images/goautodial_logo-mid.png'></center><br></td></tr>";
-    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px;  padding-left:35px;\">Operador Login:  </td></tr>";
+    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px;  padding-left:35px;\">Agent Login:  </td></tr>";
     echo "<tr><td align=\"center\" style=\"white-space:nowrap;\"><input class=\"form_input_button\" type=\"text\" name=\"VD_login\" id=\"VD_login\" size=\"30\" maxlength=\"20\" value=\"$VD_login\" /><br></td></tr>\n";
 
     echo "<tr><td colspan=\"2\">&nbsp;</td></tr>";
-    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Senha:  </td></tr>";
+    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Agent Password:  </td></tr>";
     echo "<tr><td align=\"center\" style=\"white-space:nowrap;\"><input class=\"form_input_button\" type=\"password\" name=\"VD_pass\" id=\"VD_pass\" size=\"30\" maxlength=\"20\" value=\"$VD_pass\" /><br></td></tr>\n";
     echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
     echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
-    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\" colspan=\"2\">Campanha:  </td></tr>";
+    echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\" colspan=\"2\">Campaign:  </td></tr>";
     echo "<tr><td align=\"center\" colspan=\"2\"><span id=\"LogiNCamPaigns\">$camp_form_code</span></td></tr>\n";
     echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\" colspan=\"2\">&nbsp;</td></tr>";
     echo "<tr><td align=\"center\" colspan=\"0\" style=\"padding-top:6px;\"><input src=\"images/portal-login-button.png\" style=\"vertical-align: middle;width:130px;height:40px;\" type=\"image\" name=\"SUBMIT\" value=\"Login\" onclick=\"return checkvalues(); return false;\" />\n";
-    echo "<span id=\"LogiNReseT\"><img src=\"images/portal-login-reload.png\"  style=\"cursor: pointer; vertical-align: middle;width:40px;height:40px;\" type=\"image\" value=\"\" title=\"Atualizar lista de Campanha.\" onclick=\"login_allowable_campaigns()\" /></span></td></tr>\n";
+    echo "<span id=\"LogiNReseT\"><img src=\"images/portal-login-reload.png\"  style=\"cursor: pointer; vertical-align: middle;width:40px;height:40px;\" type=\"image\" value=\"\" title=\"Refresh campaign list.\" onclick=\"login_allowable_campaigns()\" /></span></td></tr>\n";
     echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\" colspan=\"2\">&nbsp;</td></tr>";
     echo "</table></center><br />\n";
     echo "</form>\n";
@@ -1202,7 +1201,7 @@ if ($user_login_first == 1)
     <center>
     <br/>
     <div class="ce">
-    <a class="ce" href='../credits'>VoIPai &reg; <? echo $version; ?></a>
+    <a class="ce" href='../credits'>GoAgent &reg; <? echo $version; ?></a>
     </div>  
     </center>
     <?	    
@@ -1282,39 +1281,39 @@ if ($user_login_first == 1)
                 var vdcamp = document.getElementById('VD_campaign').value;
 
                 if(uname=="") {
-                        alert("Usuário Requerido");
+                        alert("Username required");
 			document.getElementById('VD_login').focus();
                         return false;
                 }
 
                 if(pass=="") {
-                        alert("Senha Requerida");
+                        alert("Password required");
 			document.getElementById('VD_pass').focus();
                         return false;
                 }
 
                 if(plogin=="") {
-                        alert("Login de Ramal Requerido");
+                        alert("Phone login required");
 			document.getElementById('phone_login').focus();
                         return false;
                 }
 
                 if(ppass=="") {
-                        alert("Senha do Ramal Requerido");
+                        alert("Phone password required");
 			document.getElementById('phone_pass').focus();
                         return false;
                 }
 
                 if(vdcamp=="") {
-                        alert("Escolha uma Campanha.");
+                        alert("Choose a campaign.");
                         return false;
                 }
                 if(vdcamp=="invalid") {
-                        alert("Usuário/Senha Inválido");
+                        alert("Invalid Username/Password.");
                         return false;
                 }
                 if(vdcamp=="invalidphone") {
-                        alert("Desculpe, seu login e senha do telefone não estão ativos. Entre em contato com o Suporte Técnico.");
+                        alert("Sorry, your phone login and password are not active. Please contact Technical Support.");
                         return false;
                 }
         }
@@ -1322,7 +1321,7 @@ if ($user_login_first == 1)
 
 			
 		<?php
-		echo "<title>VoIPai &reg; $version: Login</title>\n";
+		echo "<title>GoAgent &reg; $version: Login</title>\n";
 		echo "</head>\n";
                 echo "<body class=\"bodybgback\"  onresize=\"browser_dimensions();\"  onLoad=\"browser_dimensions();\">\n";
 		if ($hide_timeclock_link < 1)
@@ -1333,7 +1332,7 @@ if ($user_login_first == 1)
     		echo "<div style=\"padding-top:2px;float:left;\"><a href=\"https://{$_SERVER['SERVER_NAME']}/\">";
     		echo "<img src=\"images/goagent_logo.png\" alt=\"\" border=\"0\" /></a></div>";
     		echo "<div align=\"right\" style=\"float:right;position:fixed;right:0px;top: 8px;padding-right:1%;z-index:99999999;color: white; font-size:13px;border:0px red solid;\">";
-    		echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Login de Administrador</b></a></div>";
+    		echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Admin Login</b></a></div>";
     		echo "</div>";
     		echo "<div class=\"img-grd\" style=\"font-size:12px; line-height:15px;\">&nbsp;<br />&nbsp;</div>";
     		echo "<br><br><br><br>";
@@ -1351,23 +1350,23 @@ if ($user_login_first == 1)
     		echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
     		echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 20px; padding-right:0px;\" colspan=\"0\"><center><img width='150px'  src='./images/goautodial_logo-mid.png'></center><br></td></tr>";
                 echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
-                echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Login do Ramal: </td></tr>";
+                echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Phone Login: </td></tr>";
                 echo "<tr><td align=\"center\"><input class=\"form_input_button\" type=\"text\" name=\"phone_login\" id=\"phone_login\" size=\"30\" maxlength=\"20\" value=\"$phone_login\" /></td></tr>\n";
                
-		echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Senha do Ramal:  </td></tr>";
+		echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Phone Password:  </td></tr>";
                 echo "<tr><td align=\"center\"><input class=\"form_input_button\" type=\"password\" name=\"phone_pass\" id=\"phone_pass\" size=\"30\" maxlength=\"20\" value=\"$phone_pass\" /></td></tr>\n";
                 
                 echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
 		
-		echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Login Usuário:  </td></tr>";
+		echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">User Login:  </td></tr>";
                 echo "<tr><td align=\"center\"><input class=\"form_input_button\" type=\"text\" name=\"VD_login\" id=\"VD_login\"  size=\"30\" maxlength=\"20\" value=\"$VD_login\"></td></tr>\n";
                 
-		echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Senha Usuário:  </td></tr>";
+		echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">User Password:  </td></tr>";
                 echo "<tr><td align=\"center\"><input class=\"form_input_button\" type=\"password\" name=\"VD_pass\" id=\"VD_pass\" size=\"30\" maxlength=\"20\" value=\"$VD_pass\" /></td></tr>\n";
                 
                 echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td></tr>\n";
 		
-		echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Campanha:  </td></tr>";
+		echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\">Campaign:  </td></tr>";
                 echo "<tr><td align=\"center\"><span id=\"LogiNCamPaigns\">$camp_form_code</span></td></tr>\n";
                 echo "<tr><td align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 17px; padding-left:35px;\" colspan=\"2\">&nbsp;</td></tr>";
                 echo "<tr><td align=\"center\" colspan=\"0\" style=\"padding-top:6px;\"><input src=\"images/portal-login-button.png\" style=\"vertical-align: middle;width:130px;height:40px;\" type=\"image\" name=\"SUBMIT\" value=\"Login\" onclick=\"return checkvalues(); return false;\" /> \n";
@@ -1383,7 +1382,7 @@ if ($user_login_first == 1)
     <center>
     <br/>
     <div class="ce">
-    <a class="ce" href='../credits'>VoIPai &reg; <? echo $version; ?></a>
+    <a class="ce" href='../credits'>GoAgent &reg; <? echo $version; ?></a>
     </div>  
     </center>
     <?				echo "</body>\n\n";
@@ -2287,7 +2286,7 @@ else
 			else
 				{
 				$VDloginDISPLAY=1;
-                $VDdisplayMESSAGE = "Campanha inativa, tente novamente<br />";
+                $VDdisplayMESSAGE = "Campaign not active, please try again<br />";
 				}
 			}
 		else
@@ -2298,7 +2297,7 @@ else
 				fclose($fp);
 				}
 			$VDloginDISPLAY=1;
-            $VDdisplayMESSAGE = "Login incorreto, tente novamente<br />";
+            $VDdisplayMESSAGE = "Login incorrect, please try again<br />";
 			}
 		}
 	if ($VDloginDISPLAY)
@@ -2335,15 +2334,15 @@ else
                 }
 
                 if(vdcamp=="") {
-                        alert("Escolha uma Campanha.");
+                        alert("Choose a campaign.");
                         return false;
                 }
                 if(vdcamp=="invalid") {
-                        alert("Usuário/Senha inválido.");
+                        alert("Invalid Username/Password.");
                         return false;
                 }
                 if(vdcamp=="invalidphone") {
-                        alert("Desculpe, seu login e senha do telefone não estão ativos. Entre em contato com o Suporte Técnico");
+                        alert("Sorry, your phone login and password are not active. Please contact Technical Support.");
                         return false;
                 }
         }
@@ -2359,7 +2358,7 @@ else
                 echo "<div style=\"padding-top:2px;float:left;\"><a href=\"https://{$_SERVER['SERVER_NAME']}/\">";
                 echo "<img src=\"images/goagent_logo.png\" alt=\"\" border=\"0\" /></a></div>";
                 echo "<div align=\"right\" style=\"float:right;position:fixed;right:0px;top: 8px;padding-right:1%;z-index:99999999;color: white; font-size:13px;border:0px red solid;\">";
-                echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Login de Administrador</b></a></div>";
+                echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Admin Login</b></a></div>";
                 echo "</div>";
                 echo "<div class=\"img-grd\" style=\"font-size:12px; line-height:15px;\">&nbsp;<br />&nbsp;</div>";
                 echo "<br><br><br><br>";
@@ -2494,7 +2493,7 @@ echo "<tr><td align=\"left\" colspan=\"2\"><font size=\"1\"> &nbsp; </font></td>
                 echo "<div style=\"padding-top:2px;float:left;\"><a href=\"https://{$_SERVER['SERVER_NAME']}/\">";
                 echo "<img src=\"images/goagent_logo.png\" alt=\"\" border=\"0\" /></a></div>";
                 echo "<div align=\"right\" style=\"float:right;position:fixed;right:0px;top: 8px;padding-right:1%;z-index:99999999;color: white; font-size:13px;border:0px red solid;\">";
-                echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Login de Administrador</b></a></div>";
+                echo "<a href=\"https://{$_SERVER['SERVER_NAME']}/login/\" style=\"color:#FFFFFF;font-family:verdana;text-decoration:none;\"><b>Admin Login</b></a></div>";
                 echo "</div>";
                 echo "<div class=\"img-grd\" style=\"font-size:12px;line-height:15px;\">&nbsp;<br />&nbsp;</div>";
                 echo "<br><br><br><br>";
@@ -4145,11 +4144,11 @@ if ($enable_fast_refresh < 1) {echo "\tvar refresh_interval = 1000;\n";}
 	var consult_custom_go=0;
 	var consult_custom_sent=0;
 //goautodial
-    var DiaLControl_auto_HTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/resume.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" />";
-    var DiaLControl_auto_HTML_ready = "<a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADpause');\"><img src=\"./images/pause.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /></a><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" />";
-    var DiaLControl_auto_HTML_OFF = "<img src=\"./images/pause_OFF.png\" border=\"0\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" /> ";
-    var DiaLControl_manual_HTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" /></a>";
-    var DiaLControl_manual_HTML_OFF = "<img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" />";
+    var DiaLControl_auto_HTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/resume.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
+    var DiaLControl_auto_HTML_ready = "<a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADpause');\"><img src=\"./images/pause.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /></a><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
+    var DiaLControl_auto_HTML_OFF = "<img src=\"./images/pause_OFF.png\" border=\"0\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /> ";
+    var DiaLControl_manual_HTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /></a>";
+    var DiaLControl_manual_HTML_OFF = "<img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
 //end
     var image_loading = new Image();
 		image_loading.src="./images/goloading.gif";
@@ -6280,7 +6279,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 					if (scheduled_callbacks_count=='LIVE')
 						{CBcounT = CBcounTtotal_array[1];}
 					var CBcounTtoday = CBcounTtotal_array[2];
-					if (CBcounT == 0) {var CBprint = "SEM";}
+					if (CBcounT == 0) {var CBprint = "NO";}
 					else 
 						{
 						var CBprint = CBcounT;
@@ -6327,11 +6326,11 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 						}
 					if (CBprint < 2)
 						{
-						CBlinkCONTENT ="<a href=\"#\" onclick=\"CalLBacKsLisTCheck();return false;\">" + CBprint + '' + " RETORNOS ATIVOS</a>" + CBalert;
+						CBlinkCONTENT ="<a href=\"#\" onclick=\"CalLBacKsLisTCheck();return false;\">" + CBprint + '' + " ACTIVE CALLBACK</a>" + CBalert;
 						}
 					else
 						{
-						CBlinkCONTENT ="<a href=\"#\" onclick=\"CalLBacKsLisTCheck();return false;\">" + CBprint + '' + " RETORNOS ATIVOS</a>" + CBalert;
+						CBlinkCONTENT ="<a href=\"#\" onclick=\"CalLBacKsLisTCheck();return false;\">" + CBprint + '' + " ACTIVE CALLBACKS</a>" + CBalert;
 						}
 // 					CBlinkCONTENT ="<a href=\"#\" onclick=\"CalLBacKsLisTCheck();return false;\">" + CBpre + '' + CBprint + '' + " ACTIVE CALLBACKS" + CBpost + "</a>";	
 					document.getElementById("CBstatusSpan").innerHTML = CBlinkCONTENT;	
@@ -6401,7 +6400,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 						var CB_calls = all_CBs_array[0];
 						var loop_ct=0;
 						var conv_start=0;
-                        var CB_HTML = "<table id=\"CallBackListTableID\" width=\"<?php echo $HCwidth ?>px\"><tr bgcolor=\"<?php echo $SCRIPT_COLOR ?>\"><td><font class=\"log_title\">#</font></td><td align=\"center\"><font class=\"log_title\"> DIA/HORA DO RETORNO</font></td><td align=\"center\"><font class=\"log_title\">NÚMERO</font></td><td align=\"center\"><font class=\"log_title\">INFO</font></td><td align=\"center\"><font class=\"log_title\">NOME</font></td><td align=\"center\"><font class=\"log_title\">  STATUS</font></td><td align=\"center\"><font class=\"log_title\">CAMPANHA</font></td><td align=\"center\"><font class=\"log_title\">DATA/HORA DA ULTIMA CHAMADA</font></td><td align=\"center\"><font class=\"log_title\"> CHAMAR</font></td><td align=\"center\"><font class=\"log_title\"> ALT</font></td></tr>"
+                        var CB_HTML = "<table id=\"CallBackListTableID\" width=\"<?php echo $HCwidth ?>px\"><tr bgcolor=\"<?php echo $SCRIPT_COLOR ?>\"><td><font class=\"log_title\">#</font></td><td align=\"center\"><font class=\"log_title\"> CALLBACK DATE/TIME</font></td><td align=\"center\"><font class=\"log_title\">NUMBER</font></td><td align=\"center\"><font class=\"log_title\">INFO</font></td><td align=\"center\"><font class=\"log_title\">NAME</font></td><td align=\"center\"><font class=\"log_title\">  STATUS</font></td><td align=\"center\"><font class=\"log_title\">CAMPAIGN</font></td><td align=\"center\"><font class=\"log_title\">LAST CALL DATE/TIME</font></td><td align=\"center\"><font class=\"log_title\"> DIAL</font></td><td align=\"center\"><font class=\"log_title\"> ALT</font></td></tr>"
 						while (loop_ct < CB_calls)
 							{
 							loop_ct++;
@@ -6566,7 +6565,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 			else
 				{
 				move_on=0;
-				alert_box("VOCÊ DEVE ESTAR PAUSADO PARA FAZER UMA CHAMADA MANUAL");
+				alert_box("YOU MUST BE PAUSED TO MANUAL DIAL A NEW LEAD IN AUTO-DIAL MODE");
 				}
 			}
 		if (move_on == 1)
@@ -7250,12 +7249,12 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 					{auto_dial_level=starting_dial_level;}
 
 // 				document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_pause_OFF.gif\" border=\"0\" alt=\" Pause \" /><img src=\"./images/vdc_LB_resume_OFF.gif\" border=\"0\" alt=\"Resume\" /><br /><img src=\"./images/vdc_LB_dialnextnumber_OFF.gif\" border=\"0\" alt=\"Dial Next Number\" />";
-            document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" />";
+            document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
 				}
 			else
 				{
 // 				document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_dialnextnumber_OFF.gif\" border=\"0\" alt=\"Dial Next Number\" />";
-            document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" />";
+            document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
 				}
 			var manual_dial_only_type_flag = '';
 			if ( (mdtype == 'ALT') || (mdtype == 'ADDR3') )
@@ -7367,7 +7366,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 							if (starting_dial_level == 0)
 								{
 // 								document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/vdc_LB_dialnextnumber.gif\" border=\"0\" alt=\"Dial Next Number\" /></a>";
-                            document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" /></a>";
+                            document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /></a>";
 								}
 							else
 								{
@@ -7376,7 +7375,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 									auto_dial_level=starting_dial_level;
 
 // 									document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_pause_OFF.gif\" border=\"0\" alt=\" Pause \" /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/vdc_LB_resume.gif\" border=\"0\" alt=\"Resume\" /></a><br /><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/vdc_LB_dialnextnumber.gif\" border=\"0\" alt=\"Dial Next Number\" /></a>";
-                                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/resume.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Númerol Next Number\" /></a>";
+                                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/resume.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /></a>";
 									}
 								else
 									{
@@ -7648,12 +7647,12 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 				auto_dial_level=starting_dial_level;
 
                 //document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_pause_OFF.gif\" border=\"0\" alt=\" Pause \" /><img src=\"./images/vdc_LB_resume_OFF.gif\" border=\"0\" alt=\"Resume\" /><br /><img src=\"./images/vdc_LB_dialnextnumber_OFF.gif\" border=\"0\" alt=\"Dial Next Number\" />";
-                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" />";
+                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
 				}
 			else
 				{
                 //document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_dialnextnumber_OFF.gif\" border=\"0\" alt=\"Dial Next Number\" />";
-                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Discar Próximo Número\" />";
+                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
 				}
 
 			var xmlhttp=false;
@@ -7748,12 +7747,12 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 							if (dial_method == "INBOUND_MAN")
 								{
                                 //document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_pause_OFF.gif\" border=\"0\" alt=\" Pause \" /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/vdc_LB_resume.gif\" border=\"0\" alt=\"Resume\" /></a><br /><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/vdc_LB_dialnextnumber.gif\" border=\"0\" alt=\"Dial Next Number\" /></a>";
-                                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/resume.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" /></a>";
+                                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/resume.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /></a>";
 								}
 							else
 								{
                                 //document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/vdc_LB_dialnextnumber.gif\" border=\"0\" alt=\"Dial Next Number\" /></a>";
-                                document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" /></a>";
+                                document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /></a>";
 								}
 							}
 						}
@@ -8002,7 +8001,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 				auto_dial_level=starting_dial_level;
 
 //                 document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADpause');\"><img src=\"./images/vdc_LB_pause.gif\" border=\"0\" alt=\" Pause \" /></a><img src=\"./images/vdc_LB_resume_OFF.gif\" border=\"0\" alt=\"Resume\" /></a><br /><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/vdc_LB_dialnextnumber.gif\" border=\"0\" alt=\"Dial Next Number\" /></a>";
-                document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADpause');\"><img src=\"./images/pause.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /></a><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" /></a>";
+                document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADpause');\"><img src=\"./images/pause.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /></a><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /></a>";
 				}
 			else
 				{
@@ -8020,7 +8019,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 				auto_dial_level=starting_dial_level;
 
 //                 document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_pause_OFF.gif\" border=\"0\" alt=\" Pause \" /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/vdc_LB_resume.gif\" border=\"0\" alt=\"Resume\" /></a><br /><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/vdc_LB_dialnextnumber.gif\" border=\"0\" alt=\"Dial Next Number\" /></a>";
-                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/resume.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" /></a>";
+                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/resume.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /></a><small>&nbsp;</small><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /></a>";
 				}
 			else
 				{
@@ -8642,7 +8641,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 							if (dial_method == "INBOUND_MAN")
 								{
 //                                 document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_pause_OFF.gif\" border=\"0\" alt=\" Pause \" /><img src=\"./images/vdc_LB_resume_OFF.gif\" border=\"0\" alt=\"Resume\" /><br /><img src=\"./images/vdc_LB_dialnextnumber_OFF.gif\" border=\"0\" alt=\"Dial Next Number\" />";
-                                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" />";
+                                document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
 								}
 							else
 								{
@@ -9158,7 +9157,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 					else
 						{
 //                         document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/vdc_LB_dialnextnumber.gif\" border=\"0\" alt=\"Dial Next Number\" /></a>";
-                        document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" /></a>";
+                        document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /></a>";
 						}
 					reselect_alt_dial = 0;
 					}
@@ -9191,7 +9190,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 								if (dial_method == "INBOUND_MAN")
 									{
 //                                     document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_pause_OFF.gif\" border=\"0\" alt=\" Pause \" /><img src=\"./images/vdc_LB_resume_OFF.gif\" border=\"0\" alt=\"Resume\" /><br /><img src=\"./images/vdc_LB_dialnextnumber_OFF.gif\" border=\"0\" alt=\"Dial Next Number\" />";
-                                    document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" />";
+                                    document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
 									}
 								else
 									{
@@ -9208,7 +9207,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 					if (dial_method == "INBOUND_MAN")
 						{
 //                         document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_pause_OFF.gif\" border=\"0\" alt=\" Pause \" /><img src=\"./images/vdc_LB_resume_OFF.gif\" border=\"0\" alt=\"Resume\" /><br /><img src=\"./images/vdc_LB_dialnextnumber_OFF.gif\" border=\"0\" alt=\"Dial Next Number\" />";
-                        document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" />";
+                        document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" title=\"Pause\" alt=\" Pause \" /><br /><img src=\"./images/resume_OFF.png\" border=\"0\" title=\"Resume\" alt=\"Resume\" /><small>&nbsp;</small><img src=\"./images/dialnext_OFF.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" />";
 						}
 					else
 						{
@@ -9465,7 +9464,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 				var test_notes = document.vicidial_form.call_notes_dispo.value;
 				if (test_notes.length > 0)
 					{document.vicidial_form.call_notes.value = document.vicidial_form.call_notes_dispo.value}
-				document.getElementById("PerCallNotesContent").innerHTML = "<br /><b><font size=\"3\">Anotações: </font></b><br /><textarea name=\"call_notes_dispo\" id=\"call_notes_dispo\" rows=\"2\" cols=\"100\" class=\"cust_form_text\" value=\"\">" + document.vicidial_form.call_notes.value + "</textarea>";
+				document.getElementById("PerCallNotesContent").innerHTML = "<br /><b><font size=\"3\">Call Notes: </font></b><br /><textarea name=\"call_notes_dispo\" id=\"call_notes_dispo\" rows=\"2\" cols=\"100\" class=\"cust_form_text\" value=\"\">" + document.vicidial_form.call_notes.value + "</textarea>";
 				}
 			else
 				{
@@ -9570,7 +9569,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 				if (agent_pause_codes_active=='FORCE')
 					{var Go_BacK_LinK = '';}
 				else
-                    {var Go_BacK_LinK = "<font size=\"3\" style=\"\"><b><a href=\"#\" onclick=\"PauseCodeSelect_submit('');return false;\">Voltar</a>";}
+                    {var Go_BacK_LinK = "<font size=\"3\" style=\"\"><b><a href=\"#\" onclick=\"PauseCodeSelect_submit('');return false;\">Go Back</a>";}
 
                 PauseCode_HTML = PauseCode_HTML + "</span></font></td></tr></table><br /><br />" + Go_BacK_LinK;
 				document.getElementById("PauseCodeSelectContent").innerHTML = PauseCode_HTML;
@@ -9730,7 +9729,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
                 {GroupAlias_HTML = GroupAlias_HTML + "</span></font></td><td bgcolor=\"#99FF99\" height=\"300px\" width=\"240px\" valign=\"top\"><font class=\"log_text\"><span id=GroupAliasSelectB>";}
 			}
 
-        var Go_BacK_LinK = "<font size=\"3\" style=\"BACKGROUND-COLOR: #FFFFCC\"><b><a href=\"#\" onclick=\"GroupAliasSelect_submit('');return false;\">Voltar</a>";
+        var Go_BacK_LinK = "<font size=\"3\" style=\"BACKGROUND-COLOR: #FFFFCC\"><b><a href=\"#\" onclick=\"GroupAliasSelect_submit('');return false;\">Go Back</a>";
 
         GroupAlias_HTML = GroupAlias_HTML + "</span></font></td></tr></table><br /><br />" + Go_BacK_LinK;
 		document.getElementById("GroupAliasSelectContent").innerHTML = GroupAlias_HTML;
@@ -10796,7 +10795,7 @@ function set_length(SLnumber,SLlength_goal,SLdirection)
 					//document.getElementById("LogouTBoxLink").innerHTML = logout_content + "<img width=\"150px\"  src=\"./images/goautodial_logo-mid.png\" /><br /><a href=\"" + agcPAGE + "?relogin=YES&session_epoch=" + epoch_sec + "&session_id=" + session_id + "&session_name=" + session_name + "&VD_login=" + user + "&VD_campaign=" + campaign + "&phone_login=" + original_phone_login + "&phone_pass=" + phone_pass + "&VD_pass=" + pass + "\">CLICK HERE TO LOG IN AGAIN</a>\n";
 
 					//agent session
-                                        document.getElementById("LogouTBoxLink").innerHTML = logout_content + "<img width=\"150px\"  src=\"./images/goautodial_logo-mid.png\" /><br /><a href=\"" + agcPAGE + "?relogin=YES&session_epoch=" + epoch_sec + "&session_id=" + session_id + "&session_name=" + session_name + "&VD_login=" + user + "&phone_login=" + original_phone_login + "&phone_pass=" + phone_pass + "&VD_pass=" + pass + "\">CLIQUE PARA SE LOGAR NOVAMENTE</a>\n";
+                                        document.getElementById("LogouTBoxLink").innerHTML = logout_content + "<img width=\"150px\"  src=\"./images/goautodial_logo-mid.png\" /><br /><a href=\"" + agcPAGE + "?relogin=YES&session_epoch=" + epoch_sec + "&session_id=" + session_id + "&session_name=" + session_name + "&VD_login=" + user + "&phone_login=" + original_phone_login + "&phone_pass=" + phone_pass + "&VD_pass=" + pass + "\">CLICK HERE TO LOG IN AGAIN</a>\n";
 
 
 					logout_stop_timeouts = 1;
@@ -12351,7 +12350,7 @@ function phone_number_format(formatphone) {
 			else
 				{
 				move_on=0;
-				alert_box("Você precisa estar pausado para tal ação");
+				alert_box("YOU MUST BE PAUSED TO CHANGE TERRITORIES");
 				}
 			}
 		if (move_on == 1)
@@ -12414,7 +12413,7 @@ function phone_number_format(formatphone) {
 		CallBackDatEForM = document.vicidial_form.CallBackDatESelectioN.value;
 		CallBackCommenTs = document.vicidial_form.CallBackCommenTsField.value;
 		if (CallBackDatEForM.length < 2)
-			{alert_box("Você precisa escolher uma Data");}
+			{alert_box("You must choose a date");}
 		else
 			{
 
@@ -12721,13 +12720,13 @@ function phone_number_format(formatphone) {
 			if (agent_xfer_park_customer_dial < 1)
 				{hideDiv('ParkCustomerDial');}
 			if (AllowManualQueueCallsChoice == '1')
-                {document.getElementById("ManualQueueChoice").innerHTML = "<a href=\"#\" onclick=\"ManualQueueChoiceChange('1');return false;\">Fila Manual não está Ativa</a><br />";}
+                {document.getElementById("ManualQueueChoice").innerHTML = "<a href=\"#\" onclick=\"ManualQueueChoiceChange('1');return false;\">Manual Queue is Off</a><br />";}
 
 			document.vicidial_form.LeadLookuP.checked=true;
 
 			if ( (agent_pause_codes_active=='Y') || (agent_pause_codes_active=='FORCE') )
 				{
-				document.getElementById("PauseCodeLinkSpan").innerHTML = "<a href=\"#\" onclick=\"PauseCodeSelectContent_create();return false;\">COLOQUE UM CÓDIGO DE PAUSA</a>";
+				document.getElementById("PauseCodeLinkSpan").innerHTML = "<a href=\"#\" onclick=\"PauseCodeSelectContent_create();return false;\">ENTER A PAUSE CODE</a>";
 				}
 			if (VICIDiaL_allow_closers < 1)
 				{
@@ -12866,7 +12865,7 @@ function phone_number_format(formatphone) {
 						{
 						reselect_alt_dial = 1;
 //                         document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/vdc_LB_dialnextnumber.gif\" border=\"0\" alt=\"Dial Next Number\" /></a>";
-                        document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Discar Próximo Número\" alt=\"Discar Próximo Número\" /></a>";
+                        document.getElementById("DiaLControl").innerHTML = "<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" title=\"Dial Next Number\" alt=\"Dial Next Number\" /></a>";
 
 						document.getElementById("MainStatuSSpan").innerHTML = "Dial Next Call";
 						}
@@ -13168,17 +13167,17 @@ function phone_number_format(formatphone) {
 			{
 			var statusmon='';
 			if (month == 1) {statusmon = "JAN";}
-			if (month == 2) {statusmon = "FEV";}
+			if (month == 2) {statusmon = "FEB";}
 			if (month == 3) {statusmon = "MAR";}
-			if (month == 4) {statusmon = "ABR";}
-			if (month == 5) {statusmon = "MAI";}
+			if (month == 4) {statusmon = "APR";}
+			if (month == 5) {statusmon = "MAY";}
 			if (month == 6) {statusmon = "JUN";}
-			if (month == 7) {statusmon = "JUL";}
-			if (month == 8) {statusmon = "AGO";}
-			if (month == 9) {statusmon = "SET";}
-			if (month == 10) {statusmon = "OUT";}
+			if (month == 7) {statusmon = "JLY";}
+			if (month == 8) {statusmon = "AUG";}
+			if (month == 9) {statusmon = "SEP";}
+			if (month == 10) {statusmon = "OCT";}
 			if (month == 11) {statusmon = "NOV";}
-			if (month == 12) {statusmon = "DEZ";}
+			if (month == 12) {statusmon = "DEC";}
 
 			status_date = statusmon + " " + daym;
 			}
@@ -13195,27 +13194,27 @@ function phone_number_format(formatphone) {
 		if (diff_time_format == 1)
 			{
 			var statusmon='';
-			if (month == 1) {statusmon = "Janeiro";}
-			if (month == 2) {statusmon = "Fevereiro";}
-			if (month == 3) {statusmon = "Março";}
-			if (month == 4) {statusmon = "Abril";}
-			if (month == 5) {statusmon = "Maio";}
-			if (month == 6) {statusmon = "Junho";}
-			if (month == 7) {statusmon = "Julho";}
-			if (month == 8) {statusmon = "Agosto";}
-			if (month == 9) {statusmon = "Setembro";}
-			if (month == 10) {statusmon = "Outubro";}
-			if (month == 11) {statusmon = "Novembro";}
-			if (month == 12) {statusmon = "Dezembro";}
+			if (month == 1) {statusmon = "January";}
+			if (month == 2) {statusmon = "February";}
+			if (month == 3) {statusmon = "March";}
+			if (month == 4) {statusmon = "April";}
+			if (month == 5) {statusmon = "May";}
+			if (month == 6) {statusmon = "June";}
+			if (month == 7) {statusmon = "July";}
+			if (month == 8) {statusmon = "August";}
+			if (month == 9) {statusmon = "September";}
+			if (month == 10) {statusmon = "October";}
+			if (month == 11) {statusmon = "November";}
+			if (month == 12) {statusmon = "December";}
 
 			var statusday='';
-			if (dayz == 1) {statusday = "Domingo";}
-			if (dayz == 2) {statusday = "Segunda";}
-			if (dayz == 3) {statusday = "Terça";}
-			if (dayz == 4) {statusday = "Quarta";}
-			if (dayz == 5) {statusday = "Quinta";}
-			if (dayz == 6) {statusday = "Sexta";}
-			if (dayz == 7) {statusday = "Sábado";}
+			if (dayz == 1) {statusday = "Sunday";}
+			if (dayz == 2) {statusday = "Monday";}
+			if (dayz == 3) {statusday = "Tuesday";}
+			if (dayz == 4) {statusday = "Wednesday";}
+			if (dayz == 5) {statusday = "Thursday";}
+			if (dayz == 6) {statusday = "Friday";}
+			if (dayz == 7) {statusday = "Saturday";}
 
 			document.getElementById("new_status").innerHTML = statusday + ", " + statusmon + " " + daym + ", " + year + " " + status_time + display_message;
 			}
@@ -13263,17 +13262,17 @@ function phone_number_format(formatphone) {
 			{
 			var customermon='';
 			if (Cmon == 1) {customermon = "JAN";}
-			if (Cmon == 2) {customermon = "FEV";}
-			if (Cmon == 3) {customermon = "MAI";}
-			if (Cmon == 4) {customermon = "ABR";}
-			if (Cmon == 5) {customermon = "MAI";}
+			if (Cmon == 2) {customermon = "FEB";}
+			if (Cmon == 3) {customermon = "MAR";}
+			if (Cmon == 4) {customermon = "APR";}
+			if (Cmon == 5) {customermon = "MAY";}
 			if (Cmon == 6) {customermon = "JUN";}
-			if (Cmon == 7) {customermon = "JUL";}
-			if (Cmon == 8) {customermon = "AGO";}
-			if (Cmon == 9) {customermon = "SET";}
-			if (Cmon == 10) {customermon = "OUT";}
+			if (Cmon == 7) {customermon = "JLY";}
+			if (Cmon == 8) {customermon = "AUG";}
+			if (Cmon == 9) {customermon = "SEP";}
+			if (Cmon == 10) {customermon = "OCT";}
 			if (Cmon == 11) {customermon = "NOV";}
-			if (Cmon == 12) {customermon = "DEZ";}
+			if (Cmon == 12) {customermon = "DEC";}
 
 			customer_date = customermon + " " + Cdaym + " ";
 			}
@@ -13531,7 +13530,7 @@ function phone_number_format(formatphone) {
 			{
 			if (showxfervar != 'OFF')
 				{
-				alert_box('VOCÊ NÃO TEM PERMISSÃO PARA TRANSFERIR CHAMADAS');
+				alert_box('YOU DO NOT HAVE PERMISSIONS TO TRANSFER CALLS');
 				}
 			}
 		}
@@ -13575,7 +13574,7 @@ function phone_number_format(formatphone) {
 				if (dial_method == "INBOUND_MAN")
 					{
                     //document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/vdc_LB_pause_OFF.gif\" border=\"0\" alt=\" Pause \" /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><img src=\"./images/vdc_LB_resume.gif\" border=\"0\" alt=\"Resume\" /></a><br /><a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/vdc_LB_dialnextnumber.gif\" border=\"0\" alt=\"Dial Next Number\" /></a>";
-                    document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" alt=\" Pause \" /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><br /><img src=\"./images/resume.png\" border=\"0\" alt=\"Resume\" /></a>&nbsp;<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" alt=\"Discar Próximo Número\" /></a>";
+                    document.getElementById("DiaLControl").innerHTML = "<img src=\"./images/pause_OFF.png\" border=\"0\" alt=\" Pause \" /><a href=\"#\" onclick=\"AutoDial_ReSume_PauSe('VDADready');\"><br /><img src=\"./images/resume.png\" border=\"0\" alt=\"Resume\" /></a>&nbsp;<a href=\"#\" onclick=\"ManualDialNext('','','','','','0');\"><img src=\"./images/dialnext.png\" border=\"0\" alt=\"Dial Next Number\" /></a>";
 					if (manual_dial_preview == 1)
 						{buildDiv('DiaLLeaDPrevieW');}
 					}
@@ -13633,7 +13632,7 @@ function phone_number_format(formatphone) {
 			var genderValue =  document.getElementById('gender_list').options[genderIndex].value;
 			if (genderValue == 'M') {var gIndex = 1;}
 			if (genderValue == 'F') {var gIndex = 2;}
-			document.getElementById("GENDERhideFORieALT").innerHTML = '<select size="1" name="gender_list" class="cust_form" id="gender_list"><option value="U">I - Indefinido</option><option value="M">M - Masculino</option><option value="F">F - Ferminino</option></select>';
+			document.getElementById("GENDERhideFORieALT").innerHTML = '<select size="1" name="gender_list" class="cust_form" id="gender_list"><option value="U">U - Undefined</option><option value="M">M - Male</option><option value="F">F - Female</option></select>';
 			document.getElementById("GENDERhideFORie").innerHTML = '';
 			document.getElementById("gender_list").selectedIndex = gIndex;
 			}
@@ -13648,7 +13647,7 @@ function phone_number_format(formatphone) {
 			var genderValue =  document.getElementById('gender_list').options[genderIndex].value;
 			if (genderValue == 'M') {var gIndex = 1;}
 			if (genderValue == 'F') {var gIndex = 2;}
-			document.getElementById("GENDERhideFORie").innerHTML = '<select size="1" name="gender_list" class="cust_form" id="gender_list"><option value="U">I - Indefinido</option><option value="M">M - Masculino</option><option value="F">F - Ferminino</option></select>';
+			document.getElementById("GENDERhideFORie").innerHTML = '<select size="1" name="gender_list" class="cust_form" id="gender_list"><option value="U">U - Undefined</option><option value="M">M - Male</option><option value="F">F - Female</option></select>';
 			document.getElementById("GENDERhideFORieALT").innerHTML = '';
 			document.getElementById("gender_list").selectedIndex = gIndex;
 			}
@@ -13814,11 +13813,11 @@ function phone_number_format(formatphone) {
 
 		if (disButton=="PARK")
 			{
-			disParkButton.innerHTML = '<IMG SRC="./images/callpark_OFF.png" border=0 title="Estacionar chamada" alt="Park Call">';
+			disParkButton.innerHTML = '<IMG SRC="./images/callpark_OFF.png" border=0 title="Park Call" alt="Park Call">';
 			}
 		else
 			{
-			disTranButton.innerHTML = '<IMG SRC="./images/transfer_OFF.png" border=0 title="Transferir - Conferencia" alt="Transfer - Conference">';
+			disTranButton.innerHTML = '<IMG SRC="./images/transfer_OFF.png" border=0 title="Transfer - Conference" alt="Transfer - Conference">';
 			}
 		}
 
@@ -13833,7 +13832,7 @@ function phone_number_format(formatphone) {
 			}
 		else
 			{
-			enTranButton.innerHTML = "<a href=\"#\" onclick=\"ShoWTransferMain('ON');disableButton('PARK');\"><img src=\"./images/transfer.png\" border=\"0\" title=\"Transferir - Conferencia\" alt=\"Transfer - Conference\" /></a>";
+			enTranButton.innerHTML = "<a href=\"#\" onclick=\"ShoWTransferMain('ON');disableButton('PARK');\"><img src=\"./images/transfer.png\" border=\"0\" title=\"Transfer - Conference\" alt=\"Transfer - Conference\" /></a>";
 			}
 		}
 	</script>
@@ -13926,7 +13925,7 @@ $zi=2;
     <input type="hidden" name="custom_field_values" id="custom_field_values" value="" />
     <input type="hidden" name="FORM_LOADED" id="FORM_LOADED" value="0" />
 	<font class="queue_text">
-	<a href="#" onclick="start_all_refresh();"><font class="queue_text">Logado como Usuário</font></a>
+	<a href="#" onclick="start_all_refresh();"><font class="queue_text">Logged in as User</font></a>
 	<?php 
 	echo ": $VD_login on Phone: $SIP_user"; 
 	if ($on_hook_agent == 'Y')
@@ -13936,8 +13935,8 @@ $zi=2;
 	 &nbsp; &nbsp; <span id="agentchannelSPAN"></span></font>
     </td><td colspan="3" valign="top" align="right"><font class="body_text">
 	<?php if ($territoryCT > 0) {echo "<a href=\"#\" onclick=\"OpeNTerritorYSelectioN();return false;\">TERRITORIES</a> &nbsp; &nbsp; \n";} ?>
-	<?php if ($INgrpCT > 0) {echo "<a href=\"#\" onclick=\"OpeNGrouPSelectioN();return false;\">GRUPOS</a> &nbsp; &nbsp; \n";} ?>
-	<?php	echo "<a href=\"#\" onclick=\"NormalLogout();return false;\">SAIR</a>\n"; ?>
+	<?php if ($INgrpCT > 0) {echo "<a href=\"#\" onclick=\"OpeNGrouPSelectioN();return false;\">GROUPS</a> &nbsp; &nbsp; \n";} ?>
+	<?php	echo "<a href=\"#\" onclick=\"NormalLogout();return false;\">LOGOUT</a>\n"; ?>
     </font></td></tr>
     </table>
 </span>
@@ -13957,7 +13956,7 @@ $zi=2;
 </span>
 
 <span style="position:absolute;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;display:none;" id="WelcomeBoxA">
-    <table border="0" bgcolor="#FFFFFF" width="<?php echo $CAwidth ?>px" height="<?php echo $HKwidth ?>px"><tr><td align="center"><br /><span id="WelcomeBoxAt">Tela do Operador</span></td></tr></table>
+    <table border="0" bgcolor="#FFFFFF" width="<?php echo $CAwidth ?>px" height="<?php echo $HKwidth ?>px"><tr><td align="center"><br /><span id="WelcomeBoxAt">Agent Screen</span></td></tr></table>
 </span>
 
 <?php
@@ -13991,19 +13990,19 @@ if (($call_requeue_button > 0) || ($quick_transfer_button_enabled > 0) || ( ($iv
     <br style="font-size: 9px;" />
 	<font class="body_text"><center>
 	<table border="0" id="ControlTable" cellpadding="0" cellspacing="0" width="180" height="190"><tr><td align="<?php echo $ct_align; ?>" valign="top" style="padding-right:3px;white-space: nowrap;">
-	<span STYLE="background-color: #FFFFFF;font-size: 2px;" id="HangupControl"><IMG SRC="./images/hangup_OFF.png" border=0 title="Desligar Cliente" alt="Hangup Customer"></span><small>&nbsp;</small><span id="DiaLControl"><a href="#" onClick="ManualDialNext('','','','','','0');"><IMG SRC="./images/dialnext.png" border=0 title="Discar Próximo Número" alt="Discar Próximo Número"></a></span><br />
-	<span STYLE="background-color: #FFFFFF;font-size: 2px;" id="ParkControl"><IMG SRC="./images/callpark_OFF.png" border=0 title="Estacionar Chamada" alt="Park Call"></span><small>&nbsp;</small><span STYLE="background-color: #FFFFFF" id="XferControl"><IMG SRC="./images/transfer_OFF.png" border=0 title="Transferir - Conferência" alt="Transfer - Conference"></span>
+	<span STYLE="background-color: #FFFFFF;font-size: 2px;" id="HangupControl"><IMG SRC="./images/hangup_OFF.png" border=0 title="Hangup Customer" alt="Hangup Customer"></span><small>&nbsp;</small><span id="DiaLControl"><a href="#" onClick="ManualDialNext('','','','','','0');"><IMG SRC="./images/dialnext.png" border=0 title="Dial Next Number" alt="Dial Next Number"></a></span><br />
+	<span STYLE="background-color: #FFFFFF;font-size: 2px;" id="ParkControl"><IMG SRC="./images/callpark_OFF.png" border=0 title="Park Call" alt="Park Call"></span><small>&nbsp;</small><span STYLE="background-color: #FFFFFF" id="XferControl"><IMG SRC="./images/transfer_OFF.png" border=0 title="Transfer - Conference" alt="Transfer - Conference"></span>
 	</td><td valign="top" align="left">
 	<?php
 	if ( ($ivr_park_call=='ENABLED') or ($ivr_park_call=='ENABLED_PARK_ONLY') )
-        {echo "<span style=\"background-color: $MAIN_COLOR;font-size: 2px;\" id=\"ivrParkControl\" title=\"IVR CALL PARK\"><img src=\"./images/ivrcallpark_OFF.png\" style=\"padding-bottom:3px;padding-top:0px;\" border=\"0\" title=\"URA Estacionar Chamada\" alt=\"IVR Park Call\" /></span>$br_fix\n";}
+        {echo "<span style=\"background-color: $MAIN_COLOR;font-size: 2px;\" id=\"ivrParkControl\" title=\"IVR CALL PARK\"><img src=\"./images/ivrcallpark_OFF.png\" style=\"padding-bottom:3px;padding-top:0px;\" border=\"0\" title=\"IVR Park Call\" alt=\"IVR Park Call\" /></span>$br_fix\n";}
 	else
 		{echo "<span style=\"background-color: $MAIN_COLOR;font-size: 2px;\" id=\"ivrParkControl\"></span>\n";}
 	?>
 
 	<?php
 	if ($quick_transfer_button_enabled > 0)
-        {echo "<span style=\"background-color: $MAIN_COLOR;font-size: 2px;\" id=\"QuickXfer\" title=\"QUICK TRANSFER\"><img src=\"./images/quicktransfer_OFF.png\" style=\"padding-bottom:3px;\" border=\"0\" title=\"Transferência Rápida\" alt=\"Quick Transfer\" /></span>$br_fix\n";}
+        {echo "<span style=\"background-color: $MAIN_COLOR;font-size: 2px;\" id=\"QuickXfer\" title=\"QUICK TRANSFER\"><img src=\"./images/quicktransfer_OFF.png\" style=\"padding-bottom:3px;\" border=\"0\" title=\"Quick Transfer\" alt=\"Quick Transfer\" /></span>$br_fix\n";}
 	?>
 
 	<span STYLE="background-color: #FFFFFF;font-size: 2px;" id="ReQueueCall"></span>
@@ -14011,8 +14010,8 @@ if (($call_requeue_button > 0) || ($quick_transfer_button_enabled > 0) || ( ($iv
 	<br />
 	<span id="ManualQueueNotice"></span>
 	<span id="ManualQueueChoice"></span>
-    <span id="DiaLLeaDPrevieW"><font class="preview_text"> <input type="checkbox" name="LeadPreview" size="1" value="0" />&nbsp;PRÉ-VISUALIZAÇÃO DO CONTATO&nbsp;<br /></font></span>
-    <span id="DiaLDiaLAltPhonE"><font class="preview_text"> <input type="checkbox" name="DiaLAltPhonE" size="1" value="0" />&nbsp;ALT DISCAGEM DE RAMAL&nbsp;<br /></font></span>
+    <span id="DiaLLeaDPrevieW"><font class="preview_text"> <input type="checkbox" name="LeadPreview" size="1" value="0" />&nbsp;LEAD PREVIEW&nbsp;<br /></font></span>
+    <span id="DiaLDiaLAltPhonE"><font class="preview_text"> <input type="checkbox" name="DiaLAltPhonE" size="1" value="0" />&nbsp;ALT PHONE DIAL&nbsp;<br /></font></span>
 
 <!--     RECORDING FILE:<br /> -->
     <font class="body_tiny" style="display:none;"><span id="RecorDingFilename" style="display:none;"></span></font><!--<br />-->
@@ -14033,12 +14032,12 @@ if (($call_requeue_button > 0) || ($quick_transfer_button_enabled > 0) || ( ($iv
 	?>
     <span id="SpacerSpanC"><img src="./images/blank.gif" width="145px" height="14px" border="0" /></span><br />
 <?php if ( ($HK_statuses_camp > 0) && ( ($user_level>=$HKuser_level) or ($VU_hotkeys_active > 0) ) ) { ?>
-	<span id="hotkeysdisplay"><a href="#" onMouseOver="HotKeys('ON')"><img src="./images/vdc_XB_hotkeysactive_OFF.gif" border="0" alt="HOT KEYS INATIVAS" /></a></span><br />
+	<span id="hotkeysdisplay"><a href="#" onMouseOver="HotKeys('ON')"><img src="./images/vdc_XB_hotkeysactive_OFF.gif" border="0" alt="HOT KEYS INACTIVE" /></a></span><br />
 <?php } ?>
     <span id="SpacerSpanC"><img src="./images/blank.gif" width="145px" height="5px" border="0" /></span><br />
     <font class="body_small_bold"><span id="ParkCounterSpan"> &nbsp; </span></font><br />
     <span id="SpacerSpanC"><img src="./images/blank.gif" width="145px" height="5px" border="0" /></span><br />
-    <div class="text_input" id="SendDTMFdiv"><span style="background-color: <?php echo $MAIN_COLOR ?>" id="SendDTMF"><input type="button" value=" ENVIAR DTMF " onclick="SendConfDTMF(session_id);return false;" style="font-size: 10px;vertical-align: middle" />  <input type="text" size="5" name="conf_dtmf" class="cust_form_dtmf" value="" maxlength="50" /></div></span>
+    <div class="text_input" id="SendDTMFdiv"><span style="background-color: <?php echo $MAIN_COLOR ?>" id="SendDTMF"><input type="button" value=" SEND DTMF " onclick="SendConfDTMF(session_id);return false;" style="font-size: 10px;vertical-align: middle" />  <input type="text" size="5" name="conf_dtmf" class="cust_form_dtmf" value="" maxlength="50" /></div></span>
     <span id="SpacerSpanC"><img src="./images/blank.gif" width="145px" height="5px" border="0" /></span><br />
 	<font class="body_small"><span id="dialableleadsspan">
 	<?php 
@@ -14089,7 +14088,7 @@ foreach ($label as $key => $value) {
 		    else
 		    {echo "<tr><td align=\"right\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;$value: </font></td><td><input type=\"text\" size=\"55\" maxlength=\"255\" id=\"$key\" class=\"cust_form\" name=\"$key\" value=\"\" /></td></tr>\n";}
 		} elseif ($key == "gender_list") {
-		    echo "<tr><td align=\"right\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;$value: </font></td><td><span id=\"GENDERhideFORie\"><select size=\"1\" name=\"$key\" class=\"cust_form\" id=\"$key\"><option value=\"U\">I - Indefinido</option><option value=\"M\">M - Masculino</option><option value=\"F\">F - Ferminino</option></select></span></td></tr>\n";
+		    echo "<tr><td align=\"right\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;$value: </font></td><td><span id=\"GENDERhideFORie\"><select size=\"1\" name=\"$key\" class=\"cust_form\" id=\"$key\"><option value=\"U\">U - Undefined</option><option value=\"M\">M - Male</option><option value=\"F\">F - Female</option></select></span></td></tr>\n";
 		} elseif ($key == "phone_number") {
 		    if ( (ereg('Y',$disable_alter_custphone)) or (ereg('HIDE',$disable_alter_custphone)) )
 			{
@@ -14167,14 +14166,14 @@ foreach ($label as $key => $value) {
 	} else {
 		echo "<tr style=\"display:none;\" width=\"100\" nowrap><td align=\"right\"><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;$value: </font></td><td><input type=\"hidden\" id=\"$key\" name=\"$key\" value=\"\" />";
 		if ($key == "gender_list")
-		    {echo "<span id=\"GENDERhideFORie\" style=\"display:none;\"><select size=\"1\" name=\"$key\" class=\"cust_form\" id=\"$key\"><option value=\"U\">I - Indefinido</option><option value=\"M\">M - Masculino</option><option value=\"F\">F - Feminino</option></select></span>";}
+		    {echo "<span id=\"GENDERhideFORie\" style=\"display:none;\"><select size=\"1\" name=\"$key\" class=\"cust_form\" id=\"$key\"><option value=\"U\">U - Undefined</option><option value=\"M\">M - Male</option><option value=\"F\">F - Female</option></select></span>";}
 		echo "</td></tr>\n";
 	}
 }
 
 if ($per_call_notes == 'ENABLED')
 	{
-	echo "<tr><td align=\"right\" valign=\"top\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;Anotações: ";
+	echo "<tr><td align=\"right\" valign=\"top\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;Call Notes: ";
 	if ($agent_call_log_view == '1')
 	{echo "<br /><span id=\"CallNotesButtons\"><a href=\"#\" onclick=\"VieWNotesLoG();return false;\">view notes</a></span> ";}
 	echo "</td><td><font class=\"body_text\">";
@@ -14182,14 +14181,14 @@ if ($per_call_notes == 'ENABLED')
 	}
 else
 	{
-	echo "<tr><td align=\"right\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;Anotações: </td><td><input type=\"hidden\" name=\"call_notes\" id=\"call_notes\" value=\"\" /><span id=\"CallNotesButtons\"></span></td></tr>\n";
+	echo "<tr><td align=\"right\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;Call Notes: </td><td><input type=\"hidden\" name=\"call_notes\" id=\"call_notes\" value=\"\" /><span id=\"CallNotesButtons\"></span></td></tr>\n";
 	}
 
 
 	?>
 	</table>
 	<br />
-	<span id="CBstatusSpan"><font class="body_text">X RETORNOS ATIVOS</font></span><br />
+	<span id="CBstatusSpan"><font class="body_text">X ACTIVE CALLBACKS</font></span><br />
 <?php
 	if ( ($agent_pause_codes_active=='Y') || ($agent_pause_codes_active=='FORCE') )
 		{
@@ -14200,22 +14199,22 @@ else
 		echo "<span id=\"PauseCodeLinkSpan\" style=\"display:none;\"></span>";
 		}
 ?>
-	<span id="MDstatusSpan"><font class="body_text"><a href="#" onclick="NeWManuaLDiaLCalL('NO');return false;">DISCAGEM MANUAL</a></span>
+	<span id="MDstatusSpan"><font class="body_text"><a href="#" onclick="NeWManuaLDiaLCalL('NO');return false;">MANUAL DIAL</a></span>
 <?php
 	if ( (ereg('Y',$disable_alter_custphone)) or (ereg('HIDE',$disable_alter_custphone)) )
 	{
 		$hideFastDial = 'style="display:none"';
 	}
 ?>
-	 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="#" onclick="NeWManuaLDiaLCalL('FAST');return false;" <?=$hideFastDial ?>>DISCAGEM RÁPIDA</a></font><br />
+	 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="#" onclick="NeWManuaLDiaLCalL('FAST');return false;" <?=$hideFastDial ?>>FAST DIAL</a></font><br />
 	<?php
 	if ($agent_lead_search == 'ENABLED')
 		{echo "<font class=\"body_text\"><a href=\"#\" onclick=\"OpeNSearcHForMDisplaYBox();return false;\">LEAD SEARCH</a></font><br />\n";}
 	?>
-	<span id="CallLogButtons"><a href="#" onclick="VieWCalLLoG();return false;">VER RELATÓRIOS DA CHAMADA</a><br /></span>
+	<span id="CallLogButtons"><a href="#" onclick="VieWCalLLoG();return false;">VIEW CALL LOG</a><br /></span>
 	<br /><br />
 	<font class="body_text" style="font-size:11px">
-	<strong>Session ID:</strong> <span id=sessionIDspan></span><br /><strong>Duração da Chamada:</strong> <span id="SecondSDISP"> &nbsp; &nbsp; </span>
+	<strong>Session ID:</strong> <span id=sessionIDspan></span><br /><strong>Call Length:</strong> <span id="SecondSDISP"> &nbsp; &nbsp; </span>
 	</font>
 	<br />
 	</td>
@@ -14265,7 +14264,7 @@ else
  </table>
 </span>
 
-<font class="body_small"><span id="busycallsdisplay" style="display: none; position: fixed;left: 5px; bottom: 100px;z-index: <?php $zi++; echo $zi ?>"><a href="#"  onclick="conf_channels_detail('SHOW');">Mostrar informações do canal de chamada de conferência</a></span></font>
+<font class="body_small"><span id="busycallsdisplay" style="display: none; position: fixed;left: 5px; bottom: 100px;z-index: <?php $zi++; echo $zi ?>"><a href="#"  onclick="conf_channels_detail('SHOW');">Show conference call channel information</a></span></font>
 
 <span id="outboundcallsspan" style="position: fixed;left: 5px; top: 400px;z-index: <?php $zi++; echo $zi ?>"></span>
 
@@ -14276,7 +14275,7 @@ else
     </div>
     <div style="float:right; margin-top: 7px;margin-right:5px;">
     <font color="white"><span id=new_status style="font-family:Verdana,Arial,Helvetica,sans-serif; font-size:13px; color:#FFFFFF; margin-left: 150px;">LIVE</span>&nbsp; |&nbsp;</font>
-    <span style="font-family:Verdana,Arial,Helvetica,sans-serif;font-size:13px;color:#FFFFFF;cursor: pointer;" title="Extension: <?=$SIP_user?> | Campaign: <?=$VD_campaign?>">Olá <?=$LOGfullname?> | <?php echo "<a href=\"#\" onclick=\"NormalLogout();return false;\" class=\"white_link\"><b>LOGOUT</b></a>"; ?>&nbsp;&nbsp;</span>
+    <span style="font-family:Verdana,Arial,Helvetica,sans-serif;font-size:13px;color:#FFFFFF;cursor: pointer;" title="Extension: <?=$SIP_user?> | Campaign: <?=$VD_campaign?>">Hello <?=$LOGfullname?> | <?php echo "<a href=\"#\" onclick=\"NormalLogout();return false;\" class=\"white_link\"><b>LOGOUT</b></a>"; ?>&nbsp;&nbsp;</span>
     </div>
     <!--<br style="font-size: 8px;">--><span style="font-size:15px;">&nbsp;</span>
 </div>
@@ -14288,7 +14287,7 @@ else
     <span name="callchannel" id="callchannel" class="cust_form" style="display:none"> </span><span name="custdatetime" id="custdatetime" class="log_title" style="display:none"></span>
     </div>
     <div style="float:right;">
-    <font color="white" title="&copy; <?=date("Y")?> GoAutoDial Inc." style="cursor:default;">&copy; <strong><?=date("Y")?> VoIPai Telecom.</strong></font>&nbsp; &nbsp;
+    <font color="white" title="&copy; <?=date("Y")?> GoAutoDial Inc." style="cursor:default;">&copy; <strong><?=date("Y")?> GoAutoDial Inc.</strong></font>&nbsp; &nbsp;
     </div>
     <!--<br style="font-size: 14px;"><span style="font-size:14px;">&nbsp;</span>-->
 </div>
@@ -14301,7 +14300,7 @@ else
 <span style="position:absolute;left:0px;top:<?php echo $DBheight ?>px;z-index:<?php $zi++; echo $zi ?>;display:none;" id="debugbottomspan"></span>
 
 <span style="position:absolute;left:300px;top:<?php echo $MBheight ?>px;z-index:<?php $zi++; echo $zi ?>;display:none;" id="ManuaLDiaLButtons"><font class="body_text">
-<span id="MDstatusSpan"><a href="#" onclick="NeWManuaLDiaLCalL('NO');return false;">DISCAGEM MANUAL</a></span> &nbsp; &nbsp; &nbsp; <a href="#" onclick="NeWManuaLDiaLCalL('FAST');return false;">DISCAGEM RÁPIDA</a><br />
+<span id="MDstatusSpan"><a href="#" onclick="NeWManuaLDiaLCalL('NO');return false;">MANUAL DIAL</a></span> &nbsp; &nbsp; &nbsp; <a href="#" onclick="NeWManuaLDiaLCalL('FAST');return false;">FAST DIAL</a><br />
 </font></span>
 
 <span style="position:absolute;left:225px;top:<?php echo $MBheight+$buttonTop+35; ?>px;z-index:<?php $zi++; echo $zi ?>;display:none;" id="StatusSessionIDSpan"><!--<font class="body_text" style="font-size:11px">
@@ -14313,7 +14312,7 @@ else
 </font>--></span>
 
 <span style="position:absolute;left:500px;top:<?php echo $MBheight+$buttonTop; ?>px;z-index:<?php $zi++; echo $zi ?>;display:none;" id="CallLogButtonsORIG"><font class="body_text">
-<span id="CallLogLinkSpan"><a href="#" onclick="VieWCalLLoG();return false;">VER RELATÓRIO DE CHAMADAS</a></span> <br />
+<span id="CallLogLinkSpan"><a href="#" onclick="VieWCalLLoG();return false;">VIEW CALL LOG</a></span> <br />
 </font></span>
 
 <!--<span style="position:absolute;left:0px;top:<?php //echo $PBheight ?>px;z-index:<?php //$zi++; echo $zi ?>;" id="MaiNfooterspan">
@@ -14424,13 +14423,13 @@ if ($is_webphone=='Y')
         {echo "<img src=\"images/pixel.gif\" width=\"1px\" height=\"".$webphone_height."px\" /><br />\n";}
 	?>
     <table border="0" id=ScriptPanelTableID bgcolor="<?php echo $SCRIPT_COLOR ?>" width="<?php echo $SSwidth ?>px" height="<?php echo $SSheight+$buttonTop+100 ?>px"><tr><td align="left" valign="top">
-	<span style="float:left"><a href="#" onclick="RefresHScript()"><font class="body_small">atualizar</font></a></span>
+	<span style="float:left"><a href="#" onclick="RefresHScript()"><font class="body_small">refresh</font></a></span>
 	<span style="float:right"><a href="#" onclick="MainPanelToFront('NO')" style="color:red;font-weight:bold;text-decoration:none;"><font class="body_small">close [x]</font></a></span>
-    </td></tr><tr><td align="left" valign="top"><font class="sb_text"><div class="scroll_script" id="ScriptContents" style="padding: 3px 3px 3px 3px; border:#000000 solid 1px; ">SCRIPT DO OPERADOR</div></font></td></tr></table>
+    </td></tr><tr><td align="left" valign="top"><font class="sb_text"><div class="scroll_script" id="ScriptContents" style="padding: 3px 3px 3px 3px; border:#000000 solid 1px; ">AGENT SCRIPT</div></font></td></tr></table>
 </span>
 
 <span style="position:absolute;left:<?php echo $AMwidth+20 ?>px;top:<?php echo $SRheight ?>px;z-index:<?php $zi++; echo $zi ?>;display:none;" id="ScriptRefresH">
-<a href="#" onclick="RefresHScript()"><font class="body_small">atualizar</font></a>
+<a href="#" onclick="RefresHScript()"><font class="body_small">refresh</font></a>
 </span>
 
 <span style="position:absolute;left:0px;top:<?php echo $SFheight ?>px;z-index:<?php $zi++; echo $zi ?>;" id="FormPanel">
@@ -14439,13 +14438,13 @@ if ($is_webphone=='Y')
         {echo "<img src=\"images/pixel.gif\" width=\"1px\" height=\"".$webphone_height."px\" /><br />\n";}
 	?>
     <table border="0" id="FormPanelTableID" bgcolor="<?php echo $SCRIPT_COLOR ?>" width="<?php echo $SSwidth-50 ?>px" height="<?php echo $SSheight+$bottonTop+100 ?>px"><tr><td align="left" valign="top">
-	<span style="float:left"><a href="#" onclick="FormContentsLoad()"><font class="body_small">atualizar</font></a></span>
-	<span style="float:right"><a href="#" onclick="MainPanelToFront('NO')" style="color:red;font-weight:bold;text-decoration:none;"><font class="body_small">fechar [x]</font></a></span>
+	<span style="float:left"><a href="#" onclick="FormContentsLoad()"><font class="body_small">refresh</font></a></span>
+	<span style="float:right"><a href="#" onclick="MainPanelToFront('NO')" style="color:red;font-weight:bold;text-decoration:none;"><font class="body_small">close [x]</font></a></span>
     </td></tr><tr><td align="left" valign="top"><font class="sb_text"><div class="scroll_script" id="FormContents" style="padding: 3px 3px 3px 3px; border:#000000 solid 1px"><iframe src="./vdc_form_display.php?lead_id=&list_id=&stage=WELCOME" style="background-color:transparent;" scrolling="auto" frameborder="0" allowtransparency="true" id="vcFormIFrame" name="vcFormIFrame" width="<?php echo $SDwidth ?>px" height="<?php echo $SSheight ?>px" STYLE="z-index:18"> </iframe></div></font></td></tr></table>
 </span>
 
 <span style="position:absolute;left:<?php echo $AMwidth+20 ?>px;top:<?php echo $SRheight ?>px;z-index:<?php $zi++; echo $zi ?>;display:none;" id="FormRefresH">
-<a href="#" onclick="FormContentsLoad()"><font class="body_small">atualizar</font></a>
+<a href="#" onclick="FormContentsLoad()"><font class="body_small">refresh</font></a>
 </span>
 
 
@@ -14456,13 +14455,13 @@ if ($is_webphone=='Y')
 	<span class="text_input" id="TransferMaindiv">
 	<font class="body_text">
    <!-- <img src="./images/vdc_XB_header.gif" border="0" alt="Transfer - Conference" style="vertical-align:middle" />-->
-    <span style="float:right"><a href="#" style="color:#000" onclick="ShoWTransferMain('OFF','YES');">fechar [x]</a></span>
+    <span style="float:right"><a href="#" style="color:#000" onclick="ShoWTransferMain('OFF','YES');">close [x]</a></span>
     <span style="vertical-align:middle;cursor:default;" title="Transfer - Conference">TRANSFER CONFERENCE FUNCTIONS:</span> &nbsp; &nbsp; &nbsp; &nbsp; <span id="XfeRDiaLGrouPSelecteD"></span> &nbsp; &nbsp; <span id="XfeRCID"></span><br />
 
     <table cellpadding="0" cellspacing="1" border="0">
     <tr>
     <td align="left" colspan="2">
-    <span id="XfeRGrouPLisT"><select size="1" name="XfeRGrouP" id="XfeRGrouP" class="cust_form" onChange="XferAgentSelectLink();return false;"><option value='-- SELECT A GROUP TO SEND YOUR CALL TO --'>-- SELECIONE UM GRUPO PARA ENVIAR SUA CHAMADA --</option></select></span>
+    <span id="XfeRGrouPLisT"><select size="1" name="XfeRGrouP" id="XfeRGrouP" class="cust_form" onChange="XferAgentSelectLink();return false;"><option>-- SELECT A GROUP TO SEND YOUR CALL TO --</option></select></span>
 
     <span style="background-color: <?php echo $MAIN_COLOR ?>;" id="LocalCloser"><img src="./images/vdc_XB_localcloser_OFF.gif" border="0" alt="LOCAL CLOSER" style="vertical-align:middle" /></span> &nbsp; &nbsp;
  </td>
@@ -14479,12 +14478,12 @@ if ($is_webphone=='Y')
     <tr>
     <td align="left" colspan="2">
     <!--<img src="./images/vdc_XB_seconds.gif" border="0" alt="seconds" style="vertical-align:middle" />-->
-    <font class="body_text"><span style="vertical-align:middle;cursor:default;" title="Seconds">SEGUNDOS:</span></font><input type="text" size="2" name="xferlength" id="xferlength" maxlength="4" class="cust_form" readonly="readonly" />
+    <font class="body_text"><span style="vertical-align:middle;cursor:default;" title="Seconds">SECONDS:</span></font><input type="text" size="2" name="xferlength" id="xferlength" maxlength="4" class="cust_form" readonly="readonly" />
 	&nbsp;
     <img src="./images/vdc_XB_channel.gif" border="0" alt="channel" style="vertical-align:middle;display:none;" /><input type="text" size="12" name="xferchannel" id="xferchannel" maxlength="200" class="cust_form" readonly="readonly" style="display:none;" />
  </td>
     <td align="left" style="display:none">
-    <span id="consultative_checkbox"><input type="checkbox" name="consultativexfer" id="consultativexfer" size="1" value="0"><font class="body_tiny"> CONSULTIVO &nbsp;</font></span>
+    <span id="consultative_checkbox"><input type="checkbox" name="consultativexfer" id="consultativexfer" size="1" value="0"><font class="body_tiny"> CONSULTATIVE &nbsp;</font></span>
  </td>
     <td align="right">
 <!--    <a href="#" onclick="bothcall_send_hangup();return false;"><img src="./images/vdc_XB_hangupbothlines.gif" border="0" alt="Hangup Both Lines" style="vertical-align:middle" /></a>-->
@@ -14495,7 +14494,7 @@ if ($is_webphone=='Y')
     <tr>
     <td align="left" colspan="2">
    <!-- <img src="./images/vdc_XB_number.gif" border="0" alt="Number to call" style="vertical-align:middle" />-->
-	<font class="body_text"><span style="vertical-align:middle;cursor:default;" title="Number to Call">NÚMERO PARA CHAMAR:</span></font>
+	<font class="body_text"><span style="vertical-align:middle;cursor:default;" title="Number to Call">NUMBER TO CALL:</span></font>
 	&nbsp;
 	<?php
 	if ($hide_xfer_number_to_dial=='ENABLED')
@@ -14511,13 +14510,13 @@ if ($is_webphone=='Y')
 		<?php
 		}
 	?>
-    <span id="agentdirectlink"><font class="body_small_bold"><a href="#" onclick="XferAgentSelectLaunch();return false;">OPERADORES</a></font></span>
+    <span id="agentdirectlink"><font class="body_small_bold"><a href="#" onclick="XferAgentSelectLaunch();return false;">AGENTS</a></font></span>
     <input type="hidden" name="xferuniqueid" id="xferuniqueid" style="display:none;" />
     <input type="hidden" name="xfername" id="xfername" style="display:none;" />
     <input type="hidden" name="xfernumhidden" id="xfernumhidden" style="display:none;" />
  </td>
     <td align="left" style="display:none">
-    <span id="dialoverride_checkbox"><input type="checkbox" name="xferoverride" id="xferoverride" size="1" value="0"><font class="body_tiny" /> SOBREPOR CHAMADA</font></span>
+    <span id="dialoverride_checkbox"><input type="checkbox" name="xferoverride" id="xferoverride" size="1" value="0"><font class="body_tiny" /> DIAL OVERRIDE</font></span>
  </td>
     <td align="right">
     <!--<a href="#" onclick="leave_3way_call('FIRST');return false;"><img src="./images/vdc_XB_leave3waycall.gif" border="0" alt="LEAVE 3-WAY CALL" style="vertical-align:middle" /></a>-->
@@ -14588,7 +14587,7 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
     <table border="0" bgcolor="#FFDD99" width="195px" height="<?php echo $buttonTop+456 ?>px">
     <tr bgcolor="#FFEEBB"><td height="20px"><font class="sh_text"> Disposition Hot Keys: </font></td></TR><TR bgcolor="#FFEEBB">
     <td height="10">
-	<font class="body_small">Quando ativa, basta pressionar a tecla do teclado para a disposição desejada para esta chamada. A chamada será então pronta e disposta automaticamente:</font></td></tr><tr>
+	<font class="body_small">When active, simply press the keyboard key for the desired disposition for this call. The call will then be hungup and dispositioned automatically:</font></td></tr><tr>
     <td height="30px" valign="top"><font class="sk_text">
 	<span id="HotKeyBoxA"><?php echo $HKboxA ?></span>
     </font></td></tr><tr>
@@ -14605,8 +14604,8 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
 <span style="position:absolute;left:0px;top:<?php echo $HTheight+5 ?>px;z-index:<?php $zi++; echo $zi ?>;width: <?=$JS_browser_width-10?>px;" id="CBcommentsBox">
     <table border="0" bgcolor="#FF9C00" id="CBCommentsTableID" height="110px" align="center" style="background-image: -moz-linear-gradient(bottom,  #FF9C00,  #FFD36A);background-image: -webkit-gradient(linear, left top, left bottom, from(#FF9C00), to(#FFD36A));border: #000 1px solid;color: #000;">
     <tr>
-    <td align="left"><font class="sh_text"> Informação do Agendamento Anterior: </font></td>
-    <td align="right" valign="top"><font class="sk_text"> <a href="#" onclick="CBcommentsBoxhide();return false;" style="color:#000;text-decoration:none;font-weight:bold;">fechar [x]</a> </font></td>
+    <td align="left"><font class="sh_text"> Previous Callback Information: </font></td>
+    <td align="right" valign="top"><font class="sk_text"> <a href="#" onclick="CBcommentsBoxhide();return false;" style="color:#000;text-decoration:none;font-weight:bold;">close [x]</a> </font></td>
 	</tr><tr>
     <td valign="top" colspan="2" height="10px" ><font class="sk_text">
     <span id="CBcommentsBoxA"></span><br />
@@ -14623,7 +14622,7 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
     <table border="0" bgcolor="#FFFFCC" id="EACommentsTableID" width="<?php echo $HCwidth ?>px" height="70px">
     <tr bgcolor="#FFFF66">
     <td align="left"><font class="sh_text"> Extended Alt Phone Information: </font></td>
-    <td align="right"><font class="sk_text"> <a href="#" onclick="EAcommentsBoxhide('YES');return false;"> minimizar </a> </font></td>
+    <td align="right"><font class="sk_text"> <a href="#" onclick="EAcommentsBoxhide('YES');return false;"> minimize </a> </font></td>
 	</tr><tr>
     <td valign="top"><font class="sk_text">
     <span id="EAcommentsBoxC"></span><br />
@@ -14644,23 +14643,23 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
 </span>
 
 <span style="position:fixed;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="NoneInSessionBox">
-    <table border="1" bgcolor="#FFFFFF" id="NoneInSessionTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center"> Você foi desconectado. <span id="NoneInSessionID" style="display:none;"></span><br />
-	<a href="#" onclick="NoneInSessionOK();return false;">Voltar</a>
+    <table border="1" bgcolor="#FFFFFF" id="NoneInSessionTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center"> You have been disconnected. <span id="NoneInSessionID" style="display:none;"></span><br />
+	<a href="#" onclick="NoneInSessionOK();return false;">Go Back</a>
     <br /><br />
-	<span id="NoneInSessionLink"><a href="#" onclick="NoneInSessionCalL();return false;" style="font-size:14px">RECONECTAR</a></span>
+	<span id="NoneInSessionLink"><a href="#" onclick="NoneInSessionCalL();return false;" style="font-size:14px">RECONNECT</a></span>
     </td></tr></table>
 </span>
 
 <span style="position:fixed;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="CustomerGoneBox">
-    <table border="1" bgcolor="#FFFFFF" id="CustomerGoneTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center"> Cliente desligou: <span id="CustomerGoneChanneL"></span><br />
-	<a href="#" onclick="CustomerGoneOK();return false;">Voltar</a>
+    <table border="1" bgcolor="#FFFFFF" id="CustomerGoneTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center"> Customer has hung up: <span id="CustomerGoneChanneL"></span><br />
+	<a href="#" onclick="CustomerGoneOK();return false;">Go Back</a>
     <br /><br />
-	<a href="#" onclick="CustomerGoneHangup();return false;">Finalizar e Tabular a Chamada</a>
+	<a href="#" onclick="CustomerGoneHangup();return false;">Finish and Disposition Call</a>
     </td></tr></table>
 </span>
 
 <span style="position:fixed;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="WrapupBox">
-    <table border="1" bgcolor="#FFFFFF" id="WrapupTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center"> Chamada Embrulhada: <span id="WrapupTimer"></span> seconds remaining in wrapup<br /><br />
+    <table border="1" bgcolor="#FFFFFF" id="WrapupTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center"> Call Wrapup: <span id="WrapupTimer"></span> seconds remaining in wrapup<br /><br />
 	<span id="WrapupMessage"><?php echo $wrapup_message ?></span>
     <br /><br />
 	<a href="#" onclick="WrapupFinish();return false;">Finish Wrapup and Move On</a>
@@ -14670,22 +14669,22 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
 <span style="position:absolute;left: -200px;margin-left: 50%;top:150px;z-index:<?php $zi++; echo $zi ?>;" id="TimerSpan">
     <table border="1" bgcolor="#FFFFFF" width="400px" height="200px"><tr><td align="center">
     <br /><span id="TimerContentSpan"></span><br /><br />
-	<a href="#" onclick="hideDiv('TimerSpan');return false;">Fechar Mensagem</a>
+	<a href="#" onclick="hideDiv('TimerSpan');return false;">Close Message</a>
     </td></tr></table>
 </span>
 
 <span style="position:fixed;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="AgenTDisablEBoX">
-    <table border="1" bgcolor="#FFFFFF" id="AgentDisableTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center">Sua sessão foi desabilitada<br /><a href="#" onclick="LogouT('DISABLED');return false;">LOGOUT</a><br /><br /><a href="#" onclick="hideDiv('AgenTDisablEBoX');return false;">Voltar</a>
+    <table border="1" bgcolor="#FFFFFF" id="AgentDisableTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center">Your session has been disabled<br /><a href="#" onclick="LogouT('DISABLED');return false;">LOGOUT</a><br /><br /><a href="#" onclick="hideDiv('AgenTDisablEBoX');return false;">Go Back</a>
     </td></tr></table>
 </span>
 
 <span style="position:fixed;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="SysteMDisablEBoX">
-    <table border="1" bgcolor="#FFFFFF" id="SystemDisableTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center">Aqui está um problema de sincronização de hora com seu sistema, informe o administrador do sistema<br /><br /><br /><a href="#" onclick="hideDiv('SysteMDisablEBoX');return false;">Voltar</a>
+    <table border="1" bgcolor="#FFFFFF" id="SystemDisableTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center">There is a time synchronization problem with your system, please tell your system administrator<br /><br /><br /><a href="#" onclick="hideDiv('SysteMDisablEBoX');return false;">Go Back</a>
     </td></tr></table>
 </span>
 
 <span style="position:fixed;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="LogouTBox">
-    <table border="1" bgcolor="#FFFFFF" id="LogoutTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center"><span id="LogouTBoxLink">SAIR</span></td></tr></table>
+    <table border="1" bgcolor="#FFFFFF" id="LogoutTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center"><span id="LogouTBoxLink">LOGOUT</span></td></tr></table>
 </span>
 
 <span style="position:absolute;left:0px;top:70px;z-index:<?php $zi++; echo $zi ?>;" id="DispoButtonHideA">
@@ -14697,11 +14696,11 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
 </span>
 
 <span style="position:absolute;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="DispoButtonHideC">
-    <table border="0" bgcolor="#FFFFFF" id="DispoButtonHideCTableID" width="<?php echo $CAwidth ?>px" height="47px"><tr><td align="center" valign="top">Todas as alterações feitas nas informações do cliente abaixo neste momento não serão confirmadas. Você deve alterar as informações do cliente antes de desligar a chamada. </td></tr></table>
+    <table border="0" bgcolor="#FFFFFF" id="DispoButtonHideCTableID" width="<?php echo $CAwidth ?>px" height="47px"><tr><td align="center" valign="top">Any changes made to the customer information below at this time will not be comitted, You must change customer information before you Hangup the call. </td></tr></table>
 </span>
 
 <span style="position:absolute;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="DispoSelectBox">
-    <table border="1" bgcolor="#E0E0E0" id="DispoSelectTableID" style="font-size:10px; font-family:sans-serif; border:#000000 solid 1px"><tr><td align="center" valign="top"> DISPOSIÇÃO DA CHAMADA :<span id="DispoSelectPhonE"></span> &nbsp; &nbsp; &nbsp; <span id="DispoSelectHAspan"><a href="#" onclick="DispoHanguPAgaiN()">Desligar Novamente</a></span> &nbsp; &nbsp; &nbsp; <span id="DispoSelectMaxMin"><a href="#" onclick="DispoMinimize()"> minimizar </a></span><br />
+    <table border="1" bgcolor="#E0E0E0" id="DispoSelectTableID" style="font-size:10px; font-family:sans-serif; border:#000000 solid 1px"><tr><td align="center" valign="top"> DISPOSITION CALL :<span id="DispoSelectPhonE"></span> &nbsp; &nbsp; &nbsp; <span id="DispoSelectHAspan"><a href="#" onclick="DispoHanguPAgaiN()">Hangup Again</a></span> &nbsp; &nbsp; &nbsp; <span id="DispoSelectMaxMin"><a href="#" onclick="DispoMinimize()"> minimize </a></span><br />
 	<?php
 	if ($webphone_location == 'bar')
         {echo "<br /><img src=\"images/pixel.gif\" width=\"1px\" height=\"".$webphone_height."px\" /><br />\n";}
@@ -14711,8 +14710,8 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
 	<span id="PerCallNotesContent"><input type="hidden" name="call_notes_dispo" id="call_notes_dispo" value="" /></span>
 	<span id="DispoSelectContent"> End-of-call Disposition Selection </span>
     <input type="hidden" name="DispoSelection" id="DispoSelection" /><br />
-    <input type="checkbox" name="DispoSelectStop" id="DispoSelectStop" size="1" value="0" /> PAUSAR AGENTE<br />
-	<a href="#" onclick="DispoSelectContent_create('','ReSET');return false;">LIMPAR FORMULÁRIO</a> | 
+    <input type="checkbox" name="DispoSelectStop" id="DispoSelectStop" size="1" value="0" /> PAUSE AGENT DIALING <br />
+	<a href="#" onclick="DispoSelectContent_create('','ReSET');return false;">CLEAR FORM</a> | 
 	<a href="#" onclick="DispoSelect_submit();return false;">SUBMIT</a>
     <br /><br />
 	<a href="#" onclick="WeBForMDispoSelect_submit();return false;">WEB FORM SUBMIT</a>
@@ -14721,7 +14720,7 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
 </span>
 
 <span style="position:fixed;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="CallBackSelectBox">
-    <table border="1" bgcolor="#FFFFFF" id="CallBackSelectTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center" valign="top"> Selecione uma data de retorno :<span id="CallBackDatE"></span><br />
+    <table border="1" bgcolor="#FFFFFF" id="CallBackSelectTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center" valign="top"> Select a CallBack Date :<span id="CallBackDatE"></span><br />
 	<?php
 	if ($webphone_location == 'bar')
         {echo "<br /><img src=\"images/pixel.gif\" width=\"1px\" height=\"".$webphone_height."px\" /><br />\n";}
@@ -14778,7 +14777,7 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
 </span>
 
 <span style="position:fixed;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="CallBacKsLisTBox">
-    <table border="1" bgcolor="#FFFFFF" id="CallBackTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center" valign="top"> RETORNOS PARA O OPERADOR <?php echo $VD_login ?>:<br />Para ver informações sobre um dos retornos abaixo, clique no link INFO. Para ligar para o cliente, clique no link DIAL. Se você discar para um contato, ele será removido da lista.
+    <table border="1" bgcolor="#FFFFFF" id="CallBackTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center" valign="top"> CALLBACKS FOR AGENT <?php echo $VD_login ?>:<br />To see information on one of the callbacks below, click on the INFO link. To call the customer back now, click on the DIAL link. If you click on a record below to dial it, it will be removed from the list.
  <br />
 	<?php
 	if ($webphone_location == 'bar')
@@ -14788,7 +14787,7 @@ Available Agents Transfer: <span id="AgentXferViewSelect"></span></center></font
     <br /> &nbsp;
 	<a href="#" onclick="CalLBacKsLisTCheck();return false;">Refresh</a>
 	 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
-	<a href="#" onclick="CalLBacKsLisTClose();return false;">Voltar</a>
+	<a href="#" onclick="CalLBacKsLisTClose();return false;">Go Back</a>
     </td></tr></table>
 </span>
 
@@ -14827,19 +14826,19 @@ function activateLinks() {
 	?>
 <!--     Note: all new manual dial leads will go into list <?php //echo $manual_dial_list_id ?><br /><br /> -->
     <table><tr>
-    <td align="right"><font class="body_text"> Código do País: </font></td>
-    <td align="left"><font class="body_text"><input type="text" size="7" maxlength="10" name="MDDiaLCodE" id="MDDiaLCodE" class="cust_form_black" value="1" />&nbsp; (Padrão 55, ou 0 de acordo com sua operadora VoIP)</font></td>
+    <td align="right"><font class="body_text"> Dial Code: </font></td>
+    <td align="left"><font class="body_text"><input type="text" size="7" maxlength="10" name="MDDiaLCodE" id="MDDiaLCodE" class="cust_form_black" value="1" />&nbsp; (This is usually a 1 in the USA-Canada)</font></td>
 	</tr><tr>
-    <td align="right"><font class="body_text"><strong> Telefone: </strong></font></td>
+    <td align="right"><font class="body_text"><strong> Phone Number: </strong></font></td>
     <td align="left"><font class="body_text">
-    <input type="text" size="14" maxlength="18" name="MDPhonENumbeR" id="MDPhonENumbeR" class="cust_form_black" value="" onkeyup="activateLinks();" onchange="activateLinks();" />&nbsp; (apenas dígitos)</font>
+    <input type="text" size="14" maxlength="18" name="MDPhonENumbeR" id="MDPhonENumbeR" class="cust_form_black" value="" onkeyup="activateLinks();" onchange="activateLinks();" />&nbsp; (digits only)</font>
 	<input type="hidden" name="MDPhonENumbeRHiddeN" id="MDPhonENumbeRHiddeN" value="" />
 	<input type="hidden" name="MDLeadID" id="MDLeadID" value="" />
 	<input type="hidden" name="MDType" id="MDType" value="" />
 	</td>
 	</tr><tr>
-    <td align="right"><font class="body_text"> Procurar por contato no sistema: </font></td>
-    <td align="left"><font class="body_text"><input type="checkbox" name="LeadLookuP" id="LeadLookuP" size="1" value="0" disabled /><&nbsp; (Se essa opção estiver marcada, vamos verificar se esse número já existe no sistema antes de adicionar um novo contato)</font></td>
+    <td align="right"><font class="body_text"> Search Existing Leads: </font></td>
+    <td align="left"><font class="body_text"><input type="checkbox" name="LeadLookuP" id="LeadLookuP" size="1" value="0" disabled /><!--&nbsp; (This option if checked will attempt to find the phone number in the system before inserting it as a new lead)--></font></td>
 	</tr><tr>
 
     <td align="left" colspan="2" style="display:none;">
@@ -14859,7 +14858,7 @@ function activateLinks() {
 	<span id="PreviewCallLinkInactive" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">Preview Call</span>
 	<span id="PreviewCallLinkActive" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; display: none;"><a href="#" onclick="NeWManuaLDiaLCalLSubmiT('PREVIEW');return false;">Preview Call</a></span>
 	 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
-	<a href="#" onclick="ManualDialHide();return false;">Voltar</a>
+	<a href="#" onclick="ManualDialHide();return false;">Go Back</a>
     </td></tr></table>
 </span>
 
@@ -15100,7 +15099,7 @@ function activateLinks() {
 <span style="position:fixed;left:0px;top:0px;z-index:<?php $zi++; echo $zi ?>;" id="blind_monitor_alert_span">
 	<table border="1" bgcolor="#FFFFFF" id="BlindMonitorAlertTableID" width="<?php echo $CAwidth ?>px" height="<?php echo $WRheight+$buttonTop ?>px"><tr><td align="center" valign="top"> ALERT :<br />
 	<b><font color="red" size="5"> &nbsp; &nbsp; <span id="blind_monitor_alert_span_contents"></span></b></font>
-	<br /><br /> <a href="#" onclick="hideDiv('blind_monitor_alert_span');return false;">Voltar</a>
+	<br /><br /> <a href="#" onclick="hideDiv('blind_monitor_alert_span');return false;">Go Back</a>
 	</td></tr></table>
 </span>
 

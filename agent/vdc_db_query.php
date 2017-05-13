@@ -1032,7 +1032,7 @@ if ($ACTION == 'LogiNCamPaigns')
 		$camps_to_print = mysql_num_rows($rslt);
 
 		echo "<select class=\"selectcss\" size=1 name=VD_campaign id=VD_campaign style=\"font-family: Arial, Helvetica, sans-serif; font-size: 12px;\">\n";
-		echo "<option value=\"\">-- PLEASE SELECT A CAMPAIGN --</option>\n";
+		echo "<option value=\"\">-- POR FAVOR SELECIONE UMA CAMPANHA --</option>\n";
 
 		$o=0;
 		while ($camps_to_print > $o) 

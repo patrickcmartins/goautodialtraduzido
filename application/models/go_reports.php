@@ -454,9 +454,9 @@ class Go_reports extends Model {
 				##### BEGIN print the output to screen or put into file output variable
 				if ($file_download > 0)
 					{
-					$file_output  = "CAMPAIGN,$campaignID - ".$resultu->campaign_name."\n";
-					$file_output .= "DATE RANGE,$fromDate TO $toDate\n\n";
-					$file_output .= "USER,ID,CALLS,TIME CLOCK,AGENT TIME,WAIT,TALK,DISPO,PAUSE,WRAPUP,CUSTOMER,$sub_statusesFILE\n";
+					$file_output  = "CAMPANHA,$campaignID - ".$resultu->campaign_name."\n";
+					$file_output .= "INTERCALO DE,$fromDate ATÉ $toDate\n\n";
+					$file_output .= "USUÁRIO,ID,CHAMADAS,TEMPO,TEMPO DO AGENTE,ESPERA,FALA,TABULAÇÕES,PAUSAS,SESSÃO,CLIENTE,$sub_statusesFILE\n";
 					}
 				##### END print the output to screen or put into file output variable
 			
@@ -720,7 +720,7 @@ class Go_reports extends Model {
 	
 				if ($file_download > 0)
 					{
-					$file_output .= "TOTALS,AGENTS: $TOT_AGENTS,$TOTcalls,$TOTtimeTC,$TOTALtime,$TOTwait,$TOTtalk,$TOTdispo,$TOTpause,$TOTdead,$TOTcustomer,$SUMstatusesFILE\n";
+					$file_output .= "TOTAIS,OPERADORES: $TOT_AGENTS,$TOTcalls,$TOTtimeTC,$TOTALtime,$TOTwait,$TOTtalk,$TOTdispo,$TOTpause,$TOTdead,$TOTcustomer,$SUMstatusesFILE\n";
 					}
 				############################################################################
 				##### END formatting data for output section
@@ -796,9 +796,9 @@ class Go_reports extends Model {
 				
 				if ($file_download > 0)
 					{
-					$file_output  = "CAMPAIGN,$campaignID - ".$resultu->campaign_name."\n";
-					$file_output .= "DATE RANGE,$fromDate TO $toDate\n\n";
-					$file_output .= "USER NAME,ID,CALLS,AGENT TIME,PAUSE,PAUSE AVG,WAIT,WAIT AVG,TALK,TALK AVG,DISPO,DISPO AVG,WRAPUP,WRAPUP AVG,CUSTOMER,CUST AVG$statusesFILE\n";
+					$file_output  = "CAMPANHA,$campaignID - ".$resultu->campaign_name."\n";
+					$file_output .= "INTERVALO DE,$fromDate ATÉ $toDate\n\n";
+					$file_output .= "USUÁRIO,ID,CHAMADAS,TEMPO DO AGENTE,PAUSA,MÉD PAUSA,ESPERA,MÉD ESPERA,FALA,MÉD FALA,TABULAÇÕES,MÉD TABULAÇÕES,SESSÃO,MÉD SESSÃO,CLIENTE,CUSTO AVG$statusesFILE\n";
 					}
 				
 				### BEGIN loop through each user ###
@@ -1031,7 +1031,7 @@ class Go_reports extends Model {
 				
 				if ($file_download > 0)
 					{
-					$file_output .= "TOTALS,AGENTS: $TOT_AGENTS,$TOTcalls,$TOTtime_MS,$TOTtotPAUSE_MS,$TOTavgPAUSE_MS,$TOTtotWAIT_MS,$TOTavgWAIT_MS,$TOTtotTALK_MS,$TOTavgTALK_MS,$TOTtotDISPO_MS,$TOTavgDISPO_MS,$TOTtotDEAD_MS,$TOTavgDEAD_MS,$TOTtotCUSTOMER_MS,$TOTavgCUSTOMER_MS$SUMstatusesFILE\n";
+					$file_output .= "TOTALS,OPERADORES: $TOT_AGENTS,$TOTcalls,$TOTtime_MS,$TOTtotPAUSE_MS,$TOTavgPAUSE_MS,$TOTtotWAIT_MS,$TOTavgWAIT_MS,$TOTtotTALK_MS,$TOTavgTALK_MS,$TOTtotDISPO_MS,$TOTavgDISPO_MS,$TOTtotDEAD_MS,$TOTavgDEAD_MS,$TOTtotCUSTOMER_MS,$TOTavgCUSTOMER_MS$SUMstatusesFILE\n";
 					}
 				
 				$sub_statuses='-';
@@ -1076,7 +1076,7 @@ class Go_reports extends Model {
 					}
 				
 				if ($file_download > 0) {
-					$file_output .= "\n\nUSER NAME,ID,TOTAL,NONPAUSE,PAUSE,$sub_statusesFILE\n";
+					$file_output .= "\n\nUSUÁRIO,ID,TOTAL,NÃO PAUSAS,PAUSAS,$sub_statusesFILE\n";
 				}
 				
 				### BEGIN loop through each user ###
@@ -1462,9 +1462,9 @@ class Go_reports extends Model {
 						group by us.full_name");
 				$numO = $query->num_rows();
 				
-				$file_output  = "CAMPAIGN,$campaignID - ".$resultu->campaign_name."\n";
-				$file_output .= "DATE RANGE,$fromDate TO $toDate\n\n";
-				$file_output .= "OUTBOUND SALES\nAGENTS NAME,AGENTS ID,SALES COUNT\n";
+				$file_output  = "CAMPANHA,$campaignID - ".$resultu->campaign_name."\n";
+				$file_output .= "INTERVALO DE TEMPO,$fromDate ATÉ $toDate\n\n";
+				$file_output .= "VENDAS DE SAÍDA\nNOME DOS OPERADORES,OPERADORES ID,CONTAGEM DE VENDAS\n";
 				if ($numO) {
 					$total_sales=0;
 					foreach($query->result() as $row) {
@@ -1540,7 +1540,7 @@ class Go_reports extends Model {
 						group by us.full_name");
 				$numI = $query->num_rows();
 				
-				$file_output .= "INBOUND SALES\nAGENTS NAME,AGENTS ID,SALES COUNT\n";
+				$file_output .= "VENDAS DE ENTRADA\nNOME DO OPERADOR,OPERADORES ID,CONTAGEM DE VENDAS\n";
 				if ($numI) {
 					$total_sales=0;
 	
@@ -1618,9 +1618,9 @@ class Go_reports extends Model {
 					$TOPsorted_output = $query->result();
 					
 					if ($file_download > 0) {
-						$file_output  = "CAMPAIGN,$campaignID - ".$resultu->campaign_name."\n";
-						$file_output .= "DATE RANGE,$fromDate TO $toDate\n\n";
-						$file_output .= "OUTBOUND SALES\nCALL DATE & TIME,AGENT,PHONE NUMBER,FIRST NAME,LAST NAME,ADDRESS,CITY,STATE,POSTAL CODE,EMAIL,ALT NUMBER,COMMENTS\n";
+						$file_output  = "CAMPANHA,$campaignID - ".$resultu->campaign_name."\n";
+						$file_output .= "INTERVALO DE TEMPO,$fromDate TO $toDate\n\n";
+						$file_output .= "VENDAS DE SAÍDA\nDATA E HORA DA CHAMDA,OPERADOR,TELEFONE,NOME,SOBRENOME,ENDEREÇO,CIDADE,ESTADO,CEP,EMAIL,TELEFONE ALT.,COMENTÁRIOS\n";
 						
 						foreach ($TOPsorted_output as $row) {
 							$file_output .=$row->call_date.",".$row->agent.",".$row->phone_number.",".$row->first_name.",".$row->last_name.",".$row->address.",".$row->city.",".$row->state.",".$row->postal.",".$row->email.",".$row->alt_phone.",".$row->comments."\n";
@@ -1678,9 +1678,9 @@ class Go_reports extends Model {
 					$TOPsorted_output = $query->result();
 					
 					if ($file_download > 0) {
-						$file_output  = "CAMPAIGN,$campaignID - ".$resultu->campaign_name."\n";
-						$file_output .= "DATE RANGE,$fromDate TO $toDate\n\n";
-						$file_output .= "INBOUND SALES\nCALL DATE & TIME,AGENT,PHONE NUMBER,FIRST NAME,LAST NAME,ADDRESS,CITY,STATE,POSTAL CODE,EMAIL,ALT NUMBER,COMMENTS\n";
+						$file_output  = "CAMPANHA,$campaignID - ".$resultu->campaign_name."\n";
+						$file_output .= "INTERVALO DE TEMPO,$fromDate TO $toDate\n\n";
+						$file_output .= "VENDAS DE ENTRADA\nDATA E HORA DA CHAMADA,OPERADOR,TELEFONE,NOME,SOBRENOME,ENDEREÇO,CIDADE,ESTADO,CEP,EMAIL,CELULAR,COMENTÁRIOS\n";
 						
 						foreach ($TOPsorted_output as $row) {
 							$file_output .=$row->call_date.",".$row->agent.",".$row->phone_number.",".$row->first_name.",".$row->last_name.",".$row->address.",".$row->city.",".$row->state.",".$row->postal.",".$row->email.",".$row->alt_phone.",".$row->comments."\n";
@@ -1699,11 +1699,11 @@ class Go_reports extends Model {
 				if ($file_download > 0) {
 					$file_output  = "INBOUND CAMPAIGN,$campaignID - ".$resultu->campaign_name."\n";
 					$file_output .= "DATE RANGE,$fromDate TO $toDate\n\n";
-					$file_output .= "DATE,AGENT ID,PHONE NUMBER,TIME,CALL DURATION (IN SEC),DISPOSITION\n";
+					$file_output .= "DATA,OPERADOR ID,TELEFONE,TEMPO,DURAÇÃO DA CHAMADA (EM SEG),TABULAÇÃO\n";
 					
 					foreach ($TOPsorted_output as $row) {
 						list($ldate, $ltime) = split(' ',$row->call_date);
-						$phone_number = ($row->phone_number != "") ? $row->phone_number : "NOT REGISTERED";
+						$phone_number = ($row->phone_number != "") ? $row->phone_number : "NÃO REGISTRADO";
 						
 						$file_output .= "$ldate,".$row->user.",$phone_number,$ltime,".$row->length_in_sec.",".$row->status."\n";
 					}

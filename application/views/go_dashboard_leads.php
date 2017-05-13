@@ -44,11 +44,11 @@ $(function()
 	<tbody>
 	<tr class="first">
 			<td class="b"><a class="cur_hand"><? echo $total_hopper_leads; ?></a></td>
-			<td class="t bold"><a class="cur_hand">Contatos no "Funil"</a></td>
+			<td class="t bold"><a class="cur_hand">Contatos para Discar</a></td>
 	</tr>
 	<tr>
 			<td class="c"><a class="cur_hand"><? echo $total_dialable_leads; ?></a></td>
-			<td class="r"><a class="cur_hand">Desabilitar Contatos</a></td>
+			<td class="r"><a class="cur_hand">Contatos Restantes</a></td>
 	</tr>
 	<tr>
 			<td class="c"><a class="cur_hand"><? echo $total_leads; ?></a></td>

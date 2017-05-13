@@ -1917,18 +1917,18 @@ echo "<body onload='genListID()'>";
 <!-- begin body -->
 <div id='outbody' class="wrap">
     <div id="icon-list" class="icon32"></div>
-    <h2 style="font-family: Verdana,Arial,Helvetica,sans-serif; ">Lists</h2>
+    <h2 style="font-family: Verdana,Arial,Helvetica,sans-serif; ">Listas</h2>
     <!-- search -->
     <div id="singrp" align="right" style="position: absolute; float: left; width: 94%; margin-top: -35px; display: block;">
 	<form  method="POST" id="go_search_list" name="go_search_list">
-                <span id="showAllLists" style="display: none">[Clear Search]</span>
+                <span id="showAllLists" style="display: none">[Limpar Pesquisa]</span>
 		<input type="hidden" id="action" name="action" value="action_search_list">
 		<input type="hidden" id="typeofsearch" name="typeofsearch" value="lists">
-		<input type="text" value="<?=$search ?>" name="search_list" id="search_list" size="20" maxlength="100" placeholder="Search Lists">
+		<input type="text" value="<?=$search ?>" name="search_list" id="search_list" size="20" maxlength="100" placeholder="Pesquisar Listas">
 		&nbsp;<img src="<?=base_url()."img/spotlight-black.png"; ?>" id="submit_search_list" style="cursor: pointer;" />
 	</form>
     </div>
-    <div id="searchDNC" align="right" style="position: absolute; float: left; width: 94%; margin-top: -35px;display:none;"><span id="showAllDNCLists" style="display: none">[Clear Search]</span> <input type="text" id="search_dnc" placeholder="Search DNC Numbers" size="20" maxlength="100" /> <img src="<?=base_url()."img/spotlight-black.png"; ?>" id="submit_search_dnc" style="cursor: pointer;" /></div>
+    <div id="searchDNC" align="right" style="position: absolute; float: left; width: 94%; margin-top: -35px;display:none;"><span id="showAllDNCLists" style="display: none">[Limpar Pesquisas]</span> <input type="text" id="search_dnc" placeholder="Procurar por Números DNC" size="20" maxlength="100" /> <img src="<?=base_url()."img/spotlight-black.png"; ?>" id="submit_search_dnc" style="cursor: pointer;" /></div>
     <!-- search -->
     <div id="dashboard-widgets-wrap">
         <div id="dashboard-widgets" class="metabox-holder">
@@ -1940,17 +1940,17 @@ echo "<body onload='genListID()'>";
                     <div class="postbox" >
                         <div>
                             
-   <span><a id="activator" class="rightdiv toolTip" style="text-decoration: none; cursor:pointer; font-family: Verdana,Arial,Helvetica,sans-serif;" onClick="addlistoverlay();" title="Create New List"><b>Create New List</b>  </a></span>
+   <span><a id="activator" class="rightdiv toolTip" style="text-decoration: none; cursor:pointer; font-family: Verdana,Arial,Helvetica,sans-serif;" onClick="addlistoverlay();" title="Criar Nova Lista"><b>Criar Nova Lista</b>  </a></span>
 
 			<!--<span><a id="copycustomfield"  class="rightdiv toolTip" style="text-decoration: none; cursor:pointer;display: none; font-family: Verdana,Arial,Helvetica,sans-serif;" onClick="copyview();" title="Copy Custom Field" style="margin-left: 0px; font-family: Verdana,Arial,Helvetica,sans-serif;">Copy Custom Field</a></span> <span><a id="pipelink" class="rightdiv toolTip" style="text-decoration: none; cursor:pointer;display: none; ">|</a></span>-->
 			
-			<span><a id="newcustomfield"  class="rightdiv toolTip" style="text-decoration: none; cursor:pointer;display: none;font-family: Verdana,Arial,Helvetica,sans-serif; " onClick="viewadd();" title="Create New Field" style="margin-left: 0px;">Create Custom Field</a></span>
+			<span><a id="newcustomfield"  class="rightdiv toolTip" style="text-decoration: none; cursor:pointer;display: none;font-family: Verdana,Arial,Helvetica,sans-serif; " onClick="viewadd();" title="Criar Campo Customizado" style="margin-left: 0px;">Criar Campo Customizado</a></span>
 			<span>				
-                        <a id="submit_dnc" class="rightdiv toolTip" style="text-decoration: none; cursor:pointer;display: none;font-family: Verdana,Arial,Helvetica,sans-serif;" title="Add/Delete DNC Numbers"><b>Add/Delete DNC Numbers</b>  </a>
+                        <a id="submit_dnc" class="rightdiv toolTip" style="text-decoration: none; cursor:pointer;display: none;font-family: Verdana,Arial,Helvetica,sans-serif;" title="Adicionar/Deletar Números DNC"><b>Adicionar/Deletar Números DNC</b>  </a>
 			</span>
 						
 			<span>				
-                        <a id="submit_search" class="rightdiv toolTip" style="text-decoration: none; cursor:pointer;display: none;font-family: Verdana,Arial,Helvetica,sans-serif;" title="Search For A Lead"><b>Search For A Lead</b>  </a>
+                        <a id="submit_search" class="rightdiv toolTip" style="text-decoration: none; cursor:pointer;display: none;font-family: Verdana,Arial,Helvetica,sans-serif;" title="Pesquisar Contato"><b>Pesquisar Contato</b>  </a>
 			</span>
 						
                         </div>
@@ -1961,12 +1961,12 @@ echo "<body onload='genListID()'>";
 
 <div id="tabs" class="tab-container" style="border: none;">
 <ul style="background: transparent; border: none;">
-		<li><a href="#tabs-1" id="atab1" title="Show Lists" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Show Lists</a></li>
-		<li><a href="#tabs-2" id="atab2" title="Custom Fields" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Custom Fields</a></li>
-		<li><a href="#tabs-3" id="atab3" title="Load Leads" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Load Leads</a></li>
-		<li><a href="#tabs-5" id="atab5" title="DNC Numbers" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">DNC Numbers</a></li>
+		<li><a href="#tabs-1" id="atab1" title="Show Lists" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Mostrar Listas</a></li>
+		<li><a href="#tabs-2" id="atab2" title="Custom Fields" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Campos Customizados</a></li>
+		<li><a href="#tabs-3" id="atab3" title="Load Leads" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Carregar Contatos</a></li>
+		<li><a href="#tabs-5" id="atab5" title="DNC Numbers" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Números DNC</a></li>
 		<!--<li><a href="#tabs-6" id="atab6" title="Custom Fields Settings" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Custom Fields Settings</a></li>-->
-		<li><a href="#tabs-7" id="atab7" title="Lead Search" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Lead Search</a></li>
+		<li><a href="#tabs-7" id="atab7" title="Lead Search" class="tab" style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-stretch: normal;">Pesquisar Contato</a></li>
 	</ul>
 	
 
@@ -1977,7 +1977,7 @@ echo "<body onload='genListID()'>";
                                         	<img src="<?=$base?>img/step1-nav-small.png">
                                 	</div>
                                 	<div style="border-bottom:2px solid #DFDFDF; padding: 0px 10px 10px 0px; height: 20px;" align="left">
-                                        	<font color="#333" style="font-size:16px;"><b>Custom Field Wizard » Copy Custom Field</b></font>
+                                        	<font color="#333" style="font-size:16px;"><b>Campo Customizado » Copiar Campo Customizado</b></font>
                                 	</div>
 
 <!--                                        <form method="POST" name="formcopyfields" id="formcopyfields">
@@ -2065,7 +2065,7 @@ echo "<body onload='genListID()'>";
                                         <img src="<?=$base?>img/step1-nav-small.png">
                                 </div>
                                 <div style="border-bottom:2px solid #DFDFDF; padding: 0px 10px 10px 0px; height: 20px;" align="left">
-                                        <font color="#333" style="font-size:16px;"><b>Custom Field Wizard » Create / Copy Custom Field</b></font>
+                                        <font color="#333" style="font-size:16px;"><b>Campo Customizado » Criar / Copiar Campo Customizado</b></font>
 
                                 </div>
 
@@ -2086,16 +2086,16 @@ echo "<body onload='genListID()'>";
                                                 <td style="padding-left:50px;" valign="top" colspan="2">
         																																								
         																																										<table class="tablenodouble" width="100%">
-        						   																																			<tr><td> <label class="modify-value">Process: </label></td>
+        						   																																			<tr><td> <label class="modify-value">Método: </label></td>
 							    																																													<td> 
 								                                                     <select name="copyselectlist" id="copyselectlist" Onchange="selectlistidcopy();">
-									                                                      <option value="" selected>Copy Custom Field</option>
-									                                                      <option value="createcustomselect">Create Custom Field</option>
+									                                                      <option value="" selected>Copiar Campo Customizado</option>
+									                                                      <option value="createcustomselect">Criar Campo Customizado</option>
 																																																													</select> 		
 							    																																													</td>
 							    																																									</tr>
 																																																				<tr>
-																																																								<td><label class="modify-value">List ID to Copy Fields From:</label></td>
+																																																								<td><label class="modify-value">ID da Lista para Copiar Campos:</label></td>
 																																																								<td>
         																																																				<select name="source_list_id" id="source_list_id">
 																																																												<?php
@@ -2108,7 +2108,7 @@ echo "<body onload='genListID()'>";
 																																																				</tr>
 																																																				<tr>
 																																																								<td>
-        																																																				<label class="modify-value">Copy Fields to Another List:</label>
+        																																																				<label class="modify-value">Copiar Campos de Outra Lista:</label>
 																																																								</td>
 																																																							<td>
         								<select name="to_list_id" id="to_list_id">
@@ -2122,13 +2122,13 @@ echo "<body onload='genListID()'>";
 								</tr>
 								<tr>
 									<td>
-										<label class="modify-value">Copy Option:</label>
+										<label class="modify-value">Opções de Cópia:</label>
 									</td>
 									<td>
 									<select name="copy_option" id="copy_option">
-        								<option selected>APPEND</option>
-        								<option>UPDATE</option>
-        								<option>REPLACE</option>
+        								<option selected value="APPEND">ACRESCENTAR</option>
+        								<option value="UPDATE">ATUALIZAR</option>
+        								<option value="REPLACE">SUBSTITUIR</option>
         								</select>
 									</td>
 								</tr>
@@ -2138,7 +2138,7 @@ echo "<body onload='genListID()'>";
                                         	<tr>
                                                 <td align="right" colspan="20">
                                                 <div style="border-top: 2px solid #DFDFDF;height:20px;vertical-align:middle; padding-top: 7px;" align="right">
-                                                    <a id="searchcallhistory" style="cursor: pointer;" onclick="copysubmit();"><font color="#7A9E22">Submit</font></a>
+                                                    <a id="searchcallhistory" style="cursor: pointer;" onclick="copysubmit();"><font color="#7A9E22">Confirmar</font></a>
                                                 </div>
 
                                                 </td>
@@ -2179,7 +2179,7 @@ echo "<body onload='genListID()'>";
 							    <td> 
 								<select name="hide_listid" id="hide_listid" Onchange="selectlistid();">
 								 <option value="" selected></option>
-									<option value="copycustomselect">Copy Custom Field</option>
+									<option value="copycustomselect">Copiar Campo Customizado</option>
 									<?php
 									foreach($listIDs as $listsInfo){
 										echo "<option value='$listsInfo->list_id'>".$listsInfo->list_id." - ".$listsInfo->list_name." </option>";				
@@ -2187,9 +2187,9 @@ echo "<body onload='genListID()'>";
 									?>
 								</select> 		
 							    </td></tr>
-                                                        <tr><td> <label class="modify-value">Labels:</label></td><td> <input type="text" name="field_label" id="field_label"> </td></tr>
+                                                        <tr><td> <label class="modify-value">Rótulos:</label></td><td> <input type="text" name="field_label" id="field_label"> </td></tr>
                                                         <tr><td align="left">
-                                                                        <label class="modify-value">Rank:</label>
+                                                                        <label class="modify-value">Classificação:</label>
 														</td><td align="left">
 									<span id="countsd">
 										<select name='field_rank' id='field_rank'>
@@ -2202,37 +2202,37 @@ echo "<body onload='genListID()'>";
 										</select>
 									</span>	
                                                         </td></tr>
-                                                        <tr><td> <label class="modify-value">Name:</label></td><td> <input type="text" name="field_name" id="field_name"></td></tr>
-                                                        <tr><td> <label class="modify-value">Position:</label> </td><td><select name="name_position" id="name_position">
-                                                                                                                <option value="LEFT">LEFT</option>
-                                                                                                                <option value="TOP">TOP</option>
+                                                        <tr><td> <label class="modify-value">Nome:</label></td><td> <input type="text" name="field_name" id="field_name"></td></tr>
+                                                        <tr><td> <label class="modify-value">Posição:</label> </td><td><select name="name_position" id="name_position">
+                                                                                                                <option value="LEFT">ESQUERDA</option>
+                                                                                                                <option value="TOP">TOPO</option>
                                                                                                         </select>
                                                         </td></tr>
-                                                        <tr><td> <label class="modify-value">Description:</label> </td><td><input type="text" name="field_description" id="field_description"> </td></tr>
-                                                        <tr><td> <label class="modify-value">Type</label></td><td> <select name="field_type" id="field_type">
-                                                                                <option value="TEXT">TEXT</option>
-                                                                                <option value="AREA">AREA</option>
+                                                        <tr><td> <label class="modify-value">Descrição:</label> </td><td><input type="text" name="field_description" id="field_description"> </td></tr>
+                                                        <tr><td> <label class="modify-value">Tipo</label></td><td> <select name="field_type" id="field_type">
+                                                                                <option value="TEXT">TEXTO</option>
+                                                                                <option value="AREA">ÁREA</option>
                                                                                 <option value="SELECT">SELECT</option>
                                                                                 <option value="MULTI">MULTI</option>
                                                                                 <option value="RADIO">RADIO</option>
                                                                                 <option value="CHECKBOX">CHECKBOX</option>
-                                                                                <option value="DATE">DATE</option>
-                                                                                <option value="TIME">TIME</option>
+                                                                                <option value="DATE">DATA</option>
+                                                                                <option value="TIME">HORA</option>
                                                                                 <option value="DISPLAY">DISPLAY</option>
                                                                                 <option value="SCRIPT">SCRIPT</option>
                                                                                 </select>
                                                         </td></tr>
-                                                        <tr><td> <label class="modify-value">Options:</label></td><td> <textarea name="field_options" id="field_options" style="resize: none;" ROWS="2" COLS="40"></textarea>
+                                                        <tr><td> <label class="modify-value">Opções:</label></td><td> <textarea name="field_options" id="field_options" style="resize: none;" ROWS="2" COLS="40"></textarea>
                                                         </td></tr>
-                                                        <tr><td> <label class="modify-value">Option Position:</label> </td><td><select name="multi_position" id="multi_position">
+                                                        <tr><td> <label class="modify-value">Posição da Opção:</label> </td><td><select name="multi_position" id="multi_position">
                                                                                 <option value="HORIZONTAL">HORIZONTAL</option>
                                                                                 <option value="VERTICAL">VERTICAL</option>
                                                                                 </select>
                                                         </td></tr>
-                                                        <tr><td><label class="modify-value">Field Size:</label></td><td> <input type="text" name="field_size" id="field_size"> </td></tr>
-                                                        <tr><td><label class="modify-value">Field Max:</label></td><td> <input type="text" name="field_max" id="field_max"> </td></tr>
-                                                        <tr><td><label class="modify-value">Field Default:</label></td><td> <input type="text" name="field_default" id="field_default"> </td></tr>
-                                                        <tr><td><label class="modify-value">Field Required:</label></td><td> <select name="field_required" id="field_required">
+                                                        <tr><td><label class="modify-value">Tamanho do Campo:</label></td><td> <input type="text" name="field_size" id="field_size"> </td></tr>
+                                                        <tr><td><label class="modify-value">Campo Max:</label></td><td> <input type="text" name="field_max" id="field_max"> </td></tr>
+                                                        <tr><td><label class="modify-value">Campo Padrão:</label></td><td> <input type="text" name="field_default" id="field_default"> </td></tr>
+                                                        <tr><td><label class="modify-value">Campo Obrigatório:</label></td><td> <select name="field_required" id="field_required">
                                                                                         <option value="Y">YES</option>
                                                                                         <option value="N">NO</option>
                                                                                 </select>
@@ -2248,7 +2248,7 @@ echo "<body onload='genListID()'>";
                                                 <td align="right" colspan="9">
                                                 <div style="border-top: 2px solid #DFDFDF;height:20px;vertical-align:middle; padding-top: 7px;" align="right">
                                                     <!--<a id="searchcallhistory" style="cursor: pointer;" onclick="document['formfields'].submit()"><font color="#7A9E22">Submit</font></a>-->
-                                                    <a id="searchcallhistory" style="cursor: pointer;" onclick="addsubmit();"><font color="#7A9E22">Submit</font></a>
+                                                    <a id="searchcallhistory" style="cursor: pointer;" onclick="addsubmit();"><font color="#7A9E22">Confirmar</font></a>
                                                 </div>
 
                                                 </td>
@@ -2272,7 +2272,7 @@ echo "<body onload='genListID()'>";
 					<img src="<?=$base?>img/step1-nav-small.png">
 				</div>
 				<div style="border-bottom:2px solid #DFDFDF; padding: 0px 10px 10px 0px; height: 20px;" align="left">
-					<font color="#333" style="font-size:16px;"><b>List Wizard » Create New List</b></font>
+					<font color="#333" style="font-size:16px;"><b>Lista » Criar Nova Lista</b></font>
 					
 				</div>
 				
@@ -2295,26 +2295,26 @@ echo "<body onload='genListID()'>";
 							<table width="100%">
 								
 								<tr>
-									<td align="right"><label class="modify-value">Auto Generate:&nbsp;&nbsp;&nbsp;</label></td>
+									<td align="right"><label class="modify-value">Gerar Automaticamente:&nbsp;&nbsp;&nbsp;</label></td>
 									<td><input type="checkbox" id="auto_gen" name="auto_gen" onclick="showRow();" checked="checked"></td>
 								</tr>
 	                  					<tr>
-									<td align="right"><label class="modify-value">List ID:&nbsp;&nbsp;&nbsp;</label> </td>
+									<td align="right"><label class="modify-value">ID Lista:&nbsp;&nbsp;&nbsp;</label> </td>
 									<td><input type="text" name="list_id" id="list_id" size="12" maxlength="15">
-									<label id="autogenlabel"><font size="1" color="red">(numeric only)</font></label> </td>
+									<label id="autogenlabel"><font size="1" color="red">(apenas números)</font></label> </td>
 								</tr>
 								<tr>
-									<td align="right"><label class="modify-value">List Name:&nbsp;&nbsp;&nbsp;</label> </td>
+									<td align="right"><label class="modify-value">Nome da Lista:&nbsp;&nbsp;&nbsp;</label> </td>
 									<td><input type="text" name="list_name" id="list_name" size="30" maxlength="22">
-									<font color="red" size="1" style="display: none;">(alphanumeric only)</font></td>
+									<font color="red" size="1" style="display: none;">(apenas alfanuméricos)</font></td>
 								</tr>
 								<tr>
 									<td align="right"><label class="modify-value">List Description:&nbsp;&nbsp;&nbsp;</label> </td>
 									<td><input type="text" name="list_description" id="list_description" size="30" maxlength="255">
-									<font color="red" size="1" style="display: none;">(alphanumeric only)</font></td>
+									<font color="red" size="1" style="display: none;">(apenas alfanuméricos)</font></td>
 								</tr>
 								<tr>
-									<td align="right"><label class="modify-value">Campaign:&nbsp;&nbsp;&nbsp;</label> </td>
+									<td align="right"><label class="modify-value">Campanha:&nbsp;&nbsp;&nbsp;</label> </td>
 									<td><span id="campaign_list">
 											<select name="campaign_id" id="campaign_id" style="width:300px;">
 									        
@@ -2330,7 +2330,7 @@ echo "<body onload='genListID()'>";
 											</td>
 								</tr>
 			                	<tr>
-									<td align="right"><label class="modify-value">Active:&nbsp;&nbsp;&nbsp;</label> </td>
+									<td align="right"><label class="modify-value">Ativa:&nbsp;&nbsp;&nbsp;</label> </td>
 									<td><select size="1" name="active"><option>Y</option><option>N</option></select></td>
 								</tr>
 								<tr><td colspan="2">&nbsp;</td></tr>
@@ -2341,7 +2341,7 @@ echo "<body onload='genListID()'>";
 						<td align="right" colspan="9">
 						<div style="border-top: 2px solid #DFDFDF;height:20px;vertical-align:middle; padding-top: 7px;" align="right">
 						<!--<a id="searchcallhistory" style="cursor: pointer;" onclick="document['go_listfrm'].submit()"><font color="#7A9E22">Submit</font></a>-->
-						<a id="searchcallhistory" style="cursor: pointer;" onclick="checklistadd();"><font color="#7A9E22">Submit</font></a>		
+						<a id="searchcallhistory" style="cursor: pointer;" onclick="checklistadd();"><font color="#7A9E22">Confirmar</font></a>		
 						</div>		
 											
 						</td>			  
@@ -2382,20 +2382,20 @@ echo "<body onload='genListID()'>";
 
                                         <table class="tableedit">
                                                         <tr>
-                                                                <td><br><label class="">Name:</label><div id="simula"></div> </td>
+                                                                <td><br><label class="">Nome:</label><div id="simula"></div> </td>
                                                                 <td><input type="text" name="list_name" id="listname_edit" size="30" maxlength="30">
-								<font color="red" size="1" style="display: none;">(alphanumeric only)</font></td>
+								<font color="red" size="1" style="display: none;">(apenas alfanuméricos)</font></td>
                                                         </tr>
                                                         <tr>
-                                                                <td><label class="">Description:</label></td>
+                                                                <td><label class="">Descrição:</label></td>
                                                                 <td><input type="text" name="list_description" id="listdesc_edit" size="30" maxlength="22">
-								<font color="red" size="1" style="display: none;">(alphanumeric only)</font></td>
+								<font color="red" size="1" style="display: none;">(apenas alfanuméricos)</font></td>
                                                         </tr>
                                                         <tr>
-                                                                <td><label class="">Campaign:</label></td>
+                                                                <td><label class="">Campanha:</label></td>
                                                                 <td>
                                                                         <select size="1" name="campaign_id" id="campid_edit" style="width:300px;">
-                                                                                <option value="">--- Select Campaign ---</option>
+                                                                                <option value="">--- Selecionar Campanha ---</option>
                                                                                 <?php
                                                         foreach($campaigns as $campaignInfo){
                                                                                                 $cid = $campaignInfo->campaign_id;
@@ -2408,7 +2408,7 @@ echo "<body onload='genListID()'>";
                                                         </tr>
 
                                                         <tr>
-                                                                <td><label class="">Reset Times:</label> </td>
+                                                                <td><label class="">Tempo de Reset:</label> </td>
                                                                 <td><input type="text" name="reset_time" id="restime_edit" size="30" maxlength="100"></td>
                                                         </tr>
                                                         <!--<tr>
@@ -2423,14 +2423,14 @@ echo "<body onload='genListID()'>";
                                                         <td><div id="lcdates"></div></td>
                                                         </tr>-->
                                                         <tr>
-                                                                <td><label class="">Reset Lead-Called-Status:</label></td>
+                                                                <td><label class="">Resetar Contatos que foram Chamados:</label></td>
                                                                 <td>
                                                                         <select size="1" name="reset_list" id="reslist_edit">
                                                                                 <option value="N">N</option>
                                                                                 <option value="Y">Y</option>
                                                                         </select>
                                                                 &nbsp;&nbsp;&nbsp;
-                                                                 <label class="">Active:</label>
+                                                                 <label class="">Ativo:</label>
                                                                         <select size="1" name="active" id="act_edit">
                                                                                 <option value="Y">Y</option>
                                                                                 <option value="N">N</option>
@@ -2438,7 +2438,7 @@ echo "<body onload='genListID()'>";
                                                                 </td>
                                                         </tr>
                                                         <tr>
-                                                                <td><label class="">Agent Script Override:</label> </td>
+                                                                <td><label class="">Substituição do Script do Operador:</label> </td>
                                                                 <td>
                                                                         <select size="1" name="agent_script_override" id="agcscp_edit">
                                                                                 <?php
@@ -2452,12 +2452,12 @@ echo "<body onload='genListID()'>";
                                                                                 <?php
                                                                                          }
                                                                                 ?>
-                                                                                <option value="">NONE - INACTIVE</option>
+                                                                                <option value="">NENHUM - INATIVO</option>
                                                                         </select>
                                                                 </td>
                                                         </tr>
                                                         <tr>
-                                                                <td><label class=""><label class="">Campaign CID Override:</label> </td>
+                                                                <td><label class=""><label class="">Substituição do CID da Campanha:</label> </td>
                                                                 <td><input type="text" name="campaign_cid_override" id="campcidover_edit" size="20" maxlength="20"></td>
                                                         </tr>
                                                         <!-- <tr>
@@ -2465,7 +2465,7 @@ echo "<body onload='genListID()'>";
                                                                 <td><input type="text" name="am_message_exten_override" id="am_message_exten_override" size="50" maxlength="100" value="<?=$eam_message_exten_override?>"></td>
                                                         </tr> -->
                                                         <tr>
-                                                                <td><label class=""><label class="">Drop Inbound Group Override:</label> </td>
+                                                                <td><label class=""><label class="">Ignorar Sobreposição do Grupo de Entrada:</label> </td>
                                                                 <td>
                                                                         <select size="1" name="drop_inbound_group_override" id="drpinbovr_edit">
                                                                         <?php
@@ -2475,7 +2475,7 @@ echo "<body onload='genListID()'>";
                                                                         <?
                                                                                 }
                                                                         ?>
-                                                                                <option value="">NONE</option>
+                                                                                <option value="">NENHUM</option>
                                                                         </select>
                                                                 </td>
                                                         </tr>
@@ -2489,20 +2489,20 @@ echo "<body onload='genListID()'>";
                                                         </tr>
                                                         <tr>
                                                                 <td colspan="2">
-                                                                <label class="">Number 1:</label> <input type="text" name="xferconf_a_number" id="xfer1" size="20" maxlength="50">
-                                                                <label class="">Number 4:</label> <input type="text" name="xferconf_d_number" id="xfer4" size="20" maxlength="50">
+                                                                <label class="">Número 1:</label> <input type="text" name="xferconf_a_number" id="xfer1" size="20" maxlength="50">
+                                                                <label class="">Número 4:</label> <input type="text" name="xferconf_d_number" id="xfer4" size="20" maxlength="50">
                                                                 <br>
-                                                                <label class="">Number 2:</label> <input type="text" name="xferconf_b_number" id="xfer2" size="20" maxlength="50">
+                                                                <label class="">Número 2:</label> <input type="text" name="xferconf_b_number" id="xfer2" size="20" maxlength="50">
 								<label class="">Number 5:</label> <input type="text" name="xferconf_e_number" id="xfer5" size="20" maxlength="50">
                                                                 <br>
-                                                                <label class="">Number 3:</label> <input type="text" name="xferconf_c_number" id="xfer3" size="20" maxlength="50">
+                                                                <label class="">Número 3:</label> <input type="text" name="xferconf_c_number" id="xfer3" size="20" maxlength="50">
                                                                 </td>
                                                         </tr>
                                                         <tr><td colspan="2">&nbsp;</td></tr>
                                                         <tr><td colspan="2">&nbsp;</td></tr>
                                                         <tr>
                                                                 <td colspan="2" align="center"><b><?php
-                                                                echo "<a id=\"clickadvanceplus\" style=\"cursor: pointer;\" onclick=\"$('#statusid').css('display', 'block'); $('#clickadvanceplus').css('display', 'none'); $('#clickadvanceminus').css('display', 'block');  \" title=\"Click to view reports\">[ + ] STATUSES WITHIN THIS LIST</a><a id=\"clickadvanceminus\" style=\"cursor: pointer; display: none;\" onclick=\"$('#statusid').css('display', 'none'); $('#clickadvanceplus').css('display', 'block'); $('#clickadvanceminus').css('display', 'none');\" title=\"Click to view reports\">[ - ] STATUSES WITHIN THIS LIST</a>";
+                                                                echo "<a id=\"clickadvanceplus\" style=\"cursor: pointer;\" onclick=\"$('#statusid').css('display', 'block'); $('#clickadvanceplus').css('display', 'none'); $('#clickadvanceminus').css('display', 'block');  \" title=\"Clique para ver os relatórios\">[ + ] STATUS DESSA LISTA</a><a id=\"clickadvanceminus\" style=\"cursor: pointer; display: none;\" onclick=\"$('#statusid').css('display', 'none'); $('#clickadvanceplus').css('display', 'block'); $('#clickadvanceminus').css('display', 'none');\" title=\"Clique para ver relatórios\">[ - ] STATUS DESSA LISTA</a>";
 ?></b></td>
                                                         </tr>
                                                         <tr>
@@ -2537,14 +2537,14 @@ echo "<body onload='genListID()'>";
 				<table id="listtableresult" class="tablesorter" width="100%" class="" cellspacing="0" cellpadding="0" border="0" style="margin-left:auto; margin-right:auto; width:100%;margin-top:3px;" > 
 					<thead>
 					<tr align="left" class="nowrap">
-						<th class="thheader" style="padding-bottom:-1px;">&nbsp;&nbsp;<b>LIST ID</b> </th>
-						<th colspan="" class="thheader" style="padding-bottom:-1px;"><b>NAME</b> </th>
+						<th class="thheader" style="padding-bottom:-1px;">&nbsp;&nbsp;<b>ID LISTA</b> </th>
+						<th colspan="" class="thheader" style="padding-bottom:-1px;"><b>NOME </b> </th>
 						<th class="thheader" align="left" style="padding-bottom:-1px;"><b>STATUS</b> </th>
-						<th class="thheader" style="padding-bottom:-1px;"><b>LAST CALL DATE</b> </th>
-						<th class="thheader" style="padding-bottom:-1px;"><b>LEADS COUNT</b> </th>
-						<th class="thheader" style="padding-bottom:-1px;"><b>CAMPAIGN</b> </th>
+						<th class="thheader" style="padding-bottom:-1px;"><b>DATA DA ÚLTIMA CHAMADA</b> </th>
+						<th class="thheader" style="padding-bottom:-1px;"><b>CONTADOR DE CONTATOS</b> </th>
+						<th class="thheader" style="padding-bottom:-1px;"><b>CAMPANHA</b> </th>
 						<th colspan="3" class="thheader" style="width:7%;white-space: nowrap;padding-bottom:-1px;" align="right">
-						<span style="cursor:pointer;" id="selectAction">&nbsp;ACTION &nbsp;<img src="<?php echo $base; ?>img/arrow_down.png" />&nbsp;</span>
+						<span style="cursor:pointer;" id="selectAction">&nbsp;AÇÃO &nbsp;<img src="<?php echo $base; ?>img/arrow_down.png" />&nbsp;</span>
 
 
 
@@ -2589,9 +2589,9 @@ echo "<body onload='genListID()'>";
 								 <td align="left" style="padding-bottom:-1px;">
 								 <?php
 								 	if($listsInfo->active=="Y") {
-								 		echo "<b><font color=green>ACTIVE</font></b>";
+								 		echo "<b><font color=green>ATIVO</font></b>";
 								 	} else {
-								 		echo "<b><font color=red>INACTIVE</font></b>";	
+								 		echo "<b><font color=red>INATIVO</font></b>";	
 								 	}
 								 	
 								 ?>
@@ -2607,7 +2607,7 @@ echo "<body onload='genListID()'>";
 								 <td align="left" style="padding-bottom:-1px;"><? echo $listsInfo->campaign_id."&nbsp;"; ?></td>
   								 <td align="right" style="padding-bottom:-1px;">
   								
-<img src="<?=$base?>img/edit.png" onclick="postval('<? echo $listsInfo->list_id; ?>');"  class="rightdiv toolTip" style="cursor:pointer;width:14px; padding: 3px;" title="MODIFY <?=$listsInfo->list_id?>"  />
+<img src="<?=$base?>img/edit.png" onclick="postval('<? echo $listsInfo->list_id; ?>');"  class="rightdiv toolTip" style="cursor:pointer;width:14px; padding: 3px;" title="EDITAR <?=$listsInfo->list_id?>"  />
 								
   								 </td>
   								 <td align="left" style="padding-bottom:-1px;">
@@ -2621,7 +2621,7 @@ echo "<body onload='genListID()'>";
 								<?php
 									} else {
 								?>
-  								 <div class="rightdiv toolTip" title="DELETE <?=$listsInfo->list_id?>" style="padding:3px;">
+  								 <div class="rightdiv toolTip" title="EXCLUIR <?=$listsInfo->list_id?>" style="padding:3px;">
 						 			 <img src="<?=$base?>img/delete.png" onclick="deletepost('<? echo $listsInfo->list_id; ?>');" style="cursor:pointer;width:12px;"  /> 
 						 		 </div>
 								
@@ -2633,7 +2633,7 @@ echo "<body onload='genListID()'>";
 						 		 </div>
 								 </td>
   								 <td align="center" style="padding-bottom:-1px;">
-  								<div class="rightdiv toolTip" title="VIEW INFO FOR LIST <?=$listsInfo->list_id?>" style="padding: 3px;">
+  								<div class="rightdiv toolTip" title="VER INFORMAÇÕES DA LSITA <?=$listsInfo->list_id?>" style="padding: 3px;">
 									<img style="cursor:pointer;width:12px;" src="<?=$base?>img/status_display_i.png" onclick="viewpost('<? echo $listsInfo->list_id; ?>');" style="cursor:pointer;width:14px;">
 									</div>
 								 </td>
@@ -2841,7 +2841,7 @@ echo "<body onload='genListID()'>";
  				<table summary="" class="listinfo">
 					<tr>
 					<td class="listinfolabel">
-						<b>List I.D.: </b>					
+						<b>I.D. Lista: </b>					
 					</td>
 					<td>
 						<div id="viewlistid" align="left"> </div>
@@ -2849,7 +2849,7 @@ echo "<body onload='genListID()'>";
 					</tr>
 					<tr>
 					<td class="listinfolabel">
-						<b>Description: </b>					
+						<b>Descrição: </b>					
 					</td>
 					<td>
 						<div id="viewlistdesc" align="left"> </div>
@@ -2865,7 +2865,7 @@ echo "<body onload='genListID()'>";
 					</tr>
 					<tr>
 					<td class="listinfolabel">
-						<b>Last call date: </b>					
+						<b>Data da Última Chamada: </b>					
 					</td>
 					<td>
 						<div id="viewlistcalldate" align="left"> </div>
@@ -2900,15 +2900,15 @@ echo "<body onload='genListID()'>";
 			<table id="cumstomtable" class="tablesorter" width="100%" class="" cellspacing="0" cellpadding="0" border="0" style="margin-left:auto; margin-right:auto; width:100%; margin-top: 3px;" > 
 				<thead>
 				<tr align="left" class="nowrap">
-					<th class="thheader">&nbsp;&nbsp;<b>LIST ID</b> </th>
-					<th class="thheader"><b>DESCRIPTION</b></th>
+					<th class="thheader">&nbsp;&nbsp;<b>ID LISTA</b> </th>
+					<th class="thheader"><b>DESCRIÇÃO</b></th>
 					<th class="thheader"><b>STATUS</b> </th>
-					<th class="thheader"><b>CAMPAIGN ASSIGNED</b> </th>
-					<th class="thheader"><b>CUSTOM FIELDS</b> </th>
+					<th class="thheader"><b>CAMPANHA ASSOCIADA</b> </th>
+					<th class="thheader"><b>CAMPOS CUSTOMIZADOS</b> </th>
 					<th class="thheader"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </th>
 					
 					<th colspan="3" class="thheader" style="width:8%;" align="right">
-                                            <span style="cursor:pointer;" id="customselectAction">&nbsp;MODIFY&nbsp;</span>
+                                            <span style="cursor:pointer;" id="customselectAction">&nbsp;EDITAR&nbsp;</span>
 					</th>
                                         <th align="center" width="35px">
                                            <input type="checkbox" id="customselectallf" disabled/>
@@ -2920,7 +2920,7 @@ echo "<body onload='genListID()'>";
 					{
 						echo $clist;
 					} else {
-						 echo "<tr><td colspan=\"7\" align=\"center\" style=\"background-color: #EFEFEF;\"><font color=\"red\"><b>No custom fields created.</b></font></td></tr>";
+						 echo "<tr><td colspan=\"7\" align=\"center\" style=\"background-color: #EFEFEF;\"><font color=\"red\"><b>Nenhum Campo Customizado Criado</b></font></td></tr>";
 
 #						echo "<tr><td colspan='6' style='font-weight:bold;color:#f00;text-align:center;padding-top:10px;'>No custom fields created.</td></tr>";
 					}
@@ -2956,7 +2956,7 @@ echo "<body onload='genListID()'>";
 				<?php
 						$permissions = $this->commonhelper->getPermissions("loadleads",$this->session->userdata("user_group"));
 						if($permissions->loadleads_read == "N"){
-                                                   echo("<tr><td colspan='9'>You don't have permission to view this record(s)</td></tr>");
+                                                   echo("<tr><td colspan='9'>Você não tem permissão para ver esses regisrtros</td></tr>");
                                                    $countthis = 0;
                                                    $justpermission = true;
 						   exit;
@@ -2969,7 +2969,7 @@ echo "<body onload='genListID()'>";
 						<td colspan="2">&nbsp;&nbsp;</td>
 					</tr>
 		  			<tr>
-						<td align="right"><label class="modify-value">Leads file:</label></td>
+						<td align="right"><label class="modify-value">Arquivo de Contatos:</label></td>
 						<td><input type="file" name="leadfile" id="leadfile" value="<?php echo $leadfile ?>">
 						<div class="progress">
                             <div class="bar"></div >
@@ -2979,7 +2979,7 @@ echo "<body onload='genListID()'>";
 					</td>
 		  			</tr>
 					<tr>
-						<td align="right"><label class="modify-value">List ID:</label></td>
+						<td align="right"><label class="modify-value">ID Lista:</label></td>
 						<td>
 							<select name="list_id_override">
 								<?php
@@ -2993,10 +2993,10 @@ echo "<body onload='genListID()'>";
 						</td>
 					</tr>
 					<tr>
-						<td align="right"><label class="modify-value">Phone Code: </label></td>
+						<td align="right"><label class="modify-value">Código do País: </label></td>
 						<td>
 								<select name="phone_code_override">
-                        	<option value='in_file'>Load from Lead File</option>
+                        	<option value='in_file'>Carregar a Partir de um Arquivo de Contatos</option>
                         	<?php
 						//echo '<option value="1" selected>1---USA</option>';
                         		foreach($phonedoces as $listcodes) {
@@ -3009,7 +3009,7 @@ echo "<body onload='genListID()'>";
 								}
                         	?>
                         </select><br>
-			 <font size="1" color="red">*If you select Load from Lead Files, be sure to check your phone code from your file.</font>
+			 <font size="1" color="red">*Se você selecionar carregar a partir de um arquivo de contatos, verifique o código dos telefones.</font>
                         </td>
                 </tr>
                 <!--<tr>
@@ -3017,12 +3017,12 @@ echo "<body onload='genListID()'>";
 						<td><font face="arial, helvetica" size="2"><input type="radio" name="file_layout" value="standard">Standard Format&nbsp;&nbsp;&nbsp;&nbsp;<input type=radio name="file_layout" value="custom" checked>Custom layout</td>
                 </tr>-->
                 <tr>
-						<td align="right"><label class="modify-value">Duplicate Check: </label></td>
+						<td align="right"><label class="modify-value">Checagem de Duplicados: </label></td>
 						<td>
 							<select size="1" name="dupcheck">
-								<option value="NONE">NO DUPLICATE CHECK</option>
-								<option value="DUPLIST">CHECK FOR DUPLICATES BY PHONE IN LIST ID*</option>
-								<option value="DUPCAMP">CHECK FOR DUPLICATES BY PHONE IN ALL CAMPAIGN LISTS</option>
+								<option value="NONE">NÃO CHECAR</option>
+								<option value="DUPLIST">CHECAR NESSA LISTA*</option>
+								<option value="DUPCAMP">CHECAR EM TODAS AS LISTAS</option>
 								<!-- <option value="DUPSYS">CHECK FOR DUPLICATES BY PHONE IN ENTIRE SYSTEM</option>
 								<option value="DUPTITLEALTPHONELIST">CHECK FOR DUPLICATES BY TITLE/ALT-PHONE IN LIST ID</option>
 								<option value="DUPTITLEALTPHONESYS">CHECK FOR DUPLICATES BY TITLE/ALT-PHONE IN ENTIRE SYSTEM</option>
@@ -3034,9 +3034,9 @@ echo "<body onload='genListID()'>";
 		  			 <td align="right"><label class="modify-value">Time Zone: </label></td>
 						<td>
 							<select size="1" name="postalgmt">
-								<option value="AREA" selected>COUNTRY CODE AND AREA CODE ONLY</option>
-								<option value="POSTAL">POSTAL CODE FIRST</option>
-								<option value="TZCODE">OWNER TIME ZONE CODE FIRST</option>
+								<option value="AREA" selected>CÓDIGO DO PAÍS E CÓDIGO DE ÁREA SOMENTE</option>
+								<option value="POSTAL">CÓDIGO POSTAL PRIMEIRO</option>
+								<option value="TZCODE">CÓDIGO DE 'TIMEZONE' PIMEIRO</option>
 							</select>
 						</td>
 					 </tr>
@@ -3072,11 +3072,11 @@ echo "<body onload='genListID()'>";
 					 			<br><br><br><br>
 					 			<table>
 					 			<tr bgcolor="#efefef">
-					 			<td align="center" colspan="2"><b>Processing <?=$delim_name ?> file...<br>
+					 			<td align="center" colspan="2"><b>Processando arquivo...<br>
 
-LIST ID FOR THIS FILE: <?=$list_id_override?><br>
+ID DA LISTA PARA ESSE ARQUIVO: <?=$list_id_override?><br>
 
-COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
+CÓDIGO DO PAÍS PARA ESSE ARQUIVO: <?=$phone_code_override?></b><br><br><br></td>
 					 			</tr>
 					 			<?php	
 					 			
@@ -3115,10 +3115,10 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 								
 					 			?>
 								<tr>
-									<td colspan="2" style="padding-top:20px;text-align:center;"><span id="advancedFieldLink">[ + SHOW ADVANCE FIELDS ]</span></td>
+									<td colspan="2" style="padding-top:20px;text-align:center;"><span id="advancedFieldLink">[ + MOSTRAR CAMPOS AVANÇADOS ]</span></td>
 								</tr>
 								<tr>
-									<td colspan="2" style="padding-top:15px;text-align:center;white-space:nowrap;font-size:10px;color:red;">*Custom fields will show here if you have enabled it on the list id you provided.</td>
+									<td colspan="2" style="padding-top:15px;text-align:center;white-space:nowrap;font-size:10px;color:red;">*Os campos personalizados serão mostrados aqui se você o tiver ativado no ID da lista que você forneceu.</td>
 								</tr>
 					 		</table>
 					 	</td>
@@ -3132,7 +3132,7 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 					 <tr>
 				    	<td colspan="4" align="center">
 				    		<br><br><br>
-				    		<input type="submit" name="OK_to_process" value="OK TO PROCESS" onclick="uploadimg();">
+				    		<input type="submit" name="OK_to_process" value="OK PARA PROCESSAR" onclick="uploadimg();">
 				    		<!--<input type="button" onClick="javascript:document.location='go_list/#tabs-3'" value="BACK" name="reload_page">-->
 				    		
 						</td>
@@ -3156,7 +3156,7 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
                                         	<td class="thheader" align="center" colspan="2">&nbsp;&nbsp;</td>
 					</tr>
                                 	<tr align="center" class="nowrap">
-                                        	<td class="thheader" align="right"><b>FROM: &nbsp;&nbsp;&nbsp;&nbsp; </b></td>
+                                        	<td class="thheader" align="right"><b>DE: &nbsp;&nbsp;&nbsp;&nbsp; </b></td>
 						<td>	
 						<select id="dropsource_list_id" name="dropsource_list_id">
 						<?php
@@ -3187,9 +3187,9 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
                                         	<td class="thheader" align="right"><b>OPTION: &nbsp;&nbsp;&nbsp;&nbsp; </b></td>
 						<td align="left">
 						<select id="copy_option" name="copy_option">
-							<option value="APPEND">APPEND</option>
-							<option value="UPDATE">UPDATE</option>
-							<option value="REPLACE">REPLACE</option>
+							<option value="APPEND">ACRESCENTAR</option>
+							<option value="UPDATE">ATUALIZAR</option>
+							<option value="REPLACE">SUBSTITUIR</option>
 						</select>	
 						</td>	
 					</tr>
@@ -3215,7 +3215,7 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 			<div class="table_dnc" style="margin-top:-15px;">
 				<div id="dnc_placeholder">
 					<br />
-					<p style="text-align:center;font-weight:bold;color:#f00;">Type the number at the top right search box.</p>
+					<p style="text-align:center;font-weight:bold;color:#f00;">Digite o número na caixa de pesquisa superior direita.</p>
 				</div>
 			</div>
 		
@@ -3229,7 +3229,7 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 			<!-- Action Menu -->
 			<div id='go_dnc_menu' class='go_dnc_menu'>
 			<ul>
-			<li class="go_dnc_submenu" title="Delete Selected" id="delete">Delete Selected</li>
+			<li class="go_dnc_submenu" title="Delete Selected" id="delete">Deletar Selecionados</li>
 			</ul>
 			</div>
         </div>
@@ -3249,18 +3249,18 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 					<table border=0 cellpadding=0 cellspacing=0 style="width:100%;margin-left:auto;margin-right:auto;">
 						<thead>
 							<tr style="text-align: left">
-								<th>&nbsp;LEAD ID</th>
-								<th>&nbsp;LIST ID</th>
-								<th>&nbsp;PHONE</th>
-								<th>&nbsp;FULLNAME</th>
-								<th>&nbsp;LAST CALL DATE</th>
+								<th>&nbsp;CONTATO ID</th>
+								<th>&nbsp;LISTA ID</th>
+								<th>&nbsp;TELEFONE</th>
+								<th>&nbsp;NOME COMPLETO</th>
+								<th>&nbsp;DATA DA ÚLTIMA CHAMADA</th>
 								<th>&nbsp;STATUS</th>
-								<th>&nbsp;LAST AGENT</th>
+								<th>&nbsp;ÚLTIMO OPERADOR</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr class="tr2">
-								<td colspan=8 style="font-weight:bold;color:#F00;font-style:italic;">&nbsp;No record(s) found.</td>
+								<td colspan=8 style="font-weight:bold;color:#F00;font-style:italic;">&nbsp;Nenhum Registro Encontrado.</td>
 							</tr>
 						</tbody>
 					</table>
@@ -3275,68 +3275,68 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 				<div id="overlayContentSearch">
 					<table style="margin-left:auto;margin-right:auto;width:100%;">
 						<tr>
-							<td colspan=2 style="font-weight:bold;text-align:center;font-size:16px;">Lead Search Options</td>
+							<td colspan=2 style="font-weight:bold;text-align:center;font-size:16px;">Opções de Pesquisa de Contatos</td>
 						</tr>
 						<tr>
 							<td colspan=2 style="font-weight:bold;text-align:center;font-size:10px;">&nbsp;</td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">Phone:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Telefone:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_input('phone',null,'id="search_phone" maxlength="11" size="12" class="basicSearch"') ?></td>
 						</tr>
 						<tr class="adv">
-							<td style="text-align:right;width:40%;">Search Alt. Phone:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Pesquisa Alt. Telefone:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_dropdown('alt_phone',array('N'=>'No','Y'=>'Yes'),null,'class="advanceSearch"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;">First Name:&nbsp;</td>
+							<td style="text-align:right;">Nome:&nbsp;</td>
 							<td>&nbsp;<?=form_input('first_name',null,'id="search_first_name" maxlength="30" class="basicSearch"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;">Last Name:&nbsp;</td>
+							<td style="text-align:right;">Sobrenome:&nbsp;</td>
 							<td>&nbsp;<?=form_input('last_name',null,'id="search_last_name" maxlength="30" class="basicSearch"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;" class="adv"><span style="color:red">*</span> Last Call Date:&nbsp;</td>
+							<td style="text-align:right;" class="adv"><span style="color:red">*</span> Data da Última Chamada:&nbsp;</td>
 							<td style="white-space:nowrap;" class="adv">
 								<div style="display:table-cell;">
 									&nbsp;
 								</div>
 								<div id="widgetField" style="display:table-cell;">
-									<a href="javascript:void(0);" id="daterange" style="float:right; position: static;">Select date range</a>
+									<a href="javascript:void(0);" id="daterange" style="float:right; position: static;">Selecinar Período</a>
 									<div style="margin-top:2px;" id="widgetDate"><span name="selected_from_date" id="selected_from_date" class="advanceSearch"><? echo date('Y-m-d'); ?></span> to <span name="selected_to_date" id="selected_to_date" class="advanceSearch"><? echo date('Y-m-d'); ?></span></div>
 								</div>
 								<div style="display:table-cell;">
-									<input type="checkbox" id="searchByDate" /> <small style="color:#F00">(search w/ date)</small>
+									<input type="checkbox" id="searchByDate" /> <small style="color:#F00">(pesquisa com data)</small>
  								</div>
 							</td>
 						</tr>
 						<tr class="adv">
-							<td style="text-align:right;">Lead ID:&nbsp;</td>
+							<td style="text-align:right;">Contato ID:&nbsp;</td>
 							<td>&nbsp;<?=form_input('lead_id',null,'maxlength="10" size="10" class="advanceSearch"') ?></td>
 						</tr>
 						<tr class="adv">
-							<td style="text-align:right;">Disposition:&nbsp;</td>
+							<td style="text-align:right;">Tabulação:&nbsp;</td>
 							<td>&nbsp;<?=form_dropdown('status',$dispos,null,'style="width:250px" class="advanceSearch"') ?></td>
 						</tr>
 						<tr class="adv">
-							<td style="text-align:right;">List ID:&nbsp;</td>
+							<td style="text-align:right;">Lista ID:&nbsp;</td>
 							<td>&nbsp;<?=form_input('list_id',null,'maxlength="15" size="15" class="advanceSearch"') ?></td>
 						</tr>
 						<tr class="adv">
-							<td style="text-align:right;">Last Agent:&nbsp;</td>
+							<td style="text-align:right;">Último Agente:&nbsp;</td>
 							<td>&nbsp;<?=form_input('user',null,'maxlength="20" class="advanceSearch"') ?></td>
 						</tr>
 						<tr class="adv">
-							<td style="text-align:right;">Address:&nbsp;</td>
+							<td style="text-align:right;">Endereço:&nbsp;</td>
 							<td>&nbsp;<?=form_input('address',null,'maxlength="100" size="35" class="advanceSearch"') ?></td>
 						</tr>
 						<tr class="adv">
-							<td style="text-align:right;">City:&nbsp;</td>
+							<td style="text-align:right;">Cidade:&nbsp;</td>
 							<td>&nbsp;<?=form_input('city',null,'maxlength="50" size="25" class="advanceSearch"') ?></td>
 						</tr>
 						<tr class="adv">
-							<td style="text-align:right;">State:&nbsp;</td>
+							<td style="text-align:right;">Estado:&nbsp;</td>
 							<td>&nbsp;<?=form_input('state',null,'maxlength="2" size="3" class="advanceSearch"') ?></td>
 						</tr>
 						<tr class="adv">
@@ -3344,17 +3344,17 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 							<td>&nbsp;<?=form_input('email',null,'maxlength="70" size="30" class="advanceSearch"') ?></td>
 						</tr>
 						<tr class="adv">
-							<td style="text-align:right;">Comments:&nbsp;</td>
+							<td style="text-align:right;">Comentários:&nbsp;</td>
 							<td>&nbsp;<?=form_input('comments',null,'maxlength="100" size="40" class="advanceSearch"') ?></td>
 						</tr>
 						<tr class="adv">
-							<td colspan=2 style="text-align:left;font-size:10px;color:red;line-height:18px;padding-left:10px;">* Lead search by date range is limited to 60 days only.</td>
+							<td colspan=2 style="text-align:left;font-size:10px;color:red;line-height:18px;padding-left:10px;">*A pesquisa de contatos por período é limitada a 60 dias.</td>
 						</tr>
 						<tr>
 							<td colspan=2 style="font-weight:bold;text-align:center;font-size:10px;">&nbsp;</td>
 						</tr>
 						<tr>
-							<td colspan=2 style="text-align:right;"><span id="showAdvance" class="buttons">Advance</span> | <span id="submitSearch" class="buttons">Search</span></td>
+							<td colspan=2 style="text-align:right;"><span id="showAdvance" class="buttons">Avançado</span> | <span id="submitSearch" class="buttons">Pesquisa</span></td>
 						</tr>
 					</table>
 				</div>
@@ -3370,17 +3370,17 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 				<div id="overlayContentLeadInfo">
 					<table style="margin-left:auto;margin-right:auto;width:100%;">
 						<tr>
-							<td colspan=2 style="font-weight:bold;text-align:center;font-size:16px;">Lead Information</td>
+							<td colspan=2 style="font-weight:bold;text-align:center;font-size:16px;">Informação do Contato</td>
 						</tr>
 						<tr>
 							<td colspan=2 style="font-weight:bold;text-align:center;font-size:10px;">&nbsp;</td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">Lead ID:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Contato ID:&nbsp;</td>
 							<td style="width:60%;line-height:20px;">&nbsp;<span id="leadinfo_lead_id"></span></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">List ID:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Lista ID:&nbsp;</td>
 							<td style="width:60%;line-height:20px;">&nbsp;<span id="leadinfo_list_id"></span></td>
 						</tr>
 						<tr>
@@ -3388,11 +3388,11 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 							<td style="width:60%;line-height:20px;">&nbsp;<span id="leadinfo_user"></span></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">First Name:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Nome:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_input('first_name',null,'id="leadinfo_first_name" maxlength="30" size="25" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">Last Name:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Sobrenome:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_input('last_name',null,'id="leadinfo_last_name" maxlength="30" size="25" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
@@ -3400,27 +3400,27 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 							<td style="width:60%;">&nbsp;<?=form_input('address1',null,'id="leadinfo_address1" maxlength="100" size="50" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">City:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Cidade:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_input('city',null,'id="leadinfo_city" maxlength="50" size="30" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">State:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Estado:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_input('state',null,'id="leadinfo_state" maxlength="2" size="3" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">Zip:&nbsp;</td>
+							<td style="text-align:right;width:40%;">CEP:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_input('postal_code',null,'id="leadinfo_postal_code" maxlength="10" size="12" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">Phone Code:&nbsp;</td>
+							<td style="text-align:right;width:40%;">DDD:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_input('phone_code',null,'id="leadinfo_phone_code" maxlength="10" size="10" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">Phone Number:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Número:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_input('phone_number',null,'id="leadinfo_phone_number" maxlength="18" size="20" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">Alt. Phone:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Alt. Número:&nbsp;</td>
 							<td style="width:60%;">&nbsp;<?=form_input('alt_phone',null,'id="leadinfo_alt_phone" maxlength="12" size="15" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
@@ -3428,19 +3428,19 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 							<td style="width:60%;">&nbsp;<?=form_input('email',null,'id="leadinfo_email" maxlength="70" size="30" class="basicLeadInfo"') ?></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;width:40%;">Comments:&nbsp;</td>
+							<td style="text-align:right;width:40%;">Commentários:&nbsp;</td>
 							<td style="width:60%;white-space:nowrap;">&nbsp;<?=form_textarea(array('name'=>'comments','value'=>null,'id'=>"leadinfo_comments",'cols'=>"50",'rows'=>"5",'style'=>"resize:none;",'class'=>"basicLeadInfo")) ?></td>
 						</tr>
 						<tr class="advLeadInfo">
-							<td style="text-align:right;">Disposition:&nbsp;</td>
+							<td style="text-align:right;">Tabulação:&nbsp;</td>
 							<td>&nbsp;<?=form_dropdown('status',$dispos,null,'id="leadinfo_status" style="width:250px" class="advanceLeadInfo"') ?></td>
 						</tr>
 						<tr class="advLeadInfo">
-							<td style="text-align:right;">Modify Vicidial Logs:&nbsp;</td>
+							<td style="text-align:right;">Modificar Registos do Vicidial:&nbsp;</td>
 							<td>&nbsp;<?=form_checkbox(array('id'=>'modify_logs','value'=>'1','name'=>'modify_logs','checked'=>true,'class'=>"advanceLeadInfo"))?></td>
 						</tr>
 						<tr class="advLeadInfo">
-							<td style="text-align:right;">Modify Agent Logs:&nbsp;</td>
+							<td style="text-align:right;">Modificar Registos dos Agentes:&nbsp;</td>
 							<td>&nbsp;<?=form_checkbox(array('id'=>'modify_agent_logs','value'=>'1','name'=>'modify_agent_logs','checked'=>true,'class'=>"advanceLeadInfo"))?></td>
 						</tr>
 						<tr class="advLeadInfo">
@@ -3448,34 +3448,34 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 							<td>&nbsp;<?=form_checkbox(array('id'=>'modify_closer_logs','value'=>'1','name'=>'modify_closer_logs','checked'=>false,'class'=>"advanceLeadInfo"))?></td>
 						</tr>
 						<tr style="display:none">
-							<td style="text-align:right;">Add Closer Log Record:&nbsp;</td>
+							<td style="text-align:right;">Adicionar um Registro de Log mais Próximo:&nbsp;</td>
 							<td>&nbsp;<?=form_checkbox(array('id'=>'add_closer_record','value'=>'1','name'=>'add_closer_record','checked'=>false,'class'=>"advanceLeadInfo"))?></td>
 						</tr>
 						<tr>
 							<td colspan=2 style="font-weight:bold;text-align:center;font-size:10px;">&nbsp;</td>
 						</tr>
 						<tr>
-							<td colspan=2 style="text-align:right;"><span id="showAdvanceLeadInfo" class="buttons">Advance</span> | <span id="submitLeadInfo" class="buttons">Submit</span></td>
+							<td colspan=2 style="text-align:right;"><span id="showAdvanceLeadInfo" class="buttons">Avançado</span> | <span id="submitLeadInfo" class="buttons">Confirmar</span></td>
 						</tr>
 					</table>
 					
 					<!-- S t a r t -->
 					<br class="clear"/>
-					<div class="collapse-anchor"><a id="log-collapse">Other Info [+]</a></div>
+					<div class="collapse-anchor"><a id="log-collapse">Outras Informações [+]</a></div>
 					<div id="collapsible" class="invi-elem"> 
 						<div class="corner-all innerbox-tbl" id="calls-to-this-lead">
 							<div class="user-tbl">
-								<div class='innerbox-title'><strong>Calls to this Lead</strong></div>
+								<div class='innerbox-title'><strong>Chamadas para Este Contato</strong></div>
 								<div class="user-hdr">
-									<div class="user-tbl-cols">Date / Time</div>
-									<div class="user-tbl-cols user-tbl-cols-centered">Length</div>
+									<div class="user-tbl-cols">Data / Hora</div>
+									<div class="user-tbl-cols user-tbl-cols-centered">Duração</div>
 									<div class="user-tbl-cols">Status</div>
 									<div class="user-tbl-cols">TSR</div>
-									<div class="user-tbl-cols">Campaign</div>
-									<div class="user-tbl-cols">List</div>
-									<div class="user-tbl-cols">Lead</div>
-									<div class="user-tbl-cols">Hangup Reason</div>
-									<div class="user-tbl-cols">Phone</div>
+									<div class="user-tbl-cols">Campanha</div>
+									<div class="user-tbl-cols">Lista</div>
+									<div class="user-tbl-cols">Contato</div>
+									<div class="user-tbl-cols">Razão do Desligamento</div>
+									<div class="user-tbl-cols">Fone</div>
 									<br class="clear"/>
 								</div>
 								<div class="user-tbl-container">&nbsp;</div>
@@ -3484,17 +3484,17 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 						<br class="clear"/>
 						<div class="corner-all innerbox-tbl" id="closer-records">
 							<div class="user-tbl">
-								<div class='innerbox-title'><strong>Closer Records for this Lead</strong></div>
+								<div class='innerbox-title'><strong>Registro Mais Próximo para esse Contato</strong></div>
 								<div class="user-hdr">
-									<div class="user-tbl-cols">Date / Time</div>
-									<div class="user-tbl-cols user-tbl-cols-centered">Length</div>
+									<div class="user-tbl-cols">Data / Hora</div>
+									<div class="user-tbl-cols user-tbl-cols-centered">Duração</div>
 									<div class="user-tbl-cols">Status</div>
 									<div class="user-tbl-cols">TSR</div>
-									<div class="user-tbl-cols">Campaign</div>
-									<div class="user-tbl-cols">List</div>
-									<div class="user-tbl-cols">Lead</div>
-									<div class="user-tbl-cols">Wait</div>
-									<div class="user-tbl-cols">Hangup Reason</div>
+									<div class="user-tbl-cols">Campanha</div>
+									<div class="user-tbl-cols">Lista</div>
+									<div class="user-tbl-cols">Contato</div>
+									<div class="user-tbl-cols">Espera</div>
+									<div class="user-tbl-cols">Razão do Desligamento</div>
 									<br class="clear"/>
 								</div>
 								<div class="user-tbl-container">&nbsp;</div>
@@ -3503,17 +3503,17 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 						<br class="clear"/>
 						<div class="corner-all innerbox-tbl" id="agent-log">
 							<div class="user-tbl">
-								<div class='innerbox-title'><strong>Agent Log Records for this Lead</strong></div>
+								<div class='innerbox-title'><strong>Relatórios de Log do Operador para esse Contato</strong></div>
 								<div class="user-hdr">
-									<div class="user-tbl-cols " style="width:18%">Date / Time</div>
-									<div class="user-tbl-cols user-normalcols">Campaign</div>
+									<div class="user-tbl-cols " style="width:18%">Data / Hora</div>
+									<div class="user-tbl-cols user-normalcols">Campanha</div>
 									<div class="user-tbl-cols user-normalcols">TSR</div>
-									<div class="user-tbl-cols user-smallcols">Pause</div>
-									<div class="user-tbl-cols user-smallcols">Wait</div>
-									<div class="user-tbl-cols user-smallcols">Talk</div>
+									<div class="user-tbl-cols user-smallcols">Pausa</div>
+									<div class="user-tbl-cols user-smallcols">Espera</div>
+									<div class="user-tbl-cols user-smallcols">Fala</div>
 									<div class="user-tbl-cols user-smallcols">Dispo</div>
 									<div class="user-tbl-cols user-smallcols">Status</div>
-									<div class="user-tbl-cols">Group</div>
+									<div class="user-tbl-cols">Grupo</div>
 									<div class="user-tbl-cols">Sub</div> 
 									<br class="clear"/>
 								</div>
@@ -3523,14 +3523,14 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 						<br class="clear"/>
 						<div class="corner-all innerbox-tbl" id="recording">
 							<div class="user-tbl">
-								<div class='innerbox-title'><strong>Recordings for this Lead</strong></div>
+								<div class='innerbox-title'><strong>Gravações desse Contato</strong></div>
 								<div class="user-hdr">
-									<div class="user-tbl-cols">Lead</div>
-									<div class="user-tbl-cols">Date / Time</div>
-									<div class="user-tbl-cols user-tbl-cols-centered">Seconds</div>
+									<div class="user-tbl-cols">Contato</div>
+									<div class="user-tbl-cols">Data / Hora</div>
+									<div class="user-tbl-cols user-tbl-cols-centered">Segundos</div>
 									<div class="user-tbl-cols">RecId</div>
-									<div class="user-tbl-cols">Filename</div>
-									<div class="user-tbl-cols">Location</div>
+									<div class="user-tbl-cols">Nome do Arquivo</div>
+									<div class="user-tbl-cols">Localização</div>
 									<div class="user-tbl-cols">TSR</div>
 									<br class="clear"/>
 								</div>
@@ -3547,7 +3547,7 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 			<!-- Action Menu -->
 			<div id='go_lead_search_menu' class='go_lead_search_menu'>
 			<ul>
-			<li class="go_lead_search_submenu" title="Delete Selected" id="delete">Delete Selected</li>
+			<li class="go_lead_search_submenu" title="Delete Selected" id="delete">Deletar Selecionados</li>
 			</ul>
 			</div>
         </div>
@@ -3556,7 +3556,7 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
 				
 
 									<div style="display: none;" class="demo-description">
-										<p>Click tabs to swap between content that is broken into logical sections.</p>
+										<p>Clique nas guias para alternar entre o conteúdo que está dividido em seções lógicas.</p>
 									</div><!-- End demo-description -->							
 				
                             <div class="container">
@@ -3564,9 +3564,9 @@ COUNTRY CODE FOR THIS FILE: <?=$phone_code_override?></b><br><br><br></td>
                             </div>
                             						<div id='go_action_menu' class='go_action_menu'>
 <ul>
-<li class="go_action_submenu" title="Activate Selected" id="activate">Activate Selected</li>
-<li class="go_action_submenu" title="Deactivate Selected" id="deactivate">Deactivate Selected</li>
-<li class="go_action_submenu" title="Delete Selected" id="delete">Delete Selected</li>
+<li class="go_action_submenu" title="Activate Selected" id="activate">Ativar Selecionados</li>
+<li class="go_action_submenu" title="Deactivate Selected" id="deactivate">Desativar Selecionados</li>
+<li class="go_action_submenu" title="Delete Selected" id="delete">Excluir Selecionados</li>
 </ul>
 </div>
                         </div>

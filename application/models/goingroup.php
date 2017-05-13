@@ -175,8 +175,10 @@ class Goingroup extends Model {
 		  if (!$this->commonhelper->checkIfTenant($user_group)){
 			   $users_output .= "<td style='padding: 3px 0px;'> &nbsp; TENANT ID</td>";
 		  }
-		  $users_output .= "<td style='text-align:center'>SELECTED <input type=checkbox name=\"selectAllAgents\" id=\"selectAllAgents\" onclick=\"checkdatas();\">";
-		  $users_output .= "</td><td style='text-align:center'>RANK</td><td style='text-align:center'>GRADE</td><td style='text-align:center'>CALLS TODAY</td></tr>\n";	
+		  $users_output .= "<td style='text-align:center'>SELECIONADO <input type=checkbox name=\"selectAllAgents\" id=\"selectAllAgents\" 
+onclick=\"checkdatas();\">";
+		  $users_output .= "</td><td style='text-align:center'>RANK</td><td style='text-align:center'>GRADE</td><td 
+style='text-align:center'>CHAMADAS HOJE</td></tr>\n";	
 		  $checkbox_count=0;
 		  $xxx = 0;
 		  

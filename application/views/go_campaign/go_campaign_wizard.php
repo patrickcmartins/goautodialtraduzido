@@ -56,7 +56,7 @@ $(function()
 	$('#campaign_type').change(function()
 	{
 		var steps = 0;
-		$('#campTitle').html('Campaign Wizard &raquo; '+$(this).val());
+		$('#campTitle').html('Campanha &raquo; '+$(this).val());
 		$('#call_route').val('NONE');
 		$('#did_pattern').val('');
 		$('.showAgent').hide();
@@ -227,7 +227,7 @@ $(function()
 						steps = 2;
 						if (step==2)
 						{
-							$('#campTitle').append(' &raquo; Information');
+							$('#campTitle').append(' &raquo; Informações');
 	// 						$('#wizardSpan').text('false');
 						}
 						break;
@@ -235,11 +235,11 @@ $(function()
 						steps = 4;
 						if (step==3)
 						{
-							$('#campTitle').append(' &raquo; Load Leads');
+							$('#campTitle').append(' &raquo; Carregar Contatos');
 						}
 						if (step==4)
 						{
-							$('#campTitle').append(' &raquo; Information');
+							$('#campTitle').append(' &raquo; Informação');
 	// 						$('#wizardSpan').text('false');
 						}
 						break;
@@ -247,11 +247,11 @@ $(function()
 						steps = 2;
 	// 					if (step==3)
 	// 					{
-	// 						$('#campTitle').append(' &raquo; Load Leads');
+	// 						$('#campTitle').append(' &raquo; Carregar Contatos');
 	// 					}
 						if (step==2)
 						{
-							$('#campTitle').append(' &raquo; Information');
+							$('#campTitle').append(' &raquo; Informação');
 	// 						$('#wizardSpan').text('false');
 						}
 						break;
@@ -259,11 +259,11 @@ $(function()
 						steps = 3;
 						if (step==2)
 						{
-							$('#campTitle').append(' &raquo; Load Leads');
+							$('#campTitle').append(' &raquo; Carregar Contatos');
 						}
 						if (step==3)
 						{
-							$('#campTitle').append(' &raquo; Information');
+							$('#campTitle').append(' &raquo; Informação');
 	// 						$('#wizardSpan').text('false');
 						}
 				}
@@ -301,7 +301,7 @@ $(function()
 					copy_from = $('#copy_from').val();
 	// 				$(this).css('width', '50px');
 	// 				$('#saveButtons').css({'text-align': 'center', 'width': '160px'});
-	// 				$('#saveButtons').prepend('<span id="back" style="width:60px;">Back</span> | ');
+	// 				$('#saveButtons').prepend('<span id="back" style="width:60px;">Voltar</span> | ');
 				}
 	
 				if (step==2 && (campaign_type!='Outbound' || campaign_type!='Copy'))
@@ -441,17 +441,17 @@ $(function()
 			case 'Survey':
 				if (step==2)
 				{
-					$('#campTitle').html($('#campTitle').html().replace(' » Load Leads',''));
+					$('#campTitle').html($('#campTitle').html().replace(' » Carregar Contatos',''));
 				}
 				if (step==3)
 				{
-					$('#campTitle').html($('#campTitle').html().replace(' » Information',''));
+					$('#campTitle').html($('#campTitle').html().replace(' » Informação',''));
 				}
 				break;
 			default:
 				if (step==2)
 				{
-					$('#campTitle').html($('#campTitle').html().replace(' » Information',''));
+					$('#campTitle').html($('#campTitle').html().replace(' » Informação',''));
 				}
 		}
 
@@ -642,10 +642,10 @@ $(function()
                     </tr>
                     <tr class="showFirst" style="display:none;">
                         <td style="text-align:right;width:250px;font-weight:bold;">
-                        DID Extension:
+                        DID Ext:
                         </td>
                         <td>
-                        <input type="text" id="did_pattern" size="20" value="" /> <span id="dloading"></span> <small style="color:red">(accepts only numbers)</small>
+                        <input type="text" id="did_pattern" size="20" value="" /> <span id="dloading"></span> <small style="color:red">(somente números)</small>
                         </td>
                     </tr>
                     <tr class="callRoute" style="display:none;">

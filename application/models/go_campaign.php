@@ -1411,12 +1411,12 @@ class Go_campaign extends Model {
 			{
 				$field_name = $field;
 				if ($field == 'address1')
-					$field_name = 'address';
+					$field_name = 'endereço';
 
 				$columnHTML .= "<td style=\"text-align:right;width:50%;\">".strtoupper(eregi_replace("_", " ", $field_name)).":</td><td style\"width:50%;\">\n";
 
 				$columnHTML .= "<select name=\"{$field}_field\" id=\"{$field}_field\" class=\"uploadLeads\">\n";
-				$columnHTML .= "<option value=\"-1\">(none)</option>\n";
+				$columnHTML .= "<option value=\"-1\">(nenhum)</option>\n";
 				for ($i=0;$i<count($cell_val[0]);$i++)
 				{
 					$columnHTML .= "<option value=\"$i\">".$cell_val[0][$i]."</option>\n";
