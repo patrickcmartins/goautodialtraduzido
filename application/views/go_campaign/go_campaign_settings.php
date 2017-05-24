@@ -29,7 +29,7 @@ if ($campinfo->campaign_vdad_exten=="8366" || $campinfo->campaign_vdad_exten=="8
 	$camp_vdad_option ="<option value=\"8366\">OFF</option><option value=\"8373\">ON</option>";
 } else {
 	$isSurvey = false;
-	$camp_vdad_option ="<option value=\"8368\">OFF</option><option value=\"8369\">ON</option>";
+	$camp_vdad_option ="<option value=\"8368\">OFF</option><option value=\"8369\">RACANEGRA</option>"; //detector teste
 }
 
 foreach ($campcalltimes as $call_times)
@@ -828,10 +828,10 @@ if (!$isSurvey)
     	<td style="text-align:right;" nowrap>Script:</td><td><?php echo form_dropdown('campaign_script',$camp_script_list,$campinfo->campaign_script,'id="campaign_script"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Mensagem da Secretária:</td><td><?php echo form_input('am_message_exten',$campinfo->am_message_exten,'id="am_message_exten" class="advanceSettings" maxlength="100" size="50"'); ?> <a href="javascript:launch_chooser('am_message_exten','date',1200,document.getElementById('am_message_exten').value);"><FONT color="blue">[ Audio Chooser ]</a><div id="divam_message_exten"></div></td>
+    	<td style="text-align:right;" nowrap>Mensagem em caso de Secretária:</td><td><?php echo form_input('am_message_exten',$campinfo->am_message_exten,'id="am_message_exten" class="advanceSettings" maxlength="100" size="50"'); ?> <a href="javascript:launch_chooser('am_message_exten','date',1200,document.getElementById('am_message_exten').value);"><FONT color="blue">[ Audio Chooser ]</a><div id="divam_message_exten"></div></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Esperar por Silêncio Opções:</td><td><?php echo form_input('waitforsilence_options',$campinfo->waitforsilence_options,'id="waitforsilence_options" class="advanceSettings" maxlength="25" size="20"'); ?></td>
+    	<td style="text-align:right;" nowrap>Esperar por Silêncio:</td><td><?php echo form_input('waitforsilence_options',$campinfo->waitforsilence_options,'id="waitforsilence_options" class="advanceSettings" maxlength="25" size="20"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
     	<td style="text-align:right;" nowrap>AMD Enviar para VM:</td><td><?php echo form_dropdown('amd_send_to_vmx',array('Y'=>'Y','N'=>'N'),$campinfo->amd_send_to_vmx,'id="amd_send_to_vmx" class="advanceSettings"'); ?></td>
@@ -966,6 +966,9 @@ if ($isSurvey)
 	if ($campinfo->campaign_vdad_exten=='8366')
 	{
 ?>
+    <tr>
+    	<td style="text-align:right;" nowrap>Detector de Secretária:</td><td><select id="campaign_vdad_exten"><?php echo $camp_vdad_option; ?></select></td>
+    </tr>
 	<tr class="advance_settings" style="display:none;">
 		<td style="text-align:right;">DTMF Digitos:</td>
 		<td><input id="survey_dtmf_digits" name="survey_dtmf_digits" class="advanceSettings" type="text" maxlength="16" size="16" placeholder="eg. 0123456789*#" value="<?php echo $campinfo->survey_dtmf_digits; ?>" /> <small>* customer define key press e.g.0123456789*#</small></td>
@@ -1065,7 +1068,7 @@ if ($isSurvey)
 				<option>150</option>
 				<option>200</option>
 			</select>
-			<input type="hidden" id="campaign_vdad_exten" value="<?php echo $campinfo->campaign_vdad_exten; ?>" />
+		<!-- <input type="hidden" id="campaign_vdad_exten" value="<?php echo $campinfo->campaign_vdad_exten; ?>" /> -->
 		</td>
 	</tr>
 <?php

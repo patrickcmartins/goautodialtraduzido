@@ -587,7 +587,7 @@ class Go_campaign_ce extends Controller {
 		{
 			$this->db->query("UPDATE vicidial_campaigns SET dial_method='$dial_method',auto_dial_level='$auto_dial_level',campaign_recording='$campaign_recording',campaign_vdad_exten='$campaign_vdad_exten',dial_prefix='$dial_prefix',manual_dial_prefix='$manual_dial_prefix' WHERE campaign_id='$campaign_id'");
 		} else {
-			$this->db->query("UPDATE vicidial_campaigns SET dial_prefix='$dial_prefix' WHERE campaign_id='$campaign_id'"); 
+			$this->db->query("UPDATE vicidial_campaigns SET dial_prefix='$dial_prefix' WHERE campaign_id='$campaign_id',campaign_vdad_exten='$campaign_vdad_exten'"); 
 		}
 		//var_dump("UPDATE vicidial_campaigns SET dial_method='$dial_method',auto_dial_level='$auto_dial_level',campaign_vdad_exten='$campaign_vdad_exten' WHERE campaign_id='$campaign_id'");
 		return true;

@@ -11,7 +11,7 @@
 
 <html>
 <head>
-<title>GoAutoDial - Empowering the Next Generation Contact Centers</title>
+<title>VoIPai</title>
 <meta http-equiv="Content-Type"sdf content="text/html; charset=utf-8">
 <!--[if gte IE 9]>
   <style type="text/css">
@@ -41,7 +41,7 @@
 	<table align="center" border="0" cellpadding="0" cellspacing="0">
 		<tbody>
 		  <tr>
-		    <td align="center"><img width="150px;" src="goautodial_logo.png"></td>
+		    <td align="center"><img width="300px;" src="goautodial_logo.png"></td>
 		  </tr>
 		  <tr>
 		    <td align="center">&nbsp;&nbsp;</td>

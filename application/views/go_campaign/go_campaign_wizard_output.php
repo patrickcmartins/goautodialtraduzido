@@ -479,7 +479,7 @@ $(document).ready(function()
 				<?php
 				}
 				
-				if ($campType!='Outbound' && $campType!='Survey' && $campType!='Copy') {
+				if ($campType!='Outbound' && $campType='Survey' && $campType!='Copy') {
 				?>
             	<tr>
                 	<td class="label">DID Ext:</td>
@@ -528,7 +528,11 @@ $(document).ready(function()
 			if ($survey_type == "PRESS1")
 			{
 ?>
-            	<tr>
+                 /* <tr>
+                	<td class="label">Detector de Secretária:</td>
+                    <td><?php echo form_dropdown('campaign_vdad_exten',$vdadOptions,$campaign_vdad_exten,'id="campaign_vdad_exten" class="previewEdit"'); ?></td>
+                </tr> */ 
+             	<tr>
                 	<td class="label">Arquivo de Áudio:</td>
                     <td><?php echo $survey_info->survey_first_audio_file; ?><input id="survey_first_audio_file" type="text" maxlength="50" size="25" style="display:none;" value="<?php echo $survey_info->survey_first_audio_file; ?>" /><input type="button" value="Audio" style="display:none;" class="selectAudio" /></td>
                 </tr>

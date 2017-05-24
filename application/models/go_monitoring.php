@@ -513,7 +513,7 @@ class Go_monitoring extends Model {
 					$out_campSQL = "vac.campaign_id IN ('$stringv') and ";
 				}
 	
-				$stmt="select status,phone_number,call_type,UNIX_TIMESTAMP(call_time) as 'call_time',vac.campaign_id{$isAdmin} from vicidial_auto_calls as vac, vicidial_campaigns as vc, vicidial_inbound_groups as vig where ( (call_type='IN' $closer_campSQL) or ($out_campSQL call_type rlike 'OUT') ) AND (vac.campaign_id=vc.campaign_id OR vac.campaign_id=vig.group_id OR vac.campaign_id='CALLMENU') GROUP BY status,call_type,phone_number ORDER BY $orderSQL LIMIT 2000;";
+				$stmt="select status,phone_number,call_type,UNIX_TIMESTAMP(call_time) as 'call_time',vac.campaign_id{$isAdmin} from vicidial_auto_calls as vac, vicidial_campaigns as vc, vicidial_inbound_groups as vig where ( (call_type='IN' $closer_campSQL) or ($out_campSQL call_type rlike 'OUT') ) AND (vac.campaign_id=vc.campaign_id OR vac.campaign_id=vig.group_id OR vac.campaign_id='CALLMENU') GROUP BY status,call_type,phone_number ;";
 				//$stmt="select status,phone_number,call_type,UNIX_TIMESTAMP(call_time) as 'call_time',vac.campaign_id{$isAdmin} from vicidial_auto_calls as vac, vicidial_campaigns as vc where ( (call_type='IN' and vac.campaign_id IN($closer_campaignsX)) or (vac.campaign_id IN ('$stringv') and call_type rlike 'OUT') ) AND vac.campaign_id=vc.campaign_id ORDER BY $orderSQL LIMIT 2000;";
 				}
 			else

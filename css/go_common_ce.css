@@ -178,7 +178,7 @@ div.postbox div.inside-tab div.ui-tabs div.ui-tabs-panel{padding:4px 10px 10px 9
 .elem-tbl-spacer{font-size:1px;}
 .elem-tbl-cols-chkbox{width:10%;}
 
-.active{color:green;font-weight:bold;}
+.active{color:blue;font-weight:bold;}
 .inactive{color:#FF0000;font-weight:bold;}
 
 .pager-container{padding:2px;vertical-align:middle;}

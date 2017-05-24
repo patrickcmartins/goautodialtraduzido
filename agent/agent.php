@@ -674,7 +674,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 <style type="text/css">
 .ce  {align:center; font-style: normal; font-family: verdana; font-size: 10px; margin-top: -10px; color: #6a6363;}
 .ce a {text-decoration: none; font-style: normal; font-family: verdana; font-size: 10px; margin-top: -10px; color: #6a6363;}
-.ce a:hover {text-decoration: underline; color: #428e00;}
+.ce a:hover {text-decoration: underline; color: #567ac3;}
 
 .curvebox {
                         width:400px;height:auto;-webkit-border-radius: 7px; 
@@ -684,8 +684,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
                         border:1px solid #CACACA;
                         background:-moz-linear-gradient(center right , #FFFFFF, #FFFFFF);
                         background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#FFFFFF));
-                        /*background:-moz-linear-gradient(center right , #59b42d, #59b42d);*/
-                        /*background: -webkit-gradient(linear, left top, left bottom, from(#59b42d), to(#59b42d));*/
+                        /*background:-moz-linear-gradient(center right , #567ac3, #567ac3);*/
+                        /*background: -webkit-gradient(linear, left top, left bottom, from(#567ac3), to(#567ac3));*/
                          -webkit-box-shadow: #CACACA 2px 2px 2px;
                         -moz-box-shadow: #CACACA 2px 2px 2px;
                         box-shadow: #CACACA 2px 2px 2px; 
@@ -699,8 +699,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
                         border:1px solid #CACACA;
                         background:-moz-linear-gradient(center right , #FFFFFF, #FFFFFF);
                         background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#FFFFFF));
-                        /*background:-moz-linear-gradient(center right , #59b42d, #59b42d);*/
-                        /*background: -webkit-gradient(linear, left top, left bottom, from(#59b42d), to(#59b42d));*/
+                        /*background:-moz-linear-gradient(center right , #567ac3, #567ac3);*/
+                        /*background: -webkit-gradient(linear, left top, left bottom, from(#567ac3), to(#567ac3));*/
                          -webkit-box-shadow: #CACACA 2px 2px 2px;
                         -moz-box-shadow: #CACACA 2px 2px 2px;
                         box-shadow: #CACACA 2px 2px 2px; 
@@ -715,8 +715,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
                         border:1px solid #CACACA;
                         background:-moz-linear-gradient(center right , #FFFFFF, #FFFFFF);
                         background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#FFFFFF));
-                        /*background:-moz-linear-gradient(center right , #59b42d, #59b42d);*/
-                        /*background: -webkit-gradient(linear, left top, left bottom, from(#59b42d), to(#59b42d));*/
+                        /*background:-moz-linear-gradient(center right , #567ac3, #567ac3);*/
+                        /*background: -webkit-gradient(linear, left top, left bottom, from(#567ac3), to(#567ac3));*/
                          -webkit-box-shadow: #CACACA 2px 2px 2px;
                         -moz-box-shadow: #CACACA 2px 2px 2px;
                         box-shadow: #CACACA 2px 2px 2px; 
@@ -750,8 +750,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     color:#000;
     font-size:small;
     font-family:Arial, Helvetica;
-    background-color:#428e00;
-    /*background-color:#59b42d;*/
+    background-color:#567ac3;
+    /*background-color:#567ac3;*/
     /*border-bottom: #000 1px solid!important;
     box-shadow: 5px 5px 2px #BDBDBD;*/
 /*    width: <?=$JS_browser_width?>px;*/
@@ -14294,7 +14294,8 @@ else
 </div>
 
 <div id="footer_logo" style="position:fixed;bottom:0px;right:0px;z-index:<?php $zi++; echo $zi ?>;text-align:right;">
-	<a href="http://goautodial.com" target="_blank"><img src="<?="http://{$_SERVER['SERVER_NAME']}/"?>img/images/goautologo.png" title="GoAutoDial" style="border:0px;height:28px;" /></a>&nbsp;
+	<a href="http://upvoiptelecom.com" target="_blank"><img src="<?="http://{$_SERVER['SERVER_NAME']}/"?>img/images/goautologo.png" title="UpVoIP" 
+style="border:0px;height:28px;" /></a>&nbsp;
 </div>
 <!-- END *********   Here is the main VICIDIAL display panel -->
 

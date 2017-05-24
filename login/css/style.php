@@ -142,7 +142,7 @@ div.text_input { overflow: auto; font-size: 10px;  font-family: sans-serif; }
         background-repeat: no-repeat;
         color:#FFFFFF;
     	/* background-color:#428e00; */
-    	background-color: <?=$THEMECOLOR?>; 
+    	background-color: #7794cf; 
         font-family:Arial, Helvetica;
     /*border-bottom: #000 1px solid!important;*/
     /*box-shadow: 5px 5px 2px #BDBDBD;*/

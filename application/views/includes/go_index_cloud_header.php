@@ -109,7 +109,7 @@
 // echo '<div id = "theme">';
 // $options = array(
 // 	#'detect'  => $this->theme_detect->currentTheme(),
-// 	'goautodial.css'  => 'Green',
+// 	'goautodial.css'  => 'Blue',
 // 	'goautodial-blue.css' => 'Blue',
 // 	'goautodial-orange.css' => 'Orange'
 // );
