@@ -36,7 +36,7 @@ $(function()
 	    $("#user-container").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 	    $('#user-container').load('<? echo $base; ?>index.php/go_user_ce/index/search/1/'+search);
 	} else {
-	    alert("Please enter at least 3 characters to search.");
+	    alert("Mínimo 3 caracteres.");
 	}
     });
     
@@ -71,7 +71,7 @@ $(function()
 		$("#user-container").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 		$('#user-container').load('<? echo $base; ?>index.php/go_user_ce/index/search/1/'+search);
 	    } else {
-		alert("Please enter at least 3 characters to search.");
+		alert("Mínimo 3 caracteres.");
 	    }
 	}
     });
@@ -101,7 +101,7 @@ $(function()
 
 <div id='outbody' class="wrap">
     <div id="icon-user" class="icon32"></div>
-    <div style="float: right;margin-top:15px;margin-right:25px;"><span id="showAllLists" style="display: none">[Clear Search]</span>&nbsp;<?=form_input('search_list',$search_list,'id="search_list" maxlength="100" placeholder="Search '.$bannertitle.'"') ?>&nbsp;<img src="<?=base_url()."img/spotlight-black.png"; ?>" id="search_list_button" style="cursor: pointer;" /></div>
+    <div style="float: right;margin-top:15px;margin-right:25px;"><span id="showAllLists" style="display: none">[Limpar Pesquisa]</span>&nbsp;<?=form_input('search_list',$search_list,'id="search_list" maxlength="100" placeholder="Search '.$bannertitle.'"') ?>&nbsp;<img src="<?=base_url()."img/spotlight-black.png"; ?>" id="search_list_button" style="cursor: pointer;" /></div>
     <h2><?=$bannertitle?></h2>
     <div id="dashboard-widgets-wrap">
         <div id="dashboard-widgets" class="metabox-holder">
@@ -156,30 +156,30 @@ $(function()
 
 				if ($pg['last'] > 1) {
 				    $pagelinks  = '<div style="cursor: pointer;font-weight: bold;" id="paginationLinks">';
-				    $pagelinks .= '<a title="Go to First Page" style="vertical-align:baseline;padding: 0px 2px;" onclick="gopage('.$pg['first'].')"><span><img src="'.base_url().'/img/first.gif"></span></a>';
-				    $pagelinks .= '<a title="Go to Previous Page" style="vertical-align:baseline;padding: 0px 2px;" onclick="gopage('.$pg['prev'].')"><span><img src="'.base_url().'/img/prev.gif"></span></a>';
+				    $pagelinks .= '<a title="Primeira Página" style="vertical-align:baseline;padding: 0px 2px;" onclick="gopage('.$pg['first'].')"><span><img src="'.base_url().'/img/first.gif"></span></a>';
+				    $pagelinks .= '<a title="Página Anterior" style="vertical-align:baseline;padding: 0px 2px;" onclick="gopage('.$pg['prev'].')"><span><img src="'.base_url().'/img/prev.gif"></span></a>';
 							    
 				    for ($i=$pg['start'];$i<=$pg['end'];$i++) { 
 				       if ($i==$pg['page']) $current = 'color: #F00;cursor: default;'; else $current="";
 				    
-					$pagelinks .= '<a title="Go to Page '.$i.'" style="vertical-align:text-top;padding: 0px 2px;'.$current.'" onclick="gopage('.$i.')"><span>'.$i.'</span></a>';
+					$pagelinks .= '<a title="Página '.$i.'" style="vertical-align:text-top;padding: 0px 2px;'.$current.'" onclick="gopage('.$i.')"><span>'.$i.'</span></a>';
 							    
 				    }
 					    
 				    //$pagelinks .= '<a title="View All Pages" style="vertical-align:text-top;padding: 0px 2px;" onclick="gopage(\'ALL\')"><span>ALL</span></a>';
-				    $pagelinks .= '<a title="Go to Next Page" style="vertical-align:baseline;padding: 0px 2px;" onclick="gopage('.$pg['next'].')"><span><img src="'.base_url().'/img/next.gif"></span></a>';
-				    $pagelinks .= '<a title="Go to Last Page" style="vertical-align:baseline;padding: 0px 2px;" onclick="gopage('.$pg['last'].')"><span><img src="'.base_url().'/img/last.gif"></span></a>';
+				    $pagelinks .= '<a title="Próxima Página" style="vertical-align:baseline;padding: 0px 2px;" onclick="gopage('.$pg['next'].')"><span><img src="'.base_url().'/img/next.gif"></span></a>';
+				    $pagelinks .= '<a title="Última Página" style="vertical-align:baseline;padding: 0px 2px;" onclick="gopage('.$pg['last'].')"><span><img src="'.base_url().'/img/last.gif"></span></a>';
 				    $pagelinks .= '</div>';
 				} else {
 				    if ($rp > 25) {
 					    $pagelinks  = '<div style="cursor: pointer;font-weight: bold;padding-top:10px;">';
-					    $pagelinks .= '<a title="Back to Paginated View" style="vertical-align:text-top;padding: 0px 2px;" onclick="gopage(1)"><span>BACK</span></a>';
+					    $pagelinks .= '<a title="Voltar para Paginação" style="vertical-align:text-top;padding: 0px 2px;" onclick="gopage(1)"><span>VOLTAR</span></a>';
 					    $pagelinks .= '</div>';
 				    } else {
 					$pagelinks = '';
 				    }
 				}
-				echo "<span style='float:right;padding-right:10px;' id='paginationInfo'>Displaying {$pg['istart']} to {$pg['iend']} of {$pg['total']} users</span>";
+				echo "<span style='float:right;padding-right:10px;' id='paginationInfo'>Mostrnado {$pg['istart']} a {$pg['iend']} de {$pg['total']} users</span>";
                                 echo $pagelinks;
                                 echo '<form action="users" id="page_track" method="post">';
                                 echo "<input type='hidden' name='page'>";
@@ -205,7 +205,7 @@ $(function()
         <div class='add-close'>&nbsp;</div>
         <br class="clear"/>
         <div class='wizard-breadcrumb'>
-             <div class="wizard-title"><strong>Users Wizard &raquo; Add New User</strong></div>
+             <div class="wizard-title"><strong>Usuários &raquo; Adicionar Novo Usuário</strong></div>
              <?=img("img/step2of3-navigation-small.png")?>
              <br class="clear"/>
         </div>
@@ -220,7 +220,7 @@ $(function()
 						}
 						?>
                         <div class="boxleftside" <?=$hideDiv ?>>
-                             <span><strong>Grupo do Usuário:</strong></span>
+                             <span><strong>Grupo de Usuário:</strong></span>
                         </div>
                         <div class="boxrightside" <?=$hideDiv ?>> 
                              <?php #if($user_level < 9){?>
@@ -250,7 +250,7 @@ $(function()
                            ?>
                         </div><br class="clear"/> -->
                         <div class="boxleftside">
-                           <span><strong>Current Users:</strong></span>
+                           <span><strong>Usuários Atuais:</strong></span>
                         </div>
                         <div class="boxrightside">
                            <?php #if($user_level < 9){?> 
@@ -263,7 +263,7 @@ $(function()
                            ?>
                         </div><br class="clear"/>
                         <div class="boxleftside">
-                            <span><strong>Additional Seat(s):</strong></span>
+                            <span><strong>PA Adiconal:</strong></span>
                         </div>
                         <div class="boxrightside"> 
                             <?php
@@ -274,16 +274,16 @@ $(function()
                             <?=form_hidden('skip','skip')?>
                         </div><br class="clear"/>
                         <div class="boxleftside">
-                            <span><strong>Gerar Login de Ramal:</strong></span>
+                            <span><strong>Gerar Ramal:</strong></span>
                         </div>
                         <div class="boxrightside">
                             <?=form_dropdown("generate_phone",array('No','Yes'),0,"class='generate_phone' onChange='generatePhone();'")?>
                         </div><br class="clear"/>
                         <div class="boxleftside generate_phone_class">
-                            <span><strong>Phone Login:</strong></span>
+                            <span><strong>Login do Ramal:</strong></span>
                         </div>
                         <div class="boxrightside generate_phone_class">
-                            <?=form_input("start_phone_exten",null,"class='start_phone_exten' maxlength='10' size='12' onkeydown='digitsOnly(event)' onkeyup='checkPhoneIfExist()' placeholder='eg. 8001'")?>
+                            <?=form_input("start_phone_exten",null,"class='start_phone_exten' maxlength='10' size='12' onkeydown='digitsOnly(event)' onkeyup='checkPhoneIfExist()' placeholder='ex. 8001'")?>
 			    <span class="eloading" style="font-size: 10px;"></span>
                         </div><br class="clear generate_phone_class"/>
                   <?=form_close();?>
@@ -302,14 +302,14 @@ $(function()
     <div class="wizard-box-modify">
         <div class='add-close-modify'>&nbsp;</div>
         <br class="clear"/>
-        <div class="box-header"><center><strong style="font-size:16px;">Modificar Usuário : <span style="font-size:16px;" id="modify_users_id"></span></strong></center></div><br class="clear"/>
+        <div class="box-header"><center><strong style="font-size:16px;">Editar Usuário : <span style="font-size:16px;" id="modify_users_id"></span></strong></center></div><br class="clear"/>
        
         <?=form_open(null,'id="form" class="edit-user"');?>
-            <div class="boxleftside boxleftside-modify">ID do Operador:</div>
+            <div class="boxleftside boxleftside-modify">Login:</div>
             <div class="boxrightside boxrightside-modify">&nbsp;<input type="hidden" id="users_id" name="users_id"><input type="hidden" id="vicidial_user_id" name="vicidial_user_id"></div><br class="clear">
             <div class="boxleftside boxleftside-modify">Senha:</div>
             <div class="boxrightside boxrightside-modify"><?=form_input('pass',null,'id="pass" maxlength="20"')?></div><br class="clear">
-            <div class="boxleftside boxleftside-modify">Nome Completo:</div>
+            <div class="boxleftside boxleftside-modify">Nome:</div>
             <div class="boxrightside boxrightside-modify"><?=form_input('full_name',null,'id="full_name" maxlength="50" size="30"')?></div><br class="clear">
             <div class="boxleftside boxleftside-modify">Login do Ramal:</div>
             <div class="boxrightside boxrightside-modify"><?=form_input('phone_login',null,'id="phone_login" maxlength="15" size="15"')?></div><br class="clear">
@@ -322,7 +322,7 @@ $(function()
 			}
 			?>
 			<div class="boxleftside boxleftside-modify" <?=$hideDiv ?>>
-				 Grupo do Usuário:
+				 Grupo de Usuário:
 			</div>
 			<div class="boxrightside boxrightside-modify" <?=$hideDiv ?>> 
 				<?php 
@@ -331,7 +331,7 @@ $(function()
 					 echo form_dropdown('user_group',$accnt_list,$user_group,$attr);
 				?>
 			</div><br class="clear" <?=$hideDiv ?>/>
-            <div class="boxleftside boxleftside-modify">Active:</div>
+            <div class="boxleftside boxleftside-modify">Ativo:</div>
             <div class="boxrightside boxrightside-modify">
                  <?=form_dropdown('active',array('Y'=>'Yes','N'=>'No'),null,'id="active"')?>
             </div><br class="clear">
@@ -362,7 +362,7 @@ $(function()
 	    <?php
 	    if ($user_group === "ADMIN") {
 	    ?>
-            <div class="boxleftside boxleftside-modify">Modificar o Mesmo Nível de Usuário:</div>
+            <div class="boxleftside boxleftside-modify">Editar Nível:</div>
             <div class="boxrightside boxrightside-modify">
 		<?=form_dropdown('modify_same_user_level',array('1'=>'Yes','0'=>'No'),null,'id="modify_same_user_level"')?>
 	    </div>
@@ -391,14 +391,14 @@ $(function()
     <div class='type-close'>&nbsp;</div>
     <br class="clear"/>
     <div class='wizard-breadcrumb'>
-       <div class="wizard-title"><strong>Assistente de usuários </strong></div>
+       <div class="wizard-title"><strong>Usuários </strong></div>
           <?=img("img/step1of2-navigation-small.png")?>
           <br class="clear"/>
        </div>
        <div class="wizard-content">
              <div class="wizard-content-left"><?=img("img/step1-trans.png")?></div>
              <div class="wizard-content-right">
-                  <div class="boxleftside"><strong>Tipo de assistente:</strong></div>
+                  <div class="boxleftside"><strong>Tipo:</strong></div>
                   <!-- <div class="boxrightside"><?#=form_dropdown('wizard_type',array('add'=>'Add New User','copy'=>'Copy User'),'add','id="wizard_type"')?></div> -->
                   <div class="boxrightside"><?=form_dropdown('wizard_type',array('add'=>'Add New User'),'add','id="wizard_type"')?></div>
              </div>
@@ -414,7 +414,7 @@ $(function()
         <div class="copy-close">&nbsp;</div>
         <br class="clear"/>
         <div class='wizard-breadcrumb'>
-             <div class="wizard-title"><strong>Assistente de Usuários &raquo; Copiar Usuário</strong></div>
+             <div class="wizard-title"><strong>Usuários &raquo; Copiar Usuário</strong></div>
              <?=img("img/step2of2-navigation-small.png")?>
              <br class="clear"/>
         </div>
@@ -425,7 +425,7 @@ $(function()
                    <div class="copy-boxleftside"><strong>Usuários:</strong></div><div class="copy-boxrightside"><?=form_dropdown('source_user',$users,null,'id="source_user"')?></div>
                    <!-- <div class="copy-boxleftside"><strong>User ID:</strong></div><div class="copy-boxrightside"><?#=form_input('user',null,'id="user" maxlength="20"')?></div> -->
                    <div class="copy-boxleftside"><strong>Senha:</strong></div><div class="copy-boxrightside"><?=form_input('pass',null,'id="pass" maxlength="20"')?></div>
-                   <div class="copy-boxleftside"><strong>Nome Completo:</strong></div><div class="copy-boxrightside"><?=form_input('full_name',null,'id="full_name" maxlength="50" size="30"')?></div>
+                   <div class="copy-boxleftside"><strong>Nome:</strong></div><div class="copy-boxrightside"><?=form_input('full_name',null,'id="full_name" maxlength="50" size="30"')?></div>
                    <br class="clear"/>
                    <br class="clear"/>
                 </form>
@@ -434,7 +434,7 @@ $(function()
          </div>
          <br class="clear"/>
         <div class="wizard-action">
-          <a onclick="cancelWizard(this)">Cancelar</a>&nbsp;|&nbsp;<a id="copy-proceed">Enviar</a>
+          <a onclick="cancelWizard(this)">Cancelar</a>&nbsp;|&nbsp;<a id="copy-proceed">Salvar</a>
         </div>
     </div>
     <div class="user-cornerall wizard-box-info">
@@ -468,18 +468,18 @@ $(function()
              </div>
          </div> -->
          <div class="agent-talk-time user-cornerall">
-               <strong>Status do Operador e Tempo de Fala </strong>
+               <strong>Tempo de Fala e Status do Operador </strong>
                <br class="clear"/>
                   <div class="userstatus-display">
                   <?Php
                        echo '<br/><strong></strong><br/>';
                        #echo "<div class='leftside'>Agent logged in at server</div><div class='rightside' id='server_ip'> </div><br/>";
                        #echo "<div class='leftside'>In session</div><div class='rightside' id='conf_exten'> </div><br/>";
-                       echo "<div class='leftside'>Ramal:</div><div class='rightside' id='extension'> </div><br/>";
-                       echo "<div class='leftside'>Operador está na Campanha:</div><div class='rightside' id='campaign_id'> </div><br/>";
+                       echo "<div class='leftside'>Phone extension:</div><div class='rightside' id='extension'> </div><br/>";
+                       echo "<div class='leftside'>Agent is in campaign:</div><div class='rightside' id='campaign_id'> </div><br/>";
                        echo "<div class='leftside'>Status:</div><div class='rightside' id='status'> </div><br/>";
-                       echo "<div class='leftside'>Desligou a última chamada há:</div><div class='rightside' id='last_call_finish'> </div><br/>";
-                       echo "<div class='leftside'>Grupos Próximos:</div><div class='rightside' id='close_campaigns'></div><br/>";
+                       echo "<div class='leftside'>Hang-up last call at:</div><div class='rightside' id='last_call_finish'> </div><br/>";
+                       echo "<div class='leftside'>Closer groups:</div><div class='rightside' id='close_campaigns'></div><br/>";
                   ?> 
                   </div>
                <br class="clear"/>
@@ -495,12 +495,12 @@ $(function()
          </div>
          <br class="clear"/>
          <div class="user-stats">
-              <span>Outras Informações e Estatísticas</span><br class="clear"/>
-              <label><a id="agentloginlogout">Login/Logout do Operador</a></label>
-              <label><a id="outboundthistime">Chamadas Discadas</a></label>
-              <label><a id="inboundthistime">Chamadas Recebidas</a></label>
+              <span>Outras Estatísticas</span><br class="clear"/>
+              <label><a id="agentloginlogout">Login/Logout</a></label>
+              <label><a id="outboundthistime">Chamadas Discador</a></label>
+              <label><a id="inboundthistime">Chamadas Recebidas (Receptivo)</a></label>
               <label><a id="agentactivity">Atividade do Operador</a></label>
-              <label><a id="recordingthistime">Gravando</a></label>
+              <label><a id="recordingthistime">Gravações</a></label>
               <label><a id="manualoutbound">Chamadas Manuais</a></label>
               <label><a id="leadsearchthistime">Pesquisa por Contatos</a></label>
          </div>
@@ -509,7 +509,7 @@ $(function()
          <br class="clear"/>
     </div>
          <div class="agent-loginlogout-time user-cornerall">
-              <strong>Tempo de Login/Logout do Operador</strong><a class="userstat-closer">Fechar</a>
+              <strong>Login/Logout </strong><a class="userstat-closer">Fechar</a>
               <br class="clear"/>
               <br class="clear"/>
               <div class="time-loginlogout-tbl">
@@ -528,7 +528,7 @@ $(function()
                    <div class="time-loginlogout-content"></div>
                    <div class="pager-container agent-loginlogout-pager">
                        <div class="totaltime">
-                            <div class="labelcols">Total de Chamadas</div>
+                            <div class="labelcols">Total Chamadas</div>
                             <div class="totalcols">&nbsp;</div> 
                             <div class="totalcols">&nbsp;</div> 
                             <div class="totalcols">&nbsp;</div> 
@@ -548,20 +548,20 @@ $(function()
               </div>
          </div>
          <div class="agent-outbound-thistime user-cornerall">
-              <strong>Chamadas Discadas para este Período(Limite 25)</strong><a class="userstat-closer">Fechar</a>
+              <strong>Chamadas do Discador para este Período(Limit de 25)</strong><a class="userstat-closer">Fechar</a>
               <br class="clear"/>
               <br class="clear"/>
               <div class="outbound-thistime-tbl">
                    <div class="outbound-thistime-hdr">
                         <div class="cols">Data/Hora</div>
-                        <div class="cols">Comprimento</div>
+                        <div class="cols">Duração</div>
                         <div class="cols">Status</div>
                         <div class="cols">Ramal</div>
                         <div class="cols">Campanha</div>
                         <div class="cols">Grupo</div>
                         <div class="cols">Lista</div>
                         <div class="cols">Contato</div>
-                        <div class="cols">Motivo de Desligamento</div>
+                        <div class="cols">Desligamento</div>
                    </div>
                    <br class="clear"/> 
                    <div class="outbound-thistime-content"></div>
@@ -577,27 +577,27 @@ $(function()
               </div>
          </div>
          <div class="agent-inbound-thistime user-cornerall">
-              <strong>Chamadas Recebidas para este Período de Tempo(Limite 25)</strong><a class="userstat-closer">Fechar</a>
+              <strong>Chamadas Receptivo para este Período(Limite de 25)</strong><a class="userstat-closer">Fechar</a>
               <br class="clear"/>
               <br class="clear"/>
               <div class="inbound-thistime-tbl">
                   <div class="inbound-thistime-hdr">
                        <div class="cols">Data/Hora</div>
-                       <div class="cols">Comprimento</div>
+                       <div class="cols">Duração</div>
                        <div class="cols">Status</div>
                        <div class="cols">Ramal</div>
                        <div class="cols">Campanha</div>
-                       <div class="cols">Espera(s)</div>
-                       <div class="cols">Operador(es)</div>
+                       <div class="cols">Espera</div>
+                       <div class="cols">Operador</div>
                        <div class="cols">Lista</div>
                        <div class="cols">Contato</div>
-                       <div class="cols">Motivo de Desligamento</div>
+                       <div class="cols">Desligamento</div>
                   </div>
                   <br class="clear"/> 
                   <div class="inbound-thistime-content"></div>
                    <div class="pager-container inbound-thistime-pager">
                        <div class="totaltime">
-                            <div class="labelcols">Total de Chamadas</div>
+                            <div class="labelcols">Total Chamadas</div>
                             <div class="totalcols">&nbsp;</div> 
                             <div class="totalcols">&nbsp;</div> 
                             <div class="totalcols">&nbsp;</div> 
@@ -619,7 +619,7 @@ $(function()
               </div>
          </div>
          <div class="agent-activity-thistime user-cornerall">
-              <strong>Atividade do Operador para este Período de Tempo(Limite 25)</strong><a class="userstat-closer">Fechar</a>
+              <strong>Atividade do Operador para esse Período(Limite de 25)</strong><a class="userstat-closer">Fechar</a>
               <br class="clear"/>
               <br class="clear"/>
               <div class="agent-activity-tbl">
@@ -628,19 +628,19 @@ $(function()
                         <div class="cols">Pausa</div>
                         <div class="cols">Espera</div>
                         <div class="cols">Fala</div>
-                        <div class="cols">Disposição</div>
-                        <div class="cols">Indisponível</div>
+                        <div class="cols">Tabulação</div>
+                        <div class="cols">'Morto'</div>
                         <div class="cols">Cliente</div>
                         <div class="cols">Status</div>
                         <div class="cols">Contato</div>
                         <div class="cols">Campanha</div>
-                        <div class="cols">Código da Pausa</div>
+                        <div class="cols">Código de Pausa</div>
                    </div>
                    <br class="clear"/>
                    <div class="agent-activity-content"></div>
                    <div class="pager-container agent-activity-pager">
                        <div class="totaltime">
-                            <div class="labelcols">Total de Chamadas</div>
+                            <div class="labelcols">Total Chamadas</div>
                             <div class="totalcols totalpause">&nbsp;</div> 
                             <div class="totalcols totalwait">&nbsp;</div> 
                             <div class="totalcols totaltalk">&nbsp;</div> 
@@ -660,7 +660,7 @@ $(function()
               </div>
          </div>
          <div class="agent-recording-thistime user-cornerall">
-              <strong>Gravações para este Período de Tempo(Limite 25)</strong><a class="userstat-closer">Fechar</a>
+              <strong>Gravações nesse Período(Limite de 25)</strong><a class="userstat-closer">Fechar</a>
               <br class="clear"/>
               <br class="clear"/>
               <div class="recording-thistime-tbl">
@@ -670,7 +670,7 @@ $(function()
                         <div class="cols">Segundos</div>
                         <div class="cols">RECID</div>
                         <div class="cols">Nome do Arquivo</div>
-                        <div class="cols">Localização</div>
+                        <div class="cols">Local</div>
                    </div>
                    <br class="clear"/> 
                    <div class="recording-thistime-content"></div>
@@ -685,7 +685,7 @@ $(function()
               </div>
          </div>
          <div class="agent-manualoutbound-thistime user-cornerall">
-              <strong>Ligações Manuais para esse Período de Tempo(Limite 25)</strong><a class="userstat-closer">Fechar</a>
+              <strong>Chamadas Manuais nesse Período(Limite de 25)</strong><a class="userstat-closer">Fechar</a>
               <br class="clear"/>
               <br class="clear"/>
               <div class="manualoutbound-thistime-tbl">
@@ -695,7 +695,7 @@ $(function()
                         <div class="cols">Servidor</div>
                         <div class="cols">Ramal</div>
                         <!-- <div class="cols">Dialed</div> -->
-                        <div class="cols">Cpntato</div>
+                        <div class="cols">Contato</div>
                         <div class="cols">Caller Id</div>
                         <!-- <div class="cols">Alias</div>
                         <div class="cols">Preset</div>
@@ -714,7 +714,7 @@ $(function()
               </div>
          </div>
          <div class="agent-leadsearch-thistime user-cornerall">
-              <strong>Pesquisas de contato para este Período de Tempo(Limite 25)</strong><a class="userstat-closer">Fechar</a>
+              <strong>Pesquisa de Contatos nesse Período(Limite de 25)</strong><a class="userstat-closer">Fechar</a>
               <br class="clear"/>
               <br class="clear"/>
               <div class="leadsearch-thistime-tbl">
@@ -722,28 +722,28 @@ $(function()
                        <div class="cols">Data/Hora</div>
                        <div class="cols">Tipo</div>
                        <div class="cols">Resultados</div>
-                       <div class="cols">Segundos</div>
-                       <div class="cols">Consulta</div>
+                       <div class="cols">Seg</div>
+                       <div class="cols">Query</div>
                   </div>
                   <br class="clear"/> 
                   <div class="leadsearch-thistime-content"></div>
               </div>
          </div>
          <div class="leadinfo user-cornerall">
-              <strong>Informações de Contato</strong><a class="userstat-closer">Fechar</a><br/>
-              <div class="leadinfolabel">ID do Contato</div>
+              <strong>Informação do Contato</strong><a class="userstat-closer">Fechar</a><br/>
+              <div class="leadinfolabel">Contato ID</div>
               <div class="leadinfocont lead_id"></div>
-              <div class="leadinfolabel">ID da Lista</div>
+              <div class="leadinfolabel">Lista ID</div>
               <div class="leadinfocont list_id"></div>
               <div class="leadinfolabel">Endereço</div>
               <div class="leadinfocont address1"></div>
-              <div class="leadinfolabel">DDD</div>
+              <div class="leadinfolabel">Código Telefone</div>
               <div class="leadinfocont phone_code"></div>
-              <div class="leadinfolabel">Número do Telefone</div>
+              <div class="leadinfolabel">Número</div>
               <div class="leadinfocont phone_number"></div>
               <div class="leadinfolabel">Cidade</div>
               <div class="leadinfocont city"></div>
-              <div class="leadinfolabel">Estato</div>
+              <div class="leadinfolabel">Estado</div>
               <div class="leadinfocont state"></div>
               <div class="leadinfolabel">CEP</div>
               <div class="leadinfocont postal_code"></div>

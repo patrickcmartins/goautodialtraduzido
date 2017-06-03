@@ -325,7 +325,8 @@ $(function()
                        <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Relatórios e Estatísticas:</td>
                        <td>
                             <?php
-                                 echo form_checkbox('reportsanalytics_statistical_report',"Y",null,"id='reportsanalytics_statistical_report' class='permission-box'")." Statistical Report " .
+                                 echo form_checkbox('reportsanalytics_statistical_report',"Y",null,"id='reportsanalytics_statistical_report' 
+class='permission-box'")." Relatório Estatístico " .
                                       form_checkbox('reportsanalytics_agent_time_detail',"Y",null,"id='reportsanalytics_agent_time_detail' class='permission-box'") . " Agent Time Detail " . 
                                       form_checkbox('reportsanalytics_agent_performance_detail',"Y",null,"id='reportsanalytics_agent_performance_detail' class='permission-box'"). " Agent Performance Detail <br/>".
                                       form_checkbox('reportsanalytics_dial_status_summary',"Y",null,"id='reportsanalytics_dial_status_summary' class='permission-box'") . " Dial Status Summary  " .

@@ -101,7 +101,7 @@ $(document).ready(function()
 			}
 			else
 			{
-				alert('Uploaded file is invalid: '+lead_file+'<br /><br />Arquivo tem que estar em formato (xls, xlsx) ou separado por vírgulas (csv).');
+				alert('O Arquivo carregado é inválido: '+lead_file+'<br /><br />Arquivo tem que estar no formato excel (xls, xlsx) ou separado por vírgulas (csv).');
 			}
 		}
 	});
@@ -114,7 +114,7 @@ $(document).ready(function()
 		
 		if (wav_file.length < 1)
 		{
-			alert('Please include a .WAV file.');
+			alert('Selecione um arquivo .WAV.');
 		}
 		else
 		{
@@ -125,7 +125,7 @@ $(document).ready(function()
 			}
 			else
 			{
-				alert('Error uploading '+wav_file+'.<br />Por favor carregue somente arquivos de áudio.<br />Formato de áudio recomendado <strong>.WAV</strong>.');
+				alert('Error uploading '+wav_file+'.<br />Carregue apenas arquivos de áudio.<br /> <strong>.WAV</strong>.');
 			}
 		}
 	});
@@ -135,7 +135,7 @@ $(document).ready(function()
 		var filename = $(this).val();
 		if ( ! /\.wav/.test(filename)) {
 			$(this).val('');
-			alert('Por favor carregue somente arquivos de áudio.\nFormato de áudio recomendado .WAV .');
+			alert('Carregue apenas arquivos de áudio.\n.WAV.');
 		}
 	}
 	
@@ -190,7 +190,7 @@ $(document).ready(function()
 
 		if (leadArray.length < 1)
 		{
-			alert('Please select field values.');
+			alert('Por favor selecione o valor dos campos.');
 		}
 		else
 		{
@@ -210,7 +210,7 @@ $(document).ready(function()
 
 			if (go < 1)
 			{
-				alert('Por favor, preencha ao menos com NOME, TELEFONE, e SOBRENOME.');
+				alert('Por favor, preencha apenas com NÚMERO, NOME E SOBRENOME');
 			}
 			else
 			{
@@ -221,7 +221,7 @@ $(document).ready(function()
 				var file_ext = $('#file_ext').val();
 				var leadArray = $('.uploadLeads').serialize();
 
-				$('#next').text('Next');
+				$('#next').text('Próximo');
 				$('#processLeads').hide();
 				$('#box').css('position','fixed');
 				
@@ -287,7 +287,7 @@ $(document).ready(function()
             <input type="hidden" id="survey_type" value="<?php echo $survey_type; ?>" />
             <table style="width:100%;">
                 <tr>
-                    <td class="label">Arquivo de Contatos:</td>
+                    <td class="label">Arquivo:</td>
                     <td><input type="file" name="leadFile" id="leadFile" value="<?php echo $lead_file ?>">
                     </td>
                 </tr>
@@ -327,24 +327,24 @@ $(document).ready(function()
                     <td>
                         <select size="1" name="checkDuplicates" id="checkDuplicates">
                             <option value="NONE">NÃO CHECAR</option>
-                            <option value="CHECKLIST">CHECAR POR DUPLICADOS POR TELEFONE NA LISTA</option>
-                            <option value="CHECKCAMP">CHECAR POR DUPLICADOS POR TELEFONE EM TODAS LISTAS</option>
+                            <option value="CHECKLIST">CHECAR NESSA LISTA</option>
+                            <option value="CHECKCAMP">CHECAR EM TODAS AS LISTAS</option>
                             <?php if ($admin_level > 8) { ?>
-                            <option value="CHECKSYS">CCHECAR POR DUPLICADOS POR TELEFONE EM TODO SISTEMA</option>
-                            <option value="CHECKALTPHONELIST">CHECK FOR DUPLICATES BY ALT-PHONE IN LIST ID</option>
-                            <option value="CHECKALTPHONESYS">CHECK FOR DUPLICATES BY ALT-PHONE IN ENTIRE SYSTEM</option>
+                            <option value="CHECKSYS">CHECAR EM TODO SISTEMA</option>
+                            <option value="CHECKALTPHONELIST">CHECAR POR FONE ALTERNATIVO NESSA LISTA</option>
+                            <option value="CHECKALTPHONESYS">CHECAR POR FONE ALTERNATIVO EM TODO SISTEMA</option>
                             <?php } ?>
                         </select>
                     </td>
                  </tr>
                  <?php if ($admin_level > 8) { ?>
                  <tr>
-                 <td class="label">Pesquisa de fuso horário:</td>
+                 <td class="label">Time Zone:</td>
                     <td>
                         <select size="1" name="timeZone" id="timeZone">
-                            <option value="AREA" selected>CÓDIGO DE PAÍS E DDD SOMENTE</option>
-                            <option value="POSTAL">CÓDIGO POSTAL PRIMEIRO</option>
-                            <option value="TZCODE">CÓDIGO DE ZONA</option>
+                            <option value="AREA" selected>CÓDIGO DO PAÍS E CÓDIGO DE ÁREA</option>
+                            <option value="POSTAL">CEP</option>
+                            <option value="TZCODE">TIME ZONE</option>
                         </select>
                     </td>
                  </tr>
@@ -362,7 +362,7 @@ $(document).ready(function()
             <div id="custom_forms">
             </div>
 			<table style="width:100%;display:none;" id="processTable">
-			<tr><td style="text-align:center;width:50%;"><input type="button" id="processLeads" value="OK PARA PROSSEGUIR" style="cursor:pointer;" /></td><td style="width:50%;display:none;"><input type="button" value="COMEÇAR NOVAMENTE" style="display:none;" /></td></tr>
+			<tr><td style="text-align:center;width:50%;"><input type="button" id="processLeads" value="OK PARA PROCESSAR" style="cursor:pointer;" /></td><td style="width:50%;display:none;"><input type="button" value="COMEÇAR NOVAMENTE" style="display:none;" /></td></tr>
 			</table>
 <?php
 		}
@@ -372,10 +372,10 @@ $(document).ready(function()
 			switch ($dial_method)
 			{
 				case "RATIO":
-					$dialMethod = "Discagem-Automática";
+					$dialMethod = "Auto-Dial";
 					break;
 				case "ADAPT_AVERAGE":
-					$dialMethod = "Preditivo";
+					$dialMethod = "Predictive";
 					break;
 				case "MANUAL":
 					$dialMethod = "Manual";
@@ -386,7 +386,7 @@ $(document).ready(function()
 			switch ($auto_dial_level)
 			{
 				case "0":
-					$autoDialLevel = "DESLIGADO";
+					$autoDialLevel = "OFF";
 					break;
 				case "1.0":
 					$autoDialLevel = "SLOW";
@@ -429,16 +429,16 @@ $(document).ready(function()
                     <td><?php echo $campaign_id; ?><input type="hidden" value="<?php echo $campaign_id; ?>" name="campaign_id" id="campaign_id" class="previewEdit" /></td>
                 </tr>
             	<tr>
-                	<td class="label">Nome da Campanha:</td>
+                	<td class="label">Nome:</td>
                     <td><?php echo $campaign_name; ?></td>
                 </tr>
             	<tr>
-                	<td class="label">Método de Discagem:</td>
-                    <td><?php echo form_dropdown('dial_method',array('MANUAL'=>'Manual','RATIO'=>'Discador-Automático','ADAPT_AVERAGE'=>'Preditivo'),$dial_method,'id="dial_method" class="previewEdit"'); ?></td>
+                	<td class="label">Modo de Discagem:</td>
+                    <td><?php echo form_dropdown('dial_method',array('MANUAL'=>'Manual','RATIO'=>'Auto-Dial','ADAPT_AVERAGE'=>'Predictive'),$dial_method,'id="dial_method" class="previewEdit"'); ?></td>
                 </tr>
             	<tr>
-                	<td class="label">Nível Discagem-Automática:</td>
-                    <td><?php echo form_dropdown('auto_dial_level',array('0'=>'DESLIGADO','1.0'=>'LENTO','2.0'=>'NORMAL','4.0'=>'ALTO','6.0'=>'MAXIMO'),$auto_dial_level,'id="auto_dial_level" class="previewEdit"'); ?></td>
+                	<td class="label">Auto-Dial Level:</td>
+                    <td><?php echo form_dropdown('auto_dial_level',array('0'=>'OFF','1.0'=>'SLOW','2.0'=>'NORMAL','4.0'=>'HIGH','6.0'=>'MAX'),$auto_dial_level,'id="auto_dial_level" class="previewEdit"'); ?></td>
                 </tr>
 				<tr style="<?php echo ($this->commonhelper->checkIfTenant($accountNum)) ? 'display:none' : ''?>">
 					<?php
@@ -470,7 +470,7 @@ $(document).ready(function()
 				?>
 				<tr style="display:none;">
 					<td style="text-align:right;width:250px;font-weight:bold;">
-					Prefixo Discagem Manual:
+					Chamada Manual, Operadora VoIP:
 					</td>
 					<td>
 					<input type="text" id="manual_dial_prefix" name="manual_dial_prefix" value="" class="previewEdit" />
@@ -479,29 +479,29 @@ $(document).ready(function()
 				<?php
 				}
 				
-				if ($campType!='Outbound' && $campType='Survey' && $campType!='Copy') {
+				if ($campType!='Outbound' && $campType!='Survey' && $campType!='Copy') {
 				?>
             	<tr>
-                	<td class="label">DID Ext:</td>
+                	<td class="label">DID/TFN:</td>
                     <td><?php
 					if (strlen($did_pattern) > 0 || $did_pattern != false) {
 						echo $did_pattern;
 					} else {
-						echo "Nenhum DID Configurado";
+						echo "No DID/TFN set";
 					}
 					?></td>
                 </tr>
             	<tr>
-                	<td class="label">Gravação:</td>
+                	<td class="label">Gravações:</td>
                     <td><?php
-					echo form_dropdown('campaign_recording',array('NEVER'=>'OFF','ALLFORCE'=>'ON','ONDEMAND'=>'SOBDEMANDA'),$campaign_recording,'id="campaign_recording" class="previewEdit"');
+					echo form_dropdown('campaign_recording',array('NEVER'=>'OFF','ALLFORCE'=>'ON','ONDEMAND'=>'ONDEMAND'),$campaign_recording,'id="campaign_recording" class="previewEdit"');
 					?></td>
                 </tr>
 				<?php
 				} else {
 				?>
             	<tr>
-                	<td class="label">Detector de Secretária:</td>
+                	<td class="label">Detector de Secretária Eletrônica:</td>
                     <td><?php echo form_dropdown('campaign_vdad_exten',$vdadOptions,$campaign_vdad_exten,'id="campaign_vdad_exten" class="previewEdit"'); ?></td>
                 </tr>
 				<?php
@@ -521,28 +521,24 @@ $(document).ready(function()
                     <td><?php echo $campaign_id; ?><input type="hidden" value="<?php echo $campaign_id; ?>" name="campaign_id" id="campaign_id" class="previewEdit" /></td>
                 </tr>
             	<tr>
-                	<td class="label">Nome da Campanha:</td>
+                	<td class="label">Nome:</td>
                     <td><?php echo $campaign_name; ?></td>
                 </tr>
 <?php
 			if ($survey_type == "PRESS1")
 			{
 ?>
-                 /* <tr>
-                	<td class="label">Detector de Secretária:</td>
-                    <td><?php echo form_dropdown('campaign_vdad_exten',$vdadOptions,$campaign_vdad_exten,'id="campaign_vdad_exten" class="previewEdit"'); ?></td>
-                </tr> */ 
-             	<tr>
-                	<td class="label">Arquivo de Áudio:</td>
+            	<tr>
+                	<td class="label">Audio:</td>
                     <td><?php echo $survey_info->survey_first_audio_file; ?><input id="survey_first_audio_file" type="text" maxlength="50" size="25" style="display:none;" value="<?php echo $survey_info->survey_first_audio_file; ?>" /><input type="button" value="Audio" style="display:none;" class="selectAudio" /></td>
                 </tr>
                 <tr>
-                	<td class="label">Método Pesquisa:</td>
+                	<td class="label">Modo de Pesquisa:</td>
                     <td><?php echo $survey_info->survey_method; ?>
                         <select id="survey_method" style="display:none;">
                             <option value="AGENT_XFER">CAMPANHA</option>
                             <option value="EXTENSION">DID</option>
-                            <option value="CALLMENU">MENUCHAMADA</option>
+                            <option value="CALLMENU">MENU DE CHAMADA</option>
                         </select>
                     </td>
                 </tr>
@@ -561,8 +557,8 @@ $(document).ready(function()
                     </td>
                 </tr>
             	<tr class="advanced">
-                	<td class="label">DTMF Digitos:</td>
-                    <td><?php echo $survey_info->survey_dtmf_digits; ?><input id="survey_dtmf_digits" type="text" maxlength="16" size="16" placeholder="eg. 0123456789*#" style="display:none;" value="<?php echo $survey_info->survey_dtmf_digits; ?>" /> <small>* cliente define a tecla a ser pressionada e.x.0123456789*#</small></td>
+                	<td class="label">Digitos DTMF:</td>
+                    <td><?php echo $survey_info->survey_dtmf_digits; ?><input id="survey_dtmf_digits" type="text" maxlength="16" size="16" placeholder="eg. 0123456789*#" style="display:none;" value="<?php echo $survey_info->survey_dtmf_digits; ?>" /> <small>* customer define key press e.g.0123456789*#</small></td>
                 </tr>
             	<tr class="advanced">
                 	<td class="label">DID:</td>
@@ -572,19 +568,19 @@ $(document).ready(function()
 					<td colspan="2">&nbsp;</td>
                 </tr>
             	<tr class="advanced">
-                	<td class="label">Pressione 8 Não Interessado:</td>
+                	<td class="label">Pessione 8, Não Interessado, Digito:</td>
                     <td><?php echo $survey_info->survey_ni_digit; ?><input id="survey_ni_digit" type="text" maxlength="10" size="5" style="display:none;" value="<?php echo $survey_info->survey_ni_digit; ?>" /></td>
                 </tr>
             	<tr class="advanced">
-                	<td class="label">Pressione 8 Não Interessado, Audio:</td>
+                	<td class="label">Pessione 8, Não Interessado, Audio:</td>
                     <td><?php echo $survey_info->survey_ni_audio_file; ?><input id="survey_ni_audio_file" type="text" maxlength="50" size="25" style="display:none;" value="<?php echo $survey_info->survey_ni_audio_file; ?>" /><input type="button" style="display:none;" value="Audio" class="selectAudio" /></td>
                 </tr>
             	<tr class="advanced">
-                	<td class="label">Pressione 8 Não Interessado Status:</td>
+                	<td class="label">Pessione 8, Não Interessado Status:</td>
                     <td><?php echo $survey_info->survey_ni_status; ?>
                         <select id="survey_ni_status" style="display:none;">
                             <option value="NI">NI - Não Interessado</option>
-                            <option value="DNC">DNC - Não Chamar</option>
+                            <option value="DNC">DNC - Não Ligar Novamente</option>
                         </select>
 					</td>
                 </tr>
@@ -592,7 +588,7 @@ $(document).ready(function()
 					<td colspan="2">&nbsp;</td>
                 </tr>
             	<tr class="advanced">
-                	<td class="label">Pressione 3:</td>
+                	<td class="label">Pressione 3 Digito:</td>
                     <td><?php echo $survey_info->survey_third_digit; ?><input id="survey_third_digit" type="text" maxlength="10" size="5" style="display:none;" value="<?php echo $survey_info->survey_third_digit; ?>" /></td>
                 </tr>
             	<tr class="advanced">
@@ -611,11 +607,11 @@ $(document).ready(function()
 					<td colspan="2">&nbsp;</td>
                 </tr>
             	<tr class="advanced">
-                	<td class="label">Pressione 4:</td>
+                	<td class="label">Pressione 4 Digito:</td>
                     <td><?php echo $survey_info->survey_fourth_digit; ?><input id="survey_fourth_digit" type="text" maxlength="10" size="5" style="display:none;" value="<?php echo $survey_info->survey_fourth_digit; ?>" /></td>
                 </tr>
             	<tr class="advanced">
-                	<td class="label">Pressione 4, Audio:</td>
+                	<td class="label">Pressione 4 Audio:</td>
                     <td><?php echo $survey_info->survey_fourth_audio_file; ?><input id="survey_fourth_audio_file" type="text" maxlength="50" size="25" style="display:none;" value="<?php echo $survey_info->survey_fourth_audio_file; ?>" /><input type="button" style="display:none;" value="Audio" class="selectAudio" /></td>
                 </tr>
             	<tr class="advanced">
@@ -659,10 +655,10 @@ $(document).ready(function()
 				</tr>
             	<tr>
                 	<td class="label">Status:</td>
-                    <td>INATIVO<select id="remote_agent_status" style="display:none;"><option>ATIVO</option><option>ATIVO</option></select></td>
+                    <td>INACTIVE<select id="remote_agent_status" style="display:none;"><option>INATIVO</option><option>ATIVO</option></select></td>
                 </tr>
             	<tr>
-                	<td class="label">Número de Linhas:</td>
+                	<td class="label">Número de Canais:</td>
                     <td><?php echo $survey_info->number_of_lines; ?>
                         <select id="number_of_lines" style="display:none;">
                             <option>1</option>
@@ -671,6 +667,10 @@ $(document).ready(function()
                             <option>15</option>
                             <option>20</option>
                             <option>30</option>
+                            <option>50</option>
+                            <option>100</option>
+                            <option>150</option>
+                            <option>200</option>
                         </select>
                     </td>
                 </tr>
@@ -703,7 +703,7 @@ $(document).ready(function()
 ?>
 	    <table id="survey_audio" style="width:100%;">
             	<tr>
-                	<td style="text-align:center;font-weight:bold;">Carregue um Arquivo de Áudio (Somente 16bit Mono 8k PCM WAV)</td>
+                	<td style="text-align:center;font-weight:bold;">Por favor carregue um arquivo .WAV (16bit Mono 8k PCM WAV)</td>
                 </tr>
             	<tr>
                 	<td style="text-align:center"><input type="file" name="wavFile1" id="wavFile1" value="" accept="audio/*" /></td>
@@ -773,27 +773,27 @@ $(document).ready(function()
                     <td><?php echo $campaign_id; ?></td>
                 </tr>
             	<tr>
-                	<td class="label">Nome da Campanha:</td>
+                	<td class="label">Nome:</td>
                     <td><?php echo $campaign_name; ?></td>
                 </tr>
             	<tr>
-                	<td class="label">Método Discagem:</td>
+                	<td class="label">Modo de Discagem:</td>
                     <td><?php echo $dial_method; ?></td>
                 </tr>
             	<tr>
-                	<td class="label">Nível Discagem-Automática:</td>
+                	<td class="label">Nivel de Discagem:</td>
                     <td><?php echo $auto_dial_level; ?></td>
                 </tr>
             	<tr>
-                	<td class="label">CallerID Campanha:</td>
+                	<td class="label">CallerID:</td>
                     <td><?php echo $campaign_cid; ?></td>
                 </tr>
             	<tr>
-                	<td class="label">Gravação:</td>
+                	<td class="label">Gravações:</td>
                     <td><?php echo $campaign_recording; ?></td>
                 </tr>
             	<tr>
-                	<td class="label">Detector de Secretária:</td>
+                	<td class="label">Detector de Secretária Eletrônica:</td>
                     <td><?php echo $campaign_vdad_exten; ?></td>
                 </tr>
             </table>

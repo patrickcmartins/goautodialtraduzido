@@ -29,7 +29,7 @@ if ($campinfo->campaign_vdad_exten=="8366" || $campinfo->campaign_vdad_exten=="8
 	$camp_vdad_option ="<option value=\"8366\">OFF</option><option value=\"8373\">ON</option>";
 } else {
 	$isSurvey = false;
-	$camp_vdad_option ="<option value=\"8368\">OFF</option><option value=\"8369\">RACANEGRA</option>"; //detector teste
+	$camp_vdad_option ="<option value=\"8368\">OFF</option><option value=\"8369\">ON</option>";
 }
 
 foreach ($campcalltimes as $call_times)
@@ -57,7 +57,7 @@ foreach (explode(' ',$campinfo->dial_statuses) as $status)
 {
 	if ($dial_status[$status] != '')
 	{
-		$enabled_dial_statuses .= '<tr class="advance_settings"><td style="text-align:right;">Active Dial Status '.$i.':</td><td>&nbsp;<strong>'.$status.'</strong> - '.$dial_status[$status].' <span id="removeStatus" class="toolTip" style="float:right;font-size:10px;cursor:pointer;" onclick="delStatus(\''.$status.'\')" title="REMOVE STATUS: '.$status.'">REMOVER&nbsp;&nbsp;&nbsp;</span></td></tr>';
+		$enabled_dial_statuses .= '<tr class="advance_settings"><td style="text-align:right;">Active Dial Status '.$i.':</td><td>&nbsp;<strong>'.$status.'</strong> - '.$dial_status[$status].' <span id="removeStatus" class="toolTip" style="float:right;font-size:10px;cursor:pointer;" onclick="delStatus(\''.$status.'\')" title="REMOVE STATUS: '.$status.'">REMOVE&nbsp;&nbsp;&nbsp;</span></td></tr>';
 		$i++;
 	}
 }
@@ -73,7 +73,7 @@ $(document).ready(function()
 	{
 		$('.advance_settings').show();
 		$('.webFormSpan').show();
-		$('#advance_link').html('[ - ADVANCE SETTINGS ]');
+		$('#advance_link').html('[ - CONFIGURAÇÕES AVANÇADAS ]');
 		$('#isAdvance').val('1');
 	}
 
@@ -251,7 +251,7 @@ $(document).ready(function()
 			$('.advance_settings').hide();
 			$('#web_form_address').hide();
 			$('.webFormSpan').hide();
-			$('#advance_link').html('[ + CONFIGURAÇÕES AVANÇADAS ]');
+			$('#advance_link').html('[ + CONFIGURAÇÕS AVANÇADAS ]');
 			$('#isAdvance').val('0');
 		}
 	});
@@ -581,25 +581,25 @@ if (!$isSurvey)
 {
 ?>
 	<tr>
-    	<td style="text-align:right;" nowrap>Nome da Campanha:</td><td><input id="campaign_name" type="text" value="<?php echo $campinfo->campaign_name; ?>" size="50" maxlength="40" /></td>
+    	<td style="text-align:right;" nowrap>Campanha Nome:</td><td><input id="campaign_name" type="text" value="<?php echo $campinfo->campaign_name; ?>" size="50" maxlength="40" /></td>
     </tr>
 	<tr>
     	<td style="text-align:right;" nowrap>Descrição:</td><td><input id="campaign_description" type="text" value="<?php echo $campinfo->campaign_description; ?>" size="50" maxlength="255" /></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Data da Alteração da Campanha:</td><td>&nbsp;<?php echo $campinfo->campaign_changedate; ?></td>
+    	<td style="text-align:right;" nowrap>Data de Modificação:</td><td>&nbsp;<?php echo $campinfo->campaign_changedate; ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Data de Início de Sessão da Campanha:</td><td>&nbsp;<?php echo $campinfo->campaign_logindate; ?></td>
+    	<td style="text-align:right;" nowrap>Data de Login:</td><td>&nbsp;<?php echo $campinfo->campaign_logindate; ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Data da Chamada da Campanha:</td><td>&nbsp;<?php echo $campinfo->campaign_calldate; ?></td>
+    	<td style="text-align:right;" nowrap>Horário da Campanha:</td><td>&nbsp;<?php echo $campinfo->campaign_calldate; ?></td>
     </tr>
 	<tr>
     	<td style="text-align:right;" nowrap>Ativo:</td><td><select id="active"><option>Y</option><option>N</option></select></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>MOH Estacionada:</td><td><input id="park_ext" class="advanceSettings" type="text" value="<?php echo $campinfo->park_ext; ?>" size="10" maxlength="10" /></td>
+    	<td style="text-align:right;" nowrap>Música de Espera:</td><td><input id="park_ext" class="advanceSettings" type="text" value="<?php echo $campinfo->park_ext; ?>" size="10" maxlength="10" /></td>
     </tr>
 	<tr class="webFormSpan" style="display:none;">
     	<td style="text-align:right;" nowrap>Web Form:</td><td><input id="web_form_address" type="text" value="<?php echo $campinfo->web_form_address; ?>" size="55" /></td>
@@ -612,10 +612,10 @@ if (!$isSurvey)
     </tr>
     <?php echo $enabled_dial_statuses; ?>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Adicionar um Status de Discagem para Chamada:</td><td><select id="dial_status"><option value="NONE">NENHUM</option><?php echo $dial_statuses_list; ?></select> &nbsp;<input type="submit" style="cursor:pointer;" id="addStatus" value=" ADD " /></td>
+    	<td style="text-align:right;" nowrap>Adicionar Tabulação Automática:</td><td><select id="dial_status"><option value="NONE">NENHUM</option><?php echo $dial_statuses_list; ?></select> &nbsp;<input type="submit" style="cursor:pointer;" id="addStatus" value=" ADD " /></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Ordem da Lista:</td><td>
+    	<td style="text-align:right;" nowrap>Ordem de Discagem:</td><td>
 			<select size=1 name="lead_order" id="lead_order" class="advanceSettings">
             <option>DOWN</option>
             <option>UP</option>
@@ -732,20 +732,20 @@ if (!$isSurvey)
     	<td style="text-align:right;" nowrap>Filtro de Contatos:</td><td><?=form_dropdown("lead_filter_id",$lead_filters,$campinfo->lead_filter_id,'id="lead_filter_id" class="advanceSettings"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Forçar Reset dos Contatos no "Funil":</td><td><select id="force_reset_hopper" name="force_reset_hopper" class="advanceSettings"><option>N</option><option>Y</option></select></td>
+    	<td style="text-align:right;" nowrap>Forçar Reset dos Contatos:</td><td><select id="force_reset_hopper" name="force_reset_hopper" class="advanceSettings"><option>N</option><option>Y</option></select></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Tempo Limite de Discagem:</td><td><input type="text" value="<?php echo $campinfo->dial_timeout; ?>" size="3" id="dial_timeout" name="dial_timeout" class="advanceSettings" /> <em>in seconds</em></td>
+    	<td style="text-align:right;" nowrap>Tempo Limite de Discagem:</td><td><input type="text" value="<?php echo $campinfo->dial_timeout; ?>" size="3" id="dial_timeout" name="dial_timeout" class="advanceSettings" /> <em>em segundos</em></td>
     </tr>
 <?php
 if (!$isSurvey)
 {
 ?>
 	<tr>
-    	<td style="text-align:right;" nowrap>Método de Discagem:</td><td><?=form_dropdown('dial_method',array('MANUAL'=>'MANUAL','AUTO_DIAL'=>'DISCAGEM AUTOMÁTICA','PREDICTIVE'=>'PREDITIVO','INBOUND_MAN'=>'ENTRADA'),$dial_method,'id="dial_method"'); ?></td>
+    	<td style="text-align:right;" nowrap>Modo de Discagem:</td><td><?=form_dropdown('dial_method',array('MANUAL'=>'MANUAL','AUTO_DIAL'=>'AUTO DIAL','PREDICTIVE'=>'PREDICTIVE','INBOUND_MAN'=>'INBOUND MAN'),$dial_method,'id="dial_method"'); ?></td>
     </tr>
 	<tr>
-    	<td style="text-align:right;" nowrap>Nível de Discagem:</td><td><select id="auto_dial_level"><option value='OFF'>DESLIGADO</option><option value='SLOW'>LENTO</option><option value='NORMAL'>NORMAL</option><option value='HIGH'>ALTO</option><option value='MAX'>MÁXIMO</option><option value='ADVANCE'>AVANÇADO</option></select><select id="auto_dial_level_adv" style="display:none;"><?php echo $auto_dial_num; ?></select></td>
+    	<td style="text-align:right;" nowrap>Nivel de Discagem:</td><td><select id="auto_dial_level"><option value="OFF">DESLIGADO</option><option value="SLOW">LENTO</option><option value="NORMAL">NORMAL</option><option value="HIGH">ALTO</option><option value="MAX">MÁXIMO</option><option value="ADVANCE">AVANÇADO</option></select><select id="auto_dial_level_adv" style="display:none;"><?php echo $auto_dial_num; ?></select></td>
     </tr>
 <?php
 }
@@ -794,7 +794,7 @@ if (!$isSurvey)
 	{
 ?>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Prefixo de Discagem Manual:</td><td><?=form_dropdown('custom_manual_prefix',$manual_dial_prefix,$selected_manual_prefix,'id="custom_manual_prefix" style="width:250px;"') ?>  <?=form_input('manual_dial_prefix',$campinfo->manual_dial_prefix,'id="manual_dial_prefix" size="12" maxlength="20" class="advanceSettings" '.$show_custom_manual_prefix) ?></td>
+    	<td style="text-align:right;" nowrap>Discagem Manual:</td><td><?=form_dropdown('custom_manual_prefix',$manual_dial_prefix,$selected_manual_prefix,'id="custom_manual_prefix" style="width:250px;"') ?>  <?=form_input('manual_dial_prefix',$campinfo->manual_dial_prefix,'id="manual_dial_prefix" size="12" maxlength="20" class="advanceSettings" '.$show_custom_manual_prefix) ?></td>
     </tr>
 <?php
 	}
@@ -822,22 +822,22 @@ if (!$isSurvey)
 	if ($custom_fields_enabled > 0)
 		{$cfwOpt = '<option>FORM</option>';}
 	?>
-    	<td style="text-align:right;" nowrap>Receber no Lançamento da Chamada:</td><td><select size=1 name="get_call_launch" id="get_call_launch" class="advanceSettings"><option selected>NENHUM</option><option>SCRIPT</option><?php echo "$eswOpt$cfwOpt"; ?></select></td>
+    	<td style="text-align:right;" nowrap>Ao Receber a Chamada:</td><td><select size=1 name="get_call_launch" id="get_call_launch" class="advanceSettings"><option selected>NONE</option><option>SCRIPT</option><?php echo "$eswOpt$cfwOpt"; ?></select></td>
     </tr>
 	<tr>
     	<td style="text-align:right;" nowrap>Script:</td><td><?php echo form_dropdown('campaign_script',$camp_script_list,$campinfo->campaign_script,'id="campaign_script"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Mensagem em caso de Secretária:</td><td><?php echo form_input('am_message_exten',$campinfo->am_message_exten,'id="am_message_exten" class="advanceSettings" maxlength="100" size="50"'); ?> <a href="javascript:launch_chooser('am_message_exten','date',1200,document.getElementById('am_message_exten').value);"><FONT color="blue">[ Audio Chooser ]</a><div id="divam_message_exten"></div></td>
+    	<td style="text-align:right;" nowrap>Mensagem, caso Secretária Eletrônica:</td><td><?php echo form_input('am_message_exten',$campinfo->am_message_exten,'id="am_message_exten" class="advanceSettings" maxlength="100" size="50"'); ?> <a href="javascript:launch_chooser('am_message_exten','date',1200,document.getElementById('am_message_exten').value);"><FONT color="blue">[ Audio Chooser ]</a><div id="divam_message_exten"></div></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Esperar por Silêncio:</td><td><?php echo form_input('waitforsilence_options',$campinfo->waitforsilence_options,'id="waitforsilence_options" class="advanceSettings" maxlength="25" size="20"'); ?></td>
+    	<td style="text-align:right;" nowrap>Opções Aguardar em Silêncio:</td><td><?php echo form_input('waitforsilence_options',$campinfo->waitforsilence_options,'id="waitforsilence_options" class="advanceSettings" maxlength="25" size="20"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>AMD Enviar para VM:</td><td><?php echo form_dropdown('amd_send_to_vmx',array('Y'=>'Y','N'=>'N'),$campinfo->amd_send_to_vmx,'id="amd_send_to_vmx" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>Enviar Secretária para VoiceMail:</td><td><?php echo form_dropdown('amd_send_to_vmx',array('Y'=>'Y','N'=>'N'),$campinfo->amd_send_to_vmx,'id="amd_send_to_vmx" class="advanceSettings"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>CPD AMD Ação:</td><td><?php echo form_dropdown('cpd_amd_action',array('DISABLED'=>'DESABILITADO','DISPO'=>'DISPONÍVEL','MESSAGE'=>'MENSAGEM'),$campinfo->cpd_amd_action,'id="cpd_amd_action" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>CPD AMD Ação:</td><td><?php echo form_dropdown('cpd_amd_action',array('DISABLED'=>'DISABLED','DISPO'=>'DISPO','MESSAGE'=>'MESSAGE'),$campinfo->cpd_amd_action,'id="cpd_amd_action" class="advanceSettings"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
     	<td style="text-align:right;" nowrap>Códigos de Pausa Ativos:</td><td><?php echo form_dropdown('agent_pause_codes_active',array('N'=>'NO','FORCE'=>'YES'),$campinfo->agent_pause_codes_active,'id="agent_pause_codes_active" class="advanceSettings"'); ?></td>
@@ -849,10 +849,10 @@ if (!$isSurvey)
     	<td style="text-align:right;" nowrap>Filtro de Discagem Manual:</td><td><?php echo form_dropdown('manual_dial_filter',array('NONE'=>'NONE','DNC_ONLY'=>'DNC ONLY','CAMPLISTS_ONLY'=>'CAMPLISTS ONLY','CAMPLISTS_ALL'=>'CAMPLISTS ALL','DNC_AND_CAMPLISTS'=>'DNC AND CAMPLISTS','DNC_AND_CAMPLISTS_ALL'=>'DNC AND CAMPLISTS ALL'),$campinfo->manual_dial_filter,'id="manual_dial_filter" class="advanceSettings"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Pesquisa de Operador por Contato:</td><td><?php echo form_dropdown('agent_lead_search',array('ENABLED'=>'ENABLED','DISABLED'=>'DISABLED'),$campinfo->agent_lead_search,'id="agent_lead_search" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>Pesquisa do Operador por Cliente:</td><td><?php echo form_dropdown('agent_lead_search',array('ENABLED'=>'ENABLED','DISABLED'=>'DISABLED'),$campinfo->agent_lead_search,'id="agent_lead_search" class="advanceSettings"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Pesquisa de Operador por Contato Método:</td><td><?php echo form_dropdown('agent_lead_search_method',array('SYSTEM'=>'SYSTEM','CAMPAIGNLISTS'=>'CAMPAIGNLISTS','CAMPLISTS_ALL'=>'CAMPLISTS ALL','LIST'=>'LIST','USER_CAMPLISTS_ALL'=>'USER CAMPLISTS ALL','USER_LIST'=>'USER LIST','GROUP_SYSTEM'=>'GROUP SYSTEM','GROUP_CAMPAIGNLISTS'=>'GROUP CAMPAIGNLISTS','GROUP_CAMPLISTS_ALL'=>'GROUP CAMPLISTS ALL','GROUP_LIST'=>'GROUP LIST','TERRITORY_SYSTEM'=>'TERRITORY SYSTEM','TERRITORY_CAMPAIGNLISTS'=>'TERRITORY CAMPAIGNLISTS','TERRITORY_CAMPLISTS_ALL'=>'TERRITORY CAMPLISTS ALL','TERRITORY_LIST'=>'TERRITORY LIST'),$campinfo->agent_lead_search_method,'id="agent_lead_search_method" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>Modo de Pesquisa:</td><td><?php echo form_dropdown('agent_lead_search_method',array('SYSTEM'=>'SYSTEM','CAMPAIGNLISTS'=>'CAMPAIGNLISTS','CAMPLISTS_ALL'=>'CAMPLISTS ALL','LIST'=>'LIST','USER_CAMPLISTS_ALL'=>'USER CAMPLISTS ALL','USER_LIST'=>'USER LIST','GROUP_SYSTEM'=>'GROUP SYSTEM','GROUP_CAMPAIGNLISTS'=>'GROUP CAMPAIGNLISTS','GROUP_CAMPLISTS_ALL'=>'GROUP CAMPLISTS ALL','GROUP_LIST'=>'GROUP LIST','TERRITORY_SYSTEM'=>'TERRITORY SYSTEM','TERRITORY_CAMPAIGNLISTS'=>'TERRITORY CAMPAIGNLISTS','TERRITORY_CAMPLISTS_ALL'=>'TERRITORY CAMPLISTS ALL','TERRITORY_LIST'=>'TERRITORY LIST'),$campinfo->agent_lead_search_method,'id="agent_lead_search_method" class="advanceSettings"'); ?></td>
     </tr>
 <?php
 } else {
@@ -871,14 +871,14 @@ if (!$isSurvey)
 }
 ?>
 	<tr>
-    	<td style="text-align:right;" nowrap>CallerID Campanha:</td><td><input id="campaign_cid" type="text" value="<?php echo $campinfo->campaign_cid; ?>" size="15" /></td>
+    	<td style="text-align:right;" nowrap>Campanha CallerID:</td><td><input id="campaign_cid" type="text" value="<?php echo $campinfo->campaign_cid; ?>" size="15" /></td>
     </tr>
 <?php
 if ($campinfo->campaign_allow_inbound == 'Y')
 {
 ?>
 	<tr>
-    	<td style="text-align:right;" nowrap>DID Atribuído:</td><td>
+    	<td style="text-align:right;" nowrap>DID/TFN:</td><td>
     	<a href="<?php echo $base; ?>index.php/ingroups#tabs-2" class="toolTip" title="View All DID Numbers" style="text-decoration:none">
 <?php
 foreach ($inbound_dids as $did)
@@ -897,37 +897,37 @@ if (!$isSurvey)
 {
 ?>
 	<tr>
-    	<td style="text-align:right;" nowrap>Gravação da Campanha:</td><td><select id="campaign_recording"><option value="NEVER">OFF</option><option value="ALLFORCE">ON</option><option value="ONDEMAND">ONDEMAND</option></select></td>
+    	<td style="text-align:right;" nowrap>Gravações:</td><td><select id="campaign_recording"><option value="NEVER">OFF</option><option value="ALLFORCE">ON</option><option value="ONDEMAND">ONDEMAND</option></select></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Nome do Arquivo de Gravação:</td><td><input type=text name="campaign_rec_filename" id="campaign_rec_filename" class="advanceSettings" size=50 maxlength=50 value="<?php echo $campinfo->campaign_rec_filename; ?>"></td>
+    	<td style="text-align:right;" nowrap>Nome do Arquivo de Gravações:</td><td><input type=text name="campaign_rec_filename" id="campaign_rec_filename" class="advanceSettings" size=50 maxlength=50 value="<?php echo $campinfo->campaign_rec_filename; ?>"></td>
     </tr>
 	<tr>
-    	<td style="text-align:right;" nowrap>Detector de Secretária:</td><td><select id="campaign_vdad_exten"><?php echo $camp_vdad_option; ?></select></td>
+    	<td style="text-align:right;" nowrap>Detector de Secretária Eletrônica:</td><td><select id="campaign_vdad_exten"><?php echo $camp_vdad_option; ?></select></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Próximo Agente a Chamar:</td><td><?=form_dropdown('next_agent_call',array('random'=>'Random','oldest_call_start'=>'Oldest Call Start','oldest_call_finish'=>'Oldest Call Finish','overall_user_level'=>'Overall User Level','campaign_rank'=>'Campaign Rank','campaign_grade_random'=>'Campaign Grade Random','fewest_calls'=>'Fewest Calls','longest_wait_time'=>'Longest Wait Time'),$campinfo->next_agent_call,'id="next_agent_call" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>Próximo Operador a Chamar:</td><td><?=form_dropdown('next_agent_call',array('random'=>'Random','oldest_call_start'=>'Oldest Call Start','oldest_call_finish'=>'Oldest Call Finish','overall_user_level'=>'Overall User Level','campaign_rank'=>'Campaign Rank','campaign_grade_random'=>'Campaign Grade Random','fewest_calls'=>'Fewest Calls','longest_wait_time'=>'Longest Wait Time'),$campinfo->next_agent_call,'id="next_agent_call" class="advanceSettings"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Transfer-Conf Número 1:</td><td><input type=text name="xferconf_a_number" id="xferconf_a_number" class="advanceSettings" size=20 maxlength=50 value="<?php echo $campinfo->xferconf_a_number; ?>"></td>
+    	<td style="text-align:right;" nowrap>Conferência/Transferência Número 1:</td><td><input type=text name="xferconf_a_number" id="xferconf_a_number" class="advanceSettings" size=20 maxlength=50 value="<?php echo $campinfo->xferconf_a_number; ?>"></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Transfer-Conf Número 2:</td><td><input type=text name="xferconf_b_number" id="xferconf_b_number" class="advanceSettings" size=20 maxlength=50 value="<?php echo $campinfo->xferconf_b_number; ?>"></td>
+    	<td style="text-align:right;" nowrap>Conferência/Transferência Número  2:</td><td><input type=text name="xferconf_b_number" id="xferconf_b_number" class="advanceSettings" size=20 maxlength=50 value="<?php echo $campinfo->xferconf_b_number; ?>"></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>3-Way Chamada de Saída CallerID:</td><td><?php echo form_dropdown('three_way_call_cid',array('CAMPAIGN'=>'CAMPAIGN','CUSTOMER'=>'CUSTOMER','AGENT_PHONE'=>'AGENT PHONE','AGENT_CHOOSE'=>'AGENT CHOOSE','CUSTOM_CID'=>'CUSTOM CID'),$campinfo->three_way_call_cid,'id="three_way_call_cid" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>3-Way Chamada de saída CallerID:</td><td><?php echo form_dropdown('three_way_call_cid',array('CAMPAIGN'=>'CAMPAIGN','CUSTOMER'=>'CUSTOMER','AGENT_PHONE'=>'AGENT PHONE','AGENT_CHOOSE'=>'AGENT CHOOSE','CUSTOM_CID'=>'CUSTOM CID'),$campinfo->three_way_call_cid,'id="three_way_call_cid" class="advanceSettings"'); ?></td>
     </tr>
 	<tr <?=$showThisOption ?> style="display:none;">
-    	<td style="text-align:right;" nowrap>3-Way Chamada de Saída Prefixo:</td><td><?php echo form_input('three_way_dial_prefix',$campinfo->three_way_dial_prefix,'id="three_way_dial_prefix" maxlength="20" size="15" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>3-Way Prefixo de Discagem:</td><td><?php echo form_input('three_way_dial_prefix',$campinfo->three_way_dial_prefix,'id="three_way_dial_prefix" maxlength="20" size="15" class="advanceSettings"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Cliente 3-Way Desligamento Logging:</td><td><?php echo form_dropdown('customer_3way_hangup_logging',array('DISABLED'=>'DISABLED','ENABLED'=>'ENABLED'),$campinfo->customer_3way_hangup_logging,'id="customer_3way_hangup_logging" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>Customer 3-Way Log de Desligamento:</td><td><?php echo form_dropdown('customer_3way_hangup_logging',array('DISABLED'=>'DISABLED','ENABLED'=>'ENABLED'),$campinfo->customer_3way_hangup_logging,'id="customer_3way_hangup_logging" class="advanceSettings"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Cliente 3-Way Desligamento Segundos:</td><td><?php echo form_input('customer_3way_hangup_seconds',$campinfo->customer_3way_hangup_seconds,'id="customer_3way_hangup_seconds" maxlength="5" size="5" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>Customer 3-Way Segundos pra Desligar:</td><td><?php echo form_input('customer_3way_hangup_seconds',$campinfo->customer_3way_hangup_seconds,'id="customer_3way_hangup_seconds" maxlength="5" size="5" class="advanceSettings"'); ?></td>
     </tr>
 	<tr class="advance_settings" style="display:none;">
-    	<td style="text-align:right;" nowrap>Cliente 3-Way Desligamento Ação:</td><td><?php echo form_dropdown('customer_3way_hangup_action',array('NONE'=>'NENHUM','DISPO'=>'DISPONIVEL'),$campinfo->customer_3way_hangup_action,'id="customer_3way_hangup_action" class="advanceSettings"'); ?></td>
+    	<td style="text-align:right;" nowrap>Customer 3-Way Ação de Desligamento:</td><td><?php echo form_dropdown('customer_3way_hangup_action',array('NONE'=>'NONE','DISPO'=>'DISPO'),$campinfo->customer_3way_hangup_action,'id="customer_3way_hangup_action" class="advanceSettings"'); ?></td>
     </tr>
 <?php
 }
@@ -935,11 +935,11 @@ if ($isSurvey)
 {
 ?>
 	<tr>
-		<td style="text-align:right;">Arquivo de Audio:</td>
+		<td style="text-align:right;">Áudio:</td>
 		<td><input id="survey_first_audio_file" name="survey_first_audio_file" type="text" maxlength="50" size="25" value="<?php echo $campinfo->survey_first_audio_file; ?>" /><input type="button" value="Audio" style="cursor:pointer;" class="selectAudio" id="first_audio" /></td>
 	</tr>
 	<tr>
-		<td style="text-align:right;">Método de Pesquisa:</td>
+		<td style="text-align:right;">Modo de Pesquisa:</td>
 		<td>
 			<select id="survey_method" name="survey_method">
 				<option value="AGENT_XFER">CAMPANHA</option>
@@ -949,7 +949,7 @@ if ($isSurvey)
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align:right;">Pesquisa Menu:</td>
+		<td style="text-align:right;">Survey Call Menu:</td>
 		<td>
 			<?php
 			$callMenuArray[''] = "---NONE---";
@@ -966,15 +966,12 @@ if ($isSurvey)
 	if ($campinfo->campaign_vdad_exten=='8366')
 	{
 ?>
-    <tr>
-    	<td style="text-align:right;" nowrap>Detector de Secretária:</td><td><select id="campaign_vdad_exten"><?php echo $camp_vdad_option; ?></select></td>
-    </tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">DTMF Digitos:</td>
+		<td style="text-align:right;">Digitos DTMF:</td>
 		<td><input id="survey_dtmf_digits" name="survey_dtmf_digits" class="advanceSettings" type="text" maxlength="16" size="16" placeholder="eg. 0123456789*#" value="<?php echo $campinfo->survey_dtmf_digits; ?>" /> <small>* customer define key press e.g.0123456789*#</small></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Tempo de Espera da Pesquisa:</td>
+		<td style="text-align:right;">Espera em Segundos:</td>
 		<td><input id="survey_wait_sec" name="survey_wait_sec" class="advanceSettings" type="text" maxlength="2" size="5" value="<?php echo $campinfo->survey_wait_sec; ?>" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
@@ -982,26 +979,26 @@ if ($isSurvey)
 		<td><input id="survey_xfer_exten" name="survey_xfer_exten" class="advanceSettings" type="text" maxlength="25" size="20" value="<?php echo $campinfo->survey_xfer_exten; ?>" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Arquivo de Áudio Opt-In de Pesquisa:</td>
+		<td style="text-align:right;">Audio Opcional:</td>
 		<td><input id="survey_opt_in_audio_file" name="survey_opt_in_audio_file" class="advanceSettings" type="text" maxlength="50" size="25" value="<?php echo $campinfo->survey_opt_in_audio_file; ?>" /><input type="button" value="Audio" style="cursor:pointer;" class="selectAudio" id="opt_audio" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
 		<td colspan="2">&nbsp;</td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 8 Não Interessado Digit:</td>
+		<td style="text-align:right;">Pressionar 8, Não Interessado, Digito:</td>
 		<td><input id="survey_ni_digit" name="survey_ni_digit" class="advanceSettings" type="text" maxlength="10" size="5" value="<?php echo $campinfo->survey_ni_digit; ?>" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 8 Não Interessado, Audio:</td>
+		<td style="text-align:right;">Pressionar 8, Não Interessado, Audio:</td>
 		<td><input id="survey_ni_audio_file" name="survey_ni_audio_file" class="advanceSettings" type="text" maxlength="50" size="25" value="<?php echo $campinfo->survey_ni_audio_file; ?>" /><input type="button" value="Audio" style="cursor:pointer;" class="selectAudio" id="ni_audio" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 8 Não Interessado Status:</td>
+		<td style="text-align:right;">Pressionar 8, Não Interessado, Status:</td>
 		<td>
 			<select id="survey_ni_status" name="survey_ni_status" class="advanceSettings">
 				<option value="NI">NI - Não Interessado</option>
-				<option value="DNC">DNC - Não Chamar</option>
+				<option value="DNC">DNC - Não Chamar Novamente</option>
 			</select>
 		</td>
 	</tr>
@@ -1009,38 +1006,38 @@ if ($isSurvey)
 		<td colspan="2">&nbsp;</td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 3 Terceiro Digito:</td>
+		<td style="text-align:right;">Pressionar 3 Digito:</td>
 		<td><input id="survey_third_digit" name="survey_third_digit" class="advanceSettings" type="text" maxlength="10" size="5" value="<?php echo $campinfo->survey_third_digit; ?>" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 3 Terceiro, Audio:</td>
+		<td style="text-align:right;">Pressionar 3, Audio:</td>
 		<td><input id="survey_third_audio_file" name="survey_third_audio_file" class="advanceSettings" type="text" maxlength="50" size="25" value="<?php echo $campinfo->survey_third_audio_file; ?>" /><input type="button" value="Audio" style="cursor:pointer;" class="selectAudio" id="third_audio" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 3 Terceiro Status:</td>
+		<td style="text-align:right;">Pressionar 3, Status:</td>
 		<td><input id="survey_third_status" name="survey_third_status" class="advanceSettings" type="text" maxlength="6" size="10" value="<?php echo $campinfo->survey_third_status; ?>" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 3 Terceiro DID:</td>
+		<td style="text-align:right;">Press 3 Third DID:</td>
 		<td><input id="survey_third_exten" name="survey_third_exten" class="advanceSettings" type="text" maxlength="25" size="20" value="<?php echo $campinfo->survey_third_exten; ?>" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
 		<td colspan="2">&nbsp;</td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 4 Quarto Digito:</td>
+		<td style="text-align:right;">Pressionar 4, Digito:</td>
 		<td><input id="survey_fourth_digit" name="survey_fourth_digit" class="advanceSettings" type="text" maxlength="10" size="5" value="<?php echo $campinfo->survey_fourth_digit; ?>" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 4 Quarto, Audio:</td>
+		<td style="text-align:right;">Pressionar 4, Audio:</td>
 		<td><input id="survey_fourth_audio_file" name="survey_fourth_audio_file" class="advanceSettings" type="text" maxlength="50" size="25" value="<?php echo $campinfo->survey_fourth_audio_file; ?>" /><input type="button" value="Audio" style="cursor:pointer;" class="selectAudio" id="fourth_audio" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 4 Quarto Status:</td>
+		<td style="text-align:right;">Pressionar 4, Status</td>
 		<td><input id="survey_fourth_status" name="survey_fourth_status" class="advanceSettings" type="text" maxlength="6" size="10" value="<?php echo $campinfo->survey_fourth_status; ?>" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Pressione 4 Quarto DID:</td>
+		<td style="text-align:right;">Pressionar 4, DID:</td>
 		<td><input id="survey_fourth_exten" name="survey_fourth_exten" class="advanceSettings" type="text" maxlength="25" size="20" value="<?php echo $campinfo->survey_fourth_exten; ?>" /></td>
 	</tr>
 	<tr class="advance_settings" style="display:none;">
@@ -1068,7 +1065,7 @@ if ($isSurvey)
 				<option>150</option>
 				<option>200</option>
 			</select>
-		<!-- <input type="hidden" id="campaign_vdad_exten" value="<?php echo $campinfo->campaign_vdad_exten; ?>" /> -->
+			<input type="hidden" id="campaign_vdad_exten" value="<?php echo $campinfo->campaign_vdad_exten; ?>" />
 		</td>
 	</tr>
 <?php
@@ -1082,7 +1079,7 @@ if ($campinfo->campaign_allow_inbound=="Y")
 {
 ?>
 	<tr class="advance_settings" style="display:none;">
-		<td style="text-align:right;">Grupos de Entrada:</td>
+		<td style="text-align:right;">Inbound Groups:</td>
 		<td>
 <?php
 	foreach ($inbound_groups as $inb_grp)
@@ -1103,7 +1100,7 @@ if ($campinfo->campaign_allow_inbound=="Y")
 	</tr>
 
         <tr class="advance_settings" style="display:none;">
-                <td style="text-align:right;">Transferências Permitidas no Grupo:</td>
+                <td style="text-align:right;">Transferência Permitida entra Grupos:</td>
                 <td>
 <?php
 
@@ -1137,20 +1134,20 @@ if ($isSurvey && $campinfo->campaign_vdad_exten=='8373')
 }
 ?>
 	<tr>
-    	<td><span id="advance_link" style="cursor:pointer;font-size:9px;<?php echo $hideAdvanceLink; ?>">[ + CONFIGURAÇÕES AVANÇADAS ]</span><input type="hidden" id="isAdvance" value="0" /></td><td style="text-align:right;"><span id="saveSettings" class="buttons">SAVE SETTINGS</span><!--<input id="saveSettings" type="submit" value=" SAVE SETTINGS " style="cursor:pointer;" />--></td>
+    	<td><span id="advance_link" style="cursor:pointer;font-size:9px;<?php echo $hideAdvanceLink; ?>">[ + CONFIGURAÇÕES AVANÇADAS ]</span><input type="hidden" id="isAdvance" value="0" /></td><td style="text-align:right;"><span id="saveSettings" class="buttons">SALVAR</span><!--<input id="saveSettings" type="submit" value=" SAVE SETTINGS " style="cursor:pointer;" />--></td>
     </tr>
 </table>
 <br />
-<div align="center" style="font-weight:bold; color:#000; font-size:16px;">LISTAS NESTA CAMPANHA</div>
+<div align="center" style="font-weight:bold; color:#000; font-size:16px;">LISTAS NESSA CAMPANHA</div>
 <br />
 <table id="list_within_campaign" border=0 cellpadding="1" cellspacing="1" style="margin-left:auto; margin-right:auto; width:95%; border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
 	<tr style="font-weight:bold;color:#000;">
     	<td style="white-space: nowrap">&nbsp;&nbsp;LISTA ID&nbsp;</td>
-    	<td style="white-space: nowrap">&nbsp;NOME DA LISTA&nbsp;</td>
+    	<td style="white-space: nowrap">&nbsp;LISTA NOME&nbsp;</td>
     	<td>&nbsp;DESCRIÇÃO&nbsp;</td>
     	<td style="text-align:center;white-space: nowrap" nowrap>&nbsp;CONTAGEM DE CONTATOS&nbsp;</td>
-    	<td style="text-align:center">&nbsp;ATIVO&nbsp;</td>
-    	<td style="text-align:center;white-space: nowrap" nowrap>&nbsp;DATA DA ÚLTIMA CHAMADA&nbsp;</td>
+    	<td style="text-align:center">&nbsp;ATIVA&nbsp;</td>
+    	<td style="text-align:center;white-space: nowrap" nowrap>&nbsp;ÚLTIMA CHAMADA&nbsp;</td>
     	<td style="text-align:center">&nbsp;EDITAR&nbsp;</td>
     </tr>
 <?php
@@ -1186,7 +1183,7 @@ if ($isSurvey && $campinfo->campaign_vdad_exten=='8373')
 				echo "<td style=\"border-top:#D0D0D0 dashed 1px;text-align:center\">".$row['leads']->count."</td>\n";
 				echo "<td style=\"border-top:#D0D0D0 dashed 1px;text-align:center\">".$row['active']." &nbsp; <input name=\"active[]\" value=\"".$row['list_id']."\" type=\"checkbox\" ".$ischecked." /></td>\n";
 				echo "<td style=\"border-top:#D0D0D0 dashed 1px;text-align:center;white-space: nowrap\">&nbsp;".$row['list_lastcalldate']."&nbsp;</td>\n";
-				echo "<td style=\"border-top:#D0D0D0 dashed 1px;text-align:center\"><img src=\"{$base}img/edit.gif\" onclick=\"modifyListID('".$row['list_id']."');\" style=\"cursor:pointer;width:16px;\" class=\"toolTip\" title=\"EDITAR LISTA ID ".$row['list_id']."\" /></td>\n";
+				echo "<td style=\"border-top:#D0D0D0 dashed 1px;text-align:center\"><img src=\"{$base}img/edit.gif\" onclick=\"modifyListID('".$row['list_id']."');\" style=\"cursor:pointer;width:16px;\" class=\"toolTip\" title=\"EDITAR LISTA ".$row['list_id']."\" /></td>\n";
 				echo "</tr>\n";
 			}
 		}
@@ -1194,18 +1191,18 @@ if ($isSurvey && $campinfo->campaign_vdad_exten=='8373')
 ?>
 </table>
 <br style="font-size:8px;" />
-<div align="center" style="font-size:14px;"><span id="saveListIDs" class="buttons">SALVAR CONFIGURAÇÕES ATIVAS DA LISTA</span><!--<input id="saveListIDs" type="submit" value=" SAVE ACTIVE LIST CHANGES " style="cursor:pointer;" />--></div>
+<div align="center" style="font-size:14px;"><span id="saveListIDs" class="buttons">SALVAR CONFIGURAÇÕES DA LISTA</span><!--<input id="saveListIDs" type="submit" value=" SAVE ACTIVE LIST CHANGES " style="cursor:pointer;" />--></div>
 <br /><br />
-<div align="center" style="color:#000;">Esta campanha tem <?php echo $active_list_id; ?> listas ativas e <?php echo $inactive_list_id; ?> listas inativas</div>
+<div align="center" style="color:#000;">Essa campanha tem <?php echo $active_list_id; ?> listas ativas e <?php echo $inactive_list_id; ?> inativas</div>
 <br style="font-size:8px;" />
-<div align="center" style="color:#000;">Esta campanha tem <?php echo $leads_on_hopper->count; ?> contatos na fila (chamar funil)</div>
+<div align="center" style="color:#000;">Essa campanha tem <?php echo $leads_on_hopper->count; ?> contatos na fila, para discar </div>
 <br style="font-size:8px;" />
-<div align="center" style="color:#000;"><span id="view_hopper" class="buttons">Ver contatos no funil para essa campanha</span></div>
+<div align="center" style="color:#000;"><span id="view_hopper" class="buttons">Ver contatos na fila</span></div>
 <br style="font-size:8px;" />
 <?php
 if (! $isSurvey) {
 ?>
-<div align="center" style="color:#000;"><span id="logout_agents" class="buttons" style="color:red;">Deslogar todos operadores dessa campanha</span></div>
+<div align="center" style="color:#000;"><span id="logout_agents" class="buttons" style="color:red;">Deslogar operadores dessa campanha</span></div>
 <br style="font-size:8px;" />
 <?php
 }
@@ -1220,7 +1217,7 @@ if (! $isSurvey) {
 <div id="fileOverlayContent" style="overflow-x: hidden; overflow-y: auto; height: 98%;">
 <table>
 	<tr>
-		<td>List of Files Uploaded:</td>
+		<td>Lista de Arquivos:</td>
 	</tr>
 <?php
 $WeBServeRRooT = '/var/lib/asterisk';

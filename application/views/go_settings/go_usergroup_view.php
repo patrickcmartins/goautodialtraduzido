@@ -24,7 +24,7 @@ $(function()
 	if (isAdvance)
 	{
 		$('.advance_settings').show();
-		$('#advance_link').html('[ - ADVANCE SETTINGS ]');
+		$('#advance_link').html('[ - CONFIGURAÇÕES AVANÇADAS ]');
 		$('#isAdvance').val('1');
 	}
 	
@@ -35,11 +35,11 @@ $(function()
 		if ($('.advance_settings').is(':hidden'))
 		{
 			$('.advance_settings').show();
-			$('#advance_link').html('[ - ADVANCE SETTINGS ]');
+			$('#advance_link').html('[ - CONFIGURAÇÕES AVANÇADAS ]');
 			$('#isAdvance').val('1');
 		} else {
 			$('.advance_settings').hide();
-			$('#advance_link').html('[ + ADVANCE SETTINGS ]');
+			$('#advance_link').html('[ + CONFIGURAÇÕES AVANÇADAS ]');
 			$('#isAdvance').val('0');
 		}
 	});
@@ -70,7 +70,7 @@ $(function()
 		
 		if ($('#aloading').html().match(/Not Available/))
 		{
-			alert("User Group Not Available.");
+			alert("Grupo de Usuário não Disponível.");
 			isEmpty = 1;
 		}
 		
@@ -289,7 +289,8 @@ switch ($type)
                        <td style="text-align:right;width:15%;height:10px;font-weight:bold;">Relatórios e Estatísticas:</td>
                        <td>
                             <?php
-                                 echo form_checkbox('reportsanalytics_statistical_report',"Y",null,"id='reportsanalytics_statistical_report' class='permission-box'")." Statistical Report " .
+                                 echo form_checkbox('reportsanalytics_statistical_report',"Y",null,"id='reportsanalytics_statistical_report' 
+class='permission-box'")." Statistical Report " .
                                       form_checkbox('reportsanalytics_agent_time_detail',"Y",null,"id='reportsanalytics_agent_time_detail' class='permission-box'") . " Agent Time Detail " . 
                                       form_checkbox('reportsanalytics_agent_performance_detail',"Y",null,"id='reportsanalytics_agent_performance_detail' class='permission-box'"). " Agent Performance Detail <br/>".
                                       form_checkbox('reportsanalytics_dial_status_summary',"Y",null,"id='reportsanalytics_dial_status_summary' class='permission-box'") . " Dial Status Summary  " .

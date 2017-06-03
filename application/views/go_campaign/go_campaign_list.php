@@ -11,7 +11,7 @@
 $base = base_url();
 
 if($permissions->campaign_read == "N"){
-	die("<br />Error: You do not have permission to view the list of campaigns.");
+	die("<br />Erro! Sem permissão.");
 }
 ?>
 <style type="text/css">
@@ -84,7 +84,7 @@ function modify(camp)
 		$("#overlayContent").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 		$('#overlayContent').fadeOut("slow").load('<? echo $base; ?>index.php/go_campaign_ce/go_get_settings/'+camp).fadeIn("slow");
 	} else {
-			alert("Erro: Você não tem permissão para modificar essa campanha");
+			alert("Erro! Sem permissão..");
 	}
 }
 
@@ -92,7 +92,7 @@ function delCamp(camp)
 {
 	if ('<?php echo $permissions->campaign_delete; ?>'!='N')
 	{
-		var what = confirm('Tem certeza que deseja excluir essa campanha?\n\n'+camp+'\n\nSe certifique de trasnferir as listas\nQue tem contatos carregados nela para qualquer campanha disponível.');
+		var what = confirm('Tem certeza que deseja deletar?\n\n'+camp+'\n\nSe certifique de transferir todas as lista\nque tenham contatos carregados e estão associados a essa campanha.');
 		if (what)
 		{
 			$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_check_for_leads/"+camp, function(data)
@@ -106,7 +106,7 @@ function delCamp(camp)
 			});
 		}
 	} else {
-			alert("Erro: Você não tem permissão para deletar campanhas.");
+			alert("Erro! Sem permissão..");
 	}
 }
 
@@ -124,7 +124,7 @@ function modifyStatus(camp)
 		$("#overlayContent").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 		$('#overlayContent').fadeOut("slow").load('<? echo $base; ?>index.php/go_campaign_ce/go_get_campaign_statuses/'+camp).fadeIn("slow");
 	} else {
-			alert("Erro: Você não tem permissão para alterar os status das campanhas.");
+			alert("Erro! Sem permissão.");
 	}
 }
 
@@ -132,14 +132,14 @@ function delStatus(camp)
 {
 	if ('<?php echo $permissions->campaign_delete; ?>'!='N')
 	{
-		var what = confirm('Tem certeza que deseja excluir os status da camopanha?');
+		var what = confirm('Tem certeza que deseja deletar?');
 		if (what)
 		{
 			$("#table_reports").empty().html('<center><img src="<? echo $base; ?>img/goloading.gif" /></center>');
 			$('#table_reports').load('<? echo $base; ?>index.php/go_campaign_ce/go_delete_campaign_statuses_list/'+camp);
 		}
 	} else {
-		alert("Erro: Você não tem permissão para deletar os status das campanhas.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -147,7 +147,7 @@ function delLeadRecycle(camp)
 {
 	if ('<?php echo $permissions->campaign_delete; ?>'!='N')
 	{
-		var what = confirm('Tem cert');
+		var what = confirm('Tem certeza que deseja deletar?');
 		if (what)
 		{
 			$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_lead_recycle/delete/"+camp, function()
@@ -160,7 +160,7 @@ function delLeadRecycle(camp)
 			});
 		}
 	} else {
-			alert("Erro: Você não pode excluir os status da camopanha.");
+			alert("Erro! Sem permissão.");
 	}
 }
 
@@ -168,7 +168,7 @@ function delPauseCode(camp)
 {
 	if ('<?php echo $permissions->campaign_delete; ?>'!='N')
 	{
-		var what = confirm('Are you sure you want to delete the selected campaign\'s pause codes?');
+		var what = confirm('Tem certeza que deseja deletar?');
 		if (what)
 		{
 			$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_pause_codes/delete/"+camp, function()
@@ -181,7 +181,7 @@ function delPauseCode(camp)
 			});
 		}
 	} else {
-			alert("Erro: Você não tem permissão para deletar códigos de pausa.");
+			alert("Erro! Sem permissão.");
 	}
 }
 
@@ -189,7 +189,7 @@ function delHotKeys(camp)
 {
 	if ('<?php echo $permissions->campaign_delete; ?>'!='N')
 	{
-		var what = confirm('Tem certeza que deseja deletar os hotkeys?');
+		var what = confirm('Tem certeza que deseja deletar?');
 		if (what)
 		{
 			$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_hot_keys/delete/"+camp, function()
@@ -202,7 +202,7 @@ function delHotKeys(camp)
 			});
 		}
 	} else {
-			alert("Erro: Você não tem permissão para deletar os hotkeys.");
+			alert("Erro! Sem permissão.");
 	}
 }
 
@@ -647,19 +647,19 @@ $(function ()
 
 		if ($('#statusID').val() == '')
 		{
-			err_msg += 'ID Status está vazio\n';
+			err_msg += 'Status ID está vazio\n';
 			err++;
 		}
 		
 		if ($('#sloading').html().match(/Not Available/))
 		{
-			err_msg += 'ID Status não está disponível\n';
+			err_msg += 'Status ID não disponível\n';
 			err++;
 		}
 
 		if ($('#statusName').val() == '')
 		{
-			err_msg += 'Nome do status está vazio\n';
+			err_msg += 'Nome do Status está vazio\n';
 			err++;
 		}
 
@@ -703,7 +703,7 @@ $(function ()
 
 		if (err > 0)
 		{
-			alert('Por favor, preencha ou selecione todos os campos.');
+			alert('Preencha todos os campos.');
 		}
 		else
 		{
@@ -747,7 +747,7 @@ $(function ()
 
 		if (err > 0)
 		{
-			alert('Por favor, preencha ou selecione todos os campos.');
+			alert('Selecione todos os campos.');
 		}
 		else
 		{
@@ -792,7 +792,7 @@ $(function ()
 		
 		if ($('#kloading').html().match(/Not Available/))
 		{
-			alert("HotKey "+$('#hotKeys').val()+" Não Disponível.");
+			alert("HotKey "+$('#hotKeys').val()+" Not Available.");
 			notAvail = 1;
 			err++;
 		}
@@ -800,7 +800,7 @@ $(function ()
 		if (err > 0)
 		{
 			if (!notAvail)
-				alert('Please select or fill-in all the fields.');
+				alert('Preencha todos os capos.');
 		}
 		else
 		{
@@ -822,30 +822,30 @@ $(function ()
 	{
 		var campID = $('#statusCampID').val();
 		var string = $('.statusResult').serialize();
-		var err_msg = 'Please check the following error(s):\n\n';
+		var err_msg = 'Revise os seguintes erros:\n\n';
 		var err = 0;
 
 		if ($('#lead_filter_id').val() == '')
 		{
-			err_msg += 'Filter ID is empty\n';
+			err_msg += 'ID Filtro está vazio\n';
 			err++;
 		}
 		
 		if ($('#floading').html().match(/Not Available/))
 		{
-			err_msg += 'ID Filtro não disponível\n';
+			err_msg += 'ID Filtro não está disponível\n';
 			err++;
 		}
 		
 		if ($('#lead_filter_name').val() == '')
 		{
-			err_msg += 'Nome do filtro está vazio\n';
+			err_msg += 'Nome do Filtro está vazio\n';
 			err++;
 		}
 		
 		if ($('#user_group').val() == '')
 		{
-			err_msg += 'Grupo de usuário não selecionado\n';
+			err_msg += 'Nenhum grupo de usuário selecionado\n';
 			err++;
 		}
 
@@ -895,7 +895,7 @@ $(function ()
 		if (err > 0)
 		{
 			if (!notAvail)
-				alert('Por favor, componha uma Query SQL.');
+				alert('Please compose an SQL query.');
 		}
 		else
 		{
@@ -1284,7 +1284,7 @@ $(function ()
 					var sql_oper = " "+$("input[name=filter_sql_div]:checked").val();
 					filter_sql += sql_oper+" "+filter_sql_preview;
 				} else {
-					alert("Selecione um operador SQL para continuar");
+					alert("Please select an SQL operator 'AND' or 'OR' to continue.");
 				}
 			} else {
 				$("#filter_sql_span").show();
@@ -1309,7 +1309,7 @@ $(function ()
 			{
 				$('#floading').load('<? echo $base; ?>index.php/go_campaign_ce/go_sql_filters/check/'+$(this).val());
 			} else {
-				$('#floading').html("<small style=\"color:red;\">Minimum of 3 characters.</small>");
+				$('#floading').html("<small style=\"color:red;\">Minimo 3 caracteres.</small>");
 			}
 		}
 	});
@@ -1392,7 +1392,7 @@ function modifyRecycle(camp)
 		$("#overlayContent").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 		$('#overlayContent').fadeOut("slow").load('<? echo $base; ?>index.php/go_campaign_ce/go_lead_recycle/modify/'+camp).fadeIn("slow");
 	} else {
-		alert("Error: You do not have permission to modify lead recycling statuses.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -1400,7 +1400,7 @@ function delLeadRecycling(status,camp)
 {
 	if ('<?php echo $permissions->campaign_delete; ?>'!='N')
 	{
-		var answer = confirm("Está certo de que deseja excluir esse status?\n\n"+status);
+		var answer = confirm("Tem certeza que deseja deletar esse status?\n\n"+status);
 	
 		if (answer)
 		{
@@ -1411,7 +1411,7 @@ function delLeadRecycling(status,camp)
 			});
 		}
 	} else {
-		alert("Erro: Você não tem permissão para excluir status de reciclagem de contato.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -1431,7 +1431,7 @@ function modifyLeadRecycling(status,camp)
 			$('.hiddenRecyclingTable').slideDown(500);
 		});
 	} else {
-		alert("Erro: Você não tem permissão para modificar os status de reciclagem de contato.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -1449,7 +1449,7 @@ function modifyPauseCode(camp)
 		$("#overlayContent").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 		$('#overlayContent').fadeOut("slow").load('<? echo $base; ?>index.php/go_campaign_ce/go_pause_codes/modify/'+camp).fadeIn("slow");
 	} else {
-		alert("Erro: você não tem permissão para modificar os códigos de pausa da campanha.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -1468,7 +1468,7 @@ function modifyCampPauseCodes(code,camp)
 			$('.hiddenPauseCodesTable').slideDown(500);
 		});
 	} else {
-		alert("Erro: você não tem permissão para modificar os códigos de pausa da campanha.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -1476,7 +1476,7 @@ function delCampPauseCodes(code,camp)
 {
 	if ('<?php echo $permissions->campaign_delete; ?>'!='N')
 	{
-		var answer = confirm("Are you sure you want to delete this Pause Code?\n\n"+code);
+		var answer = confirm("Tem certeza que deseja deletar?\n\n"+code);
 	
 		if (answer)
 		{
@@ -1487,7 +1487,7 @@ function delCampPauseCodes(code,camp)
 			});
 		}
 	} else {
-		alert("Erro: você não tem permissão para excluir códigos de pausa da campanha.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -1505,7 +1505,7 @@ function modifyHotKeys(camp)
 		$("#overlayContent").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 		$('#overlayContent').fadeOut("slow").load('<? echo $base; ?>index.php/go_campaign_ce/go_hot_keys/modify/'+camp).fadeIn("slow");
 	} else {
-		alert("Erro: você não tem permissão para modificar hotkeys de campanha.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -1513,7 +1513,7 @@ function delCampHotKeys(hotkey,camp)
 {
 	if ('<?php echo $permissions->campaign_delete; ?>'!='N')
 	{
-		var answer = confirm("Are you sure you want to delete this HotKey?\n\n"+hotkey);
+		var answer = confirm("Tem certeza que deseja deletar?\n\n"+hotkey);
 	
 		if (answer)
 		{
@@ -1524,7 +1524,7 @@ function delCampHotKeys(hotkey,camp)
 			});
 		}
 	} else {
-		alert("Erro: você não tem permissão para excluir hotkeys de campanha.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -1542,7 +1542,7 @@ function modifyFilters(filter)
 		$("#overlayContent").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 		$('#overlayContent').fadeOut("slow").load('<? echo $base; ?>index.php/go_campaign_ce/go_sql_filters/modify/'+filter).fadeIn("slow");
 	} else {
-		alert("Erro: Você não tem permissão para modificar filtros de contato.");
+		alert("Erro! Sem permissão.");
 	}
 }
 </script>
@@ -1551,7 +1551,7 @@ function modifyFilters(filter)
 	<thead>
         <tr style="font-weight:bold;">
             <th style="width:12%">&nbsp;&nbsp;CAMPANHA ID</th>
-            <th>&nbsp;&nbsp;NOME DA CAMPANHA</th>
+            <th>&nbsp;&nbsp;CAMPANHA NOME</th>
             <th>&nbsp;&nbsp;MODO DE DISCAGEM</th>
             <th>&nbsp;&nbsp;STATUS</th>
             <th style="display:none;">&nbsp;&nbsp;NÍVEL</th>
@@ -1620,9 +1620,9 @@ function modifyFilters(filter)
 	
 			if ($row->active == 'Y')
 			{
-				$active = '<span style="color:green;font-weight:bold;">ACTIVE</span>';
+				$active = '<span style="color:green;font-weight:bold;">ATIVO</span>';
 			} else {
-				$active = '<span style="color:#F00;font-weight:bold;">INACTIVE</span>';
+				$active = '<span style="color:#F00;font-weight:bold;">INATIVO</span>';
 			}
 			
 			echo "<tr style=\"background-color:$bgcolor;\">\n";
@@ -1632,12 +1632,12 @@ function modifyFilters(filter)
 			echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;$active</td>\n";
 	//		echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;$auto_dial_level</td>\n";
 	//		echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;$remote_status</td>\n";
-			echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modify('".$row->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delCamp('".$row->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"viewInfo('".$row->campaign_id."','info','135px')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"VER INFO DA CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/status_display_i.png\" style=\"cursor:pointer;width:12px;\" /></span></td>\n";
+			echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modify('".$row->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delCamp('".$row->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR CAMPANHA<br />".$row->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"viewInfo('".$row->campaign_id."','info','135px')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"INFORMAÇÕES<br />".$row->campaign_id."\"><img src=\"{$base}img/status_display_i.png\" style=\"cursor:pointer;width:12px;\" /></span></td>\n";
 			echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><input type=\"checkbox\" id=\"delCampaign[]\" value=\"".$row->campaign_id."\" /></td>\n";
 			echo "</tr>\n";
 		}
 	} else {
-		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum Registro Encontrado.</td></tr>\n";
+		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum registro encontrado.</td></tr>\n";
 	}
 ?>
 	</tbody>
@@ -1649,9 +1649,9 @@ function modifyFilters(filter)
 	<thead>
         <tr style="font-weight:bold;">
             <th style="width:12%">&nbsp;&nbsp;CAMPANHA ID</th>
-            <th style="width:20%">&nbsp;&nbsp;NOME DA CAMPANHA</th>
+            <th style="width:20%">&nbsp;&nbsp;CAMPANHA NOME</th>
             <th>&nbsp;&nbsp;TABULAÇÕES PERSONALIZADAS</th>
-            <th style="width:6%;text-align:center;" colspan="3" nowrap><span style="cursor:pointer;" id="selectStatusAction">&nbsp;AÇÃO &nbsp;<img src="<?php echo $base; ?>img/arrow_down.png" />&nbsp;</span></th>
+            <th style="width:6%;text-align:center;" colspan="3" nowrap><span style="cursor:pointer;" id="selectStatusAction">&nbsp;ACTION &nbsp;<img src="<?php echo $base; ?>img/arrow_down.png" />&nbsp;</span></th>
             <th style="width:2%;text-align:center;"><input type="checkbox" id="selectAllStatus" /></th>
         </tr>
     </thead>
@@ -1672,10 +1672,10 @@ function modifyFilters(filter)
 		    $statuses = ($camp_status[$status->campaign_id] != '') ? str_replace(' ',', ',trim($camp_status[$status->campaign_id])) : '<span style="text-decoration:line-through;font-style:italic;color:#777;">NONE</span>';
 		    
 		    echo "<tr style=\"background-color:$bgcolor;\">\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyStatus('".$status->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR STATUS DAS CAMPANHAS<br />".$status->campaign_id."\">".$status->campaign_id."</span>&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyStatus('".$status->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR STATUS DAS CAMPANHAS<br />".$status->campaign_id."\">".str_replace("-","&#150;",$status->campaign_name)."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyStatus('".$status->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR TABULAÇÕES<br />".$status->campaign_id."\">".$status->campaign_id."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyStatus('".$status->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR TABULAÇÕES<br />".$status->campaign_id."\">".str_replace("-","&#150;",$status->campaign_name)."</span>&nbsp;&nbsp;</td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;max-width:250px;overflow:hidden;text-overflow:ellipsis\">&nbsp;&nbsp;<span class='toolTip' title='$statuses'>$statuses</span>&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyStatus('".$status->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR STATUS DAS CAMPANHAS<br />".$status->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delStatus('".$status->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EXCLUIR STATUS DAS CAMPANHAS<br />".$status->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"viewInfo('".$status->campaign_id."','dispo','auto')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"VER DISPOSIÇÕES DAS CAMPANHAS ".$status->campaign_id."\"><img src=\"{$base}img/status_display_i.png\" style=\"cursor:pointer;width:12px;\" /></span></td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyStatus('".$status->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR TABULAÇÕES<br />".$status->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delStatus('".$status->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR TABULAÇÕES<br />".$status->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"viewInfo('".$status->campaign_id."','dispo','auto')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"VER TABULAÇÕES ".$status->campaign_id."\"><img src=\"{$base}img/status_display_i.png\" style=\"cursor:pointer;width:12px;\" /></span></td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><input type=\"checkbox\" id=\"delStatus[]\" value=\"".$status->campaign_id."\" /></td>\n";
 		    echo "</tr>\n";
 		}
@@ -1692,7 +1692,7 @@ function modifyFilters(filter)
 	<thead>
         <tr style="font-weight:bold;">
             <th style="width:12%">&nbsp;&nbsp;CAMPANHA ID</th>
-            <th style="width:20%">&nbsp;&nbsp;NOME DA CAMPANHA</th>
+            <th style="width:20%">&nbsp;&nbsp;CAMPANHA NOME</th>
             <th>&nbsp;&nbsp;RECICLAGEM DE CONTATOS</th>
             <!--<th>&nbsp;&nbsp;ATTEMPT DELAY</th>-->
             <!--<th>&nbsp;&nbsp;MAXIMUM ATTEMPTS</th>-->
@@ -1717,17 +1717,17 @@ function modifyFilters(filter)
 		    $statuses = ($lead_status[$leadrec->campaign_id] != '') ? str_replace(' ',', ',trim($lead_status[$leadrec->campaign_id])) : '<span style="text-decoration:line-through;font-style:italic;color:#777;">NONE</span>';
 		    
 		    echo "<tr style=\"background-color:$bgcolor;\">\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyRecycle('".$leadrec->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"MODIFICAR RECICLAGEM DE CONTATOS DA CAMPANHA<br />".$leadrec->campaign_id."\">".$leadrec->campaign_id."</span>&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyRecycle('".$leadrec->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"MODIFICAR RECICLAGEM DE CONTATOS DA CAMPANHA<br />".$leadrec->campaign_id."\">".str_replace("-","&#150;",$leadrec->campaign_name)."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyRecycle('".$leadrec->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR RECICLAGEM DE CONTATOS<br />".$leadrec->campaign_id."\">".$leadrec->campaign_id."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyRecycle('".$leadrec->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR RECICLAGEM DE CONTATOS<br />".$leadrec->campaign_id."\">".str_replace("-","&#150;",$leadrec->campaign_name)."</span>&nbsp;&nbsp;</td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;max-width:250px;overflow:hidden;text-overflow:ellipsis\">&nbsp;&nbsp;<span class='toolTip' title='$statuses'>$statuses</span>&nbsp;&nbsp;</td>\n";
 		    //echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;".$leadrec->attempt_delay."&nbsp;&nbsp;</td>\n";
 		    //echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;".$leadrec->attempt_maximum."&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyRecycle('".$leadrec->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"MODIFICAR RECICLAGEM DE CONTATOS DA CAMPANHA<br />".$leadrec->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delLeadRecycle('".$leadrec->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR RECICLAGEM DE CONTATOS DA CAMPANHA<br />".$leadrec->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><img src=\"{$base}img/status_display_i_grayed.png\" style=\"cursor:default;width:12px;\" /></td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyRecycle('".$leadrec->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR RECICLAGEM DE CONTATOS<br />".$leadrec->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delLeadRecycle('".$leadrec->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR RECICLAGEM DE CONTATOS<br />".$leadrec->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><img src=\"{$base}img/status_display_i_grayed.png\" style=\"cursor:default;width:12px;\" /></td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><input type=\"checkbox\" id=\"delLeadRecycling[]\" value=\"".$leadrec->campaign_id."\" /></td>\n";
 		    echo "</tr>\n";
 		}
 	} else {
-		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum Registro Encontrado.</td></tr>\n";
+		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum registro encontrado.</td></tr>\n";
 	}
         ?>
     </tbody>
@@ -1739,7 +1739,7 @@ function modifyFilters(filter)
 	<thead>
         <tr style="font-weight:bold;">
             <th style="width:12%">&nbsp;&nbsp;CAMPANHA ID</th>
-            <th style="width:20%">&nbsp;&nbsp;NOME DA CAMPANHA</th>
+            <th style="width:20%">&nbsp;&nbsp;CAMPANHA NOME</th>
             <th>&nbsp;&nbsp;CÓDIGOS DE PAUSA</th>
             <!--<th>&nbsp;&nbsp;ATTEMPT DELAY</th>-->
             <!--<th>&nbsp;&nbsp;MAXIMUM ATTEMPTS</th>-->
@@ -1764,17 +1764,17 @@ function modifyFilters(filter)
 		    $pausecodes = ($pause_status[$pausecode->campaign_id] != '') ? str_replace(' ',', ',trim($pause_status[$pausecode->campaign_id])) : '<span style="text-decoration:line-through;font-style:italic;color:#777;">NONE</span>';
 		    
 		    echo "<tr style=\"background-color:$bgcolor;\">\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyPauseCode('".$pausecode->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"MODIFICAR CÓDIGO DE PAUSA DA CAMPANHA<br />".$pausecode->campaign_id."\">".$pausecode->campaign_id."</span>&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyPauseCode('".$pausecode->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"MODIFICAR CÓDIGO DE PAUSA DA CAMPANHA<br />".$pausecode->campaign_id."\">".str_replace("-","&#150;",$pausecode->campaign_name)."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyPauseCode('".$pausecode->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR CÓDIGOS DE PAUSA<br />".$pausecode->campaign_id."\">".$pausecode->campaign_id."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyPauseCode('".$pausecode->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR CÓDIGOS DE PAUSA<br />".$pausecode->campaign_id."\">".str_replace("-","&#150;",$pausecode->campaign_name)."</span>&nbsp;&nbsp;</td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;max-width:250px;overflow:hidden;text-overflow:ellipsis\">&nbsp;&nbsp;<span class='toolTip' title='$pausecodes'>$pausecodes</span>&nbsp;&nbsp;</td>\n";
 		    //echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;".$leadrec->attempt_delay."&nbsp;&nbsp;</td>\n";
 		    //echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;".$leadrec->attempt_maximum."&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyPauseCode('".$pausecode->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"MODIFICAR CÓDIGO DE PAUSA DA CAMPANHA<br />".$pausecode->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delPauseCode('".$pausecode->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR CÓDIGO DE PAUSA DA CAMPANHA<br />".$pausecode->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><img src=\"{$base}img/status_display_i_grayed.png\" style=\"cursor:default;width:12px;\" /></td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyPauseCode('".$pausecode->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR CÓDIGOS DE PAUSA<br />".$pausecode->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delPauseCode('".$pausecode->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR CÓDIGOS DE PAUSA<br />".$pausecode->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><img src=\"{$base}img/status_display_i_grayed.png\" style=\"cursor:default;width:12px;\" /></td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><input type=\"checkbox\" id=\"delPauseCodes[]\" value=\"".$pausecode->campaign_id."\" /></td>\n";
 		    echo "</tr>\n";
 		}
 	} else {
-		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum Registro Encontrado.</td></tr>\n";
+		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum registro encontrado.</td></tr>\n";
 	}
         ?>
     </tbody>
@@ -1786,7 +1786,7 @@ function modifyFilters(filter)
 	<thead>
         <tr style="font-weight:bold;">
             <th style="width:12%">&nbsp;&nbsp;CAMPANHA ID</th>
-            <th style="width:20%">&nbsp;&nbsp;NOME DA CAMPANHA</th>
+            <th style="width:20%">&nbsp;&nbsp;CAMPANHA NOME</th>
             <th>&nbsp;&nbsp;HOTKEYS</th>
             <!--<th>&nbsp;&nbsp;ATTEMPT DELAY</th>-->
             <!--<th>&nbsp;&nbsp;MAXIMUM ATTEMPTS</th>-->
@@ -1811,17 +1811,17 @@ function modifyFilters(filter)
 		    $hotkeys = ($hotkey_status[$hotkey->campaign_id] != '') ? str_replace(' ',', ',trim($hotkey_status[$hotkey->campaign_id])) : '<span style="text-decoration:line-through;font-style:italic;color:#777;">NONE</span>';
 		    
 		    echo "<tr style=\"background-color:$bgcolor;\">\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyHotKeys('".$hotkey->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR HOTKEYS DA CAMPANHA<br />".$hotkey->campaign_id."\">".$hotkey->campaign_id."</span>&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyHotKeys('".$hotkey->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR HOTKEYS DA CAMPANHA<br />".$hotkey->campaign_id."\">".str_replace("-","&#150;",$hotkey->campaign_name)."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyHotKeys('".$hotkey->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR HOTKEYS<br />".$hotkey->campaign_id."\">".$hotkey->campaign_id."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyHotKeys('".$hotkey->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR HOTKEYS<br />".$hotkey->campaign_id."\">".str_replace("-","&#150;",$hotkey->campaign_name)."</span>&nbsp;&nbsp;</td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;max-width:250px;overflow:hidden;text-overflow:ellipsis\">&nbsp;&nbsp;<span class='toolTip' title='$hotkeys'>$hotkeys</span>&nbsp;&nbsp;</td>\n";
 		    //echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;".$leadrec->attempt_delay."&nbsp;&nbsp;</td>\n";
 		    //echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;".$leadrec->attempt_maximum."&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyHotKeys('".$hotkey->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR HOTKEYS DA CAMPANHA<br />".$hotkey->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delHotKeys('".$hotkey->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EXCLUIR HOTKEYS DA CAMPANHA<br />".$hotkey->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><img src=\"{$base}img/status_display_i_grayed.png\" style=\"cursor:default;width:12px;\" /></td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyHotKeys('".$hotkey->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR HOTKEYS<br />".$hotkey->campaign_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delHotKeys('".$hotkey->campaign_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR HOTKEYS<br />".$hotkey->campaign_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><img src=\"{$base}img/status_display_i_grayed.png\" style=\"cursor:default;width:12px;\" /></td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><input type=\"checkbox\" id=\"delHotKeys[]\" value=\"".$hotkey->campaign_id."\" /></td>\n";
 		    echo "</tr>\n";
 		}
 	} else {
-		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum Registro Encontrado.</td></tr>\n";
+		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum registro encontrado.</td></tr>\n";
 	}
         ?>
     </tbody>
@@ -1833,7 +1833,7 @@ function modifyFilters(filter)
 	<thead>
         <tr style="font-weight:bold;">
             <th style="width:12%">&nbsp;&nbsp;FILTRO ID</th>
-            <th style="width:30%">&nbsp;&nbsp;NOME DO FILTRO</th>
+            <th style="width:30%">&nbsp;&nbsp;FILTRO NOME</th>
             <th>&nbsp;&nbsp;</th>
             <!--<th>&nbsp;&nbsp;MAXIMUM ATTEMPTS</th>-->
             <th style="width:6%;text-align:center;" colspan="3" nowrap><span style="cursor:pointer;" id="selectFiltersAction">&nbsp;AÇÃO &nbsp;<img src="<?php echo $base; ?>img/arrow_down.png" />&nbsp;</span></th>
@@ -1855,15 +1855,15 @@ function modifyFilters(filter)
 		    }
 		    
 		    echo "<tr style=\"background-color:$bgcolor;\">\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyFilters('".$filter->filter_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR FIFLTRO ID<br />".$filter->filter_id."\">".$filter->filter_id."</span>&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyFilters('".$filter->filter_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR FIFLTRO ID<br />".$filter->filter_id."\">".str_replace("-","&#150;",$filter->filter_name)."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<span onclick=\"modifyFilters('".$filter->filter_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR FILTRO ID<br />".$filter->filter_id."\">".$filter->filter_id."</span>&nbsp;&nbsp;</td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;<span onclick=\"modifyFilters('".$filter->filter_id."')\" style=\"cursor:pointer;\" class=\"toolTip hoverCampID\" title=\"EDITAR FILTRO ID<br />".$filter->filter_id."\">".str_replace("-","&#150;",$filter->filter_name)."</span>&nbsp;&nbsp;</td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" nowrap>&nbsp;&nbsp;</td>\n";
-		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyFilters('".$filter->filter_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR FIFLTRO ID<br />".$filter->filter_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delFilters('".$filter->filter_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR FIFLTRO ID<br />".$filter->filter_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><img src=\"{$base}img/status_display_i_grayed.png\" style=\"cursor:default;width:12px;\" /></td>\n";
+		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><span onclick=\"modifyFilters('".$filter->filter_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"EDITAR FILTRO ID<br />".$filter->filter_id."\"><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><span onclick=\"delFilters('".$filter->filter_id."')\" style=\"cursor:pointer;\" class=\"toolTip\" title=\"DELETAR FILTRO ID<br />".$filter->filter_id."\"><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></span></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><img src=\"{$base}img/status_display_i_grayed.png\" style=\"cursor:default;width:12px;\" /></td>\n";
 		    echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><input type=\"checkbox\" id=\"delFilters[]\" value=\"".$filter->filter_id."\" /></td>\n";
 		    echo "</tr>\n";
 		}
 	} else {
-		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum Regitro Encontrado.</td></tr>\n";
+		echo "<tr style=\"background-color:#E0F8E0;\"><td style=\"border-top:#D0D0D0 dashed 1px;font-weight:bold;color:#FF0000;text-align:center;\" colspan=\"8\">Nenhum registro encontrado.</td></tr>\n";
 	}
         ?>
     </tbody>
@@ -1883,7 +1883,7 @@ function modifyFilters(filter)
           <img src="<?=$base?>img/step1-nav-small.png">
         </div>
         <div style="border-bottom:2px solid #DFDFDF; padding: 0px 10px 10px 0px; height: 20px;" align="left">
-          <font color="#333" style="font-size:16px;"><b>Status » Criar Novo Status</b></font>
+          <font color="#333" style="font-size:16px;"><b>Tabulações » Criar Tabulação</b></font>
         </div>
 
         <br>
@@ -1912,13 +1912,13 @@ function modifyFilters(filter)
 			</td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">Status:&nbsp;&nbsp;&nbsp;</label></td>
-			<td style="white-space:nowrap;"><input type="text" maxlength="6" size="8" style="font-size:12px;" id="statusID" name="status" class="statusResult" /><font size="1" color="red">&nbsp;eg. NEW</font>
+			<td align="right"><label class="modify-value">Tabulação:&nbsp;&nbsp;&nbsp;</label></td>
+			<td style="white-space:nowrap;"><input type="text" maxlength="6" size="8" style="font-size:12px;" id="statusID" name="status" class="statusResult" /><font size="1" color="red">&nbsp;ex. NOVO</font>
 				<span id="sloading"></span>
 			</td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">Nome Status:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Nome:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;"><input type="text" maxlength="25" size="25" style="font-size:12px;" id="statusName" name="status_name" class="statusResult" /><font size="1" color="red">&nbsp;eg. New Campaign Status</font></td>
 		</tr>
 		<tr>
@@ -1926,7 +1926,7 @@ function modifyFilters(filter)
 			<td style="white-space:nowrap;"><select style="font-size:12px;" name="selectable" class="statusResult"><option value="Y">YES</option><option value="N">NO</option></select></td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">Atendidas por Humanos:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Atendido por Humano:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;"><select style="font-size:12px;" name="human_answered" class="statusResult"><option value="N">NO</option><option value="Y">YES</option></select></td>
 		</tr>
 		<tr>
@@ -1934,11 +1934,11 @@ function modifyFilters(filter)
 			<td style="white-space:nowrap;"><select style="font-size:12px;" name="sale" class="statusResult"><option value="N">NO</option><option value="Y">YES</option></select></td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">DNC:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Não Ligar Novamente:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;"><select style="font-size:12px;" name="dnc" class="statusResult"><option value="N">NO</option><option value="Y">YES</option></select></td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">Contato do cliente:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Contato do Cliente:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;"><select style="font-size:12px;" name="customer_contact" class="statusResult"><option value="N">NO</option><option value="Y">YES</option></select></td>
 		</tr>
 		<tr>
@@ -1950,7 +1950,7 @@ function modifyFilters(filter)
 			<td style="white-space:nowrap;"><select style="font-size:12px;" name="unworkable" class="statusResult"><option value="N">NO</option><option value="Y">YES</option></select></td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">Agendar Retorno:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Agendar Contato:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;"><select style="font-size:12px;" name="scheduled_callback" class="statusResult"><option value="N">NO</option><option value="Y">YES</option></select></td>
 		</tr>
 	 </table>
@@ -1978,7 +1978,7 @@ function modifyFilters(filter)
           <img src="<?=$base?>img/step1-nav-small.png">
         </div>
         <div style="border-bottom:2px solid #DFDFDF; padding: 0px 10px 10px 0px; height: 20px;" align="left">
-          <font color="#333" style="font-size:16px;"><b>Reciclagem de Contatos » Criar Nova Reciclagem de Contatos</b></font>
+          <font color="#333" style="font-size:16px;"><b>Reciclagem de Contatos » Criar Reciclagem de Contatos</b></font>
         </div>
 
         <br>
@@ -1996,7 +1996,7 @@ function modifyFilters(filter)
 			<td align="right"><label class="modify-value">Campanha:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<select style="width:250px;font-size:12px;" id="leadCampID" name="leadCampID" class="leadRecycleResult" onchange="javascript:checkLeadRecycle();">
-					<option value="">--- SELECIONE UMA CAMPANHA ---</option>
+					<option value="">--- SELECIONAR UMA CAMPANHA ---</option>
 					<?php
 					foreach ($campaign['list'] as $camp)
 					{
@@ -2028,7 +2028,7 @@ function modifyFilters(filter)
 		</tr>
 		<tr>
 			<td align="right"><label class="modify-value">Delay na Tentativa:&nbsp;&nbsp;&nbsp;</label></td>
-			<td style="white-space:nowrap;"><input type="text" maxlength="3" size="7" style="font-size:12px;" id="attempt_delay" name="attempt_delay" class="leadRecycleResult" /><font size="1" color="red">&nbsp;Should be from 2 to 720 mins (12 hrs).</font></td>
+			<td style="white-space:nowrap;"><input type="text" maxlength="3" size="7" style="font-size:12px;" id="attempt_delay" name="attempt_delay" class="leadRecycleResult" /><font size="1" color="red">&nbsp;Deve ser de 2 a 720 minutos (12hrs).</font></td>
 		</tr>
 		<tr>
 			<td align="right"><label class="modify-value">Máximo de Tentativas:&nbsp;&nbsp;&nbsp;</label></td>
@@ -2065,7 +2065,7 @@ function modifyFilters(filter)
           <img src="<?=$base?>img/step1-nav-small.png">
         </div>
         <div style="border-bottom:2px solid #DFDFDF; padding: 0px 10px 10px 0px; height: 20px;" align="left">
-          <font color="#333" style="font-size:16px;"><b>Código de Pausa » Criar Novo Código de Pausa</b></font>
+          <font color="#333" style="font-size:16px;"><b>Códigos de Pausa » Criar Cógido de Pausa</b></font>
         </div>
 
         <br>
@@ -2138,7 +2138,7 @@ function modifyFilters(filter)
           <img src="<?=$base?>img/step1-nav-small.png">
         </div>
         <div style="border-bottom:2px solid #DFDFDF; padding: 0px 10px 10px 0px; height: 20px;" align="left">
-          <font color="#333" style="font-size:16px;"><b>HotKeys » Criar Novo HotKey</b></font>
+          <font color="#333" style="font-size:16px;"><b>HotKeys » Criar nova Hotkey</b></font>
         </div>
 
         <br>
@@ -2153,7 +2153,7 @@ function modifyFilters(filter)
 
 	<table style="width:90%" cellpadding="0" cellspacing="0">
 		<tr>
-			<td align="right"><label class="modify-value">Campaign:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Campanha:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<select style="width:250px;font-size:12px;" id="hotKeysCampID" name="hotKeysCampID" class="hotKeysResult" onchange="javascript:checkHotKeys();">
 					<option value="">--- SELECIONE UMA CAMPANHA ---</option>
@@ -2216,14 +2216,14 @@ function modifyFilters(filter)
 <!-- Lead Filters Overlay -->
 <div id="overlayFilters" style="display:none;"></div>
 <div id="boxFilters">
-<a id="closeboxFilters" class="toolTip" title="CLOSE"></a>
+<a id="closeboxFilters" class="toolTip" title="FECHAR"></a>
 <div id="overlayContentFilters">
 	<!-- <span style="font-weight:bold;font-size:16px;">ADD NEW STATUS</span> -->
         <div id="small_step_number" style="float:right; margin-top: -5px;">
           <img src="<?=$base?>img/step1of2-navigation-small.png">
         </div>
         <div style="border-bottom:2px solid #DFDFDF; padding: 0px 10px 10px 0px; height: 20px;" align="left">
-          <font color="#333" style="font-size:16px;"><b>Filtro de Contato » Criar Novo Filter</b></font>
+          <font color="#333" style="font-size:16px;"><b>Filtro de Contatos » Create Novo Filtro</b></font>
         </div>
 
         <br>
@@ -2245,13 +2245,13 @@ function modifyFilters(filter)
 			</td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">Nome do Filtro:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filtro Nome:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<?=form_input('lead_filter_name',null,'id="lead_filter_name" class="filtersForm" maxlength="30" size="35"'); ?>
 			</td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">Comentários Filtro:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Comentários:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<?=form_input('lead_filter_comments',null,'id="lead_filter_comments" class="filtersForm" maxlength="255" size="40"'); ?>
 			</td>
@@ -2260,7 +2260,7 @@ function modifyFilters(filter)
 		if (! $this->commonhelper->checkIfTenant($this->session->userdata('user_group'))) {
 		?>
 		<tr>
-			<td align="right"><label class="modify-value">Grupo de Usuário:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Grupo de Usuários:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<?=form_dropdown('user_group',$user_groups,null,'id="user_group" class="filtersForm"'); ?>
 			</td>
@@ -2278,9 +2278,9 @@ function modifyFilters(filter)
 			</td>
 		</tr>
 		<tr class="dateOptions" style="display:none;">
-			<td align="right"><label class="modify-value">Opções de Filtro:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filter Options:&nbsp;&nbsp;&nbsp;</label></td>
 			<td>
-				<?=form_radio('filter_sql_date','single',TRUE,'id="filter_sql_single"'); ?> ÚNICO &nbsp; 
+				<?=form_radio('filter_sql_date','single',TRUE,'id="filter_sql_single"'); ?> SINGLE &nbsp; 
 				<?=form_radio('filter_sql_date','range',FALSE,'id="filter_sql_range"'); ?> RANGE
 			</td>
 		</tr>
@@ -2296,21 +2296,21 @@ function modifyFilters(filter)
 			</td>
 		</tr>
 		<tr class="otherOptions" style="display:none;">
-			<td align="right"><label class="modify-value">Opções do Filtro:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Opções:&nbsp;&nbsp;&nbsp;</label></td>
 			<td>
 				<?=form_radio('filter_sql_other','IN',TRUE,'id="filter_sql_in"'); ?> IN &nbsp; 
-				<?=form_radio('filter_sql_other','NOT IN',FALSE,'id="filter_sql_notin"'); ?> NÃO EM
+				<?=form_radio('filter_sql_other','NOT IN',FALSE,'id="filter_sql_notin"'); ?> NOT IN
 			</td>
 		</tr>
 		<tr class="dateOptions" style="display:none;">
-			<td align="right"><label class="modify-value">Filtrar por Data:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filtro por Data:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
-				<?=form_input('filter_by_date',date("Y-m-d"),'id="filter_by_date" class="datepicker" size="15" maxlength="10" readonly="readonly"'); ?> <span class="date_range" style="display:none;">para</span>
+				<?=form_input('filter_by_date',date("Y-m-d"),'id="filter_by_date" class="datepicker" size="15" maxlength="10" readonly="readonly"'); ?> <span class="date_range" style="display:none;">to</span>
 				<?=form_input('filter_by_end_date',date("Y-m-d"),'id="filter_by_end_date" placeholder="End Date" class="datepicker date_range" style="display:none;" size="15" maxlength="10" readonly="readonly"'); ?>
 			</td>
 		</tr>
 		<tr class="countOptions" style="display:none;">
-			<td align="right"><label class="modify-value">Filtrar por Contagem de Chamadas:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filter by Called Count:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<?php
 				for($i=0;$i<=50;$i++)
@@ -2322,19 +2322,19 @@ function modifyFilters(filter)
 			</td>
 		</tr>
 		<tr class="countryOptions" style="display:none;">
-			<td align="right"><label class="modify-value">Filtrar por Código do PaíS:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filter by Country Code:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<?=form_dropdown('filter_by_country',$countrycodes,'USA_1','id="filter_by_country" multiple="multiple" size="10"'); ?>
 			</td>
 		</tr>
 		<tr class="areaOptions" style="display:none;">
-			<td align="right"><label class="modify-value">Filtrar por DDD:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filter by Area Code:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<?=form_dropdown('filter_by_areacode',$areacodes,'USA_201','id="filter_by_areacode" multiple="multiple" size="10"'); ?>
 			</td>
 		</tr>
 		<tr class="tzOptions" style="display:none;">
-			<td align="right"><label class="modify-value">Filtrar por Timezone:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filter by Timezone:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<?php
 				$TZ = array('12.75'=>'12.75','12.00'=>'12.00','11.00'=>'11.00','10.00'=>'10.00','9.50'=>'9.50',
@@ -2350,7 +2350,7 @@ function modifyFilters(filter)
 			</td>
 		</tr>
 		<tr class="stateOptions" style="display:none;">
-			<td align="right"><label class="modify-value">Filtrar por Estado:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filter by State:&nbsp;&nbsp;&nbsp;</label></td>
 			<td style="white-space:nowrap;">
 				<?=form_dropdown('filter_by_state',$states,'USA_AK','id="filter_by_state" multiple="multiple" size="10" style="width:300px;"'); ?>
 			</td>
@@ -2362,18 +2362,18 @@ function modifyFilters(filter)
 			</td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">Opções do Filtro:&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filter Options:&nbsp;&nbsp;&nbsp;</label></td>
 			<td>
 				<?=form_button('filter_sql_insert','INSERT','id="filter_sql_insert" disabled="disabled"'); ?> &nbsp; 
-				<span id="filter_sql_span" style="display:none;"><?=form_radio('filter_sql_div','AND',FALSE,'id="filter_sql_and"'); ?> E &nbsp; 
-				<?=form_radio('filter_sql_div','OR',FALSE,'id="filter_sql_or"'); ?> OU</span>
+				<span id="filter_sql_span" style="display:none;"><?=form_radio('filter_sql_div','AND',FALSE,'id="filter_sql_and"'); ?> AND &nbsp; 
+				<?=form_radio('filter_sql_div','OR',FALSE,'id="filter_sql_or"'); ?> OR</span>
 			</td>
 		</tr>
 		<tr>
-			<td align="right"><label class="modify-value">Filtro SQL:&nbsp;&nbsp;&nbsp;<br /><small><a id="clear_filter">Limpar SQL</a></small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+			<td align="right"><label class="modify-value">Filter SQL:&nbsp;&nbsp;&nbsp;<br /><small><a id="clear_filter">Clear SQL</a></small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 			<td>
 				<textarea name="lead_filter_sql" id="lead_filter_sql" rows="10" cols="50" class="filtersForm" style="resize:vertical;"></textarea><br />
-				<small style="color:red;">* Aviso: O uso indevido por causar corrompimento do sistema.<br /><span style="visibility:hidden;"><small>* Aviso: </small></span>Use por sua conta e risco.</small>
+				<small style="color:red;">* Disclaimer: Improper use may result in service disruption.<br /><span style="visibility:hidden;"><small>* Disclaimer: </small></span>Use at your own risk.</small>
 			</td>
 		</tr>
 	</table>
@@ -2381,8 +2381,8 @@ function modifyFilters(filter)
 	<tr>
 		<td align="right" colspan="9">	 
 			<div style="border-top: 2px solid #DFDFDF;height:20px;vertical-align:middle; padding-top: 7px;" align="right">
-				<input type="button" value="Próximo" style="font-size:12px;border:0px;color:#7A9E22;padding-top:-20px;" class="buttons" id="filtersNext" />
-				<input type="button" value="Voltar" style="font-size:12px;border:0px;color:#7A9E22;padding-top:-20px;display:none;" class="buttons" id="filtersBack" /><span style="font-size:12px;border:0px;color:#7A9E22;padding-top:-20px;display:none;" class="filtersDivider">|</span><input type="button" value="Submit" style="font-size:12px;border:0px;color:#7A9E22;padding-top:-20px;display:none;" class="buttons" id="filtersSubmit" />
+				<input type="button" value="Next" style="font-size:12px;border:0px;color:#7A9E22;padding-top:-20px;" class="buttons" id="filtersNext" />
+				<input type="button" value="Back" style="font-size:12px;border:0px;color:#7A9E22;padding-top:-20px;display:none;" class="buttons" id="filtersBack" /><span style="font-size:12px;border:0px;color:#7A9E22;padding-top:-20px;display:none;" class="filtersDivider">|</span><input type="button" value="Submit" style="font-size:12px;border:0px;color:#7A9E22;padding-top:-20px;display:none;" class="buttons" id="filtersSubmit" />
 			</div>
                 </td>
 	</tr>

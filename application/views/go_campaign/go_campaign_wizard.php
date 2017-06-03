@@ -56,7 +56,7 @@ $(function()
 	$('#campaign_type').change(function()
 	{
 		var steps = 0;
-		$('#campTitle').html('Campanha &raquo; '+$(this).val());
+		$('#campTitle').html('Campaign Wizard &raquo; '+$(this).val());
 		$('#call_route').val('NONE');
 		$('#did_pattern').val('');
 		$('.showAgent').hide();
@@ -185,19 +185,19 @@ $(function()
 		{
 			$('#did_pattern').css('border','1px solid red');
 			$('#did_pattern').focus();
-			alert('Por favor insira o DID.\nNão pode ser vazio.');
+			alert('Please input the your DID/TFN Extension.\nShould not be empty.');
 			isEmpty = 1;
 		}
 		
 		if (step < 2 && $('#dloading').html().match(/Not Available/))
 		{
-			alert("DID Não Disponível.");
+			alert("DID/TFN Not Available.");
 			isEmpty = 1;
 		}
 		
 		if (step < 2 && $('#campaign_name').val().length < 6)
 		{
-			alert("O nome da campanha deve ter no mínimo 6 caracteres.");
+			alert("Nome da Campanha deve conter ao menos 6 caracteres.");
 			isEmpty = 1;
 		}
 
@@ -239,7 +239,7 @@ $(function()
 						}
 						if (step==4)
 						{
-							$('#campTitle').append(' &raquo; Informação');
+							$('#campTitle').append(' &raquo; Informações');
 	// 						$('#wizardSpan').text('false');
 						}
 						break;
@@ -247,11 +247,11 @@ $(function()
 						steps = 2;
 	// 					if (step==3)
 	// 					{
-	// 						$('#campTitle').append(' &raquo; Carregar Contatos');
+	// 						$('#campTitle').append(' &raquo; Load Leads');
 	// 					}
 						if (step==2)
 						{
-							$('#campTitle').append(' &raquo; Informação');
+							$('#campTitle').append(' &raquo; Informações');
 	// 						$('#wizardSpan').text('false');
 						}
 						break;
@@ -263,7 +263,7 @@ $(function()
 						}
 						if (step==3)
 						{
-							$('#campTitle').append(' &raquo; Informação');
+							$('#campTitle').append(' &raquo; Informações');
 	// 						$('#wizardSpan').text('false');
 						}
 				}
@@ -273,7 +273,7 @@ $(function()
 	
 				if ((step==2 && (campaign_type=='Outbound' || campaign_type=='Blended')) || (step==2 && campaign_type=='Survey') || (step==3 && campaign_type=='Copy'))
 				{
-					$(this).html('Next');
+					$(this).html('Próximo');
 					$('#back').css('display','inline');
 					$('#back_pipe').css('display','inline');
 				}
@@ -301,7 +301,7 @@ $(function()
 					copy_from = $('#copy_from').val();
 	// 				$(this).css('width', '50px');
 	// 				$('#saveButtons').css({'text-align': 'center', 'width': '160px'});
-	// 				$('#saveButtons').prepend('<span id="back" style="width:60px;">Voltar</span> | ');
+	// 				$('#saveButtons').prepend('<span id="back" style="width:60px;">Back</span> | ');
 				}
 	
 				if (step==2 && (campaign_type!='Outbound' || campaign_type!='Copy'))
@@ -445,13 +445,13 @@ $(function()
 				}
 				if (step==3)
 				{
-					$('#campTitle').html($('#campTitle').html().replace(' » Informação',''));
+					$('#campTitle').html($('#campTitle').html().replace(' » Informações',''));
 				}
 				break;
 			default:
 				if (step==2)
 				{
-					$('#campTitle').html($('#campTitle').html().replace(' » Informação',''));
+					$('#campTitle').html($('#campTitle').html().replace(' » Informações',''));
 				}
 		}
 
@@ -477,7 +477,7 @@ $(function()
 
 			if ((step==2 && (campaign_type=='Outbound' || campaign_type=='Blended')) || (step==3 && campaign_type=='Survey' || campaign_type=='Copy'))
 			{
-				$('#next').html('Skip');
+				$('#next').html('Pular');
 				$('#modify').css('display','none');
 				$('#modify_pipe').css('display','none');
 			}
@@ -535,7 +535,7 @@ $(function()
 	{
 		if ($(this).val().length < 3)
 		{
-			alert('ID da campanha deve conter ao menos 3 caracteres.');
+			alert('O ID deve conter ao menos 3 caracteres.');
 		}
 	});
 	
@@ -562,7 +562,7 @@ $(function()
 				//$('#aloading').empty().html('<img src="<? echo $base; ?>img/loading.gif" />');
 				$('#aloading').load('<? echo $base; ?>index.php/go_campaign_ce/go_check_campaign/'+$(this).val());
 			} else {
-				$('#aloading').html("<small style=\"color:red;\">Mínimo 3 caracteres.</small>");
+				$('#aloading').html("<small style=\"color:red;\">Minimo de 3 caracteres.</small>");
 			}
 		}
 	});
@@ -610,15 +610,15 @@ $(function()
                 <table id="campTable" style="width:100%;">
                     <tr>
                         <td style="text-align:right;width:30%;height:10px;font-weight:bold;">
-                        Tipo de Campanha:
+                        Campaign Type:
                         </td>
                         <td>
                         <select id="campaign_type">
-                            <option value='Outbound'>Saída</option>
-                            <option value='Inbound'>Entrada</option>
-                            <option value='Blended'>Mista</option>
-                            <option value='Survey'>Pesquisa</option>
-                            <option value='Copy Campaign'>Copiar Campanha</option>
+                            <option value="Outbound">Saída</option>
+                            <option value="Inbound">Entrada</option>
+                            <option value="Blended">Mista</option>
+                            <option value="Survey">Pesquisa</option>
+                            <option value="Copy Campaign">Copiar Campanha</option>
                         </select>
                         </td>
                     </tr>
@@ -628,13 +628,13 @@ $(function()
                         </td>
                         <td>
                         <input type="text" id="campaign_id" maxlength="8" size="15" readonly="readonly" value="<?=$campaign_id?>" />
-						<input type="checkbox" id="autoCampID" /> <small><font size="1" color="red">(marque para editar o nome e o nome da campanha)</font></small><br />
+						<input type="checkbox" id="autoCampID" /> <small><font size="1" color="red">(Marque para editar o ID e nome da campanha)</font></small><br />
 						<span id="aloading"></span>
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align:right;width:30%;height:10px;font-weight:bold;">
-                        Nome da Campanha:
+                        Nome:
                         </td>
                         <td>
                         <input type="text" id="campaign_name" maxlength="40" size="35" readonly="readonly" value="Outbound Campaign - <?=$NOW?>" />
@@ -642,20 +642,20 @@ $(function()
                     </tr>
                     <tr class="showFirst" style="display:none;">
                         <td style="text-align:right;width:250px;font-weight:bold;">
-                        DID Ext:
+                        DID/TFN:
                         </td>
                         <td>
-                        <input type="text" id="did_pattern" size="20" value="" /> <span id="dloading"></span> <small style="color:red">(somente números)</small>
+                        <input type="text" id="did_pattern" size="20" value="" /> <span id="dloading"></span> <small style="color:red">(apenas números)</small>
                         </td>
                     </tr>
                     <tr class="callRoute" style="display:none;">
                         <td style="text-align:right;width:250px;">
-                        Rota de Chamada:
+                        Direcionar para:
                         </td>
                         <td>
                         <select id="call_route">
                             <option value="NONE"></option>
-                            <option value="INGROUP">EM GRUPO (campanha)</option>
+                            <option value="INGROUP">INGROUP (campaign)</option>
                             <option value="IVR">URA (menu de chamada)</option>
                             <option value="AGENT">OPERADOR</option>
                             <option value="VOICEMAIL">VOICEMAIL</option>
@@ -695,6 +695,10 @@ $(function()
                             <option>15</option>
                             <option>20</option>
                             <option>30</option>
+                            <option>50</option>
+                            <option>100</option>
+                            <option>150</option>
+                            <option>200</option>
                         </select>
                         </td>
                     </tr>
@@ -743,7 +747,7 @@ $(function()
         <span id="surveyType" style="display:none;"></span>
         <span id="numChannels" style="display:none;"></span>
         <span id="fileNames" style="display:none;"></span>
-        <span id="isBack" style="display:none;">false</span>
+        <span id="isBack" style="display:none;">falso</span>
         </td>
     </tr>
 </table>

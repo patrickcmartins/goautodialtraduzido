@@ -355,7 +355,7 @@ $(function()
 		var action = $(this).attr('id');
 		if (selectedCampaign.length<1)
 		{
-			alert('Por favor selecione uma campanha.');
+			alert('Please select a Campaign.');
 		}
 		else
 		{
@@ -381,7 +381,7 @@ $(function()
 						});
 					}
 				} else {
-					alert("Erro: Você não tem permissão para deletar campanha"+s+".");
+					alert("Error: You do not have permission to delete campaign"+s+".");
 				}
 			}
 			else
@@ -390,7 +390,7 @@ $(function()
 				{
 					$('#table_reports').load('<? echo $base; ?>index.php/go_campaign_ce/go_update_campaign_list/'+action+'/'+selectedCampaign+'/');
 				} else {
-					alert("Erro: Você não tem permissão para modificar uma campanha"+s+".");
+					alert("Error: You do not have permission to update campaign"+s+".");
 				}
 			}
 		}
@@ -420,7 +420,7 @@ $(function()
 				if (selectedStatus.length>1)
 					s = 'es';
 	
-				var what = confirm('Está certo de que deseja deletar o status selecionado ?'+s+'?');
+				var what = confirm('Tem certeza que deseja deletar'+s+'?');
 				if (what)
 				{
 					$("#table_reports").empty().html('<center><img src="<? echo $base; ?>img/goloading.gif" /></center>');
@@ -428,7 +428,7 @@ $(function()
 				}
 			}
 		} else {
-			alert("Erro: Você não tem permissão para deletar o status da campanha"+s+".");
+			alert("Erro! Sem permissão"+s+".");
 		}
 	});
 
@@ -449,7 +449,7 @@ $(function()
 			var action = $(this).attr('id');
 			if (selectedCampStatus.length<1)
 			{
-				alert('Por favor, selecione um status.');
+				alert('Selecione um status.');
 			}
 			else
 			{
@@ -457,14 +457,14 @@ $(function()
 				if (selectedCampStatus.length>1)
 					s = 'es';
 	
-				var what = confirm('Tem certeza de que deseja excluir o status? '+s+'?');
+				var what = confirm('Tem certeza que deseja deletar'+s+'?');
 				if (what)
 				{
 					$('#overlayContent').load('<? echo $base; ?>index.php/go_campaign_ce/go_get_campaign_statuses/'+camp+'/delete_status/'+selectedCampStatus);
 				}
 			}
 		} else {
-			alert("Erro: Você não tem permissão para deletar o status da campanha"+s+".");
+			alert("Errro! Sem permissão"+s+".");
 		}
 	});
 
@@ -484,7 +484,7 @@ $(function()
 			var action = $(this).attr('id');
 			if (selectedLeadRecycling.length<1)
 			{
-				alert('Please select a Campaign.');
+				alert('Selecione uma campanha.');
 			}
 			else
 			{
@@ -492,7 +492,7 @@ $(function()
 				if (selectedLeadRecycling.length>1)
 					s = 'es';
 	
-				var what = confirm('Está certo de que deseja deletar o status selecionado ?'+s+'?');
+				var what = confirm('Tem certeza que deseja deletar'+s+'?');
 				if (what)
 				{
 					$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_lead_recycle/delselected/"+selectedLeadRecycling, function()
@@ -506,7 +506,7 @@ $(function()
 				}
 			}
 		} else {
-			alert("Erro: Você não tem permissão para excluir"+s+".");
+			alert("Erro! Sem permissão"+s+".");
 		}
 	});
 
@@ -527,7 +527,7 @@ $(function()
 			var action = $(this).attr('id');
 			if (selectedCampLeadRecycling.length<1)
 			{
-				alert('Por favor selecione um status.');
+				alert('Selecione um Status.');
 			}
 			else
 			{
@@ -535,7 +535,7 @@ $(function()
 				if (selectedCampLeadRecycling.length>1)
 					s = 'es';
 	
-				var what = confirm('Are you sure you want to delete the selected Status'+s+'?');
+				var what = confirm('Tem certeza que deseja deletar'+s+'?');
 				if (what)
 				{
 					$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_lead_recycle/delete_status/"+camp+"/"+selectedCampLeadRecycling, function()
@@ -546,7 +546,7 @@ $(function()
 				}
 			}
 		} else {
-			alert("Erro: Você não tem permissão para excluir"+s+".");
+			alert("Erro! Sem permissão"+s+".");
 		}
 	});
 
@@ -566,7 +566,7 @@ $(function()
 			var action = $(this).attr('id');
 			if (selectedPauseCodes.length<1)
 			{
-				alert('Please select a Campaign.');
+				alert('Selecione uma campanha.');
 			}
 			else
 			{
@@ -574,7 +574,7 @@ $(function()
 				if (selectedPauseCodes.length>1)
 					s = 's';
 	
-				var what = confirm('Está certo de que deseja excluir o código de pausa selecionado'+s+'?');
+				var what = confirm('ATem certeza que deseja deletar'+s+'?');
 				if (what)
 				{
 					$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_pause_codes/delselected/"+selectedPauseCodes, function()
@@ -588,7 +588,7 @@ $(function()
 				}
 			}
 		} else {
-			alert("Erro: Você não tem permissão para excluir"+s+".");
+			alert("Erro! Sem permissão"+s+".");
 		}
 	});
 
@@ -609,7 +609,7 @@ $(function()
 			var action = $(this).attr('id');
 			if (selectedCampPauseCodes.length<1)
 			{
-				alert('Por favor, selecione um código de pausa.');
+				alert('Please select a Pause Code.');
 			}
 			else
 			{
@@ -617,7 +617,7 @@ $(function()
 				if (selectedCampPauseCodes.length>1)
 					s = 's';
 	
-				var what = confirm('Está certo de que deseja excluir o código de pausa selecionado'+s+'?');
+				var what = confirm('Tem certeza que deseja deletar'+s+'?');
 				if (what)
 				{
 					$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_pause_codes/delete_status/"+camp+"/"+selectedCampPauseCodes, function()
@@ -628,7 +628,7 @@ $(function()
 				}
 			}
 		} else {
-			alert("Erro: Você não tem permissão para excluir"+s+".");
+			alert("Erro! Sem permissão"+s+".");
 		}
 	});
 
@@ -648,7 +648,7 @@ $(function()
 			var action = $(this).attr('id');
 			if (selectedHotKeys.length<1)
 			{
-				alert('Por favor selecione uma campanha.');
+				alert('Please select a Campaign.');
 			}
 			else
 			{
@@ -656,7 +656,7 @@ $(function()
 				if (selectedHotKeys.length>1)
 					s = 's';
 	
-				var what = confirm('Está certo de que deseja excluir o hotkey selecionado'+s+'?');
+				var what = confirm('Tem certeza que deseja deletar'+s+'?');
 				if (what)
 				{
 					$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_hot_keys/delselected/"+selectedHotKeys, function()
@@ -670,7 +670,7 @@ $(function()
 				}
 			}
 		} else {
-			alert("Erro: Você não tem permissão para excluir"+s+".");
+			alert("Erro! Sem permissão"+s+".");
 		}
 	});
 
@@ -691,7 +691,7 @@ $(function()
 			var action = $(this).attr('id');
 			if (selectedCampHotKeys.length<1)
 			{
-				alert('Por favor selecione um código de pausa.');
+				alert('Please select a Pause Code.');
 			}
 			else
 			{
@@ -699,7 +699,7 @@ $(function()
 				if (selectedCampHotKeys.length>1)
 					s = 's';
 	
-				var what = confirm('Está certo de que deseja excluir o hotkey selecionado'+s+'?');
+				var what = confirm('Tem certeza que deseja deletar'+s+'?');
 				if (what)
 				{
 					$.post("<?php echo $base; ?>index.php/go_campaign_ce/go_hot_keys/delete_status/"+camp+"/"+selectedCampHotKeys, function()
@@ -710,7 +710,7 @@ $(function()
 				}
 			}
 		} else {
-			alert("Erro: Você não tem permissão para excluir"+s+".");
+			alert("Erro! Sem permissão"+s+".");
 		}
 	});
 
@@ -738,7 +738,7 @@ $(function()
 				if (selectedFilters.length>1)
 					s = 's';
 	
-				var what = confirm('Está certo de excluir o filtro de contato'+s+'?');
+				var what = confirm('Tem certeza que deseja deletar'+s+'?');
 				if (what)
 				{
 
@@ -753,7 +753,7 @@ $(function()
 				}
 			}
 		} else {
-			alert("Erro: Você não tem permissão para excluir"+s+".");
+			alert("Erro! Sem permissão"+s+".");
 		}
 	});
 
@@ -770,7 +770,7 @@ $(function()
 			$("#overlayContent").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 			$('#overlayContent').fadeOut("slow").load('<? echo $base; ?>index.php/go_campaign_ce/go_campaign_wizard/').fadeIn("slow");
 		} else {
-			alert("Erro: Você não tem permissão para adicionar uma nova campanha.");
+			alert("Erro! Sem permissão.");
 		}
 	});
 	$('#add_status').click(function()
@@ -783,7 +783,7 @@ $(function()
 				top: "70px"
 			}, 500);
 		} else {
-			alert("Erro: Você não tem permissão para adicionar um novo status de campanha.");
+			alert("Erro! Sem permissão.");
 		}
 	});
 	$('#add_lead_recycle').click(function()
@@ -796,7 +796,7 @@ $(function()
 				top: "70px"
 			}, 500);
 		} else {
-			alert("Erro: Você não tem permissão para adicionar um novo status de reciclagem de contato.");
+			alert("Erro! Sem permissão.");
 		}
 	});
 	$('#add_pause_code').click(function()
@@ -809,7 +809,7 @@ $(function()
 				top: "70px"
 			}, 500);
 		} else {
-			alert("Erro: Você não tem permissão para adicionar um novo código de pausa.");
+			alert("Erro! Sem permissão.");
 		}
 	});
 	$('#add_hotkey').click(function()
@@ -822,7 +822,7 @@ $(function()
 				top: "70px"
 			}, 500);
 		} else {
-			alert("Erro: Você não tem permissão para adicionar um novo status de hotkey.");
+			alert("Erro! Sem permissão.");
 		}
 	});
 	$('#add_filter').click(function()
@@ -835,14 +835,14 @@ $(function()
 				top: "-50px"
 			}, 500);
 		} else {
-			alert("Erro: Você não tem permissão para adicionar um novo filtro de contato.");
+			alert("Erro! Sem permissão.");
 		}
 	});
 
 	$('#closebox').click(function()
 	{
 		$('.advance_settings').hide();
-		$('#advance_link').html('[ + ADVANCE SETTINGS ]');
+		$('#advance_link').html('[ + CONFIGURAÇÕES AVANÇADAS ]');
 		$('#box').animate({'top':'-2550px'},500);
 		$('#overlay').fadeOut('slow');
 
@@ -896,7 +896,7 @@ $(function()
 			$("#table_reports").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 			$('#table_reports').load('<? echo $base; ?>index.php/go_campaign_ce/go_campaign_list/1/'+search);
 		} else {
-			alert("Please enter at least 3 characters to search.");
+			alert("Insira ao menos 3 caracteres.");
 		}
 	});
 	
@@ -929,7 +929,7 @@ $(function()
 				$("#table_reports").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 				$('#table_reports').load('<? echo $base; ?>index.php/go_campaign_ce/go_campaign_list/1/'+search);
 			} else {
-				alert("Introduza pelo menos 3 caracteres para pesquisar.");
+				alert("Insira ao menos 3 caracteres.");
 			}
 		}
 	});
@@ -960,7 +960,7 @@ function addNewCampaign()
 		$("#overlayContent").empty().html('<p align="center"><img src="<? echo $base; ?>img/goloading.gif" /></p>');
 		$('#overlayContent').fadeOut("slow").load('<? echo $base; ?>index.php/go_campaign_ce/go_campaign_wizard/').fadeIn("slow");
 	} else {
-		alert("Erro: Você não tem permissão para adicionar uma nova campanha.");
+		alert("Erro! Sem permissão.");
 	}
 }
 
@@ -974,7 +974,7 @@ function addNewStatus()
 </script>
 <div id='outbody' class="wrap">
 <div id="icon-campaign" class="icon32"></div>
-<div style="float: right;margin-top:15px;margin-right:25px;"><span id="showAllLists" style="display: none">[Limpar Pesquisa]</span>&nbsp;<?=form_input('search_list',null,'id="search_list" maxlength="100" placeholder="Pesquisar '.$bannertitle.'"') ?>&nbsp;<img src="<?=base_url()."img/spotlight-black.png"; ?>" id="search_list_button" style="cursor: pointer;" /></div>
+<div style="float: right;margin-top:15px;margin-right:25px;"><span id="showAllLists" style="display: none">[Limpar Pesquisa]</span>&nbsp;<?=form_input('search_list',null,'id="search_list" maxlength="100" placeholder="Search '.$bannertitle.'"') ?>&nbsp;<img src="<?=base_url()."img/spotlight-black.png"; ?>" id="search_list_button" style="cursor: pointer;" /></div>
 <h2><? echo $bannertitle; ?></h2>
 	<div id="dashboard-widgets-wrap">
 		<div id="dashboard-widgets" class="metabox-holder">
@@ -984,23 +984,23 @@ function addNewStatus()
 
 					<!-- GO REPORTS WIDGET -->
 					<div id="account_info_status" class="postbox">
-						<div class="rightdiv toolTip" id="add_campaign" title="Adicionar nova Campanha">
-							Adicionar Nova Campanha <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
+						<div class="rightdiv toolTip" id="add_campaign" title="Add New Campaign">
+							Adicionar Campanha <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
 						</div>
-						<div class="rightdiv toolTip" style="display:none;" id="add_status" title="Adicionar novo Status">
-							Adicionar Novo Status <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
+						<div class="rightdiv toolTip" style="display:none;" id="add_status" title="Add New Status">
+							Adicionar Tabulação <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
 						</div>
-						<div class="rightdiv toolTip" style="display:none;" id="add_lead_recycle" title="Adicionar nova Reciclagem de Contatos">
-							Adicionar Nova Reciclagem de Contatos <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
+						<div class="rightdiv toolTip" style="display:none;" id="add_lead_recycle" title="Add New Lead Recycle">
+							Adicionar Reciclagem de Contatos <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
 						</div>
-						<div class="rightdiv toolTip" style="display:none;" id="add_pause_code" title="Adicionar novo Cóodigo de Pausa">
-							Adicionar Novo Código de Pausa <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
+						<div class="rightdiv toolTip" style="display:none;" id="add_pause_code" title="Add New Pause Code">
+							Add Código de Pausa <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
 						</div>
-						<div class="rightdiv toolTip" style="display:none;" id="add_hotkey" title="Adicionar novo HotKey">
-							Adicionar Nova HotKey <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
+						<div class="rightdiv toolTip" style="display:none;" id="add_hotkey" title="Add New HotKey">
+							Adicionar HotKey <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
 						</div>
-						<div class="rightdiv toolTip" style="display:none;" id="add_filter" title="Adidiconar novo Filtro">
-							Adicionar Novo Filtro <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
+						<div class="rightdiv toolTip" style="display:none;" id="add_filter" title="Add New Filter">
+							Adicionar Filtro <img src="<?php echo $base; ?>img/cross.png" style="height:14px; vertical-align:middle;display:none;" />
 						</div>
 						<div class="hndle">
 							<span><span id="title_bar" />&nbsp;<!--Campaign Listings--></span><!-- Title Bar -->
@@ -1009,7 +1009,7 @@ function addNewStatus()
 						</div>
 						<div class="inside">
 
-                            <div style="margin:<?php echo (preg_match("/^Windows/",$userOS)) ? "-23px" : "-22px"; ?> 0px -2px -10px;" id="request_tab"><span id="showList" class="tabtoggle menuOn">Campanhas</span><span id="showStatuses" class="tabtoggle menuOff">Tabulações</span><span id="showLeadRecycling" class="tabtoggle menuOff">Reciclagem de Contatos</span><span id="showPauseCodes" class="tabtoggle menuOff">Códigos de Pausa</span><span id="showHotKeys" class="tabtoggle menuOff">HotKeys</span><span id="showFilters" class="tabtoggle menuOff">Filtro de Contatos</span><span id="showRealtime" class="tabtoggle menuOff hidden">Monitoramento em Tempo Real</span><span id="request" style="display:none;">mostrar lista</span></div>
+                            <div style="margin:<?php echo (preg_match("/^Windows/",$userOS)) ? "-23px" : "-22px"; ?> 0px -2px -10px;" id="request_tab"><span id="showList" class="tabtoggle menuOn">Campanhas</span><span id="showStatuses" class="tabtoggle menuOff">Tabulações</span><span id="showLeadRecycling" class="tabtoggle menuOff">Reciclagem de Contatos</span><span id="showPauseCodes" class="tabtoggle menuOff">Códigos de Pausa</span><span id="showHotKeys" class="tabtoggle menuOff">HotKeys</span><span id="showFilters" class="tabtoggle menuOff">Filtros de Contato</span><span id="showRealtime" class="tabtoggle menuOff hidden">Monitoramento RealTime</span><span id="request" style="display:none;">Mostrar Lista</span></div>
 
 							<div class="table_campaigns">
                                 <div id="table_reports">
@@ -1083,72 +1083,72 @@ function addNewStatus()
 <!-- Action Menu -->
 <div id='go_action_menu' class='go_action_menu'>
 <ul>
-<li class="go_action_submenu" title="Ativar Selecionados" id="activate">Ativar Selecionados</li>
-<li class="go_action_submenu" title="Desativar Selecionados" id="deactivate">Desativar Selecionados</li>
-<li class="go_action_submenu" title="Deletar Selecionados" id="delete">Deletar Selecionados</li>
+<li class="go_action_submenu" title="Activate Selected" id="activate">Ativar</li>
+<li class="go_action_submenu" title="Deactivate Selected" id="deactivate">Desativar</li>
+<li class="go_action_submenu" title="Delete Selected" id="delete">Deletar</li>
 </ul>
 </div>
 
 <!-- Status Menu -->
 <div id='go_status_menu' class='go_action_menu'>
 <ul>
-<li class="go_status_submenu" title="Deletar Selecionados" id="delete_status">Deletar Selecionados</li>
+<li class="go_status_submenu" title="Delete Selected" id="delete_status">Deletar</li>
 </ul>
 </div>
 
 <!-- Campaign Status Menu -->
 <div id='go_camp_status_menu' class='go_action_menu'>
 <ul>
-<li class="go_camp_status_submenu" title="Deletar Selecionados" id="delete_status">Deletar Selecionados</li>
+<li class="go_camp_status_submenu" title="Delete Selected" id="delete_status">Deletar</li>
 </ul>
 </div>
 
 <!-- Lead Recycle Menu -->
 <div id='go_lead_recycle_menu' class='go_action_menu'>
 <ul>
-<li class="go_lead_recycle_submenu" title="Deletar Selecionados" id="delete_status">Deletar Selecionados</li>
+<li class="go_lead_recycle_submenu" title="Delete Selected" id="delete_status">Deletar</li>
 </ul>
 </div>
 
 <!-- Campaign Lead Recycle Menu -->
 <div id='go_camp_lead_recycle_menu' class='go_action_menu'>
 <ul>
-<li class="go_camp_lead_recycle_submenu" title="Deletar Selecionados" id="delete_status">Deletar Selecionados</li>
+<li class="go_camp_lead_recycle_submenu" title="Delete Selected" id="delete_status">Deletar</li>
 </ul>
 </div>
 
 <!-- Pause Codes Menu -->
 <div id='go_pausecodes_menu' class='go_action_menu'>
 <ul>
-<li class="go_pausecodes_submenu" title="Deletar Selecionados" id="delete_status">Deletar Selecionados</li>
+<li class="go_pausecodes_submenu" title="Delete Selected" id="delete_status">Deletar</li>
 </ul>
 </div>
 
 <!-- Campaign Pause Codes Menu -->
 <div id='go_camp_pausecodes_menu' class='go_action_menu'>
 <ul>
-<li class="go_camp_pausecodes_submenu" title="Deletar Selecionados" id="delete_status">Deletar Selecionados</li>
+<li class="go_camp_pausecodes_submenu" title="Delete Selected" id="delete_status">Deletar</li>
 </ul>
 </div>
 
 <!-- HotKeys Menu -->
 <div id='go_hotkeys_menu' class='go_action_menu'>
 <ul>
-<li class="go_hotkeys_submenu" title="Deletar Selecionados" id="delete_status">Deletar Selecionados</li>
+<li class="go_hotkeys_submenu" title="Delete Selected" id="delete_status">Deletar</li>
 </ul>
 </div>
 
 <!-- Campaign HotKeys Menu -->
 <div id='go_camp_hotkeys_menu' class='go_action_menu'>
 <ul>
-<li class="go_camp_hotkeys_submenu" title="Deletar Selecionados" id="delete_status">Deletar Selecionados</li>
+<li class="go_camp_hotkeys_submenu" title="Delete Selected" id="delete_status">Deletar</li>
 </ul>
 </div>
 
 <!-- Filters Menu -->
 <div id='go_filters_menu' class='go_action_menu'>
 <ul>
-<li class="go_filters_submenu" title="Deletar Selecionados" id="delete_filters">Deletar Selecionados</li>
+<li class="go_filters_submenu" title="Delete Selected" id="delete_filters">Deletar</li>
 </ul>
 </div>
 
@@ -1156,7 +1156,7 @@ function addNewStatus()
 <div id="showDebug" style="display: none"></div>
 
 <div id="hiddenToggle" style="display: none"></div>
-<div id="wizardSpan" style="display: none">false</div>
+<div id="wizardSpan" style="display: none">falso</div>
 <div class="clear" style="display: none"></div></div><!-- wpbody-content -->
 <div class="clear" style="display: none"></div></div><!-- wpbody -->
 <div class="clear" style="display: none"></div></div><!-- wpcontent -->

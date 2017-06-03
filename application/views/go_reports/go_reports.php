@@ -152,9 +152,9 @@ else
 								<div id="widgetDate" style="cursor:pointer;display: none;">
 									<span><? echo date('Y-m-d'); ?> to <? echo date('Y-m-d'); ?></span>
 								</div>
-								<span id="request" style="display:none;">daily</span><span id="daily" class="tabtoggle menuOn">Diário</span><span id="weekly" class="tabtoggle menuOff">Semanal</span><span id="monthly" class="tabtoggle menuOff" style="border-right:#CCC 1px solid;">Mensal</span>
+								<span id="request" style="display:none;">diário</span><span id="daily" class="tabtoggle menuOn">Diário</span><span id="weekly" class="tabtoggle menuOff">Semanal</span><span id="monthly" class="tabtoggle menuOff" style="border-right:#CCC 1px solid;">Mensal</span>
 							    <div id="widgetField" class="hovermenu" style="float:right;<?php echo (preg_match("/Chrome/",$_SERVER['HTTP_USER_AGENT'])) ? "margin-top:-11px;" : ""; ?>">
-								<a href="#" id="selectDate" class="toolTip" title="Select date range">Select date range</a>
+								<a href="#" id="selectDate" class="toolTip" title="Select date range">Selecione um Período</a>
 							    </div>
 							</div>
 							<div style="position:absolute;top:-8px;left:-6px;">

@@ -39,13 +39,13 @@ $(function()
 
 		if ($('#statuses_table').is(":hidden"))
 		{
-			$(this).html("<pre style=\"display:inline;\">[+]</pre> STATUSES WITHIN THE LIST");
+			$(this).html("<pre style=\"display:inline;\">[+]</pre> STATUS NESSA LISTA");
 		} else {
-			$(this).html("<pre style=\"display:inline;\">[-]</pre> STATUSES WITHIN THE LIST");
+			$(this).html("<pre style=\"display:inline;\">[-]</pre> STATUS NESSA LISTA");
 		}
 	});
 
-	$('#timezones_within_list').click(function()
+/*	$('#timezones_within_list').click(function()
 	{
 		$('#timezones_table').toggle();
 
@@ -56,7 +56,7 @@ $(function()
 			$(this).html("<pre style=\"display:inline;\">[-]</pre> TIMEZONES WITHIN THE LIST");
 		}
 	});
-});
+}); */
 
 function editListID(listID,camp) {
 //	document.getElementById('showval').value=listID;
@@ -161,10 +161,10 @@ A:hover {text-decoration: underline overline; color: red;}
 }
 </style>
 <center>
-    <div id="listid_edit" align="left" class="title-header">Editar Lista ID <?php echo $list_id; ?></div>
+    <div id="listid_edit" align="left" class="title-header">Editar Lista <?php echo $list_id; ?></div>
     <div align="left">
     <table width="100%">
-        <tr><td align="left"><div id="cdates">Editar Data: <?php echo $listid->list_changedate; ?></div></td><td align="right"><div id="lcdates">Data da última chamada: <?php echo $listid->list_lastcalldate; ?></div></td></tr>
+        <tr><td align="left"><div id="cdates">Data de Modificação: <?php echo $listid->list_changedate; ?></div></td><td align="right"><div id="lcdates">Data da Última Chamada: <?php echo $listid->list_lastcalldate; ?></div></td></tr>
     </table>
     
     
@@ -187,7 +187,7 @@ A:hover {text-decoration: underline overline; color: red;}
                 <td><label class="modify-value">Campanha:</label></td>
                 <td>
                     <select size="1" id="campaign_id" name="campaign_id">
-                        <option value='--- Select Campaign ---'>--- Selecionar Campanha ---</option>
+                        <option value="--- Select Campaign ---">--- Selecine a Campanha ---</option>
                         <?php
                     foreach($campaigns as $campaignInfo){
                                 $cid = $campaignInfo->campaign_id;
@@ -200,17 +200,17 @@ A:hover {text-decoration: underline overline; color: red;}
             </tr>
             
             <tr>
-                <td><label class="modify-value">Redefinir Tempos:</label> </td>
+                <td><label class="modify-value">Reset Times:</label> </td>
                 <td><input type="text" name="reset_time" id="reset_time" size="30" maxlength="100" value="<?php echo $listid->reset_time; ?>"></td>
             </tr>
             <tr>
-                <td colspan="2"><label class="modify-value">Redefinir Contato-Chamado-Status:</label>
+                <td colspan="2"><label class="modify-value">Rediscar Contatos:</label>
                 <select size="1" name="reset_list" id="reset_list">
                         <option value="N">N</option>
                         <option value="Y">Y</option>
                     </select> 
                 &nbsp;&nbsp;&nbsp;
-                 <label class="modify-value">Active:</label>
+                 <label class="modify-value">Ativo:</label>
                     <select size="1" name="active" id="active">
                         <option value="Y">Y</option>
                         <option value="N">N</option>
@@ -237,7 +237,7 @@ A:hover {text-decoration: underline overline; color: red;}
                 </td>
             </tr>
             <tr>
-                <td><label class="modify-value"><label class="modify-value">Substituição CID da Campanha:</label> </td>
+                <td><label class="modify-value"><label class="modify-value">Substituir CID da Campanha:</label> </td>
                 <td><input type="text" name="campaign_cid_override" id="campaign_cid_override" size="20" maxlength="20" value="<?php echo $listid->campaign_cid_override; ?>"></td>
             </tr>
             <!-- <tr>
@@ -245,7 +245,7 @@ A:hover {text-decoration: underline overline; color: red;}
                 <td><input type="text" name="am_message_exten_override" id="am_message_exten_override" size="50" maxlength="100" value="<?=$eam_message_exten_override?>"></td>
             </tr> -->				
             <tr>
-                <td><label class="modify-value"><label class="modify-value">Ignorar Incidente de Grupo de Entrada:</label> </td>
+                <td><label class="modify-value"><label class="modify-value">Substituir Grupo de Entrada:</label> </td>
                 <td>
                     <select size="1" name="drop_inbound_group_override" id="drop_inbound_group_override">
                     <?php
@@ -265,7 +265,7 @@ A:hover {text-decoration: underline overline; color: red;}
             </tr>
             <tr><td colspan="2"><table class="tableedit" width="100%"><tr><td></td></tr></table></td></tr>
             <tr>
-                <td colspan="2" align="center"> <br><label class="modify-value">Transfer-Conf Substituir Número</label> </td>
+                <td colspan="2" align="center"> <br><label class="modify-value">Substituir Número de Conferência/Transferência</label> </td>
             </tr>
             <tr>
                 <td colspan="2">
@@ -287,9 +287,9 @@ A:hover {text-decoration: underline overline; color: red;}
 				<table width="500" cellpadding=0 cellspacing=0>
 				<tr style="font-weight:bold;">
 					<td>STATUS</td>
-					<td style="white-space:nowrap;">NOME DO STATUS</td>
-					<td>CALLED</td>
-					<td style="white-space:nowrap;">NÃO CHAMADO</td>
+					<td style="white-space:nowrap;">STATUS NOME</td>
+					<td>CHAMADOS</td>
+					<td style="white-space:nowrap;">NÃO CHAMADOS</td>
 				</tr>
 				<?php
 				$totalN=0;
@@ -355,14 +355,14 @@ A:hover {text-decoration: underline overline; color: red;}
 				</table>
 				</div>
 				<br />
-				<div id="timezones_within_list" style="cursor:pointer;"><pre style="display:inline;">[+]</pre> TIME ZONES NESSA LISTA</div>
+<!--				<div id="timezones_within_list" style="cursor:pointer;"><pre style="display:inline;">[+]</pre> TIME ZONES WITHIN THIS LIST</div>
 				<div id="timezones_table" style="display:none">
 				<table width="500" cellpadding=0 cellspacing=0>
 				<tr style="font-weight:bold;">
-					<td style="white-space:nowrap;">HORA LOCAL</td>
+					<td style="white-space:nowrap;">GMT OFFSET NOW (local time)</td>
 					<td>CALLED</td>
-					<td style="white-space:nowrap;">NÃO CHAMADO</td>
-				</tr>
+					<td style="white-space:nowrap;">NOT CALLED</td>
+				</tr> -->
 				<?php
 				$totalN=0;
 				$totalY=0;
@@ -430,7 +430,7 @@ A:hover {text-decoration: underline overline; color: red;}
             
             <tr>
                 <td align="center" colspan="2"><br>
-                <input type="button" name="editSUBMIT" value="MODIFY" class="buttons" style="cursor:pointer;border:0px;color:#7A9E22;" onclick="editListID('<?php echo $list_id; ?>','<?php echo $listid->campaign_id; ?>');">
+                <input type="button" name="editSUBMIT" value="EDITAR" class="buttons" style="cursor:pointer;border:0px;color:#7A9E22;" onclick="editListID('<?php echo $list_id; ?>','<?php echo $listid->campaign_id; ?>');">
                 </td>
                 
             </tr>

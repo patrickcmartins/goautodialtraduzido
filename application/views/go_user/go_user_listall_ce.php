@@ -86,8 +86,8 @@ $(function(){
 <table id="user-list" class="tablesorter" border="0" cellpadding="1" cellspacing="0" style="width:99.98%;margin-top:6px;">
 	<thead>
         <tr style="font-weight:bold;text-align: left;">
-            <th style="width:12%">&nbsp;&nbsp;ID DO OPERADOR</th>
-            <th>&nbsp;&nbsp;NOME DO OPERADOR</th>
+            <th style="width:12%">&nbsp;&nbsp;OPERADOR ID</th>
+            <th>&nbsp;&nbsp;NOME</th>
             <th>&nbsp;&nbsp;NÍVEL</th>
 			<?php
 			if (!$this->commonhelper->checkIfTenant($user_group)){
@@ -120,20 +120,20 @@ $(function(){
  
          if ($row->active == 'Y')
          {
-            $active = '<span style="color:green;font-weight:bold;">ACTIVE</span>';
+            $active = '<span style="color:green;font-weight:bold;">ATIVO</span>';
          } else {
-            $active = '<span style="color:#F00;font-weight:bold;">INACTIVE</span>';
+            $active = '<span style="color:#F00;font-weight:bold;">INATIVO</span>';
          }
          
          echo "<tr style=\"background-color:$bgcolor;\" class='user-tbl-rows'>\n";
-         echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<a class='action-id toolTip' style='cursor:pointer' title='Modify user $row->user' id='user-action-modify-".$row->user."' rel='$row->user_id'>".$row->user."</a></td>\n";
-         echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<a class='action-id toolTip' style='cursor:pointer' title='Modify user $row->user' id='user-action-modify-".$row->user."' rel='$row->user_id'>".str_replace("-","&#150;",$row->full_name)."</a></td>\n";
+         echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<a class='action-id toolTip' style='cursor:pointer' title='Editar usuário $row->user' id='user-action-modify-".$row->user."' rel='$row->user_id'>".$row->user."</a></td>\n";
+         echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;<a class='action-id toolTip' style='cursor:pointer' title='Editar usuário $row->user' id='user-action-modify-".$row->user."' rel='$row->user_id'>".str_replace("-","&#150;",$row->full_name)."</a></td>\n";
          echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;".$row->user_level."</td>\n";
 		 if (!$this->commonhelper->checkIfTenant($user_group)){
 			echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;".$row->user_group."</td>\n";
 		 }
          echo "<td style=\"border-top:#D0D0D0 dashed 1px;\">&nbsp;&nbsp;".$active."</td>\n";
-         echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><div class='user-actions-cols' style='display:inline;text-align:center;cursor:pointer;'><a id='user-action-modify-$row->user' rel='$row->user_id' title='Modify user $row->user' class='toolTip'><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></a></div></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><div class='user-actions-cols' style='display:inline;text-align:center;cursor:pointer;'><a id='user-action-delete-$row->user' rel='$row->user_id' title='Delete user $row->user' class='toolTip'><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></a></div></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><div class='user-actions-cols' style='display:inline;text-align:center;cursor:pointer;'><a id='user-action-info-".$row->user."' rel='$row->user_id' title='Info user $row->user' class='toolTip'><img src=\"{$base}img/status_display_i.png\" style=\"cursor:pointer;width:12px;\" /></a></div></td>\n";
+         echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><div class='user-actions-cols' style='display:inline;text-align:center;cursor:pointer;'><a id='user-action-modify-$row->user' rel='$row->user_id' title='Editar $row->user' class='toolTip'><img src=\"{$base}img/edit.png\" style=\"cursor:pointer;width:12px;\" /></a></div></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><div class='user-actions-cols' style='display:inline;text-align:center;cursor:pointer;'><a id='user-action-delete-$row->user' rel='$row->user_id' title='Deletar $row->user' class='toolTip'><img src=\"{$base}img/delete.png\" style=\"cursor:pointer;width:12px;\" /></a></div></td><td align=\"center\" style=\"border-top:#D0D0D0 dashed 1px;\"><div class='user-actions-cols' style='display:inline;text-align:center;cursor:pointer;'><a id='user-action-info-".$row->user."' rel='$row->user_id' title='Informações $row->user' class='toolTip'><img src=\"{$base}img/status_display_i.png\" style=\"cursor:pointer;width:12px;\" /></a></div></td>\n";
          echo "<td style=\"border-top:#D0D0D0 dashed 1px;\" align=\"center\"><div class='user-cols-container' style='display:inline'><div class='user-actions-cols' style='display:inline'><input type='checkbox' id='user-action-chkbx-$row->user' value='$row->user' rel='$row->user_id' /></div></div></td>\n";
          echo "</tr>\n";
       }
@@ -143,9 +143,9 @@ $(function(){
 </table>
     
     <div class="user-batch-action user-cornerall2">
-       <span style="width:100%"><a id="user-batch-activate">Habilitar Selecionado</a></span><br/>
-       <span style="width:100%"><a id="user-batch-deactivate">Desabilitar Selecionado</a></span><br/>
-       <span style="width:100%"><a id="user-batch-delete">Deletar Selecionado</a></span><br/>
+       <span style="width:100%"><a id="user-batch-activate">Habilitar</a></span><br/>
+       <span style="width:100%"><a id="user-batch-deactivate">Desabilitar</a></span><br/>
+       <span style="width:100%"><a id="user-batch-delete">Deletar</a></span><br/>
     </div>
     <br class="clear"/>
-</div>
+</div> 

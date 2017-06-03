@@ -14,11 +14,11 @@ if (!isset($total_agents)) { $total_agents=0; }
 if (!isset($total_sales)) { $total_sales=0; }
 if (!isset($campaign_name) || $campaign_name=='null') { $campaign_name=''; }
 	else { $campaign_name='- '.$campaign_name; }
-if (!isset($campaign_id) || $campaign_id=='null') { $campaign_id='<span style="color:red">Please select a campaign.</span>'; $campaign_name=''; }
+if (!isset($campaign_id) || $campaign_id=='null') { $campaign_id='<span style="color:red">Selecione uma Campanha.</span>'; $campaign_name=''; }
 
 $base = base_url();
 
-$isGraph = false;
+$isGraph = true;
 $cwd = getcwd();
 $curdate = date("Ymd");
 $curyear = date("Y");
@@ -50,7 +50,7 @@ if (count($statuses) > 0)
 if ($pagetitle=="stats") {
     switch ($request) {
 	    case "monthly":
-			$requests = "Month";
+			$requests = "Mês";
 
 			if (isset($data_calls))
 			{
@@ -71,7 +71,7 @@ if ($pagetitle=="stats") {
 		    break;
 
 	    case "weekly":
-			$requests = "Week";
+			$requests = "Semana";
 
 			if (isset($data_calls))
 			{
@@ -94,13 +94,13 @@ if ($pagetitle=="stats") {
 		    break;
 		    
 	    default:
-			$requests = "Day";
+			$requests = "Dia";
 
 			if (isset($data_calls))
 			{
 				foreach($data_calls as $item):
 					list($hour, $hourvar) = explode('-',$call_time);
-					$requests = "Day";
+					$requests = "Dia";
 					$hourvar = (strlen($hourvar)>2) ? substr($hourvar,0,-2) : $hourvar;
 					$hour = (strlen($hour)>2) ? substr($hour,0,-2) : $hour;
 
@@ -137,9 +137,9 @@ if ($pagetitle=="stats") {
 				$dispo_table .= "<tr>";
 			}
 			
-			$varCalls = 'call';
+			$varCalls = 'chamada';
 			if ($item->ccount > 1)
-				$varCalls = 'calls';
+				$varCalls = 'chamadas';
 	
 			$dispo_table .= "<td style=\"width:100px;padding-left:50px;height:10px;\" class=\"c\"><a style=\"cursor:pointer\" class=\"".$item->status."\">".round(($item->ccount/$total_calls)*100,2)."%</a></td><td style=\"width:100px;\" nowrap=\"nowrap\" class=\"r\"><a style=\"cursor:pointer\" class=\"".$item->status."\">".$status[$item->status]." <span style=\"font-size:12px;font-style:italic;\">(".$item->status.")</span><br /><span style=\"font-size:12px;\">".$item->ccount." $varCalls</span></a></td>";
 	
@@ -188,9 +188,9 @@ if ($pagetitle=="dashboard" && $isGraph)
 		}
 	}
 
-    if (count($data_graph)<1) {
+/* if (count($data_graph)<1) {
 	    $xMin = "min: 0,";
-    }
+    } */
 
 //     write_file("$cwd/data/dashboard-$groupId.json",json_encode($json_data));
 }
@@ -314,7 +314,7 @@ function viewInfo(phone)
 <?
 }
 if (!preg_match("/dispo/", $pagetitle)) { ?>
-<span style="font-weight:bold;font-style:normal;">Date Range:</span> <span id="selected_from_date"><? echo "$from_date"; ?></span> 00:00:00 <span style="font-weight:bold;font-style:normal;">to</span> <span id="selected_to_date"><? echo "$to_date"; ?></span> 23:59:59
+<span style="font-weight:bold;font-style:normal;">Data:</span> <span id="selected_from_date"><? echo "$from_date"; ?></span> 00:00:00 <span style="font-weight:bold;font-style:normal;">até</span> <span id="selected_to_date"><? echo "$to_date"; ?></span> 23:59:59
 <? } ?>
 </p>
 
@@ -325,7 +325,7 @@ if (!preg_match("/dispo/", $pagetitle)) { ?>
 
 <!-- Start of Statistics Report -->
 <? if ($pagetitle=='stats') { ?>
-<div class="midheader" style="position:absolute;z-index:10;left:60px;">Calls per <?php echo ucwords($requests); ?></div>
+<div class="midheader" style="position:absolute;z-index:10;left:60px;">Chamadas por <?php echo ucwords($requests); ?></div>
 <table style="margin-left: 20px;" width="100%">
 	<tbody>
 	<tr>
@@ -341,15 +341,15 @@ if (strlen($dispo_table)<1) {
 }
 ?>
 <table><tr><td>
-<p id="choices" style="<?php echo $hide_this; ?>">Show:</p>
+<p id="choices" style="<?php echo $hide_this; ?>">Mostrar:</p>
 </tr></td></table>
 <br />
 <br />
-<div style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;<?php echo $hide_this; ?>">Call Statistics</div>
+<div style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;<?php echo $hide_this; ?>">Estatística das Chamadas</div>
 <table cellpadding="0" cellspacing="0" style="border:0px solid #000;width:100%;height:100px;<?php echo $hide_this; ?>">
     <tr class="first">
     	<td height="10" class="b" style="width:100px;padding-left:50px;"><a style="cursor:pointer" class=""><?php echo $total_calls; ?></a></td>
-    	<td height="10" class="t bold"><a style="cursor:pointer" class="">Total Calls</a></td>
+    	<td height="10" class="t bold"><a style="cursor:pointer" class="">Total de Chamadas</a></td>
         <td rowspan="<?php echo ($tr+5); ?>" align="left" valign="top"><br /><br /><div id="pie_placeholder" style="width:650px;height:400px;"></div><div id="hover"></div></td>
     </tr>
     <tr>
@@ -362,7 +362,7 @@ if (strlen($dispo_table)<1) {
     	<td height="10" class="r"><a style="cursor:pointer">Contagem da Contatos</a></td>
     </tr>
     <tr>
-    	<td colspan="2" height="50" valign="bottom" style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;">Disposition Stats</td>
+    	<td colspan="2" height="50" valign="bottom" style="border-bottom:1px #ececec solid;padding:5px 10px 10px;text-align:left;color:#777;font-family:ÒLucida Sans UnicodeÓ, Lucida Grande, sans-serif;font-style:italic;font-size:13px;">Tabulações</td>
     </tr>
 <!--    <tr>
     	<td colspan="2" width="50%" valign="top">-->
@@ -379,8 +379,8 @@ if (strlen($dispo_table)<1) {
                     <tr>
                      <td class='dp'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                      <td class='showhide'>
-                     <a id='showmore_status' class='showmore'>&nbsp;&raquo; Click here to show more... </a>
-                     <a style='display: none' id='hidemore_status' class='hidemore'>&nbsp;&raquo; Click here to hide... </a>
+                     <a id='showmore_status' class='showmore'>&nbsp;&raquo; Clique para ver mais... </a>
+                     <a style='display: none' id='hidemore_status' class='hidemore'>&nbsp;&raquo; Clique para esconder... </a>
                      </td>
                     </tr>
                 </tbody>
@@ -759,7 +759,7 @@ $(function () {
     <p style="font-size:5px;">&nbsp;</p>
     <table border="0" align="center" cellpadding="1" cellspacing="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
       <tr style="background-color:#FFFFFF;" class="style2">
-        <td><div align="center" class="style1 style3" nowrap> &nbsp;Full Name&nbsp; </div></td>
+        <td><div align="center" class="style1 style3" nowrap> &nbsp;Nome&nbsp; </div></td>
     <?php
         echo $sub_statusesTOP;
     ?>
@@ -790,7 +790,7 @@ $(function () {
     }
     if (!preg_match("/Please select a campaign/", $campaign_id)) {
 		if (count($TOPsorted_output)) {
-			echo '<span id="export" class="exporttab">Export to CSV</span>';
+			echo '<span id="export" class="exporttab">Exportar CSV</span>';
 		}
 	}
 	
@@ -819,7 +819,7 @@ $(function () {
         <td nowrap><div align="center" class="style4" title="Wait Avg"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
         <td nowrap><div align="center" class="style4"><strong> &nbsp;Fala&nbsp; </strong></div></td>
         <td nowrap><div align="center" class="style4" title="Talk Avg"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
-        <td nowrap><div align="center" class="style4"><strong> &nbsp;Dispo&nbsp; </strong></div></td>
+        <td nowrap><div align="center" class="style4"><strong> &nbsp;Tabulação&nbsp; </strong></div></td>
         <td nowrap><div align="center" class="style4" title="Média Dispo"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
         <td nowrap><div align="center" class="style4"><strong> &nbsp;Sessão&nbsp; </strong></div></td>
         <td nowrap><div align="center" class="style4" title="Média Sessão"><strong> &nbsp;&raquo; Méd&nbsp; </strong></div></td>
@@ -1000,7 +1000,7 @@ $(function () {
 	
     if (!preg_match("/Please select a campaign/", $campaign_id)) {
 		if (count($TOPsorted_output)) {
-			echo '<span id="export" class="exporttab">Export to CSV</span>';
+			echo '<span id="export" class="exporttab">Exportar CSV</span>';
 		}
 	}
 	
@@ -1054,8 +1054,8 @@ if ($pagetitle == "sales_agent") {
 <table width="400" border="0" align="center" cellpadding="1" cellspacing="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
   <tr>
     <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Nomes dos Operadores&nbsp;</strong></div></td>
-    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Operadores ID&nbsp;</strong></div></td>
-    <td nowrap style="text-transform:uppercase" width="120px"><div align="center" class="style3"><strong>&nbsp;Contagem de Vendas&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Login&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase" width="120px"><div align="center" class="style3"><strong>&nbsp;Vendas&nbsp;</strong></div></td>
 <!--    <td nowrap style="text-transform:uppercase"><div align="center" class="style2"><strong>&nbsp;Sale1 Count&nbsp;</strong></div></td>
     <td nowrap style="text-transform:uppercase"><div align="center" class="style2"><strong>&nbsp;Sale2 Count&nbsp;</strong></div></td>-->
 <!--    <td nowrap style="text-transform:uppercase"><div align="center" class="style2"><strong>&nbsp;TOTAL SALES COUNT&nbsp;</strong></div></td>-->
@@ -1096,8 +1096,8 @@ if ($pagetitle == "sales_agent") {
 <table width="400" border="0" align="center" cellpadding="1" cellspacing="1" style="border:#D0D0D0 solid 1px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;">
   <tr>
     <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Nome dos Operadores&nbsp;</strong></div></td>
-    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Operadores ID&nbsp;</strong></div></td>
-    <td nowrap style="text-transform:uppercase" width="120px"><div align="center" class="style3"><strong>&nbsp;Contagem de Vendas&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase"><div align="center" class="style3"><strong>&nbsp;Login&nbsp;</strong></div></td>
+    <td nowrap style="text-transform:uppercase" width="120px"><div align="center" class="style3"><strong>&nbsp;Vendas&nbsp;</strong></div></td>
   </tr>
 <?
 	if (!preg_match("/Please select a campaign/", $campaign_id)) {
@@ -1128,7 +1128,7 @@ if ($pagetitle == "sales_agent") {
 <?
     if (!preg_match("/Please select a campaign/", $campaign_id)) {
 		if (count($TOPsorted_output) || count($BOTsorted_output)) {
-			echo '<span id="export" class="exporttab">Export to CSV</span>';
+			echo '<span id="export" class="exporttab">Exportar CSV</span>';
 		}
 	}
 
@@ -1265,7 +1265,7 @@ if ($pagetitle == "sales_tracker") {
 	
     if (!preg_match("/Please select a campaign/", $campaign_id)) {
 		if (count($TOPsorted_output)) {
-			echo '<span id="export" class="exporttab">Export to CSV</span>';
+			echo '<span id="export" class="exporttab">Exportar CSV</span>';
 		}
 	}
 
@@ -1345,7 +1345,7 @@ if ($pagetitle == "sales_tracker") {
 <?
     if (!preg_match("/Please select a campaign/", $campaign_id)) {
 		if (count($TOPsorted_output)) {
-			echo '<span id="export" class="exporttab">Export to CSV</span>';
+			echo '<span id="export" class="exporttab">Exportar CSV</span>';
 		}
 	}
 
@@ -1643,7 +1643,7 @@ if ($pagetitle=="dashboard") {
 									z = 'th';
 							}
 							
-							showTooltip(item.pageX, item.pageY,data_codes[x] + " &raquo; " + y + " calls ");
+							showTooltip(item.pageX, item.pageY,data_codes[x] + " &raquo; " + y + " chamadas ");
 						}
 					}
 					else {

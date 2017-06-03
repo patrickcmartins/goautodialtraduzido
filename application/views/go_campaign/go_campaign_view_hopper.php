@@ -52,15 +52,15 @@ $(function() {
 </script>
 
 <div style="color:#333;">
-<span style="font-size:16px;font-weight:bold;">LISTA DE CONTATOS PARA DISCAR: &nbsp;<?php echo "$campaign_id - $campaign_name"; ?></span><br /><br style="font-size:8px;" />
-Total de Contatos Para Discar: &nbsp; <?php echo $totalHopper; ?><br /><br style="font-size:8px;" />
+<span style="font-size:16px;font-weight:bold;">LISTA DE CONTATOS A SEREM DISCADOS: &nbsp;<?php echo "$campaign_id - $campaign_name"; ?></span><br /><br style="font-size:8px;" />
+Total de contatos: &nbsp; <?php echo $totalHopper; ?><br /><br style="font-size:8px;" />
 <?php
 echo $hopperHTML;
 ?>
 </div>
 <pre style="font-size:10px;">
 
-Fontes:
-A = Discagem-Automática		C = Agendamentos		N = Nova Ordem de Contatos		P = Carregamento de Contato de Agente
-Q = Contatos não Inseridos na Fila	R = Contatos Reciclados		S = Ordem de Contatos Padrão
+Sources:
+A = Discagem Automática		C = Agendamentos		N = Nova Ordem de Contatos		
+Q = Inseridos na Fila	    R = Contatos Reciclados	S = Ordem Padrão
 </pre>

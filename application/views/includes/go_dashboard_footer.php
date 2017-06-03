@@ -16,14 +16,14 @@ $version = file_get_contents($base.'version.txt');
 
 </br>
 </br>
-<!--
+
 
 <div style="margin-left: 60px; position: fixed; bottom: 0px; background-color:  #fff; opacity: 1;">
 <p style="color: #6a6363; font-size: 10px;" >
-<b><a href='<? #echo $base; ?>index.php/go_site/credits'>GoAutoDial CE &reg; 3.0</a> Build.1366344000 | <a href='http://goautodial.com'>AGPLv2</a><br>
-&copy; <a href='http://goautodial.com'>GoAutoDial Inc.</a> 2010-2014 All Rights Reserved.</p>
+<b><a href='http://upvoiptelecom.com'>VoIPai 3.0</a><br>
+&copy; <a href='http://upvoiptelecom.com'>UP Dialer.</a> 2017-2017.</p>
 </div>
--->
+
 
 <style>
 img.grayscale,img.grayedout {
@@ -58,7 +58,7 @@ img.grayscale:hover {
 
 
 
-<script>
+<!-- <script>
     
 
         
@@ -106,22 +106,28 @@ img.grayscale:hover {
 </script>
 
 <div id="footer_logo" style="position:fixed;bottom:0px;right:5px;z-index:99999;text-align:right;">
-<a href="http://www.facebook.com/goautodial" target="_blank"><img src="<?=$base?>img/images/facebook.png" class="grayscale" title="Facebook" style="border:0px;height:20px;" /></a> <a href="https://twitter.com/#!/goautodial" target="_blank"><img src="<?=$base?>img/images/twitter.png" class="grayscale" title="Twitter" style="border:0px;height:20px;" /></a> <a href="http://goautodial.com" target="_blank"><img src="<?=$base?>img/images/goautologo.png" class="grayscale" title="GoAutoDial" style="border:0px;height:20px;" /></a>&nbsp;
+<a href="http://www.facebook.com/upvoiptelecom" target="_blank"><img src="<?=$base?>img/images/facebook.png" class="grayscale" title="Facebook" 
+style="border:0px;height:20px;" /></a> <a href="https://twitter.com/#!/goautodial" target="_blank"><img src="<?=$base?>img/images/twitter.png" class="grayscale" title="Twitter" style="border:0px;height:20px;" /></a> <a href="http://goautodial.com" target="_blank"><img src="<?=$base?>img/images/goautologo.png" class="grayscale" title="GoAutoDial" style="border:0px;height:20px;" /></a>&nbsp;
 </div>
 
-<!-- <div id="footer_logo" style="position:fixed;bottom:5px;right:5px;z-index:99999;text-align:right;">
-<a href="http://www.facebook.com/goautodial" target="_blank"><img src="<?=$base?>img/images/facebook.png" class="grayscale" title="Facebook" style="border:0px;height:28px;" /></a> <a href="https://twitter.com/#!/goautodial" target="_blank"><img src="<?=$base?>img/images/twitter.png" class="grayscale" title="Twitter" style="border:0px;height:28px;" /></a> <a href="http://goautodial.com" target="_blank"><img src="<?=$base?>img/images/goautologo.png" class="grayscale" title="GoAutoDial" style="border:0px;height:28px;" /></a>&nbsp;
-</div>-->
+<div id="footer_logo" style="position:fixed;bottom:5px;right:5px;z-index:99999;text-align:right;">
+<a href="http://www.facebook.com/upvoiptelecom" target="_blank"><img src="<?=$base?>img/images/facebook.png" class="grayscale" title="Facebook" 
+style="border:0px;height:28px;" /></a> <a href="https://twitter.com/#!/upvoiptelecom" target="_blank"><img src="<?=$base?>img/images/twitter.png" 
+class="grayscale" 
+title="Twitter" style="border:0px;height:28px;" /></a> <a href="http://upvoiptelecom.com" target="_blank"><img src="<?=$base?>img/images/goautologo.png" 
+class="grayscale" title="UP VoIP" style="border:0px;height:28px;" /></a>&nbsp;
+</div>
 
 <div id="footer">
 <!--
-<p id="footer-left" class="alignleft"><span id="footer-thankyou">Thank you for supporting <a href="http://GoAutoDial.org/">GoAutoDial</a>!</span> | <a href="http://codex.GoAutoDial.org/">Documentation</a> | <a href="http://GoAutoDial.org/support/forum/4">Feedback</a></p>
-<p id="footer-upgrade" class="alignright"><strong><a href="http://demo002.gopredictive.com/update-core.php">Get Version 3.1.3</a></strong></p>-->
+<p id="footer-left" class="alignleft"><span id="footer-thankyou">Obrigado por Apoiar <a href="http://upvoiptelecom.com/">UP VoIP</a>!</span> 
 
 <table width="100%" > 
 	
-			<tr><td align="left" style="color: #6a6363; font-size: 10px;"><b><a href='<? echo $base; ?>credits'>GoAdmin &reg; <?echo $version;?></a></b> | <a href='<? echo $base; ?>agplv2'>AGPLv2</a> | &copy; <a href='http://goautodial.com' target="_blank">GoAutoDial</a> 2010-<?=date("Y") ?> All Rights Reserved.</td></tr>
-            		<!-- <tr><td align="left" style="color: #6a6363; font-size: 10px;">&copy; <a href='http://goautodial.com'>GoAutoDial Inc.</a> 2010-2014 All Rights Reserved.</td></tr>-->
+			<tr><td align="left" style="color: #6a6363; font-size: 10px;"><b><a href="http://upvoiptelecom.com">VoIPai &reg;</a></b> 
+       <a href='<? echo $base; ?>agplv2'>AGPLv2</a> | &copy; <a href='http://goautodial.com' target="_blank">GoAutoDial</a> 2010-<?=date("Y") ?> All Rights 
+Reserved.</td></tr> 
+            	 <tr><td align="left" style="color: #6a6363; font-size: 10px;">&copy; <a href='http://goautodial.com'>GoAutoDial Inc.</a> 2010-2014 All Rights Reserved.</td></tr>-->
 	
 	
 	

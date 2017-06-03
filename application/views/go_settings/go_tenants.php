@@ -491,7 +491,9 @@ function changePage(pagenum)
 <div id='outbody' class="wrap">
 <div id="icon-tenants" class="icon32">
 </div>
-<div style="float: right;margin-top:15px;margin-right:25px;"><span id="showAllLists" style="display: none">[Clear Search]</span>&nbsp;<?=form_input('search_list',null,'id="search_list" maxlength="100" placeholder="Search '.$bannertitle.'"') ?>&nbsp;<img src="<?=base_url()."img/spotlight-black.png"; ?>" id="search_list_button" style="cursor: pointer;" /></div>
+<div style="float: right;margin-top:15px;margin-right:25px;"><span id="showAllLists" style="display: 
+none">[Limpar Pesquisa]</span>&nbsp;<?=form_input('search_list',null,'id="search_list" maxlength="100" placeholder="Search '.$bannertitle.'"') ?>&nbsp;<img 
+src="<?=base_url()."img/spotlight-black.png"; ?>" id="search_list_button" style="cursor: pointer;" /></div>
 <h2><? echo $bannertitle; ?></h2>
 
 	<div id="dashboard-widgets-wrap">
@@ -525,12 +527,11 @@ function changePage(pagenum)
 							<br class="clear">
 							<!--
 							<p>
-								Configure this widget's (today's status) settings.
-								<a href="" class="button">Configure</a>
+								Configure este Widget (Status de Hoje).
+								<a href="" class="button">Configurar</a>
 							</p>
 							<p>
-								You are using GoAutoDial 3.0.1.
-								<a href="" class="button">Update to 3.1.3</a>
+								Você está usando VoIPai Dialer 3.0.1.
 							</p>
 							-->
 							</div>
@@ -582,21 +583,21 @@ echo "</div>\n";
 <!-- Overlay1 -->
 <div id="overlay" style="display:none;"></div>
 <div id="box">
-<a id="closebox" class="toolTip" title="CLOSE"></a>
+<a id="closebox" class="toolTip" title="FECHAR"></a>
 <div id="overlayContent"></div>
 </div>
 
 <!-- Overlay2 -->
 <div id="overlayTenants" style="display:none;"></div>
 <div id="boxTenants">
-<a id="closeboxTenants" class="toolTip" title="CLOSE"></a>
+<a id="closeboxTenants" class="toolTip" title="FECHAR"></a>
 <div id="overlayContentTenants"></div>
 </div>
 
 <!-- Overlay3 -->
 <div id="listOverlay" style="display:none;"></div>
 <div id="listBox">
-<a id="listClosebox" class="toolTip" title="CLOSE"></a>
+<a id="listClosebox" class="toolTip" title="FECHAR"></a>
 <div id="listOverlayContent"></div>
 </div>
 
@@ -604,11 +605,11 @@ echo "</div>\n";
 <span id="audioButtonClicked" style="display:none;"></span>
 <div id="fileOverlay" style="display:none;"></div>
 <div id="fileBox">
-<a id="fileClosebox" class="toolTip" title="CLOSE"></a>
+<a id="fileClosebox" class="toolTip" title="FECHAR"></a>
 <div id="fileOverlayContent">
 <table style="width: 100%">
 	<tr>
-		<td>List of Files Uploaded:</td>
+		<td>Lista de Arquivos Carregados:</td>
 	</tr>
 <?php
 $WeBServeRRooT = '/var/lib/asterisk';
@@ -653,30 +654,35 @@ if(is_dir($WeBServeRRooT.'/'.$storage)){
 <div id="boxAgent" style="display:none;">
 <a id="closeboxAgent" class="toolTip" title="CLOSE"></a>
 <div id="overlayContentAgent">
-<div style="text-align:center;font-weight:bold;font-size:14px;">Modify User</div>
+<div style="text-align:center;font-weight:bold;font-size:14px;">Editar Usuário</div>
 <br />
 <?=form_hidden('tenant_id_view',null,'id="tenant_id_view"'); ?>
 <table id="test" border=0 cellpadding="3" cellspacing="3" style="width:100%;">
     <tr>
-    	<td style="text-align:right;font-weight:bold;width:40%" nowrap>Agent ID:</td><td>&nbsp;<span id="users_id_span"></span><input type="hidden" id="users_id" name="users_id" value="" /></td>
+    	<td style="text-align:right;font-weight:bold;width:40%" nowrap>Login:</td><td>&nbsp;<span id="users_id_span"></span><input type="hidden" id="users_id" 
+name="users_id" value="" /></td>
     </tr>
     <tr>
-    	<td style="text-align:right;font-weight:bold;" nowrap>Password:</td><td><input type="text" id="users_pass" name="users_pass" value="" maxlength="10" /></td>
+    	<td style="text-align:right;font-weight:bold;" nowrap>Senha:</td><td><input type="text" id="users_pass" name="users_pass" value="" maxlength="10" 
+/></td>
     </tr>
     <tr>
-    	<td style="text-align:right;font-weight:bold;" nowrap>Full Name:</td><td><input type="text" id="users_full_name" name="users_full_name" value="" /></td>
+    	<td style="text-align:right;font-weight:bold;" nowrap>Nome:</td><td><input type="text" id="users_full_name" name="users_full_name" value="" /></td>
     </tr>
     <tr>
-    	<td style="text-align:right;font-weight:bold;" nowrap>Phone Login:</td><td><input type="text" id="users_phone_login" name="users_phone_login" value="" readonly="readonly" /></td>
+    	<td style="text-align:right;font-weight:bold;" nowrap>Login do Ramal:</td><td><input type="text" id="users_phone_login" name="users_phone_login" 
+value="" readonly="readonly" /></td>
     </tr>
     <tr>
-    	<td style="text-align:right;font-weight:bold;" nowrap>Phone Pass:</td><td><input type="text" id="users_phone_pass" name="users_phone_pass" value="" maxlength="10" /></td>
+    	<td style="text-align:right;font-weight:bold;" nowrap>Senha do Ramal:</td><td><input type="text" id="users_phone_pass" name="users_phone_pass" value="" 
+maxlength="10" /></td>
     </tr>
     <tr>
-    	<td style="text-align:right;font-weight:bold;" nowrap>Active:</td><td><select id="users_status"><option>N</option><option>Y</option></select></td>
+    	<td style="text-align:right;font-weight:bold;" nowrap>Ativo:</td><td><select id="users_status"><option>N</option><option>Y</option></select></td>
     </tr>
     <tr>
-    	<td style="text-align:right;font-weight:bold;" nowrap>&nbsp;</td><td><input type="button" id="saveUser" name="saveUser" value="SUBMIT" style="cursor:pointer;" /></td>
+    	<td style="text-align:right;font-weight:bold;" nowrap>&nbsp;</td><td><input type="button" id="saveUser" name="saveUser" value="SALVAR" 
+style="cursor:pointer;" /></td>
     </tr>
 </table>
 </div>
@@ -686,9 +692,9 @@ if(is_dir($WeBServeRRooT.'/'.$storage)){
 <!-- Action Menu -->
 <div id='go_action_menu' class='go_action_menu'>
 <ul>
-<li class="go_action_submenu" title="Activate Selected" id="activate">Activate Selected</li>
-<li class="go_action_submenu" title="Deactivate Selected" id="deactivate">Deactivate Selected</li>
-<li class="go_action_submenu" title="Delete Selected" id="delete">Delete Selected</li>
+<li class="go_action_submenu" title="Activate Selected" id="activate">Ativar</li>
+<li class="go_action_submenu" title="Deactivate Selected" id="deactivate">Desativar</li>
+<li class="go_action_submenu" title="Delete Selected" id="delete">Deletar</li>
 </ul>
 </div>
 
